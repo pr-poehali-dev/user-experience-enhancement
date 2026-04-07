@@ -14,7 +14,7 @@ export function Newsletter() {
   }
 
   return (
-    <section className="py-32 bg-gradient-to-br from-pink-50 via-white to-blue-50">
+    <section className="py-32" style={{background: 'linear-gradient(135deg, #ecddf5 0%, #f9d9e3 50%, #fde8d8 100%)'}}>
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div className="space-y-8">
           <div className="space-y-4">

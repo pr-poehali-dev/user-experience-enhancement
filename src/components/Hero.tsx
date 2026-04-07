@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-pink-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{background: 'linear-gradient(135deg, #fde8d8 0%, #f9d9e3 40%, #ecddf5 100%)'}}>
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-20 left-10 text-8xl opacity-10 animate-bounce" style={{animationDuration: '3s'}}>🎈</div>
