@@ -279,14 +279,14 @@ function CompositionGrid({
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`flex flex-col items-center justify-center gap-2 py-4 px-3 rounded-2xl font-bold border-2 transition-all ${
+                    className={`flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl font-bold border-2 transition-all ${
                       isActive
                         ? `${mainColors[cat.id]} text-white shadow-lg scale-[1.03] border-transparent`
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
                     }`}
                   >
-                    <span className="text-2xl">{cat.emoji}</span>
-                    <span className="text-sm text-center leading-tight">{cat.label}</span>
+                    <span className="text-3xl">{cat.emoji}</span>
+                    <span className="text-base text-center leading-tight">{cat.label}</span>
                   </button>
                 )
               })}
@@ -299,7 +299,7 @@ function CompositionGrid({
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`relative flex flex-col items-center justify-center gap-1 py-2.5 px-1 rounded-xl text-xs font-semibold border-2 transition-all ${
+                    className={`relative flex flex-col items-center justify-center gap-1.5 py-4 px-2 rounded-xl font-semibold border-2 transition-all ${
                       isActive
                         ? "border-primary bg-primary text-primary-foreground shadow-md scale-[1.03]"
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
@@ -308,8 +308,8 @@ function CompositionGrid({
                     {cat.hit && (
                       <span className="absolute -top-2 -right-1 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">ХИТ</span>
                     )}
-                    <span className="text-lg">{cat.emoji}</span>
-                    <span className="text-center leading-tight" style={{ fontSize: "0.7rem" }}>{cat.label}</span>
+                    <span className="text-2xl">{cat.emoji}</span>
+                    <span className="text-center leading-tight text-xs">{cat.label}</span>
                   </button>
                 )
               })}
@@ -461,7 +461,7 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
       title: "Как заказать",
       content: (
         <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
-          <p>Напишите нам или позвоните, и укажите номер понравившейся композиции:</p>
+          <p>Напишите нам номер понравившейся композиции в любом мессенджере или позвоните по номеру — сориентируем по наполнению и доставке.</p>
           <div className="bg-muted rounded-xl px-4 py-2 font-mono text-base font-bold text-foreground text-center">
             № {modal.id} — {modal.title}
           </div>
@@ -522,12 +522,12 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Large image — left column */}
-        <div className="relative md:w-[45%] flex-shrink-0">
+        <div className="relative md:w-[55%] flex-shrink-0">
           <img
             src={modal.image}
             alt={modal.title}
-            className="w-full h-72 md:h-full object-cover"
-            style={{ minHeight: "320px" }}
+            className="w-full h-80 md:h-full object-cover"
+            style={{ minHeight: "480px" }}
           />
           <button
             className="absolute top-3 right-3 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors shadow"
@@ -549,8 +549,8 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
         <div className="flex flex-col flex-1 overflow-hidden">
           <div className="px-6 pt-5 pb-3">
             <h3
-              className="text-2xl mb-1 text-foreground/90"
-              style={{ fontFamily: "Georgia, 'Palatino Linotype', serif", fontWeight: 400, letterSpacing: "0.01em" }}
+              className="text-2xl mb-1 text-foreground/90 font-medium"
+              style={{ fontFamily: "'Nunito', 'Rounded Mplus 1c', 'Segoe UI', sans-serif", letterSpacing: "0.01em" }}
             >
               {modal.title}
             </h3>

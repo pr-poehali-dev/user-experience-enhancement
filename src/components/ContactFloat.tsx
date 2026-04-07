@@ -54,10 +54,10 @@ export function ContactFloat() {
               href={c.href}
               target={c.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-full shadow-lg text-white font-semibold text-sm hover:scale-105 transition-transform"
+              className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg text-white font-semibold text-base hover:scale-105 transition-transform"
               style={{ background: c.bg }}
             >
-              <Icon name={c.icon} size={16} />
+              <Icon name={c.icon} size={20} />
               {c.label}
             </a>
           ))}
@@ -68,17 +68,17 @@ export function ContactFloat() {
       <div className="relative">
         <button
           onClick={() => setOpen((p) => !p)}
-          className="w-16 h-16 rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center"
+          className="w-[4.5rem] h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105"
           style={{ background: "hsl(var(--primary))" }}
           aria-label="Связаться с нами"
         >
-          <Icon name={open ? "X" : "MessageCircle"} size={28} />
+          <Icon name={open ? "X" : "MessageCircle"} size={34} />
         </button>
 
         {!open && (
           <span
-            className="absolute -top-8 right-0 text-background text-xs font-semibold px-3 py-1.5 rounded-full whitespace-nowrap shadow-lg pointer-events-none"
-            style={{ background: "hsl(var(--foreground))", fontSize: "0.8rem" }}
+            className="absolute -top-12 right-0 text-background font-bold px-5 py-2.5 rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
+            style={{ background: "hsl(var(--foreground))", fontSize: "1.1rem" }}
           >
             Свяжитесь с нами
           </span>

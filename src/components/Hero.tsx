@@ -112,7 +112,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 pt-10 border-t border-border/50">
           <a
             href="tel:+79885973303"
-            className="phone-elegant flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors font-normal"
+            className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
           >
             <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
             8 988 597 33 03
@@ -120,7 +120,7 @@ export function Hero() {
           <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
           <a
             href="tel:+79182457204"
-            className="phone-elegant flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors font-normal"
+            className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
           >
             <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
             8 918 245 72 04
