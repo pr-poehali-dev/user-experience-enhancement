@@ -24,18 +24,14 @@ export function Hero() {
             Яркие букеты и композиции для любого праздника — на день рождения, выписку, для мужчин и женщин, детей
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          <div className="flex justify-center pt-8">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 text-base group"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-12 h-16 text-lg group"
               onClick={() => document.getElementById('categories')?.scrollIntoView({behavior: 'smooth'})}
             >
               Смотреть каталог
-              <Icon name="ArrowRight" className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base border-2 bg-transparent"
-              onClick={() => document.getElementById('popular')?.scrollIntoView({behavior: 'smooth'})}>
-              Популярные наборы
+              <Icon name="ArrowRight" className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
@@ -43,8 +39,8 @@ export function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-8 md:gap-16 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
           <div className="space-y-2">
-            <div className="text-4xl md:text-5xl font-light">200+</div>
-            <div className="text-sm text-muted-foreground">Видов шариков</div>
+            <div className="text-4xl md:text-5xl font-light">3 000+</div>
+            <div className="text-sm text-muted-foreground">Готовых композиций</div>
           </div>
           <div className="space-y-2">
             <div className="text-4xl md:text-5xl font-light">5 000+</div>

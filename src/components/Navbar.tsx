@@ -25,7 +25,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-semibold tracking-tight">🎈 Шарим</h1>
-            <p className="text-xs text-muted-foreground leading-none">студия аэродизайна</p>
+            <p className="text-xs text-muted-foreground text-center leading-none">студия аэродизайна</p>
           </div>
 
           {/* Desktop Navigation */}
