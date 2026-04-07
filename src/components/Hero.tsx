@@ -2,19 +2,25 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const balloons = [
-  { emoji: "🎈", size: "text-7xl", left: "5%", delay: "0s", duration: "6s" },
-  { emoji: "🎀", size: "text-5xl", left: "12%", delay: "1.2s", duration: "7s" },
-  { emoji: "🎈", size: "text-8xl", left: "22%", delay: "0.5s", duration: "5.5s" },
-  { emoji: "🎊", size: "text-6xl", left: "33%", delay: "2s", duration: "8s" },
-  { emoji: "🎈", size: "text-5xl", left: "45%", delay: "0.8s", duration: "6.5s" },
-  { emoji: "🎉", size: "text-7xl", left: "55%", delay: "1.5s", duration: "7.5s" },
-  { emoji: "🎈", size: "text-9xl", left: "65%", delay: "0.3s", duration: "5s" },
-  { emoji: "🎀", size: "text-6xl", left: "75%", delay: "2.5s", duration: "9s" },
-  { emoji: "🎈", size: "text-5xl", left: "83%", delay: "1s", duration: "6s" },
-  { emoji: "🎊", size: "text-7xl", left: "92%", delay: "1.8s", duration: "7s" },
-  { emoji: "🎈", size: "text-6xl", left: "8%", delay: "3s", duration: "8.5s" },
-  { emoji: "🎈", size: "text-8xl", left: "50%", delay: "3.5s", duration: "6s" },
+const floatingItems = [
+  { emoji: "🎈", size: "text-6xl", left: "3%", delay: "0s", duration: "6s" },
+  { emoji: "🎀", size: "text-4xl", left: "10%", delay: "1.2s", duration: "7s" },
+  { emoji: "🎈", size: "text-7xl", left: "18%", delay: "0.5s", duration: "5.5s" },
+  { emoji: "🎊", size: "text-5xl", left: "26%", delay: "2s", duration: "8s" },
+  { emoji: "🧸", size: "text-4xl", left: "32%", delay: "3.2s", duration: "7.5s" },
+  { emoji: "🎈", size: "text-5xl", left: "40%", delay: "0.8s", duration: "6.5s" },
+  { emoji: "🎉", size: "text-6xl", left: "50%", delay: "1.5s", duration: "7.5s" },
+  { emoji: "🪀", size: "text-4xl", left: "57%", delay: "4s", duration: "9s" },
+  { emoji: "🎈", size: "text-8xl", left: "64%", delay: "0.3s", duration: "5s" },
+  { emoji: "🎀", size: "text-5xl", left: "72%", delay: "2.5s", duration: "9s" },
+  { emoji: "🎁", size: "text-4xl", left: "79%", delay: "1.8s", duration: "7s" },
+  { emoji: "🎈", size: "text-5xl", left: "86%", delay: "1s", duration: "6s" },
+  { emoji: "🎊", size: "text-6xl", left: "92%", delay: "0.6s", duration: "8.5s" },
+  { emoji: "🪆", size: "text-4xl", left: "7%", delay: "3s", duration: "8.5s" },
+  { emoji: "🎈", size: "text-7xl", left: "48%", delay: "3.5s", duration: "6s" },
+  { emoji: "🧨", size: "text-4xl", left: "22%", delay: "4.5s", duration: "9s" },
+  { emoji: "🎠", size: "text-5xl", left: "88%", delay: "2.8s", duration: "7s" },
+  { emoji: "🪅", size: "text-4xl", left: "55%", delay: "5s", duration: "10s" },
 ]
 
 export function Hero() {
@@ -25,24 +31,28 @@ export function Hero() {
       <style>{`
         @keyframes floatUp {
           0% { transform: translateY(110vh) rotate(-5deg); opacity: 0; }
-          10% { opacity: 0.7; }
+          10% { opacity: 0.8; }
           90% { opacity: 0.5; }
           100% { transform: translateY(-20vh) rotate(5deg); opacity: 0; }
         }
-        .balloon-float {
+        .item-float {
           animation: floatUp linear infinite;
           position: absolute;
           bottom: -100px;
           pointer-events: none;
         }
+        .phone-elegant {
+          font-family: Georgia, 'Times New Roman', serif;
+          letter-spacing: 0.03em;
+        }
       `}</style>
 
-      {/* Flying balloons */}
+      {/* Floating festive items */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {balloons.map((b, i) => (
+        {floatingItems.map((b, i) => (
           <div
             key={i}
-            className={`balloon-float ${b.size}`}
+            className={`item-float ${b.size}`}
             style={{
               left: b.left,
               animationDelay: b.delay,
@@ -55,15 +65,26 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center py-32">
-        <div className="space-y-6">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center py-32">
+        <div className="space-y-5">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-balance">
             Воздушные
             <span className="block font-semibold mt-2 text-primary">шарики</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Стильные композиции из шаров для любого праздника по низким ценам
+            Стильные композиции из шаров для любого праздника{" "}
+            <span
+              className="font-bold"
+              style={{
+                background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              по низким ценам
+            </span>
           </p>
 
           {/* Delivery highlight */}
@@ -72,17 +93,6 @@ export function Hero() {
             <span className="text-xl md:text-2xl font-bold text-primary">
               Доставка по Краснодару 24/7
             </span>
-          </div>
-
-          {/* Phone */}
-          <div>
-            <a
-              href="tel:+79885973303"
-              className="inline-flex items-center gap-2 text-2xl md:text-3xl font-bold text-foreground hover:text-primary transition-colors"
-            >
-              <Icon name="Phone" className="h-7 w-7 text-primary" />
-              8 988 597 33 03
-            </a>
           </div>
 
           <div className="flex justify-center pt-2">
@@ -98,44 +108,30 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center flex-wrap gap-4 md:gap-6 max-w-3xl mx-auto mt-16 pt-12 border-t border-border/50">
-          <a href="#" className="group">
-            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="Send" className="h-5 w-5 text-white" />
-              <span className="text-white font-semibold text-sm">Telegram</span>
-            </div>
+        {/* Phone numbers */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 pt-10 border-t border-border/50">
+          <a
+            href="tel:+79885973303"
+            className="phone-elegant flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors font-normal"
+          >
+            <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+            8 988 597 33 03
           </a>
-          <a href="#" className="group">
-            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="Instagram" className="h-5 w-5 text-white" />
-              <span className="text-white font-semibold text-sm">Instagram</span>
-            </div>
-          </a>
-          <a href="#" className="group">
-            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="MessageCircle" className="h-5 w-5 text-white" />
-              <span className="text-white font-semibold text-sm">ВКонтакте</span>
-            </div>
-          </a>
-          <a href="#" className="group">
-            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-orange-400 to-red-500 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="Flame" className="h-5 w-5 text-white" />
-              <span className="text-white font-semibold text-sm">Max</span>
-            </div>
-          </a>
-          <a href="https://wa.me/79885973303" className="group">
-            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-green-400 to-green-600 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="MessageSquare" className="h-5 w-5 text-white" />
-              <span className="text-white font-semibold text-sm">WhatsApp</span>
-            </div>
+          <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
+          <a
+            href="tel:+79182457204"
+            className="phone-elegant flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors font-normal"
+          >
+            <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+            8 918 245 72 04
           </a>
         </div>
 
         {/* Address */}
-        <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-3 flex items-center justify-center gap-2 text-sm text-muted-foreground">
           <Icon name="MapPin" className="h-4 w-4 text-primary" />
-          Мы находимся по адресу: <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
+          Мы находимся по адресу:{" "}
+          <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
         </div>
       </div>
     </section>
