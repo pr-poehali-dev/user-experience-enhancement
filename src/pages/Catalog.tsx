@@ -39,27 +39,27 @@ const COLOR_OPTIONS = [
 
 const compositions: Record<string, Composition[]> = {
   girl: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Нежность»", description: "Розовые и белые шары с фольгированными сердечками.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white"], subcategory: "girl" },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Принцесса»", description: "Сиреневые и золотые шары с фольгированной короной.", price: "от 1 890 ₽", priceNum: 1890, colors: ["purple", "gold"], subcategory: "girl" },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Нежность»", description: "Розовые и белые шары с фольгированными сердечками.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white"], subcategory: "girl" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Принцесса»", description: "Сиреневые и золотые шары с фольгированной короной.", price: "от 1 890 ₽", priceNum: 1890, colors: ["purple", "gold"], subcategory: "girl" },
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Облако «Розовая мечта»", description: "Большая облачная композиция из розовых шаров разных размеров.", price: "от 2 200 ₽", priceNum: 2200, colors: ["pink"], subcategory: "girl" },
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фламинго»", description: "Яркая арка из розовых, коралловых и белых шаров для фотозоны.", price: "от 3 500 ₽", priceNum: 3500, colors: ["pink", "red", "white"], subcategory: "girl" },
     { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «25»", description: "Фольгированная цифра в розово-золотом оформлении.", price: "от 990 ₽", priceNum: 990, colors: ["pink", "gold"], subcategory: "girl" },
     { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Весна»", description: "Нежные пастельные шары с живыми цветами и атласными лентами.", price: "от 2 800 ₽", priceNum: 2800, colors: ["pink", "mint", "white"], subcategory: "girl" },
   ],
   man: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Букет «Стиль»", description: "Синие, чёрные и серебряные шары — строго и стильно.", price: "от 1 690 ₽", priceNum: 1690, colors: ["blue", "black", "silver"], subcategory: "man" },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Композиция «Стиль»", description: "Синие, чёрные и серебряные шары — строго и стильно.", price: "от 1 690 ₽", priceNum: 1690, colors: ["blue", "black", "silver"], subcategory: "man" },
     { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Джентльмен»", description: "Тёмно-синие шары с золотыми звёздами и фольгированными цифрами.", price: "от 2 290 ₽", priceNum: 2290, colors: ["blue", "gold"], subcategory: "man" },
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Синяя волна»", description: "Арка из синих и серебряных шаров — эффектная фотозона.", price: "от 3 200 ₽", priceNum: 3200, colors: ["blue", "silver"], subcategory: "man" },
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «40»", description: "Большая фольгированная цифра в синем и золотом цвете.", price: "от 990 ₽", priceNum: 990, colors: ["blue", "gold"], subcategory: "man" },
   ],
   boy: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Букет «Супергерой»", description: "Яркие синие и красные шары с фольгированными звёздами.", price: "от 1 290 ₽", priceNum: 1290, colors: ["blue", "red"], subcategory: "boy" },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Композиция «Супергерой»", description: "Яркие синие и красные шары с фольгированными звёздами.", price: "от 1 290 ₽", priceNum: 1290, colors: ["blue", "red"], subcategory: "boy" },
     { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Космонавт»", description: "Синие и серебряные шары с ракетами и звёздами.", price: "от 1 890 ₽", priceNum: 1890, colors: ["blue", "silver"], subcategory: "boy" },
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Гонки»", description: "Красно-синяя арка с машинками для юного гонщика.", price: "от 2 900 ₽", priceNum: 2900, colors: ["red", "blue"], subcategory: "boy" },
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «5»", description: "Яркая цифра пять в синих и зелёных тонах.", price: "от 890 ₽", priceNum: 890, colors: ["blue", "green"], subcategory: "boy" },
   ],
   "kid-girl": [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Единорог»", description: "Розовые, белые и сиреневые шары с единорогом.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white", "purple"], subcategory: "kid-girl" },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Единорог»", description: "Розовые, белые и сиреневые шары с единорогом.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white", "purple"], subcategory: "kid-girl" },
     { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фея»", description: "Нежная арка из лиловых и розовых шаров со звёздами.", price: "от 2 800 ₽", priceNum: 2800, colors: ["purple", "pink"], subcategory: "kid-girl" },
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор «Барби»", description: "Ярко-розовые шары с надписями и сердечками.", price: "от 1 690 ₽", priceNum: 1690, colors: ["pink"], subcategory: "kid-girl" },
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «7»", description: "Розово-золотая цифра семь для маленькой принцессы.", price: "от 890 ₽", priceNum: 890, colors: ["pink", "gold"], subcategory: "kid-girl" },
@@ -344,71 +344,155 @@ function CompositionGrid({
         </div>
       )}
 
-      {/* Modal */}
-      {modal && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
-          onClick={() => setModal(null)}
-        >
-          <div
-            className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative">
-              <img src={modal.image} alt={modal.title} className="w-full aspect-square object-cover" />
-              <button
-                className="absolute top-4 right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors shadow"
-                onClick={() => setModal(null)}
-              >
-                <Icon name="X" size={18} />
-              </button>
-              {modal.subcategory && (
-                <div className="absolute top-4 left-4">
-                  <span className="text-xs bg-black/50 text-white px-3 py-1 rounded-full backdrop-blur-sm font-medium">
-                    {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.emoji}{" "}
-                    {subcategoryLabel(modal.subcategory)}
-                  </span>
-                </div>
-              )}
-            </div>
-            <div className="p-6 space-y-3">
-              <h3 className="text-xl font-semibold">{modal.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{modal.description}</p>
-              <div className="flex gap-1.5 flex-wrap">
-                {modal.colors.map((cid) => {
-                  const c = COLOR_OPTIONS.find((o) => o.id === cid)
-                  return c ? (
-                    <span
-                      key={cid}
-                      className="flex items-center gap-1 text-xs bg-muted px-2 py-1 rounded-full"
-                    >
-                      <span
-                        className="w-3 h-3 rounded-full"
-                        style={{
-                          backgroundColor: c.hex,
-                          border: c.border ? "1px solid #d1d5db" : "none",
-                        }}
-                      />
-                      {c.label}
-                    </span>
-                  ) : null
-                })}
-              </div>
-              <div className="flex items-center justify-between pt-2">
-                <span className="text-lg font-bold text-primary">{modal.price}</span>
-                <button className="bg-primary text-primary-foreground px-6 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">
-                  Заказать
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {modal && <CompositionModal modal={modal} onClose={() => setModal(null)} />}
     </>
   )
 }
 
-// helper — нужна внутри modal
+function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () => void }) {
+  const [openSection, setOpenSection] = useState<string>("content")
+
+  const toggle = (id: string) => setOpenSection((prev) => (prev === id ? "" : id))
+
+  const sections = [
+    {
+      id: "content",
+      icon: "Sparkles",
+      title: "Наполнение",
+      content: (
+        <div className="space-y-3">
+          <p className="text-sm text-muted-foreground leading-relaxed">{modal.description}</p>
+          <div className="flex gap-1.5 flex-wrap">
+            {modal.colors.map((cid) => {
+              const c = COLOR_OPTIONS.find((o) => o.id === cid)
+              return c ? (
+                <span key={cid} className="flex items-center gap-1 text-xs bg-muted px-2 py-1 rounded-full">
+                  <span className="w-3 h-3 rounded-full" style={{ backgroundColor: c.hex, border: c.border ? "1px solid #d1d5db" : "none" }} />
+                  {c.label}
+                </span>
+              ) : null
+            })}
+          </div>
+          <div className="bg-primary/8 border border-primary/20 rounded-xl p-3 text-sm text-primary font-medium">
+            🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "order",
+      icon: "MessageCircle",
+      title: "Как заказать",
+      content: (
+        <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+          <p>Напишите нам в любой удобный мессенджер и укажите номер понравившейся композиции:</p>
+          <div className="bg-muted rounded-xl px-4 py-2 font-mono text-base font-bold text-foreground text-center">
+            № {modal.id} — {modal.title}
+          </div>
+          <div className="flex gap-2 flex-wrap pt-1">
+            <a href="#" className="flex items-center gap-1.5 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
+              <Icon name="Send" size={13} /> Telegram
+            </a>
+            <a href="#" className="flex items-center gap-1.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:opacity-90 transition-opacity">
+              <Icon name="Instagram" size={13} /> Instagram
+            </a>
+            <a href="#" className="flex items-center gap-1.5 bg-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-700 transition-colors">
+              <Icon name="MessageCircle" size={13} /> ВКонтакте
+            </a>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "delivery",
+      icon: "Truck",
+      title: "Доставка / Самовывоз",
+      content: (
+        <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+          <div className="flex items-start gap-2">
+            <Icon name="Clock" size={16} className="text-primary mt-0.5 flex-shrink-0" />
+            <p><span className="text-foreground font-medium">Доставка 24/7</span> по Краснодару и Краснодарскому краю</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Icon name="Banknote" size={16} className="text-primary mt-0.5 flex-shrink-0" />
+            <p>Стоимость доставки уточняйте у менеджера. Есть <span className="text-foreground font-medium">бесплатная доставка</span></p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Icon name="MapPin" size={16} className="text-primary mt-0.5 flex-shrink-0" />
+            <p><span className="text-foreground font-medium">Самовывоз:</span> ул. Героя Яцкова 19к3</p>
+          </div>
+        </div>
+      ),
+    },
+  ]
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl max-h-[90vh] flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Image */}
+        <div className="relative flex-shrink-0">
+          <img src={modal.image} alt={modal.title} className="w-full h-56 object-cover" />
+          <button
+            className="absolute top-3 right-3 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors shadow"
+            onClick={onClose}
+          >
+            <Icon name="X" size={18} />
+          </button>
+          {modal.subcategory && (
+            <div className="absolute top-3 left-3">
+              <span className="text-xs bg-black/50 text-white px-3 py-1 rounded-full backdrop-blur-sm font-medium">
+                {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.emoji}{" "}
+                {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.label}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Header */}
+        <div className="px-6 pt-4 pb-2 flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-bold">{modal.title}</h3>
+            <span className="text-primary font-bold text-base">{modal.price}</span>
+          </div>
+        </div>
+
+        {/* Accordion */}
+        <div className="overflow-y-auto px-6 pb-6 space-y-2">
+          {sections.map((s) => (
+            <div key={s.id} className="border border-border rounded-2xl overflow-hidden">
+              <button
+                onClick={() => toggle(s.id)}
+                className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-muted/50 transition-colors"
+              >
+                <div className="flex items-center gap-2 font-semibold text-sm">
+                  <Icon name={s.icon} size={16} className="text-primary" />
+                  {s.title}
+                </div>
+                <Icon
+                  name="ChevronDown"
+                  size={16}
+                  className={`text-muted-foreground transition-transform ${openSection === s.id ? "rotate-180" : ""}`}
+                />
+              </button>
+              {openSection === s.id && (
+                <div className="px-4 pb-4 pt-1 border-t border-border bg-muted/20">
+                  {s.content}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function subcategoryLabel(id: string) {
   return birthdaySubcategories.find((s) => s.id === id)?.label ?? id
 }

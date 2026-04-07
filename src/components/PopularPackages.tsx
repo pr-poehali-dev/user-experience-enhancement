@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon"
 
 const packages = [
   {
-    title: "Букет «Принцесса»",
+    title: "Композиция «Принцесса»",
     category: "Для девочки",
     count: "15 шариков",
     emoji: "👑",
@@ -48,7 +48,7 @@ export function PopularPackages() {
             Популярные <span className="font-semibold text-primary">наборы</span>
           </h2>
           <p className="text-lg text-muted-foreground text-balance leading-relaxed">
-            Самые любимые букеты наших покупателей — уже готовые к заказу
+            Самые любимые композиции наших покупателей — уже готовые к заказу
           </p>
         </div>
 

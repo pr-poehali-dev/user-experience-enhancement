@@ -63,10 +63,26 @@ export function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
-            Яркие букеты и композиции для любого праздника — на день рождения, выписку, для мужчин и женщин, детей
+            Яркие композиции для любого праздника — на день рождения, выписку, для мужчин и женщин, детей
           </p>
 
-          <div className="flex justify-center pt-8">
+          {/* Info badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm">
+              <Icon name="MapPin" className="h-4 w-4 text-primary" />
+              Краснодар и Краснодарский край
+            </div>
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm">
+              <Icon name="Clock" className="h-4 w-4 text-primary" />
+              Доставка 24/7
+            </div>
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm">
+              <Icon name="ShoppingBag" className="h-4 w-4 text-primary" />
+              Самовывоз: ул. Героя Яцкова 19к3
+            </div>
+          </div>
+
+          <div className="flex justify-center pt-4">
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 group shadow-lg"
