@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
+import { useNavigate } from "react-router-dom"
 
 export function Hero() {
+  const navigate = useNavigate()
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{background: 'linear-gradient(135deg, #fde8d8 0%, #f9d9e3 40%, #ecddf5 100%)'}}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-muted/30 to-background">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-20 left-10 text-8xl opacity-10 animate-bounce" style={{animationDuration: '3s'}}>🎈</div>
@@ -27,41 +30,33 @@ export function Hero() {
           <div className="flex justify-center pt-8">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-12 h-16 text-lg group"
-              onClick={() => document.getElementById('categories')?.scrollIntoView({behavior: 'smooth'})}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 h-18 text-xl group shadow-lg"
+              style={{height: '4.5rem', fontSize: '1.25rem'}}
+              onClick={() => navigate('/catalog')}
             >
               Смотреть каталог
-              <Icon name="ArrowRight" className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center gap-6 md:gap-12 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
-          <a
-            href="#"
-            className="flex flex-col items-center gap-2 group"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <Icon name="Instagram" className="h-7 w-7 text-white" />
-            </div>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Instagram</span>
-          </a>
-          <a
-            href="#"
-            className="flex flex-col items-center gap-2 group"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <Icon name="Send" className="h-7 w-7 text-white" />
+        <div className="flex items-center justify-center gap-10 md:gap-16 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
+          <a href="#" className="flex flex-col items-center gap-3 group">
+            <div className="w-16 h-20 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Icon name="Send" className="h-8 w-8 text-white" />
             </div>
             <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Telegram</span>
           </a>
-          <a
-            href="#"
-            className="flex flex-col items-center gap-2 group"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <Icon name="MessageCircle" className="h-7 w-7 text-white" />
+          <a href="#" className="flex flex-col items-center gap-3 group">
+            <div className="w-16 h-20 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Icon name="Instagram" className="h-8 w-8 text-white" />
+            </div>
+            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Instagram</span>
+          </a>
+          <a href="#" className="flex flex-col items-center gap-3 group">
+            <div className="w-16 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Icon name="MessageCircle" className="h-8 w-8 text-white" />
             </div>
             <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">ВКонтакте</span>
           </a>
