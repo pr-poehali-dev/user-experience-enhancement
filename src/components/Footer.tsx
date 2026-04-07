@@ -7,7 +7,8 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">🎈 ШарикоFF</h3>
+            <h3 className="text-2xl font-semibold">🎈 Шарим</h3>
+            <p className="text-xs text-muted-foreground -mt-2">студия аэродизайна</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Создаём яркие моменты с воздушными шариками для любого праздника с 2018 года
             </p>

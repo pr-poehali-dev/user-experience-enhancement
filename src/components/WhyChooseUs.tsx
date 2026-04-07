@@ -30,7 +30,7 @@ export function WhyChooseUs() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-5xl md:text-6xl font-light tracking-tight mb-6 text-balance">
-            Почему выбирают <span className="font-semibold text-primary">ШарикоFF</span>
+            Почему выбирают <span className="font-semibold text-primary">Шарим</span>
           </h2>
           <p className="text-lg text-muted-foreground text-balance leading-relaxed">
             Делаем праздники яркими и незабываемыми — с любовью к каждой детали

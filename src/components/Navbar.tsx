@@ -24,7 +24,8 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-semibold tracking-tight">🎈 ШарикоFF</h1>
+            <h1 className="text-2xl font-semibold tracking-tight">🎈 Шарим</h1>
+            <p className="text-xs text-muted-foreground leading-none">студия аэродизайна</p>
           </div>
 
           {/* Desktop Navigation */}
