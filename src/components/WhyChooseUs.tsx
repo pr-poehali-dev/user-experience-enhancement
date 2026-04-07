@@ -25,7 +25,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section id="about" className="py-32 bg-pink-50/50">
+    <section id="about" className="py-32 bg-gradient-to-br from-blue-50 to-pink-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">

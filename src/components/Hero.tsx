@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-pink-50 to-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-pink-50">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-20 left-10 text-8xl opacity-10 animate-bounce" style={{animationDuration: '3s'}}>🎈</div>
@@ -36,20 +36,35 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 md:gap-16 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
-          <div className="space-y-2">
-            <div className="text-4xl md:text-5xl font-light">3 000+</div>
-            <div className="text-sm text-muted-foreground">Готовых композиций</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-4xl md:text-5xl font-light">5 000+</div>
-            <div className="text-sm text-muted-foreground">Довольных клиентов</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-4xl md:text-5xl font-light">4.9</div>
-            <div className="text-sm text-muted-foreground">Средний рейтинг</div>
-          </div>
+        {/* Social Links */}
+        <div className="flex items-center justify-center gap-6 md:gap-12 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
+          <a
+            href="#"
+            className="flex flex-col items-center gap-2 group"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Icon name="Instagram" className="h-7 w-7 text-white" />
+            </div>
+            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Instagram</span>
+          </a>
+          <a
+            href="#"
+            className="flex flex-col items-center gap-2 group"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Icon name="Send" className="h-7 w-7 text-white" />
+            </div>
+            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Telegram</span>
+          </a>
+          <a
+            href="#"
+            className="flex flex-col items-center gap-2 group"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Icon name="MessageCircle" className="h-7 w-7 text-white" />
+            </div>
+            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">ВКонтакте</span>
+          </a>
         </div>
       </div>
     </section>
