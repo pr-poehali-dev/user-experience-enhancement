@@ -9,6 +9,17 @@ const birthdaySubcategories = [
   { id: "man", label: "Для мужчины", emoji: "🎩", color: "from-blue-500 to-blue-700" },
   { id: "boy", label: "Для мальчика", emoji: "🚀", color: "from-cyan-400 to-blue-500" },
   { id: "kid-girl", label: "Для девочки", emoji: "👑", color: "from-purple-400 to-pink-500" },
+  { id: "bubbles-box", label: "Баблс-бокс", emoji: "🫧", color: "from-sky-300 to-blue-400" },
+  { id: "surprise-box", label: "Коробка-сюрприз", emoji: "🎁", color: "from-rose-400 to-pink-500" },
+  { id: "first-year", label: "Шарики на 1 годик", emoji: "🍼", color: "from-yellow-300 to-orange-400" },
+  { id: "ceiling", label: "Под потолок", emoji: "🏠", color: "from-indigo-400 to-purple-500" },
+  { id: "numbers", label: "Цифры", emoji: "🔢", color: "from-emerald-400 to-teal-500" },
+  { id: "cartoon", label: "Мульт-персонажи", emoji: "🦄", color: "from-pink-400 to-purple-500" },
+]
+
+const dischargeSubcategories = [
+  { id: "boy-discharge", label: "Выписка мальчика", emoji: "👦" },
+  { id: "girl-discharge", label: "Выписка девочки", emoji: "👧" },
 ]
 
 type Composition = {
@@ -23,18 +34,14 @@ type Composition = {
 }
 
 const COLOR_OPTIONS = [
-  { id: "pink", label: "Розовый", hex: "#f472b6" },
-  { id: "red", label: "Красный", hex: "#f87171" },
-  { id: "purple", label: "Фиолетовый", hex: "#a78bfa" },
-  { id: "blue", label: "Синий", hex: "#60a5fa" },
-  { id: "cyan", label: "Голубой", hex: "#67e8f9" },
-  { id: "green", label: "Зелёный", hex: "#4ade80" },
-  { id: "yellow", label: "Жёлтый", hex: "#fbbf24" },
-  { id: "gold", label: "Золотой", hex: "#d97706" },
-  { id: "white", label: "Белый", hex: "#f3f4f6", border: true },
-  { id: "black", label: "Чёрный", hex: "#1f2937" },
-  { id: "silver", label: "Серебряный", hex: "#9ca3af" },
-  { id: "mint", label: "Мятный", hex: "#6ee7b7" },
+  { id: "pink", label: "Розовые", hex: "#f472b6" },
+  { id: "purple", label: "Фиолетовые", hex: "#a78bfa" },
+  { id: "white", label: "Белые", hex: "#f3f4f6", border: true },
+  { id: "black", label: "Чёрные", hex: "#1f2937" },
+  { id: "blue", label: "Синие", hex: "#60a5fa" },
+  { id: "green", label: "Зелёные", hex: "#4ade80" },
+  { id: "gold", label: "Золотые", hex: "#d97706" },
+  { id: "silver", label: "Серебряные", hex: "#9ca3af" },
 ]
 
 const compositions: Record<string, Composition[]> = {
@@ -42,9 +49,9 @@ const compositions: Record<string, Composition[]> = {
     { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Нежность»", description: "Розовые и белые шары с фольгированными сердечками.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white"], subcategory: "girl" },
     { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Принцесса»", description: "Сиреневые и золотые шары с фольгированной короной.", price: "от 1 890 ₽", priceNum: 1890, colors: ["purple", "gold"], subcategory: "girl" },
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Облако «Розовая мечта»", description: "Большая облачная композиция из розовых шаров разных размеров.", price: "от 2 200 ₽", priceNum: 2200, colors: ["pink"], subcategory: "girl" },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фламинго»", description: "Яркая арка из розовых, коралловых и белых шаров для фотозоны.", price: "от 3 500 ₽", priceNum: 3500, colors: ["pink", "red", "white"], subcategory: "girl" },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фламинго»", description: "Яркая арка из розовых, коралловых и белых шаров для фотозоны.", price: "от 3 500 ₽", priceNum: 3500, colors: ["pink", "white"], subcategory: "girl" },
     { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «25»", description: "Фольгированная цифра в розово-золотом оформлении.", price: "от 990 ₽", priceNum: 990, colors: ["pink", "gold"], subcategory: "girl" },
-    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Весна»", description: "Нежные пастельные шары с живыми цветами и атласными лентами.", price: "от 2 800 ₽", priceNum: 2800, colors: ["pink", "mint", "white"], subcategory: "girl" },
+    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Весна»", description: "Нежные пастельные шары с живыми цветами и атласными лентами.", price: "от 2 800 ₽", priceNum: 2800, colors: ["pink", "white"], subcategory: "girl" },
   ],
   man: [
     { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Композиция «Стиль»", description: "Синие, чёрные и серебряные шары — строго и стильно.", price: "от 1 690 ₽", priceNum: 1690, colors: ["blue", "black", "silver"], subcategory: "man" },
@@ -53,9 +60,9 @@ const compositions: Record<string, Composition[]> = {
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «40»", description: "Большая фольгированная цифра в синем и золотом цвете.", price: "от 990 ₽", priceNum: 990, colors: ["blue", "gold"], subcategory: "man" },
   ],
   boy: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Композиция «Супергерой»", description: "Яркие синие и красные шары с фольгированными звёздами.", price: "от 1 290 ₽", priceNum: 1290, colors: ["blue", "red"], subcategory: "boy" },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Композиция «Супергерой»", description: "Яркие синие и красные шары с фольгированными звёздами.", price: "от 1 290 ₽", priceNum: 1290, colors: ["blue"], subcategory: "boy" },
     { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Космонавт»", description: "Синие и серебряные шары с ракетами и звёздами.", price: "от 1 890 ₽", priceNum: 1890, colors: ["blue", "silver"], subcategory: "boy" },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Гонки»", description: "Красно-синяя арка с машинками для юного гонщика.", price: "от 2 900 ₽", priceNum: 2900, colors: ["red", "blue"], subcategory: "boy" },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Гонки»", description: "Красно-синяя арка с машинками для юного гонщика.", price: "от 2 900 ₽", priceNum: 2900, colors: ["blue"], subcategory: "boy" },
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «5»", description: "Яркая цифра пять в синих и зелёных тонах.", price: "от 890 ₽", priceNum: 890, colors: ["blue", "green"], subcategory: "boy" },
   ],
   "kid-girl": [
@@ -64,13 +71,39 @@ const compositions: Record<string, Composition[]> = {
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор «Барби»", description: "Ярко-розовые шары с надписями и сердечками.", price: "от 1 690 ₽", priceNum: 1690, colors: ["pink"], subcategory: "kid-girl" },
     { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «7»", description: "Розово-золотая цифра семь для маленькой принцессы.", price: "от 890 ₽", priceNum: 890, colors: ["pink", "gold"], subcategory: "kid-girl" },
   ],
+  "bubbles-box": [
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Баблс-бокс «Нежный»", description: "Прозрачные шары-пузыри с конфетти внутри, упакованные в коробку.", price: "от 1 990 ₽", priceNum: 1990, colors: ["pink", "white"], subcategory: "bubbles-box" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Баблс-бокс «Синий»", description: "Прозрачные шары с синим конфетти в стильной коробке.", price: "от 1 990 ₽", priceNum: 1990, colors: ["blue", "silver"], subcategory: "bubbles-box" },
+  ],
+  "surprise-box": [
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Коробка-сюрприз «Розовая»", description: "Шары вылетают при открытии — незабываемый момент!", price: "от 1 890 ₽", priceNum: 1890, colors: ["pink", "gold"], subcategory: "surprise-box" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Коробка-сюрприз «Синяя»", description: "Синие и серебряные шары вылетают из тёмной коробки.", price: "от 1 890 ₽", priceNum: 1890, colors: ["blue", "silver"], subcategory: "surprise-box" },
+  ],
+  "first-year": [
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "«1 годик» для девочки", description: "Розовые шары с цифрой 1, звёздочками и конфетти.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "gold"], subcategory: "first-year" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "«1 годик» для мальчика", description: "Синие и белые шары с цифрой 1 и звёздочками.", price: "от 1 490 ₽", priceNum: 1490, colors: ["blue", "white"], subcategory: "first-year" },
+  ],
+  "ceiling": [
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Шарики под потолок «Нежные»", description: "50 розовых и белых шаров, которые поднимутся к потолку.", price: "от 1 200 ₽", priceNum: 1200, colors: ["pink", "white"], subcategory: "ceiling" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Шарики под потолок «Классика»", description: "50 синих и серебряных шаров для мужской вечеринки.", price: "от 1 200 ₽", priceNum: 1200, colors: ["blue", "silver"], subcategory: "ceiling" },
+  ],
+  "numbers": [
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра розово-золотая", description: "Большая фольгированная цифра в розово-золотом оформлении.", price: "от 890 ₽", priceNum: 890, colors: ["pink", "gold"], subcategory: "numbers" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра сине-серебряная", description: "Большая фольгированная цифра в синем и серебряном цвете.", price: "от 890 ₽", priceNum: 890, colors: ["blue", "silver"], subcategory: "numbers" },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра золотая", description: "Золотая фольгированная цифра — универсальный вариант.", price: "от 890 ₽", priceNum: 890, colors: ["gold"], subcategory: "numbers" },
+  ],
+  "cartoon": [
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Единорог", description: "Фольгированный единорог с розовыми и белыми шарами.", price: "от 1 390 ₽", priceNum: 1390, colors: ["pink", "purple", "white"], subcategory: "cartoon" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Динозавр", description: "Зелёный фольгированный динозавр с яркими шарами.", price: "от 1 390 ₽", priceNum: 1390, colors: ["green"], subcategory: "cartoon" },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Принцесса", description: "Фольгированная принцесса с розовыми и золотыми шарами.", price: "от 1 390 ₽", priceNum: 1390, colors: ["pink", "gold"], subcategory: "cartoon" },
+  ],
   discharge: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча мальчика", description: "Нежно-голубые и белые шары с надписью «Это мальчик!».", price: "от 2 490 ₽", priceNum: 2490, colors: ["cyan", "white"] },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча девочки", description: "Розовые и мятные шары с сердечками и надписью «Это девочка!».", price: "от 2 490 ₽", priceNum: 2490, colors: ["pink", "mint"] },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Облако «Малыш»", description: "Большая облачная композиция из пастельных шаров.", price: "от 3 200 ₽", priceNum: 3200, colors: ["mint", "white", "yellow"] },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Сюрприз-бокс", description: "Коробка с шарами, которые вылетают при открытии.", price: "от 1 890 ₽", priceNum: 1890, colors: ["pink", "gold", "white"] },
-    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Арка «Первый вдох»", description: "Нежная арка из шаров у входа роддома.", price: "от 4 500 ₽", priceNum: 4500, colors: ["white", "mint", "cyan"] },
-    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор «Звёздочка»", description: "Жёлтые и белые шары со звёздами.", price: "от 1 990 ₽", priceNum: 1990, colors: ["yellow", "white"] },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча мальчика", description: "Нежно-голубые и белые шары с надписью «Это мальчик!».", price: "от 2 490 ₽", priceNum: 2490, colors: ["blue", "white"], subcategory: "boy-discharge" },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор «Звёздочка» для мальчика", description: "Синие и белые шары со звёздами.", price: "от 1 990 ₽", priceNum: 1990, colors: ["blue", "white"], subcategory: "boy-discharge" },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Арка «Первый вдох» для мальчика", description: "Голубая арка из шаров у входа роддома.", price: "от 4 500 ₽", priceNum: 4500, colors: ["blue", "white"], subcategory: "boy-discharge" },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча девочки", description: "Розовые и мятные шары с сердечками и надписью «Это девочка!».", price: "от 2 490 ₽", priceNum: 2490, colors: ["pink", "white"], subcategory: "girl-discharge" },
+    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Облако «Малышка»", description: "Большая облачная композиция из розовых и белых шаров.", price: "от 3 200 ₽", priceNum: 3200, colors: ["pink", "white"], subcategory: "girl-discharge" },
+    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор «Звёздочка» для девочки", description: "Розовые и золотые шары со звёздами.", price: "от 1 990 ₽", priceNum: 1990, colors: ["pink", "gold"], subcategory: "girl-discharge" },
   ],
 }
 
@@ -79,12 +112,17 @@ type ModalItem = Composition | null
 const PRICE_MIN = 500
 const PRICE_MAX = 20000
 
-// Все композиции "на день рождения" объединённые
 const allBirthdayCompositions: Composition[] = [
   ...compositions.girl,
   ...compositions.man,
   ...compositions.boy,
   ...compositions["kid-girl"],
+  ...compositions["bubbles-box"],
+  ...compositions["surprise-box"],
+  ...compositions["first-year"],
+  ...compositions["ceiling"],
+  ...compositions["numbers"],
+  ...compositions["cartoon"],
 ]
 
 function PriceSlider({
@@ -109,16 +147,12 @@ function PriceSlider({
           {minPrice.toLocaleString("ru")} ₽ — {maxPrice.toLocaleString("ru")} ₽
         </span>
       </div>
-      {/* Two separate sliders stacked */}
       <div className="relative h-6 mx-2.5">
-        {/* Background track */}
         <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-2 bg-border rounded-full" />
-        {/* Active range */}
         <div
           className="absolute top-1/2 -translate-y-1/2 h-2 rounded-full bg-primary"
           style={{ left: `${pctMin}%`, width: `${pctMax - pctMin}%` }}
         />
-        {/* Min input — left half pointer-events */}
         <input
           type="range"
           min={PRICE_MIN}
@@ -132,7 +166,6 @@ function PriceSlider({
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           style={{ zIndex: minPrice > PRICE_MAX - 1000 ? 5 : 4 }}
         />
-        {/* Max input */}
         <input
           type="range"
           min={PRICE_MIN}
@@ -146,12 +179,10 @@ function PriceSlider({
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           style={{ zIndex: minPrice > PRICE_MAX - 1000 ? 4 : 5 }}
         />
-        {/* Min handle visual */}
         <div
           className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none"
           style={{ left: `calc(${pctMin}% - 10px)`, zIndex: 6 }}
         />
-        {/* Max handle visual */}
         <div
           className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none"
           style={{ left: `calc(${pctMax}% - 10px)`, zIndex: 6 }}
@@ -168,9 +199,11 @@ function PriceSlider({
 function CompositionGrid({
   items,
   showSubcategoryBadge,
+  showDischargeBadge,
 }: {
   items: Composition[]
   showSubcategoryBadge?: boolean
+  showDischargeBadge?: boolean
 }) {
   const [modal, setModal] = useState<ModalItem>(null)
   const [activeColors, setActiveColors] = useState<string[]>([])
@@ -212,19 +245,21 @@ function CompositionGrid({
         (item.subcategory && activeSubcategories.includes(item.subcategory))
     )
 
-  const subcategoryLabel = (id: string) =>
+  const getBirthdayLabel = (id: string) =>
     birthdaySubcategories.find((s) => s.id === id)?.label ?? id
+  const getDischargeLabel = (id: string) =>
+    dischargeSubcategories.find((s) => s.id === id)?.label ?? id
 
   return (
     <>
       {/* Filters */}
       <div className="mb-8 space-y-6 bg-muted/40 rounded-2xl p-5">
 
-        {/* Subcategory filter (only shown if items have subcategories) */}
+        {/* Birthday subcategory filter */}
         {showSubcategoryBadge && (
           <div>
             <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Для кого</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
               {birthdaySubcategories.map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 return (
@@ -237,8 +272,34 @@ function CompositionGrid({
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
                     }`}
                   >
+                    <span className="text-xl">{cat.emoji}</span>
+                    <span className="text-xs text-center leading-tight">{cat.label}</span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Discharge subcategory filter */}
+        {showDischargeBadge && (
+          <div>
+            <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Кого встречаем</p>
+            <div className="grid grid-cols-2 gap-3">
+              {dischargeSubcategories.map((cat) => {
+                const isActive = activeSubcategories.includes(cat.id)
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => toggleSubcategory(cat.id)}
+                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-2xl text-sm font-semibold border-2 transition-all ${
+                      isActive
+                        ? "border-primary bg-primary text-primary-foreground shadow-md"
+                        : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
+                    }`}
+                  >
                     <span className="text-2xl">{cat.emoji}</span>
-                    <span>{cat.label}</span>
+                    {cat.label}
                   </button>
                 )
               })}
@@ -256,7 +317,7 @@ function CompositionGrid({
 
         {/* Color filter */}
         <div>
-          <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Цвет шариков</p>
+          <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Цвет композиций</p>
           <div className="flex flex-wrap gap-2">
             {COLOR_OPTIONS.map((color) => {
               const isActive = activeColors.includes(color.id)
@@ -308,35 +369,25 @@ function CompositionGrid({
           {filtered.map((item, idx) => (
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-110"
               onClick={() => setModal(item)}
             >
-              <img src={item.image} alt={item.title} className="w-full aspect-square object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Subcategory badge */}
-              {showSubcategoryBadge && item.subcategory && (
+              <img src={item.image} alt={item.title} className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Badge */}
+              {(showSubcategoryBadge || showDischargeBadge) && item.subcategory && (
                 <div className="absolute top-2 left-2">
                   <span className="text-xs bg-black/50 text-white px-2 py-0.5 rounded-full backdrop-blur-sm">
-                    {birthdaySubcategories.find((s) => s.id === item.subcategory)?.emoji}{" "}
-                    {birthdaySubcategories.find((s) => s.id === item.subcategory)?.label}
+                    {showSubcategoryBadge
+                      ? (birthdaySubcategories.find((s) => s.id === item.subcategory)?.emoji + " " + getBirthdayLabel(item.subcategory))
+                      : (dischargeSubcategories.find((s) => s.id === item.subcategory)?.emoji + " " + getDischargeLabel(item.subcategory))
+                    }
                   </span>
                 </div>
               )}
-              {/* Color dots */}
-              <div className="absolute top-2 right-2 flex gap-1">
-                {item.colors.slice(0, 3).map((cid) => {
-                  const c = COLOR_OPTIONS.find((o) => o.id === cid)
-                  return c ? (
-                    <span
-                      key={cid}
-                      className="w-3 h-3 rounded-full border border-white/80 shadow"
-                      style={{ backgroundColor: c.hex }}
-                    />
-                  ) : null
-                })}
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-sm font-semibold">{item.title}</p>
+              {/* Title on hover */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <p className="text-white text-xs font-semibold truncate">{item.title}</p>
                 <p className="text-white/80 text-xs">{item.price}</p>
               </div>
             </div>
@@ -362,17 +413,6 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
       content: (
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground leading-relaxed">{modal.description}</p>
-          <div className="flex gap-1.5 flex-wrap">
-            {modal.colors.map((cid) => {
-              const c = COLOR_OPTIONS.find((o) => o.id === cid)
-              return c ? (
-                <span key={cid} className="flex items-center gap-1 text-xs bg-muted px-2 py-1 rounded-full">
-                  <span className="w-3 h-3 rounded-full" style={{ backgroundColor: c.hex, border: c.border ? "1px solid #d1d5db" : "none" }} />
-                  {c.label}
-                </span>
-              ) : null
-            })}
-          </div>
           <div className="bg-primary/8 border border-primary/20 rounded-xl p-3 text-sm text-primary font-medium">
             🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания
           </div>
@@ -385,13 +425,20 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
       title: "Как заказать",
       content: (
         <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
-          <p>Напишите нам в любой удобный мессенджер и укажите номер понравившейся композиции:</p>
+          <p>Напишите нам или позвоните, и укажите номер понравившейся композиции:</p>
           <div className="bg-muted rounded-xl px-4 py-2 font-mono text-base font-bold text-foreground text-center">
             № {modal.id} — {modal.title}
           </div>
+          <a href="tel:+79885973303" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors">
+            <Icon name="Phone" size={16} className="text-primary" />
+            8 988 597 33 03
+          </a>
           <div className="flex gap-2 flex-wrap pt-1">
             <a href="#" className="flex items-center gap-1.5 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
               <Icon name="Send" size={13} /> Telegram
+            </a>
+            <a href="https://wa.me/79885973303" className="flex items-center gap-1.5 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
+              <Icon name="MessageSquare" size={13} /> WhatsApp
             </a>
             <a href="#" className="flex items-center gap-1.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:opacity-90 transition-opacity">
               <Icon name="Instagram" size={13} /> Instagram
@@ -428,16 +475,16 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl max-h-[90vh] flex flex-col"
+        className="bg-white rounded-3xl overflow-hidden max-w-xl w-full shadow-2xl max-h-[94vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Image */}
+        {/* Large image */}
         <div className="relative flex-shrink-0">
-          <img src={modal.image} alt={modal.title} className="w-full h-56 object-cover" />
+          <img src={modal.image} alt={modal.title} className="w-full h-80 object-cover" />
           <button
             className="absolute top-3 right-3 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors shadow"
             onClick={onClose}
@@ -493,19 +540,12 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
   )
 }
 
-function subcategoryLabel(id: string) {
-  return birthdaySubcategories.find((s) => s.id === id)?.label ?? id
-}
-
 export default function Catalog() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
   const section = searchParams.get("section")
 
-  // ──────────────────────────────────────────────────────
-  // "На день рождения" — показываем все подкатегории сразу
-  // ──────────────────────────────────────────────────────
   if (section === "birthday") {
     return (
       <div className="min-h-screen">
@@ -523,7 +563,7 @@ export default function Catalog() {
             <span className="text-4xl">🎂</span>
             <div>
               <h1 className="text-3xl font-bold leading-tight">На день рождения</h1>
-              <p className="text-muted-foreground text-sm">Для девушки, мужчины, мальчика и девочки</p>
+              <p className="text-muted-foreground text-sm">Для девушки, мужчины, мальчика, девочки и другие</p>
             </div>
           </div>
           <CompositionGrid items={allBirthdayCompositions} showSubcategoryBadge />
@@ -533,32 +573,31 @@ export default function Catalog() {
     )
   }
 
-  // ──────────────────────────────────────────────────────
-  // "На выписку"
-  // ──────────────────────────────────────────────────────
   if (section === "discharge") {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
           <button
             onClick={() => navigate("/catalog")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-6 transition-colors text-sm"
           >
-            <Icon name="ArrowLeft" size={18} /> Назад
+            <Icon name="ArrowLeft" size={16} /> Назад
           </button>
-          <h1 className="text-4xl md:text-5xl font-semibold mb-2">👶 На выписку</h1>
-          <p className="text-muted-foreground mb-10">Выберите композицию для встречи малыша</p>
-          <CompositionGrid items={compositions.discharge} />
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-4xl">👶</span>
+            <div>
+              <h1 className="text-3xl font-bold leading-tight">На выписку</h1>
+              <p className="text-muted-foreground text-sm">Встречаем малыша из роддома</p>
+            </div>
+          </div>
+          <CompositionGrid items={compositions.discharge} showDischargeBadge />
         </div>
         <Footer />
       </div>
     )
   }
 
-  // ──────────────────────────────────────────────────────
-  // Главная страница каталога
-  // ──────────────────────────────────────────────────────
   return (
     <div className="min-h-screen">
       <Navbar />

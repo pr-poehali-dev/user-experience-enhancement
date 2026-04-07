@@ -48,21 +48,31 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Contacts */}
           <div>
-            <h4 className="font-semibold mb-4">Поддержка</h4>
+            <h4 className="font-semibold mb-4">Контакты</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Как заказать</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Доставка</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Связаться с нами</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Политика конфиденциальности</a></li>
+              <li>
+                <a href="tel:+79885973303" className="hover:text-foreground transition-colors flex items-center gap-1.5">
+                  <Icon name="Phone" size={14} className="text-primary" />
+                  8 988 597 33 03
+                </a>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <Icon name="MapPin" size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                <span>Мы находимся по адресу:<br /><span className="text-foreground font-medium">ул. Героя Яцкова 19к3</span></span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <Icon name="Clock" size={14} className="text-primary" />
+                Доставка 24/7
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>2025 ШарикоFF. Все права защищены.</p>
+          <p>2025 Шарим. Все права защищены.</p>
         </div>
       </div>
     </footer>

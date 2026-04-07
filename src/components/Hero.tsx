@@ -56,38 +56,41 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center py-32">
-        <div className="space-y-8">
+        <div className="space-y-6">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-balance">
             Воздушные
             <span className="block font-semibold mt-2 text-primary">шарики</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
-            Яркие композиции для любого праздника — на день рождения, выписку, для мужчин и женщин, детей
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Стильные композиции из шаров для любого праздника по низким ценам
           </p>
 
-          {/* Info badges */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm">
-              <Icon name="MapPin" className="h-4 w-4 text-primary" />
-              Краснодар и Краснодарский край
-            </div>
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm">
-              <Icon name="Clock" className="h-4 w-4 text-primary" />
-              Доставка 24/7
-            </div>
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-sm">
-              <Icon name="ShoppingBag" className="h-4 w-4 text-primary" />
-              Самовывоз: ул. Героя Яцкова 19к3
-            </div>
+          {/* Delivery highlight */}
+          <div className="inline-flex items-center gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-6 py-3">
+            <Icon name="Truck" className="h-6 w-6 text-primary flex-shrink-0" />
+            <span className="text-xl md:text-2xl font-bold text-primary">
+              Доставка по Краснодару 24/7
+            </span>
           </div>
 
-          <div className="flex justify-center pt-4">
+          {/* Phone */}
+          <div>
+            <a
+              href="tel:+79885973303"
+              className="inline-flex items-center gap-2 text-2xl md:text-3xl font-bold text-foreground hover:text-primary transition-colors"
+            >
+              <Icon name="Phone" className="h-7 w-7 text-primary" />
+              8 988 597 33 03
+            </a>
+          </div>
+
+          <div className="flex justify-center pt-2">
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 group shadow-lg"
-              style={{height: '4.5rem', fontSize: '1.25rem'}}
-              onClick={() => navigate('/catalog')}
+              style={{ height: "4.5rem", fontSize: "1.25rem" }}
+              onClick={() => navigate("/catalog")}
             >
               Смотреть каталог
               <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
@@ -95,26 +98,44 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Social Links — горизонтальные */}
-        <div className="flex items-center justify-center gap-6 md:gap-10 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
-          <a href="#" className="flex flex-col items-center gap-2 group">
-            <div className="w-32 h-14 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="Send" className="h-6 w-6 text-white" />
+        {/* Social Links */}
+        <div className="flex items-center justify-center flex-wrap gap-4 md:gap-6 max-w-3xl mx-auto mt-16 pt-12 border-t border-border/50">
+          <a href="#" className="group">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="Send" className="h-5 w-5 text-white" />
               <span className="text-white font-semibold text-sm">Telegram</span>
             </div>
           </a>
-          <a href="#" className="flex flex-col items-center gap-2 group">
-            <div className="w-32 h-14 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="Instagram" className="h-6 w-6 text-white" />
+          <a href="#" className="group">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="Instagram" className="h-5 w-5 text-white" />
               <span className="text-white font-semibold text-sm">Instagram</span>
             </div>
           </a>
-          <a href="#" className="flex flex-col items-center gap-2 group">
-            <div className="w-32 h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
-              <Icon name="MessageCircle" className="h-6 w-6 text-white" />
+          <a href="#" className="group">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="MessageCircle" className="h-5 w-5 text-white" />
               <span className="text-white font-semibold text-sm">ВКонтакте</span>
             </div>
           </a>
+          <a href="#" className="group">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-orange-400 to-red-500 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="Flame" className="h-5 w-5 text-white" />
+              <span className="text-white font-semibold text-sm">Max</span>
+            </div>
+          </a>
+          <a href="https://wa.me/79885973303" className="group">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-green-400 to-green-600 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="MessageSquare" className="h-5 w-5 text-white" />
+              <span className="text-white font-semibold text-sm">WhatsApp</span>
+            </div>
+          </a>
+        </div>
+
+        {/* Address */}
+        <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+          <Icon name="MapPin" className="h-4 w-4 text-primary" />
+          Мы находимся по адресу: <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
         </div>
       </div>
     </section>
