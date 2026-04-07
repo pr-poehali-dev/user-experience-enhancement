@@ -17,6 +17,7 @@ type Composition = {
   title: string
   description: string
   price: string
+  priceNum: number
   colors: string[]
 }
 
@@ -37,46 +38,50 @@ const COLOR_OPTIONS = [
 
 const compositions: Record<string, Composition[]> = {
   girl: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Нежность»", description: "Розовые и белые шары с фольгированными сердечками.", price: "от 1 490 ₽", colors: ["pink", "white"] },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Принцесса»", description: "Сиреневые и золотые шары с фольгированной короной.", price: "от 1 890 ₽", colors: ["purple", "gold"] },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Облако «Розовая мечта»", description: "Большая облачная композиция из розовых шаров разных размеров.", price: "от 2 200 ₽", colors: ["pink"] },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фламинго»", description: "Яркая арка из розовых, коралловых и белых шаров для фотозоны.", price: "от 3 500 ₽", colors: ["pink", "red", "white"] },
-    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «25»", description: "Фольгированная цифра в розово-золотом оформлении.", price: "от 990 ₽", colors: ["pink", "gold"] },
-    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Весна»", description: "Нежные пастельные шары с живыми цветами и атласными лентами.", price: "от 2 800 ₽", colors: ["pink", "mint", "white"] },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Нежность»", description: "Розовые и белые шары с фольгированными сердечками.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white"] },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Принцесса»", description: "Сиреневые и золотые шары с фольгированной короной.", price: "от 1 890 ₽", priceNum: 1890, colors: ["purple", "gold"] },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Облако «Розовая мечта»", description: "Большая облачная композиция из розовых шаров разных размеров.", price: "от 2 200 ₽", priceNum: 2200, colors: ["pink"] },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фламинго»", description: "Яркая арка из розовых, коралловых и белых шаров для фотозоны.", price: "от 3 500 ₽", priceNum: 3500, colors: ["pink", "red", "white"] },
+    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «25»", description: "Фольгированная цифра в розово-золотом оформлении.", price: "от 990 ₽", priceNum: 990, colors: ["pink", "gold"] },
+    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Композиция «Весна»", description: "Нежные пастельные шары с живыми цветами и атласными лентами.", price: "от 2 800 ₽", priceNum: 2800, colors: ["pink", "mint", "white"] },
   ],
   man: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Букет «Стиль»", description: "Синие, чёрные и серебряные шары — строго и стильно.", price: "от 1 690 ₽", colors: ["blue", "black", "silver"] },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Джентльмен»", description: "Тёмно-синие шары с золотыми звёздами и фольгированными цифрами.", price: "от 2 290 ₽", colors: ["blue", "gold"] },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Синяя волна»", description: "Арка из синих и серебряных шаров — эффектная фотозона.", price: "от 3 200 ₽", colors: ["blue", "silver"] },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «40»", description: "Большая фольгированная цифра в синем и золотом цвете.", price: "от 990 ₽", colors: ["blue", "gold"] },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Букет «Стиль»", description: "Синие, чёрные и серебряные шары — строго и стильно.", price: "от 1 690 ₽", priceNum: 1690, colors: ["blue", "black", "silver"] },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Джентльмен»", description: "Тёмно-синие шары с золотыми звёздами и фольгированными цифрами.", price: "от 2 290 ₽", priceNum: 2290, colors: ["blue", "gold"] },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Синяя волна»", description: "Арка из синих и серебряных шаров — эффектная фотозона.", price: "от 3 200 ₽", priceNum: 3200, colors: ["blue", "silver"] },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «40»", description: "Большая фольгированная цифра в синем и золотом цвете.", price: "от 990 ₽", priceNum: 990, colors: ["blue", "gold"] },
   ],
   boy: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Букет «Супергерой»", description: "Яркие синие и красные шары с фольгированными звёздами.", price: "от 1 290 ₽", colors: ["blue", "red"] },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Космонавт»", description: "Синие и серебряные шары с ракетами и звёздами.", price: "от 1 890 ₽", colors: ["blue", "silver"] },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Гонки»", description: "Красно-синяя арка с машинками для юного гонщика.", price: "от 2 900 ₽", colors: ["red", "blue"] },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «5»", description: "Яркая цифра пять в синих и зелёных тонах.", price: "от 890 ₽", colors: ["blue", "green"] },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Букет «Супергерой»", description: "Яркие синие и красные шары с фольгированными звёздами.", price: "от 1 290 ₽", priceNum: 1290, colors: ["blue", "red"] },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор «Космонавт»", description: "Синие и серебряные шары с ракетами и звёздами.", price: "от 1 890 ₽", priceNum: 1890, colors: ["blue", "silver"] },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Арка «Гонки»", description: "Красно-синяя арка с машинками для юного гонщика.", price: "от 2 900 ₽", priceNum: 2900, colors: ["red", "blue"] },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Цифра «5»", description: "Яркая цифра пять в синих и зелёных тонах.", price: "от 890 ₽", priceNum: 890, colors: ["blue", "green"] },
   ],
   "kid-girl": [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Единорог»", description: "Розовые, белые и сиреневые шары с единорогом.", price: "от 1 490 ₽", colors: ["pink", "white", "purple"] },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фея»", description: "Нежная арка из лиловых и розовых шаров со звёздами.", price: "от 2 800 ₽", colors: ["purple", "pink"] },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор «Барби»", description: "Ярко-розовые шары с надписями и сердечками.", price: "от 1 690 ₽", colors: ["pink"] },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «7»", description: "Розово-золотая цифра семь для маленькой принцессы.", price: "от 890 ₽", colors: ["pink", "gold"] },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Букет «Единорог»", description: "Розовые, белые и сиреневые шары с единорогом.", price: "от 1 490 ₽", priceNum: 1490, colors: ["pink", "white", "purple"] },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Арка «Фея»", description: "Нежная арка из лиловых и розовых шаров со звёздами.", price: "от 2 800 ₽", priceNum: 2800, colors: ["purple", "pink"] },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор «Барби»", description: "Ярко-розовые шары с надписями и сердечками.", price: "от 1 690 ₽", priceNum: 1690, colors: ["pink"] },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Цифра «7»", description: "Розово-золотая цифра семь для маленькой принцессы.", price: "от 890 ₽", priceNum: 890, colors: ["pink", "gold"] },
   ],
   discharge: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча мальчика", description: "Нежно-голубые и белые шары с надписью «Это мальчик!».", price: "от 2 490 ₽", colors: ["cyan", "white"] },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча девочки", description: "Розовые и мятные шары с сердечками и надписью «Это девочка!».", price: "от 2 490 ₽", colors: ["pink", "mint"] },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Облако «Малыш»", description: "Большая облачная композиция из пастельных шаров.", price: "от 3 200 ₽", colors: ["mint", "white", "yellow"] },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Сюрприз-бокс", description: "Коробка с шарами, которые вылетают при открытии.", price: "от 1 890 ₽", colors: ["pink", "gold", "white"] },
-    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Арка «Первый вдох»", description: "Нежная арка из шаров у входа роддома.", price: "от 4 500 ₽", colors: ["white", "mint", "cyan"] },
-    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор «Звёздочка»", description: "Жёлтые и белые шары со звёздами.", price: "от 1 990 ₽", colors: ["yellow", "white"] },
+    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча мальчика", description: "Нежно-голубые и белые шары с надписью «Это мальчик!».", price: "от 2 490 ₽", priceNum: 2490, colors: ["cyan", "white"] },
+    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Встреча девочки", description: "Розовые и мятные шары с сердечками и надписью «Это девочка!».", price: "от 2 490 ₽", priceNum: 2490, colors: ["pink", "mint"] },
+    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Облако «Малыш»", description: "Большая облачная композиция из пастельных шаров.", price: "от 3 200 ₽", priceNum: 3200, colors: ["mint", "white", "yellow"] },
+    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Сюрприз-бокс", description: "Коробка с шарами, которые вылетают при открытии.", price: "от 1 890 ₽", priceNum: 1890, colors: ["pink", "gold", "white"] },
+    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Арка «Первый вдох»", description: "Нежная арка из шаров у входа роддома.", price: "от 4 500 ₽", priceNum: 4500, colors: ["white", "mint", "cyan"] },
+    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор «Звёздочка»", description: "Жёлтые и белые шары со звёздами.", price: "от 1 990 ₽", priceNum: 1990, colors: ["yellow", "white"] },
   ],
 }
 
 type ModalItem = Composition | null
 
+const PRICE_MIN = 500
+const PRICE_MAX = 5000
+
 function CompositionGrid({ categoryId }: { categoryId: string }) {
   const [modal, setModal] = useState<ModalItem>(null)
   const [activeColors, setActiveColors] = useState<string[]>([])
+  const [maxPrice, setMaxPrice] = useState(PRICE_MAX)
 
   const items = compositions[categoryId] || []
 
@@ -86,56 +91,84 @@ function CompositionGrid({ categoryId }: { categoryId: string }) {
     )
   }
 
-  const filtered = activeColors.length === 0
-    ? items
-    : items.filter((item) => activeColors.some((c) => item.colors.includes(c)))
+  const resetAll = () => { setActiveColors([]); setMaxPrice(PRICE_MAX) }
+  const hasFilters = activeColors.length > 0 || maxPrice < PRICE_MAX
+
+  const filtered = items
+    .filter((item) => item.priceNum <= maxPrice)
+    .filter((item) => activeColors.length === 0 || activeColors.some((c) => item.colors.includes(c)))
+
+  const pct = ((maxPrice - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100
 
   return (
     <>
-      {/* Color Filter */}
-      <div className="mb-8">
-        <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Фильтр по цвету</p>
-        <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => {
-            const isActive = activeColors.includes(color.id)
-            return (
-              <button
-                key={color.id}
-                onClick={() => toggleColor(color.id)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border-2 transition-all ${
-                  isActive
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border bg-white text-muted-foreground hover:border-primary/50"
-                }`}
-              >
-                <span
-                  className="w-4 h-4 rounded-full flex-shrink-0"
-                  style={{
-                    backgroundColor: color.hex,
-                    border: color.border ? "1px solid #d1d5db" : "none",
-                  }}
-                />
-                {color.label}
-              </button>
-            )
-          })}
-          {activeColors.length > 0 && (
-            <button
-              onClick={() => setActiveColors([])}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-sm text-muted-foreground hover:text-foreground border-2 border-dashed border-border transition-colors"
-            >
-              <Icon name="X" size={14} /> Сбросить
-            </button>
-          )}
+      {/* Filters */}
+      <div className="mb-8 space-y-6 bg-muted/40 rounded-2xl p-5">
+        {/* Price slider */}
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Цена до</p>
+            <span className="text-base font-bold text-primary">{maxPrice.toLocaleString("ru")} ₽</span>
+          </div>
+          <div className="relative h-2 bg-border rounded-full">
+            <div className="absolute left-0 top-0 h-2 rounded-full bg-primary transition-all" style={{ width: `${pct}%` }} />
+            <input
+              type="range"
+              min={PRICE_MIN}
+              max={PRICE_MAX}
+              step={100}
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(Number(e.target.value))}
+              className="absolute inset-0 w-full opacity-0 cursor-pointer h-2"
+            />
+            <div
+              className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none transition-all"
+              style={{ left: `calc(${pct}% - 10px)` }}
+            />
+          </div>
+          <div className="flex justify-between text-xs text-muted-foreground mt-1">
+            <span>{PRICE_MIN.toLocaleString("ru")} ₽</span>
+            <span>{PRICE_MAX.toLocaleString("ru")} ₽</span>
+          </div>
         </div>
+
+        {/* Color filter */}
+        <div>
+          <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Цвет шариков</p>
+          <div className="flex flex-wrap gap-2">
+            {COLOR_OPTIONS.map((color) => {
+              const isActive = activeColors.includes(color.id)
+              return (
+                <button
+                  key={color.id}
+                  onClick={() => toggleColor(color.id)}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border-2 transition-all ${
+                    isActive
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border bg-white text-muted-foreground hover:border-primary/50"
+                  }`}
+                >
+                  <span className="w-4 h-4 rounded-full flex-shrink-0" style={{ backgroundColor: color.hex, border: color.border ? "1px solid #d1d5db" : "none" }} />
+                  {color.label}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {hasFilters && (
+          <button onClick={resetAll} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Icon name="X" size={14} /> Сбросить все фильтры
+          </button>
+        )}
       </div>
 
       {/* Grid */}
       {filtered.length === 0 ? (
         <div className="text-center py-20 text-muted-foreground">
           <div className="text-5xl mb-4">🎈</div>
-          <p className="text-lg">Нет композиций с выбранными цветами</p>
-          <button onClick={() => setActiveColors([])} className="mt-4 text-primary underline text-sm">Сбросить фильтр</button>
+          <p className="text-lg">Нет подходящих композиций</p>
+          <button onClick={resetAll} className="mt-4 text-primary underline text-sm">Сбросить фильтры</button>
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
