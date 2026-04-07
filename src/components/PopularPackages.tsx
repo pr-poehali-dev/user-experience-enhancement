@@ -1,51 +1,54 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Calendar, Users, Star } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 const packages = [
   {
-    title: "Гранд-тур по Европе",
-    duration: "14 дней",
-    groupSize: "12-16 человек",
+    title: "Букет «Принцесса»",
+    category: "Для девочки",
+    count: "15 шариков",
+    emoji: "👑",
     rating: "4.9",
-    reviews: "234",
-    image: "/european-cities-paris-eiffel-tower-romantic.jpg",
-    highlights: ["Париж", "Рим", "Барселона", "Амстердам"],
-    price: "429 900 ₽",
+    reviews: "128",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg",
+    highlights: ["Розовые", "Сиреневые", "Фольга-звёзды", "Единорог"],
+    price: "1 890 ₽",
   },
   {
-    title: "Азиатское приключение",
-    duration: "10 дней",
-    groupSize: "8-12 человек",
+    title: "Набор «Настоящий мужчина»",
+    category: "Для мужчины",
+    count: "12 шариков",
+    emoji: "🎩",
     rating: "4.8",
-    reviews: "189",
-    image: "/asian-temples-thailand-bangkok-golden-temple.jpg",
-    highlights: ["Бангкок", "Сингапур", "Бали", "Куала-Лумпур"],
-    price: "349 900 ₽",
+    reviews: "94",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg",
+    highlights: ["Синие", "Чёрные", "Серебро", "Цифра-возраст"],
+    price: "2 290 ₽",
   },
   {
-    title: "Сафари-экспедиция",
-    duration: "7 дней",
-    groupSize: "6-10 человек",
+    title: "Встреча малыша",
+    category: "Для выписки",
+    count: "20 шариков",
+    emoji: "👶",
     rating: "5.0",
-    reviews: "156",
-    image: "/african-safari-wildlife-elephants-sunset.jpg",
-    highlights: ["Серенгети", "Масаи Мара", "Нгоронгоро", "Амбосели"],
-    price: "599 900 ₽",
+    reviews: "213",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg",
+    highlights: ["Пастельные", "Звёзды", "«Это мальчик!»", "Облачка"],
+    price: "3 490 ₽",
   },
 ]
 
 export function PopularPackages() {
   return (
-    <section id="packages" className="py-32 bg-background">
+    <section id="popular" className="py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-20">
           <h2 className="text-5xl md:text-6xl font-light tracking-tight mb-6 text-balance">
-            Популярные <span className="font-semibold">туры</span>
+            Популярные <span className="font-semibold text-primary">наборы</span>
           </h2>
           <p className="text-lg text-muted-foreground text-balance leading-relaxed">
-            Тщательно подобранные туры, объединяющие лучшие направления и впечатления
+            Самые любимые букеты наших покупателей — уже готовые к заказу
           </p>
         </div>
 
@@ -57,9 +60,9 @@ export function PopularPackages() {
               className="group overflow-hidden border-0 bg-card hover:shadow-2xl transition-all duration-500"
             >
               {/* Image */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden bg-pink-50">
                 <img
-                  src={pkg.image || "/placeholder.svg"}
+                  src={pkg.image}
                   alt={pkg.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -67,7 +70,7 @@ export function PopularPackages() {
 
                 {/* Rating Badge */}
                 <div className="absolute top-4 right-4 flex items-center gap-1 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                  <Star className="h-3.5 w-3.5 fill-primary text-primary" />
+                  <Icon name="Star" className="h-3.5 w-3.5 fill-primary text-primary" />
                   <span className="text-xs font-semibold">{pkg.rating}</span>
                   <span className="text-xs text-muted-foreground">({pkg.reviews})</span>
                 </div>
@@ -76,17 +79,17 @@ export function PopularPackages() {
               {/* Content */}
               <div className="p-6 space-y-6">
                 <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xl">{pkg.emoji}</span>
+                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">{pkg.category}</span>
+                  </div>
                   <h3 className="text-2xl font-semibold mb-4">{pkg.title}</h3>
 
                   {/* Meta Info */}
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="h-4 w-4" />
-                      <span>{pkg.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Users className="h-4 w-4" />
-                      <span>{pkg.groupSize}</span>
+                      <Icon name="Package" className="h-4 w-4" />
+                      <span>{pkg.count}</span>
                     </div>
                   </div>
 
@@ -107,7 +110,7 @@ export function PopularPackages() {
                     <div className="text-2xl font-semibold text-primary">{pkg.price}</div>
                   </div>
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full">
-                    Забронировать
+                    Заказать
                   </Button>
                 </div>
               </div>
