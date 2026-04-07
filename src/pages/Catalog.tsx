@@ -109,14 +109,16 @@ function PriceSlider({
           {minPrice.toLocaleString("ru")} ₽ — {maxPrice.toLocaleString("ru")} ₽
         </span>
       </div>
-      {/* Track */}
-      <div className="relative h-2 bg-border rounded-full mx-2.5">
+      {/* Two separate sliders stacked */}
+      <div className="relative h-6 mx-2.5">
+        {/* Background track */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-2 bg-border rounded-full" />
         {/* Active range */}
         <div
-          className="absolute top-0 h-2 rounded-full bg-primary transition-all"
+          className="absolute top-1/2 -translate-y-1/2 h-2 rounded-full bg-primary"
           style={{ left: `${pctMin}%`, width: `${pctMax - pctMin}%` }}
         />
-        {/* Min thumb (invisible range input) */}
+        {/* Min input — left half pointer-events */}
         <input
           type="range"
           min={PRICE_MIN}
@@ -127,9 +129,10 @@ function PriceSlider({
             const v = Number(e.target.value)
             if (v <= maxPrice - 500) onMinChange(v)
           }}
-          className="absolute inset-0 w-full opacity-0 cursor-pointer h-2 z-20"
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          style={{ zIndex: minPrice > PRICE_MAX - 1000 ? 5 : 4 }}
         />
-        {/* Max thumb (invisible range input) */}
+        {/* Max input */}
         <input
           type="range"
           min={PRICE_MIN}
@@ -140,20 +143,21 @@ function PriceSlider({
             const v = Number(e.target.value)
             if (v >= minPrice + 500) onMaxChange(v)
           }}
-          className="absolute inset-0 w-full opacity-0 cursor-pointer h-2 z-10"
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          style={{ zIndex: minPrice > PRICE_MAX - 1000 ? 4 : 5 }}
         />
-        {/* Min handle */}
+        {/* Min handle visual */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none transition-all z-30"
-          style={{ left: `calc(${pctMin}% - 10px)` }}
+          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none"
+          style={{ left: `calc(${pctMin}% - 10px)`, zIndex: 6 }}
         />
-        {/* Max handle */}
+        {/* Max handle visual */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none transition-all z-30"
-          style={{ left: `calc(${pctMax}% - 10px)` }}
+          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none"
+          style={{ left: `calc(${pctMax}% - 10px)`, zIndex: 6 }}
         />
       </div>
-      <div className="flex justify-between text-xs text-muted-foreground mt-2 mx-2.5">
+      <div className="flex justify-between text-xs text-muted-foreground mt-1 mx-2.5">
         <span>{PRICE_MIN.toLocaleString("ru")} ₽</span>
         <span>{PRICE_MAX.toLocaleString("ru")} ₽</span>
       </div>
@@ -220,21 +224,21 @@ function CompositionGrid({
         {showSubcategoryBadge && (
           <div>
             <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Для кого</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {birthdaySubcategories.map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 return (
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium border-2 transition-all ${
+                    className={`flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl text-sm font-semibold border-2 transition-all ${
                       isActive
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border bg-white text-muted-foreground hover:border-primary/50"
+                        ? "border-primary bg-primary text-primary-foreground shadow-md scale-[1.03]"
+                        : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
                     }`}
                   >
-                    <span>{cat.emoji}</span>
-                    {cat.label}
+                    <span className="text-2xl">{cat.emoji}</span>
+                    <span>{cat.label}</span>
                   </button>
                 )
               })}
@@ -422,17 +426,22 @@ export default function Catalog() {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-16">
-          <button
-            onClick={() => navigate("/catalog")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
-          >
-            <Icon name="ArrowLeft" size={18} /> Назад
-          </button>
-          <h1 className="text-4xl md:text-5xl font-semibold mb-2">🎂 На день рождения</h1>
-          <p className="text-muted-foreground mb-10">
-            Все композиции · Для девушки, мужчины, мальчика и девочки
-          </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
+          <div className="flex items-center gap-4 mb-4">
+            <button
+              onClick={() => navigate("/catalog")}
+              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-sm"
+            >
+              <Icon name="ArrowLeft" size={16} /> Назад
+            </button>
+          </div>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-4xl">🎂</span>
+            <div>
+              <h1 className="text-3xl font-bold leading-tight">На день рождения</h1>
+              <p className="text-muted-foreground text-sm">Для девушки, мужчины, мальчика и девочки</p>
+            </div>
+          </div>
           <CompositionGrid items={allBirthdayCompositions} showSubcategoryBadge />
         </div>
         <Footer />
