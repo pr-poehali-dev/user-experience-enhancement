@@ -2,17 +2,56 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
+const balloons = [
+  { emoji: "🎈", size: "text-7xl", left: "5%", delay: "0s", duration: "6s" },
+  { emoji: "🎀", size: "text-5xl", left: "12%", delay: "1.2s", duration: "7s" },
+  { emoji: "🎈", size: "text-8xl", left: "22%", delay: "0.5s", duration: "5.5s" },
+  { emoji: "🎊", size: "text-6xl", left: "33%", delay: "2s", duration: "8s" },
+  { emoji: "🎈", size: "text-5xl", left: "45%", delay: "0.8s", duration: "6.5s" },
+  { emoji: "🎉", size: "text-7xl", left: "55%", delay: "1.5s", duration: "7.5s" },
+  { emoji: "🎈", size: "text-9xl", left: "65%", delay: "0.3s", duration: "5s" },
+  { emoji: "🎀", size: "text-6xl", left: "75%", delay: "2.5s", duration: "9s" },
+  { emoji: "🎈", size: "text-5xl", left: "83%", delay: "1s", duration: "6s" },
+  { emoji: "🎊", size: "text-7xl", left: "92%", delay: "1.8s", duration: "7s" },
+  { emoji: "🎈", size: "text-6xl", left: "8%", delay: "3s", duration: "8.5s" },
+  { emoji: "🎈", size: "text-8xl", left: "50%", delay: "3.5s", duration: "6s" },
+]
+
 export function Hero() {
   const navigate = useNavigate()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-muted/30 to-background">
-      {/* Background decoration */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-pink-100 via-rose-50 to-background">
+      <style>{`
+        @keyframes floatUp {
+          0% { transform: translateY(110vh) rotate(-5deg); opacity: 0; }
+          10% { opacity: 0.7; }
+          90% { opacity: 0.5; }
+          100% { transform: translateY(-20vh) rotate(5deg); opacity: 0; }
+        }
+        .balloon-float {
+          animation: floatUp linear infinite;
+          position: absolute;
+          bottom: -100px;
+          pointer-events: none;
+        }
+      `}</style>
+
+      {/* Flying balloons */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-20 left-10 text-8xl opacity-10 animate-bounce" style={{animationDuration: '3s'}}>🎈</div>
-        <div className="absolute top-40 right-20 text-6xl opacity-10 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}>🎀</div>
-        <div className="absolute bottom-40 left-20 text-7xl opacity-10 animate-bounce" style={{animationDuration: '3.5s', animationDelay: '0.5s'}}>🎊</div>
-        <div className="absolute bottom-20 right-10 text-5xl opacity-10 animate-bounce" style={{animationDuration: '2.5s', animationDelay: '1.5s'}}>🎉</div>
+        {balloons.map((b, i) => (
+          <div
+            key={i}
+            className={`balloon-float ${b.size}`}
+            style={{
+              left: b.left,
+              animationDelay: b.delay,
+              animationDuration: b.duration,
+            }}
+          >
+            {b.emoji}
+          </div>
+        ))}
       </div>
 
       {/* Content */}
@@ -30,7 +69,7 @@ export function Hero() {
           <div className="flex justify-center pt-8">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 h-18 text-xl group shadow-lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 group shadow-lg"
               style={{height: '4.5rem', fontSize: '1.25rem'}}
               onClick={() => navigate('/catalog')}
             >
@@ -40,25 +79,25 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-10 md:gap-16 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
-          <a href="#" className="flex flex-col items-center gap-3 group">
-            <div className="w-16 h-20 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <Icon name="Send" className="h-8 w-8 text-white" />
+        {/* Social Links — горизонтальные */}
+        <div className="flex items-center justify-center gap-6 md:gap-10 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
+          <a href="#" className="flex flex-col items-center gap-2 group">
+            <div className="w-32 h-14 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="Send" className="h-6 w-6 text-white" />
+              <span className="text-white font-semibold text-sm">Telegram</span>
             </div>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Telegram</span>
           </a>
-          <a href="#" className="flex flex-col items-center gap-3 group">
-            <div className="w-16 h-20 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <Icon name="Instagram" className="h-8 w-8 text-white" />
+          <a href="#" className="flex flex-col items-center gap-2 group">
+            <div className="w-32 h-14 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="Instagram" className="h-6 w-6 text-white" />
+              <span className="text-white font-semibold text-sm">Instagram</span>
             </div>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Instagram</span>
           </a>
-          <a href="#" className="flex flex-col items-center gap-3 group">
-            <div className="w-16 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <Icon name="MessageCircle" className="h-8 w-8 text-white" />
+          <a href="#" className="flex flex-col items-center gap-2 group">
+            <div className="w-32 h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
+              <Icon name="MessageCircle" className="h-6 w-6 text-white" />
+              <span className="text-white font-semibold text-sm">ВКонтакте</span>
             </div>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">ВКонтакте</span>
           </a>
         </div>
       </div>

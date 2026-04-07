@@ -163,26 +163,27 @@ export default function Catalog() {
   // Уровень 2: подкатегории дня рождения
   if (section === "birthday") {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-16">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 py-24">
           <button
             onClick={() => navigate("/catalog")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors self-start max-w-6xl w-full mx-auto"
           >
             <Icon name="ArrowLeft" size={18} /> Назад
           </button>
-          <h1 className="text-4xl md:text-5xl font-semibold mb-2">🎂 На день рождения</h1>
-          <p className="text-muted-foreground mb-12">Для кого делаем праздник?</p>
-          <div className="grid grid-cols-2 gap-6 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-2 text-center">🎂 На день рождения</h1>
+          <p className="text-muted-foreground mb-10 text-center">Для кого делаем праздник?</p>
+          <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
             {birthdaySubcategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => navigate(`/catalog?section=birthday&sub=${cat.id}`)}
-                className={`group relative rounded-3xl overflow-hidden aspect-square bg-gradient-to-br ${cat.color} flex flex-col items-center justify-center gap-3 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300`}
+                className={`group relative rounded-3xl overflow-hidden bg-gradient-to-br ${cat.color} flex flex-col items-center justify-center gap-4 shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300`}
+                style={{minHeight: '260px'}}
               >
-                <span className="text-6xl">{cat.emoji}</span>
-                <span className="text-white text-xl font-semibold">{cat.label}</span>
+                <span className="text-8xl">{cat.emoji}</span>
+                <span className="text-white text-2xl font-bold">{cat.label}</span>
               </button>
             ))}
           </div>
