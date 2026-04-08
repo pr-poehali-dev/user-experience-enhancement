@@ -8,7 +8,7 @@ export function AboutUs() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-rose-200/40 rounded-[3rem] blur-2xl" />
               <img
-                src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/c2f7eeda-1294-4056-9a5e-9bc57cc5767e.jpg"
+                src="https://cdn.poehali.dev/files/1c81981c-8a25-4651-a48f-e1caece90b1e.jpg"
                 alt="Виктория — основательница Шарим"
                 className="relative w-64 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[480px] object-cover rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl"
               />
