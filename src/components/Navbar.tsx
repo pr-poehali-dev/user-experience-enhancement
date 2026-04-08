@@ -27,7 +27,7 @@ export function Navbar() {
             <img
               src="https://cdn.poehali.dev/files/067decf6-cc51-47c4-b8e7-f586768c16bf.png"
               alt="Шарим — студия аэродизайна"
-              className="h-20 w-auto object-contain"
+              className="h-20 w-auto object-contain mt-3"
             />
           </div>
 
