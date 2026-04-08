@@ -3,24 +3,31 @@ import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
 const floatingItems = [
-  { emoji: "🎈", size: "text-6xl", left: "3%", delay: "0s", duration: "6s" },
-  { emoji: "🎀", size: "text-4xl", left: "10%", delay: "1.2s", duration: "7s" },
-  { emoji: "🎈", size: "text-7xl", left: "18%", delay: "0.5s", duration: "5.5s" },
-  { emoji: "🎊", size: "text-5xl", left: "26%", delay: "2s", duration: "8s" },
-  { emoji: "🧸", size: "text-4xl", left: "32%", delay: "3.2s", duration: "7.5s" },
-  { emoji: "🎈", size: "text-5xl", left: "40%", delay: "0.8s", duration: "6.5s" },
-  { emoji: "🎉", size: "text-6xl", left: "50%", delay: "1.5s", duration: "7.5s" },
-  { emoji: "🪀", size: "text-4xl", left: "57%", delay: "4s", duration: "9s" },
-  { emoji: "🎈", size: "text-8xl", left: "64%", delay: "0.3s", duration: "5s" },
-  { emoji: "🎀", size: "text-5xl", left: "72%", delay: "2.5s", duration: "9s" },
-  { emoji: "🎁", size: "text-4xl", left: "79%", delay: "1.8s", duration: "7s" },
-  { emoji: "🎈", size: "text-5xl", left: "86%", delay: "1s", duration: "6s" },
-  { emoji: "🎊", size: "text-6xl", left: "92%", delay: "0.6s", duration: "8.5s" },
-  { emoji: "🪆", size: "text-4xl", left: "7%", delay: "3s", duration: "8.5s" },
-  { emoji: "🎈", size: "text-7xl", left: "48%", delay: "3.5s", duration: "6s" },
-  { emoji: "🧨", size: "text-4xl", left: "22%", delay: "4.5s", duration: "9s" },
-  { emoji: "🎠", size: "text-5xl", left: "88%", delay: "2.8s", duration: "7s" },
-  { emoji: "🪅", size: "text-4xl", left: "55%", delay: "5s", duration: "10s" },
+  { emoji: "🎈", size: "text-6xl", left: "3%", delay: "0s", duration: "8s", startY: "110vh" },
+  { emoji: "🎀", size: "text-4xl", left: "10%", delay: "1.2s", duration: "10s", startY: "110vh" },
+  { emoji: "🎈", size: "text-7xl", left: "18%", delay: "0.5s", duration: "7s", startY: "110vh" },
+  { emoji: "🎊", size: "text-5xl", left: "26%", delay: "2s", duration: "11s", startY: "110vh" },
+  { emoji: "🧸", size: "text-4xl", left: "32%", delay: "3.2s", duration: "9s", startY: "110vh" },
+  { emoji: "🎈", size: "text-5xl", left: "40%", delay: "0.8s", duration: "8.5s", startY: "110vh" },
+  { emoji: "🎉", size: "text-6xl", left: "50%", delay: "1.5s", duration: "10s", startY: "110vh" },
+  { emoji: "🪀", size: "text-4xl", left: "57%", delay: "4s", duration: "12s", startY: "110vh" },
+  { emoji: "🎈", size: "text-8xl", left: "64%", delay: "0.3s", duration: "7s", startY: "110vh" },
+  { emoji: "🎀", size: "text-5xl", left: "72%", delay: "2.5s", duration: "11s", startY: "110vh" },
+  { emoji: "🎁", size: "text-4xl", left: "79%", delay: "1.8s", duration: "9s", startY: "110vh" },
+  { emoji: "🎈", size: "text-5xl", left: "86%", delay: "1s", duration: "8s", startY: "110vh" },
+  { emoji: "🎊", size: "text-6xl", left: "92%", delay: "0.6s", duration: "11s", startY: "110vh" },
+  { emoji: "🪆", size: "text-4xl", left: "7%", delay: "3s", duration: "10s", startY: "110vh" },
+  { emoji: "🎈", size: "text-7xl", left: "48%", delay: "3.5s", duration: "8s", startY: "110vh" },
+  { emoji: "🧨", size: "text-4xl", left: "22%", delay: "4.5s", duration: "12s", startY: "110vh" },
+  { emoji: "🎠", size: "text-5xl", left: "88%", delay: "2.8s", duration: "9s", startY: "110vh" },
+  { emoji: "🪅", size: "text-4xl", left: "55%", delay: "5s", duration: "13s", startY: "110vh" },
+  { emoji: "🎈", size: "text-5xl", left: "15%", delay: "6s", duration: "9s", startY: "60vh" },
+  { emoji: "🎁", size: "text-5xl", left: "35%", delay: "0s", duration: "10s", startY: "70vh" },
+  { emoji: "🎉", size: "text-4xl", left: "60%", delay: "7s", duration: "8s", startY: "50vh" },
+  { emoji: "🎊", size: "text-4xl", left: "75%", delay: "2s", duration: "11s", startY: "65vh" },
+  { emoji: "🎈", size: "text-6xl", left: "44%", delay: "8s", duration: "9s", startY: "80vh" },
+  { emoji: "🧸", size: "text-3xl", left: "95%", delay: "1s", duration: "12s", startY: "55vh" },
+  { emoji: "🎀", size: "text-3xl", left: "2%", delay: "9s", duration: "10s", startY: "40vh" },
 ]
 
 export function Hero() {
@@ -30,20 +37,15 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-pink-100 via-rose-50 to-background">
       <style>{`
         @keyframes floatUp {
-          0% { transform: translateY(110vh) rotate(-5deg); opacity: 0; }
-          10% { opacity: 0.8; }
-          90% { opacity: 0.5; }
-          100% { transform: translateY(-20vh) rotate(5deg); opacity: 0; }
+          0% { transform: translateY(0) rotate(-4deg); opacity: 0; }
+          8% { opacity: 0.75; }
+          88% { opacity: 0.45; }
+          100% { transform: translateY(-130vh) rotate(4deg); opacity: 0; }
         }
         .item-float {
           animation: floatUp linear infinite;
           position: absolute;
-          bottom: -100px;
           pointer-events: none;
-        }
-        .phone-elegant {
-          font-family: Georgia, 'Times New Roman', serif;
-          letter-spacing: 0.03em;
         }
       `}</style>
 
@@ -55,6 +57,7 @@ export function Hero() {
             className={`item-float ${b.size}`}
             style={{
               left: b.left,
+              bottom: b.startY,
               animationDelay: b.delay,
               animationDuration: b.duration,
             }}
