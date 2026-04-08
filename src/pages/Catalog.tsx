@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
@@ -109,7 +109,7 @@ const compositions: Record<string, Composition[]> = {
 
 type ModalItem = Composition | null
 
-const PRICE_MIN = 500
+const PRICE_MIN = 0
 const PRICE_MAX = 20000
 
 // Равномерная подборка: 4 основных + по 2 остальных (кроме баблс/сюрприз — по 1 из 8)
@@ -448,12 +448,40 @@ function CompositionGrid({
         </div>
       )}
 
-      {modal && <CompositionModal modal={modal} onClose={() => setModal(null)} />}
+      {modal && (
+        <CompositionModal
+          modal={modal}
+          allItems={filtered}
+          onNavigate={(item) => setModal(item)}
+          onClose={() => setModal(null)}
+        />
+      )}
     </>
   )
 }
 
-function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () => void }) {
+function CompositionModal({ modal, allItems, onNavigate, onClose }: {
+  modal: Composition
+  allItems: Composition[]
+  onNavigate: (item: Composition) => void
+  onClose: () => void
+}) {
+  const idx = allItems.findIndex((i) => i === modal || (i.id === modal.id && i.subcategory === modal.subcategory))
+  const hasPrev = idx > 0
+  const hasNext = idx < allItems.length - 1
+
+  const goPrev = () => { if (hasPrev) onNavigate(allItems[idx - 1]) }
+  const goNext = () => { if (hasNext) onNavigate(allItems[idx + 1]) }
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") goPrev()
+      if (e.key === "ArrowRight") goNext()
+      if (e.key === "Escape") onClose()
+    }
+    window.addEventListener("keydown", handler)
+    return () => window.removeEventListener("keydown", handler)
+  }, [idx, allItems])
 
   return (
     <div
@@ -481,13 +509,36 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
               </span>
             </div>
           )}
+          {/* Prev/Next arrows on photo */}
+          {hasPrev && (
+            <button
+              onClick={(e) => { e.stopPropagation(); goPrev() }}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+            >
+              <Icon name="ChevronLeft" size={22} />
+            </button>
+          )}
+          {hasNext && (
+            <button
+              onClick={(e) => { e.stopPropagation(); goNext() }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+            >
+              <Icon name="ChevronRight" size={22} />
+            </button>
+          )}
+          {/* Counter */}
+          {allItems.length > 1 && (
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 bg-black/40 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+              {idx + 1} / {allItems.length}
+            </div>
+          )}
         </div>
 
         {/* RIGHT — контент */}
         <div className="flex-1 flex flex-col overflow-hidden bg-white">
-          {/* Close */}
-          <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-border/40">
-            <div>
+          {/* Header */}
+          <div className="flex items-start justify-between px-5 pt-5 pb-3 border-b border-border/40 flex-shrink-0">
+            <div className="flex-1 min-w-0 pr-3">
               <h3
                 className="text-lg sm:text-xl font-medium text-foreground leading-tight"
                 style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}
@@ -497,22 +548,22 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
               <span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span>
             </div>
             <button
-              className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors ml-3"
+              className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors"
               onClick={onClose}
             >
               <Icon name="X" size={18} />
             </button>
           </div>
 
-          {/* Title */}
-          <div className="px-5 pt-3 pb-1">
+          {/* Наполнение label */}
+          <div className="px-5 pt-4 pb-1 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5">
               <Icon name="Sparkles" size={13} /> Наполнение
             </p>
           </div>
 
-          {/* Content — scrollable */}
-          <div className="flex-1 overflow-y-auto px-5 pb-5 space-y-4">
+          {/* Description — даём много места, скролл */}
+          <div className="flex-1 overflow-y-auto px-5 pb-4 space-y-3 min-h-0">
             <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{modal.description}</p>
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания — просто скажите нам!
@@ -527,41 +578,35 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
                 <span>Самовывоз: ул. Героя Яцкова 19к3</span>
               </div>
             </div>
+          </div>
 
-            {/* Как заказать — внизу */}
-            <div className="border-t border-border pt-4 space-y-3">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Как заказать</p>
-              <p className="text-foreground/80 text-sm leading-relaxed">
-                Напишите нам номер понравившейся композиции в любом мессенджере или позвоните — сориентируем по наполнению и доставке.
-              </p>
-              <div className="bg-muted rounded-xl px-4 py-2.5 font-mono text-sm font-bold text-foreground text-center">
-                № {modal.id} — {modal.title}
-              </div>
-              <div className="flex flex-col gap-2">
-                <a href="tel:+79885973303" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors">
-                  <Icon name="Phone" size={15} className="text-primary" /> 8 988 597 33 03
-                </a>
-                <a href="tel:+79182457204" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors">
-                  <Icon name="Phone" size={15} className="text-primary" /> 8 918 245 72 04
-                </a>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <a href="https://wa.me/79885973303" className="flex items-center gap-1.5 bg-green-500 text-white px-3 py-2 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
-                  <Icon name="MessageSquare" size={13} /> WhatsApp
-                </a>
-                <a href="#" className="flex items-center gap-1.5 bg-blue-500 text-white px-3 py-2 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
-                  <Icon name="Send" size={13} /> Telegram
-                </a>
-                <a href="#" className="flex items-center gap-1.5 bg-blue-700 text-white px-3 py-2 rounded-full text-xs font-medium hover:bg-blue-800 transition-colors">
-                  <Icon name="MessageCircle" size={13} /> ВКонтакте
-                </a>
-                <a href="#" className="flex items-center gap-1.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-2 rounded-full text-xs font-medium hover:opacity-90 transition-opacity">
-                  <Icon name="Instagram" size={13} /> Instagram
-                </a>
-                <a href="#" className="flex items-center gap-1.5 text-white px-3 py-2 rounded-full text-xs font-medium" style={{ backgroundColor: "#1e3a5f" }}>
-                  <Icon name="Flame" size={13} /> Max
-                </a>
-              </div>
+          {/* Как заказать — внизу, фиксированный */}
+          <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-3 bg-white">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Как заказать</p>
+            <div className="flex flex-col gap-2">
+              <a href="tel:+79885973303" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors text-sm">
+                <Icon name="Phone" size={14} className="text-primary" /> 8 988 597 33 03
+              </a>
+              <a href="tel:+79182457204" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors text-sm">
+                <Icon name="Phone" size={14} className="text-primary" /> 8 918 245 72 04
+              </a>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              <a href="https://wa.me/79885973303" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
+                <Icon name="MessageSquare" size={12} /> WhatsApp
+              </a>
+              <a href="#" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
+                <Icon name="Send" size={12} /> Telegram
+              </a>
+              <a href="#" className="flex items-center gap-1 bg-blue-700 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-800 transition-colors">
+                <Icon name="MessageCircle" size={12} /> ВКонтакте
+              </a>
+              <a href="#" className="flex items-center gap-1 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:opacity-90 transition-opacity">
+                <Icon name="Instagram" size={12} /> Instagram
+              </a>
+              <a href="#" className="flex items-center gap-1 text-white px-3 py-1.5 rounded-full text-xs font-medium" style={{ backgroundColor: "#1e3a5f" }}>
+                <Icon name="Flame" size={12} /> Max
+              </a>
             </div>
           </div>
         </div>

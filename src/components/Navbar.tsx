@@ -76,13 +76,14 @@ export function Navbar() {
 
           {/* Right side — телефоны + Заказать */}
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex flex-col items-end gap-0.5">
-              <a href="tel:+79885973303" className="flex items-center gap-1 text-xs text-foreground/70 hover:text-primary transition-colors">
-                <Icon name="Phone" className="h-3 w-3 text-primary" />
+            <div className="flex flex-row items-center gap-4">
+              <a href="tel:+79885973303" className="flex items-center gap-1.5 text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <Icon name="Phone" className="h-4 w-4 text-primary" />
                 8 988 597 33 03
               </a>
-              <a href="tel:+79182457204" className="flex items-center gap-1 text-xs text-foreground/70 hover:text-primary transition-colors">
-                <Icon name="Phone" className="h-3 w-3 text-primary" />
+              <span className="text-muted-foreground/40">·</span>
+              <a href="tel:+79182457204" className="flex items-center gap-1.5 text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <Icon name="Phone" className="h-4 w-4 text-primary" />
                 8 918 245 72 04
               </a>
             </div>
@@ -90,7 +91,7 @@ export function Navbar() {
             {/* Заказать с соцсетями */}
             <div className="relative" ref={orderRef}>
               {orderOpen && (
-                <div className="absolute bottom-full right-0 mb-3 flex flex-col items-end gap-2">
+                <div className="absolute top-full right-0 mt-3 flex flex-col items-end gap-2 z-50">
                   {orderContacts.map((c) => (
                     <a
                       key={c.label}
