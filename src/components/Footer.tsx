@@ -3,8 +3,8 @@ import Icon from "@/components/ui/icon"
 export function Footer() {
   return (
     <footer id="contact" className="bg-background border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold">🎈 Шарим</h3>

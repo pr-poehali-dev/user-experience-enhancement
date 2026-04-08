@@ -20,14 +20,14 @@ export function Navbar() {
         isScrolled ? "bg-white/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
               src="https://cdn.poehali.dev/files/067decf6-cc51-47c4-b8e7-f586768c16bf.png"
               alt="Шарим — студия аэродизайна"
-              className="h-20 w-auto object-contain mt-3"
+              className="h-12 sm:h-16 md:h-20 w-auto object-contain mt-2 sm:mt-3"
             />
           </div>
 

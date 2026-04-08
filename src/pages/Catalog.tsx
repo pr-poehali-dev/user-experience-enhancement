@@ -259,14 +259,14 @@ function CompositionGrid({
   return (
     <>
       {/* Filters */}
-      <div className="mb-8 space-y-6 bg-muted/40 rounded-2xl p-5">
+      <div className="mb-6 sm:mb-8 space-y-4 sm:space-y-6 bg-muted/40 rounded-2xl p-3 sm:p-5">
 
         {/* Birthday subcategory filter */}
         {showSubcategoryBadge && (
           <div>
-            <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Для кого</p>
+            <p className="text-sm font-semibold text-muted-foreground mb-2 sm:mb-3 uppercase tracking-wide">Выберите для кого нужны шарики</p>
             {/* Main 4 — full row, bigger */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-2 sm:mb-3">
               {birthdaySubcategories.filter(c => c.main).map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 const mainColors: Record<string, string> = {
@@ -279,27 +279,27 @@ function CompositionGrid({
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl font-bold border-2 transition-all ${
+                    className={`flex flex-col items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-5 px-2 sm:px-3 rounded-2xl font-bold border-2 transition-all ${
                       isActive
                         ? `${mainColors[cat.id]} text-white shadow-lg scale-[1.03] border-transparent`
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
                     }`}
                   >
-                    <span className="text-3xl">{cat.emoji}</span>
-                    <span className="text-base text-center leading-tight">{cat.label}</span>
+                    <span className="text-2xl sm:text-3xl">{cat.emoji}</span>
+                    <span className="text-xs sm:text-base text-center leading-tight">{cat.label}</span>
                   </button>
                 )
               })}
             </div>
             {/* Secondary — smaller grid */}
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
               {birthdaySubcategories.filter(c => !c.main).map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 return (
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`relative flex flex-col items-center justify-center gap-1.5 py-4 px-2 rounded-xl font-semibold border-2 transition-all ${
+                    className={`relative flex flex-col items-center justify-center gap-1 py-2.5 sm:py-4 px-1 sm:px-2 rounded-xl font-semibold border-2 transition-all ${
                       isActive
                         ? "border-primary bg-primary text-primary-foreground shadow-md scale-[1.03]"
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
@@ -308,8 +308,8 @@ function CompositionGrid({
                     {cat.hit && (
                       <span className="absolute -top-2 -right-1 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">ХИТ</span>
                     )}
-                    <span className="text-2xl">{cat.emoji}</span>
-                    <span className="text-center leading-tight text-xs">{cat.label}</span>
+                    <span className="text-lg sm:text-2xl">{cat.emoji}</span>
+                    <span className="text-center leading-tight" style={{ fontSize: "0.65rem" }}>{cat.label}</span>
                   </button>
                 )
               })}
@@ -405,7 +405,7 @@ function CompositionGrid({
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
           {filtered.map((item, idx) => (
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
@@ -445,12 +445,12 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4 md:p-8"
       onClick={onClose}
     >
       <div
         className="relative w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl"
-        style={{ height: "88vh" }}
+        style={{ height: "92vh" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Full image filling container */}
@@ -480,23 +480,23 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
         )}
 
         {/* Bottom panel */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-6 pt-4 md:px-8">
+        <div className="absolute bottom-0 left-0 right-0 z-10 px-3 pb-4 pt-3 sm:px-4 sm:pb-6 sm:pt-4 md:px-8">
           {/* Title + price */}
-          <div className="mb-4">
+          <div className="mb-2 sm:mb-4">
             <h3
-              className="text-white text-2xl md:text-3xl font-medium mb-1 drop-shadow-lg"
+              className="text-white text-lg sm:text-2xl md:text-3xl font-medium mb-0.5 sm:mb-1 drop-shadow-lg"
               style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}
             >
               {modal.title}
             </h3>
-            <span className="text-white/90 font-bold text-2xl drop-shadow">{modal.price}</span>
+            <span className="text-white/90 font-bold text-lg sm:text-2xl drop-shadow">{modal.price}</span>
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-2 mb-4">
+          <div className="flex gap-2 mb-2 sm:mb-4">
             <button
               onClick={() => setActiveTab("content")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-semibold text-sm transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all ${
                 activeTab === "content"
                   ? "bg-white text-foreground shadow-lg"
                   : "bg-white/20 backdrop-blur-md text-white hover:bg-white/30"
@@ -507,7 +507,7 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
             </button>
             <button
               onClick={() => setActiveTab("order")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-semibold text-sm transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all ${
                 activeTab === "order"
                   ? "bg-white text-foreground shadow-lg"
                   : "bg-white/20 backdrop-blur-md text-white hover:bg-white/30"
@@ -519,10 +519,10 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
           </div>
 
           {/* Tab content */}
-          <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-4 md:p-5 max-w-2xl">
+          <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-3 sm:p-4 md:p-5 max-w-2xl">
             {activeTab === "content" && (
               <div className="space-y-3">
-                <p className="text-white leading-relaxed text-sm md:text-base">{modal.description}</p>
+                <p className="text-white leading-relaxed text-xs sm:text-sm md:text-base">{modal.description}</p>
                 <div className="bg-white/20 rounded-xl px-4 py-2.5 text-white text-sm font-medium">
                   🎨 Наполнение можно изменить под ваш бюджет и пожелания
                 </div>

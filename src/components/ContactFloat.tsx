@@ -44,7 +44,7 @@ export function ContactFloat() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2">
       {/* Contact items */}
       {open && (
         <div className="flex flex-col items-end gap-2 mb-1">
@@ -54,31 +54,31 @@ export function ContactFloat() {
               href={c.href}
               target={c.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg text-white font-semibold text-base hover:scale-105 transition-transform"
+              className="flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg text-white font-semibold text-sm sm:text-base hover:scale-105 transition-transform"
               style={{ background: c.bg }}
             >
-              <Icon name={c.icon} size={20} />
+              <Icon name={c.icon} size={16} />
               {c.label}
             </a>
           ))}
         </div>
       )}
 
-      {/* Toggle button (мессенджеры) — поднята на mb-12 от низа */}
+      {/* Toggle button */}
       <button
         onClick={() => setOpen((p) => !p)}
-        className="w-[4.5rem] h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105 mb-14"
+        className="w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105 mb-12 sm:mb-14"
         style={{ background: "hsl(var(--primary))" }}
         aria-label="Связаться с нами"
       >
-        <Icon name={open ? "X" : "MessageCircle"} size={34} />
+        <Icon name={open ? "X" : "MessageCircle"} size={26} />
       </button>
 
-      {/* «Свяжитесь с нами» — внизу, под кнопкой */}
+      {/* «Свяжитесь с нами» */}
       {!open && (
         <span
-          className="absolute bottom-0 right-0 text-background font-bold px-5 py-2.5 rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
-          style={{ background: "hsl(var(--foreground))", fontSize: "1.1rem" }}
+          className="absolute bottom-0 right-0 text-background font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
+          style={{ background: "hsl(var(--foreground))", fontSize: "0.85rem" }}
         >
           Свяжитесь с нами
         </span>

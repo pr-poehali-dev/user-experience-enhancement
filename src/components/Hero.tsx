@@ -68,14 +68,14 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center py-20">
-        <div className="space-y-5">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
+        <div className="space-y-4 sm:space-y-5">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
             Воздушные
-            <span className="block font-semibold mt-2 text-primary">шарики</span>
+            <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Стильные композиции из шаров для любого праздника{" "}
             <span
               className="font-bold"
@@ -91,49 +91,48 @@ export function Hero() {
           </p>
 
           {/* Delivery highlight */}
-          <div className="inline-flex items-center gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-6 py-3">
-            <Icon name="Truck" className="h-6 w-6 text-primary flex-shrink-0" />
-            <span className="text-xl md:text-2xl font-bold text-primary">
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
+            <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+            <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
               Доставка по Краснодару 24/7
             </span>
           </div>
 
-          <div className="flex justify-center pt-2">
+          <div className="flex justify-center pt-1 sm:pt-2">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 group shadow-lg"
-              style={{ height: "4.5rem", fontSize: "1.25rem" }}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-16 group shadow-lg"
+              style={{ height: "3.5rem", fontSize: "1.05rem" }}
               onClick={() => navigate("/catalog")}
             >
               Смотреть каталог
-              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
+              <Icon name="ArrowRight" className="ml-2 sm:ml-3 h-5 w-5 sm:h-7 sm:w-7 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
 
         {/* Phone + address */}
-        <div className="mt-10 pt-8 border-t border-border/50 space-y-2">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border/50 space-y-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
             <a
               href="tel:+79885973303"
-              className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-sm sm:text-base text-foreground/75 hover:text-primary transition-colors"
             >
-              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              <Icon name="Phone" className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
               8 988 597 33 03
             </a>
             <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
             <a
               href="tel:+79182457204"
-              className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-sm sm:text-base text-foreground/75 hover:text-primary transition-colors"
             >
-              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              <Icon name="Phone" className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
               8 918 245 72 04
             </a>
           </div>
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
-            Мы находимся по адресу:{" "}
-            <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
+          <div className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-muted-foreground">
+            <Icon name="MapPin" className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+            <span>ул. Героя Яцкова 19к3</span>
           </div>
         </div>
       </div>
