@@ -47,9 +47,10 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
             <img
-              src="https://cdn.poehali.dev/files/067decf6-cc51-47c4-b8e7-f586768c16bf.png"
+              src="https://cdn.poehali.dev/files/53388624-09fc-4e5b-be49-44cc6273a16d.png"
               alt="Шарим — студия аэродизайна"
               className="h-12 sm:h-16 md:h-20 w-auto object-contain mt-2 sm:mt-3"
+              style={{ mixBlendMode: "multiply" }}
             />
           </div>
 

@@ -97,15 +97,27 @@ export function Hero() {
           </span>
         </div>
 
-        <Button
-          size="lg"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
-          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
-          onClick={() => navigate("/catalog")}
-        >
-          Смотреть каталог
-          <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        <div className="flex flex-col items-center gap-4">
+          <Button
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
+            style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
+            onClick={() => navigate("/catalog")}
+          >
+            Смотреть каталог
+            <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
+          </Button>
+          <div className="flex flex-col items-center gap-1">
+            <a href="tel:+79885973303" className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors">
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 988 597 33 03
+            </a>
+            <a href="tel:+79182457204" className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors">
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 918 245 72 04
+            </a>
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
