@@ -101,12 +101,12 @@ export function Hero() {
           <div className="flex justify-center pt-1 sm:pt-2">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-16 group shadow-lg"
-              style={{ height: "3.5rem", fontSize: "1.05rem" }}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
+              style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
               onClick={() => navigate("/catalog")}
             >
               Смотреть каталог
-              <Icon name="ArrowRight" className="ml-2 sm:ml-3 h-5 w-5 sm:h-7 sm:w-7 group-hover:translate-x-1 transition-transform" />
+              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
