@@ -49,7 +49,7 @@ export function Navbar() {
             <img
               src="https://cdn.poehali.dev/files/53388624-09fc-4e5b-be49-44cc6273a16d.png"
               alt="Шарим — студия аэродизайна"
-              className="h-12 sm:h-16 md:h-20 w-auto object-contain mt-2 sm:mt-3"
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain"
               style={{ mixBlendMode: "multiply" }}
             />
           </div>
@@ -75,21 +75,9 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Right side — телефоны + Заказать */}
+          {/* Right side — Заказать с телефонами снизу */}
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex flex-row items-center gap-4">
-              <a href="tel:+79885973303" className="flex items-center gap-1.5 text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-                <Icon name="Phone" className="h-4 w-4 text-primary" />
-                8 988 597 33 03
-              </a>
-              <span className="text-muted-foreground/40">·</span>
-              <a href="tel:+79182457204" className="flex items-center gap-1.5 text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-                <Icon name="Phone" className="h-4 w-4 text-primary" />
-                8 918 245 72 04
-              </a>
-            </div>
-
-            {/* Заказать с соцсетями */}
+            {/* Заказать с соцсетями и телефонами */}
             <div className="relative" ref={orderRef}>
               {orderOpen && (
                 <div className="absolute top-full right-0 mt-3 flex flex-col items-end gap-2 z-50">
@@ -108,13 +96,25 @@ export function Navbar() {
                   ))}
                 </div>
               )}
-              <Button
-                onClick={() => setOrderOpen((p) => !p)}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
-              >
-                {orderOpen ? "Закрыть" : "Заказать"}
-                <Icon name={orderOpen ? "X" : "ChevronUp"} className="ml-1.5 h-4 w-4" />
-              </Button>
+              <div className="flex flex-col items-end gap-1">
+                <Button
+                  onClick={() => setOrderOpen((p) => !p)}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
+                >
+                  {orderOpen ? "Закрыть" : "Заказать"}
+                  <Icon name={orderOpen ? "X" : "ChevronUp"} className="ml-1.5 h-4 w-4" />
+                </Button>
+                <div className="flex flex-col items-end gap-0">
+                  <a href="tel:+79885973303" className="flex items-center gap-1 text-xs text-foreground/70 hover:text-primary transition-colors">
+                    <Icon name="Phone" className="h-3 w-3 text-primary" />
+                    8 988 597 33 03
+                  </a>
+                  <a href="tel:+79182457204" className="flex items-center gap-1 text-xs text-foreground/70 hover:text-primary transition-colors">
+                    <Icon name="Phone" className="h-3 w-3 text-primary" />
+                    8 918 245 72 04
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

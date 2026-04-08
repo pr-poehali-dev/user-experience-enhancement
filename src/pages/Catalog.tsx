@@ -566,12 +566,12 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
           <div className="flex-1 overflow-y-auto px-5 pb-4 space-y-3 min-h-0">
             <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{modal.description}</p>
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
-              🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания — просто скажите нам!
+              🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
             <div className="bg-muted/50 rounded-xl px-4 py-3 text-sm text-muted-foreground space-y-1.5">
               <div className="flex items-center gap-2">
                 <Icon name="Clock" size={14} className="text-primary flex-shrink-0" />
-                <span>Доставка 24/7 по Краснодару и краю</span>
+                <span>Доставка 24/7 по Краснодару и Краю</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="MapPin" size={14} className="text-primary flex-shrink-0" />
