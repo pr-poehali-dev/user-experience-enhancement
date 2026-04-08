@@ -116,10 +116,20 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile burger */}
-          <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile right side */}
+          <div className="flex md:hidden items-center gap-2">
+            {showCatalogBtn && !isMobileMenuOpen && (
+              <button
+                onClick={() => window.location.href = "/catalog"}
+                className="bg-primary text-primary-foreground rounded-full px-4 py-2 text-sm font-semibold shadow-md"
+              >
+                Каталог
+              </button>
+            )}
+            <button className="p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 

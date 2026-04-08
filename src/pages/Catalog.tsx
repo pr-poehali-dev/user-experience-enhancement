@@ -485,11 +485,91 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4 md:p-6"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/80 backdrop-blur-sm sm:p-4 md:p-6"
       onClick={onClose}
     >
+      {/* MOBILE — вертикальная карточка снизу */}
       <div
-        className="relative w-full max-w-6xl rounded-3xl overflow-hidden shadow-2xl flex flex-row bg-white"
+        className="sm:hidden w-full rounded-t-3xl overflow-hidden shadow-2xl flex flex-col bg-white"
+        style={{ maxHeight: "95vh" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Фото 3:4 */}
+        <div className="relative w-full flex-shrink-0" style={{ aspectRatio: "3/4", maxHeight: "58vh" }}>
+          <img
+            src={modal.image}
+            alt={modal.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Закрыть */}
+          <button
+            className="absolute top-3 right-3 z-20 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center"
+            onClick={onClose}
+          >
+            <Icon name="X" size={18} className="text-white" />
+          </button>
+          {/* Счётчик */}
+          {allItems.length > 1 && (
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 bg-black/40 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+              {idx + 1} / {allItems.length}
+            </div>
+          )}
+          {/* Стрелки */}
+          {hasPrev && (
+            <button onClick={(e) => { e.stopPropagation(); goPrev() }} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+              <Icon name="ChevronLeft" size={20} />
+            </button>
+          )}
+          {hasNext && (
+            <button onClick={(e) => { e.stopPropagation(); goNext() }} className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+              <Icon name="ChevronRight" size={20} />
+            </button>
+          )}
+        </div>
+        {/* Контент под фото */}
+        <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
+          <div className="px-4 pt-4 pb-2 flex items-start justify-between gap-2 flex-shrink-0">
+            <div>
+              <h3 className="text-base font-bold text-foreground leading-tight">{modal.title}</h3>
+              <span className="text-primary font-bold text-lg">{modal.price}</span>
+            </div>
+          </div>
+          <div className="px-4 pb-1 flex-shrink-0">
+            <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1">
+              <Icon name="Sparkles" size={11} /> Наполнение
+            </p>
+          </div>
+          <div className="px-4 pb-3 space-y-2 flex-shrink-0">
+            <p className="text-sm text-foreground/80 leading-relaxed">{modal.description}</p>
+            <div className="bg-primary/8 border border-primary/20 rounded-xl px-3 py-2 text-primary text-xs font-medium">
+              🎨 Наполнение можно изменить под ваш бюджет и пожелания
+            </div>
+            <div className="bg-muted/50 rounded-xl px-3 py-2 text-xs text-muted-foreground space-y-1">
+              <div className="flex items-center gap-2"><Icon name="Clock" size={12} className="text-primary flex-shrink-0" /><span>Доставка 24/7 по Краснодару и Краю</span></div>
+              <div className="flex items-center gap-2"><Icon name="MapPin" size={12} className="text-primary flex-shrink-0" /><span>Самовывоз: ул. Героя Яцкова 19к3</span></div>
+            </div>
+          </div>
+          <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2 bg-white">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Как заказать</p>
+            <p className="text-xs text-muted-foreground">Напишите нам номер композиции, сориентируем по наполнению и доставке</p>
+            <div className="flex flex-wrap gap-2">
+              <a href="tel:+79885973303" className="flex items-center gap-1 bg-primary text-primary-foreground px-3 py-2 rounded-full text-xs font-medium">
+                <Icon name="Phone" size={12} /> 8 988 597 33 03
+              </a>
+              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-2 rounded-full text-xs font-medium">
+                <Icon name="MessageSquare" size={12} /> WhatsApp
+              </a>
+              <a href="#" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-2 rounded-full text-xs font-medium">
+                <Icon name="Send" size={12} /> Telegram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* DESKTOP — горизонтальная карточка */}
+      <div
+        className="hidden sm:flex relative w-full max-w-6xl rounded-3xl overflow-hidden shadow-2xl flex-row bg-white"
         style={{ height: "90vh" }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -500,7 +580,6 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
             alt={modal.title}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Category badge */}
           {modal.subcategory && (
             <div className="absolute top-3 left-3 z-10">
               <span className="text-xs bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full font-medium">
@@ -509,24 +588,16 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
               </span>
             </div>
           )}
-          {/* Prev/Next arrows on photo */}
           {hasPrev && (
-            <button
-              onClick={(e) => { e.stopPropagation(); goPrev() }}
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
-            >
+            <button onClick={(e) => { e.stopPropagation(); goPrev() }} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors">
               <Icon name="ChevronLeft" size={22} />
             </button>
           )}
           {hasNext && (
-            <button
-              onClick={(e) => { e.stopPropagation(); goNext() }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
-            >
+            <button onClick={(e) => { e.stopPropagation(); goNext() }} className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors">
               <Icon name="ChevronRight" size={22} />
             </button>
           )}
-          {/* Counter */}
           {allItems.length > 1 && (
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 bg-black/40 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
               {idx + 1} / {allItems.length}
@@ -536,51 +607,32 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
 
         {/* RIGHT — контент */}
         <div className="flex-1 flex flex-col overflow-hidden bg-white">
-          {/* Header */}
           <div className="flex items-start justify-between px-5 pt-5 pb-3 border-b border-border/40 flex-shrink-0">
             <div className="flex-1 min-w-0 pr-3">
-              <h3
-                className="text-lg sm:text-xl font-medium text-foreground leading-tight"
-                style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}
-              >
+              <h3 className="text-lg sm:text-xl font-medium text-foreground leading-tight" style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}>
                 {modal.title}
               </h3>
               <span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span>
             </div>
-            <button
-              className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors"
-              onClick={onClose}
-            >
+            <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}>
               <Icon name="X" size={18} />
             </button>
           </div>
-
-          {/* Наполнение label */}
           <div className="px-5 pt-4 pb-1 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5">
               <Icon name="Sparkles" size={13} /> Наполнение
             </p>
           </div>
-
-          {/* Description — даём много места, скролл */}
           <div className="flex-1 overflow-y-auto px-5 pb-4 space-y-3 min-h-0">
             <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{modal.description}</p>
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
             <div className="bg-muted/50 rounded-xl px-4 py-3 text-sm text-muted-foreground space-y-1.5">
-              <div className="flex items-center gap-2">
-                <Icon name="Clock" size={14} className="text-primary flex-shrink-0" />
-                <span>Доставка 24/7 по Краснодару и Краю</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="MapPin" size={14} className="text-primary flex-shrink-0" />
-                <span>Самовывоз: ул. Героя Яцкова 19к3</span>
-              </div>
+              <div className="flex items-center gap-2"><Icon name="Clock" size={14} className="text-primary flex-shrink-0" /><span>Доставка 24/7 по Краснодару и Краю</span></div>
+              <div className="flex items-center gap-2"><Icon name="MapPin" size={14} className="text-primary flex-shrink-0" /><span>Самовывоз: ул. Героя Яцкова 19к3</span></div>
             </div>
           </div>
-
-          {/* Как заказать — внизу, фиксированный */}
           <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-3 bg-white">
             <div>
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Как заказать</p>
@@ -629,8 +681,8 @@ export default function Catalog() {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
-          <div className="flex items-center gap-4 mb-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+          <div className="flex items-center gap-4 mb-3">
             <button
               onClick={() => navigate("/catalog")}
               className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-sm"
@@ -638,11 +690,11 @@ export default function Catalog() {
               <Icon name="ArrowLeft" size={16} /> Назад
             </button>
           </div>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-4xl">🎂</span>
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <span className="text-3xl sm:text-4xl">🎂</span>
             <div>
-              <h1 className="text-3xl font-bold leading-tight">На день рождения</h1>
-              <p className="text-muted-foreground text-sm">Для девушки, мужчины, мальчика, девочки и другие</p>
+              <h1 className="text-2xl sm:text-3xl font-bold leading-tight">На день рождения</h1>
+              <p className="text-muted-foreground text-xs sm:text-sm">Для девушки, мужчины, мальчика, девочки и другие</p>
             </div>
           </div>
           <CompositionGrid items={allBirthdayCompositions} showSubcategoryBadge />
@@ -656,18 +708,18 @@ export default function Catalog() {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
             onClick={() => navigate("/catalog")}
-            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-6 transition-colors text-sm"
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
           >
             <Icon name="ArrowLeft" size={16} /> Назад
           </button>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-4xl">👶</span>
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <span className="text-3xl sm:text-4xl">👶</span>
             <div>
-              <h1 className="text-3xl font-bold leading-tight">На выписку</h1>
-              <p className="text-muted-foreground text-sm">Встречаем малыша из роддома</p>
+              <h1 className="text-2xl sm:text-3xl font-bold leading-tight">На выписку</h1>
+              <p className="text-muted-foreground text-xs sm:text-sm">Встречаем малыша из роддома</p>
             </div>
           </div>
           <CompositionGrid items={compositions.discharge} showDischargeBadge />
@@ -680,44 +732,48 @@ export default function Catalog() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+          className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4 sm:mb-6 transition-colors text-sm"
         >
-          <Icon name="ArrowLeft" size={18} /> На главную
+          <Icon name="ArrowLeft" size={16} /> На главную
         </button>
-        <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight mb-2 sm:mb-3">
           Каталог <span className="font-semibold">шариков</span>
         </h1>
-        <p className="text-lg text-muted-foreground mb-14">Выберите повод для праздника</p>
-        <div className="grid md:grid-cols-2 gap-8">
+        <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-10">Выберите повод для праздника</p>
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-8">
           <button
             onClick={() => navigate("/catalog?section=birthday")}
-            className="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 min-h-[400px] flex flex-col items-center justify-center gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-8"
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 min-h-[180px] sm:min-h-[400px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
           >
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-            <span className="relative text-8xl">🎂</span>
+            <span className="relative text-5xl sm:text-8xl">🎂</span>
             <div className="relative text-center">
-              <h2 className="text-white text-4xl font-bold mb-2">На день рождения</h2>
-              <p className="text-white/80 text-lg">Для девушки, мужчины, мальчика и девочки</p>
+              <h2 className="text-white text-lg sm:text-4xl font-bold mb-1 sm:mb-2 leading-tight">На день рождения</h2>
+              <p className="text-white/80 text-xs sm:text-lg hidden sm:block">Для девушки, мужчины, мальчика и девочки</p>
             </div>
-            <div className="relative flex items-center gap-2 text-white/90 text-sm font-medium mt-2">
-              Смотреть все композиции <Icon name="ArrowRight" size={18} />
+            <div className="relative flex items-center gap-1 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium">
+              Смотреть <Icon name="ArrowRight" size={14} className="sm:hidden" />
+              <span className="hidden sm:inline">все композиции</span>
+              <Icon name="ArrowRight" size={18} className="hidden sm:inline" />
             </div>
           </button>
           <button
             onClick={() => navigate("/catalog?section=discharge")}
-            className="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 min-h-[400px] flex flex-col items-center justify-center gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-8"
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 min-h-[180px] sm:min-h-[400px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
           >
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-            <span className="relative text-8xl">👶</span>
+            <span className="relative text-5xl sm:text-8xl">👶</span>
             <div className="relative text-center">
-              <h2 className="text-white text-4xl font-bold mb-2">На выписку</h2>
-              <p className="text-white/80 text-lg">Встречаем малыша из роддома</p>
+              <h2 className="text-white text-lg sm:text-4xl font-bold mb-1 sm:mb-2 leading-tight">На выписку</h2>
+              <p className="text-white/80 text-xs sm:text-lg hidden sm:block">Встречаем малыша из роддома</p>
             </div>
-            <div className="relative flex items-center gap-2 text-white/90 text-sm font-medium mt-2">
-              Смотреть композиции <Icon name="ArrowRight" size={18} />
+            <div className="relative flex items-center gap-1 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium">
+              Смотреть <Icon name="ArrowRight" size={14} className="sm:hidden" />
+              <span className="hidden sm:inline">композиции</span>
+              <Icon name="ArrowRight" size={18} className="hidden sm:inline" />
             </div>
           </button>
         </div>
