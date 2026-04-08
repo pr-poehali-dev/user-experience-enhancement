@@ -42,7 +42,7 @@ export function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16 sm:h-20">
+        <div className="relative flex items-center justify-between h-16 sm:h-24">
 
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
@@ -57,14 +57,24 @@ export function Navbar() {
           {/* Desktop nav links — по центру */}
           <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {showCatalogBtn ? (
-              <Button
-                onClick={() => navigate("/catalog")}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 shadow-lg"
-                style={{ height: "3rem", fontSize: "1.1rem" }}
-              >
-                Смотреть каталог
-                <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
-              </Button>
+              <div className="flex items-center gap-6">
+                <a href="tel:+79885973303" className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
+                  <Icon name="Phone" className="h-4 w-4 text-primary" />
+                  8 988 597 33 03
+                </a>
+                <Button
+                  onClick={() => navigate("/catalog")}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 shadow-lg"
+                  style={{ height: "3rem", fontSize: "1.1rem" }}
+                >
+                  Смотреть каталог
+                  <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
+                </Button>
+                <a href="tel:+79182457204" className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
+                  <Icon name="Phone" className="h-4 w-4 text-primary" />
+                  8 918 245 72 04
+                </a>
+              </div>
             ) : (
               <>
                 <span onClick={() => navigate("/catalog")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Каталог</span>
@@ -96,25 +106,13 @@ export function Navbar() {
                   ))}
                 </div>
               )}
-              <div className="flex flex-col items-end gap-1">
-                <Button
-                  onClick={() => setOrderOpen((p) => !p)}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
-                >
-                  {orderOpen ? "Закрыть" : "Заказать"}
-                  <Icon name={orderOpen ? "X" : "ChevronUp"} className="ml-1.5 h-4 w-4" />
-                </Button>
-                <div className="flex flex-col items-end gap-0">
-                  <a href="tel:+79885973303" className="flex items-center gap-1 text-xs text-foreground/70 hover:text-primary transition-colors">
-                    <Icon name="Phone" className="h-3 w-3 text-primary" />
-                    8 988 597 33 03
-                  </a>
-                  <a href="tel:+79182457204" className="flex items-center gap-1 text-xs text-foreground/70 hover:text-primary transition-colors">
-                    <Icon name="Phone" className="h-3 w-3 text-primary" />
-                    8 918 245 72 04
-                  </a>
-                </div>
-              </div>
+              <Button
+                onClick={() => setOrderOpen((p) => !p)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
+              >
+                {orderOpen ? "Закрыть" : "Заказать"}
+                <Icon name={orderOpen ? "X" : "ChevronUp"} className="ml-1.5 h-4 w-4" />
+              </Button>
             </div>
           </div>
 

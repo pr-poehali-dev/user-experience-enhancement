@@ -107,15 +107,28 @@ export function Hero() {
           <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
         </Button>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
-            <span>ул. Героя Яцкова 19к3</span>
+        <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
+              <span>ул. Героя Яцкова 19к3</span>
+            </div>
+            <span className="hidden sm:block text-muted-foreground/30">·</span>
+            <div className="flex items-center gap-2">
+              <Icon name="Clock" className="h-4 w-4 text-primary flex-shrink-0" />
+              <span>Работаем 24/7</span>
+            </div>
           </div>
-          <span className="hidden sm:block text-muted-foreground/30">·</span>
-          <div className="flex items-center gap-2">
-            <Icon name="Clock" className="h-4 w-4 text-primary flex-shrink-0" />
-            <span>Работаем 24/7</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-5">
+            <a href="tel:+79885973303" className="flex items-center gap-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors">
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 988 597 33 03
+            </a>
+            <span className="hidden sm:block text-muted-foreground/30">·</span>
+            <a href="tel:+79182457204" className="flex items-center gap-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors">
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 918 245 72 04
+            </a>
           </div>
         </div>
 
