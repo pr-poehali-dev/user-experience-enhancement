@@ -62,12 +62,12 @@ export function Hero() {
       {/* Content — равномерно на весь экран */}
       <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-evenly px-4 sm:px-6 lg:px-8 text-center py-24">
 
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
+        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
           Воздушные
           <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
         </h1>
 
-        <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed">
           Стильные композиции из шаров для любого праздника{" "}
           <span
             className="font-bold"
@@ -100,12 +100,12 @@ export function Hero() {
         </Button>
 
         <div className="flex flex-col items-center gap-3">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-foreground/70">
             <div className="flex items-center gap-2">
               <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
               <span>ул. Героя Яцкова 19к3</span>
             </div>
-            <span className="hidden sm:block text-muted-foreground/30">·</span>
+            <span className="hidden sm:block text-foreground/20">·</span>
             <div className="flex items-center gap-2">
               <Icon name="Clock" className="h-4 w-4 text-primary flex-shrink-0" />
               <span>Работаем 24/7</span>
