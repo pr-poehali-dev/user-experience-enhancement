@@ -276,7 +276,7 @@ function CompositionGrid({
         {/* Discharge subcategory filter */}
         {showDischargeBadge && (
           <div>
-            <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Кого встречаем</p>
+            <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Выберите кого встречаем</p>
             <div className="grid grid-cols-2 gap-4">
               {dischargeSubcategories.map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
