@@ -131,85 +131,37 @@ function buildBirthdayGrid(): Composition[] {
 
 const allBirthdayCompositions: Composition[] = buildBirthdayGrid()
 
-function PriceSlider({
+function PriceInputs({
   minPrice,
   maxPrice,
   onMinChange,
   onMaxChange,
 }: {
-  minPrice: number
-  maxPrice: number
-  onMinChange: (v: number) => void
-  onMaxChange: (v: number) => void
+  minPrice: number | ""
+  maxPrice: number | ""
+  onMinChange: (v: number | "") => void
+  onMaxChange: (v: number | "") => void
 }) {
-  const pctMin = ((minPrice - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100
-  const pctMax = ((maxPrice - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100
-
   return (
-    <div>
-      <div className="flex items-center justify-between mb-3">
-        <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Бюджет</p>
-        <div className="flex items-center gap-1.5">
-          <input
-            type="number"
-            value={minPrice}
-            onChange={(e) => { const v = Number(e.target.value); if (v >= PRICE_MIN && v <= maxPrice - 500) onMinChange(v) }}
-            className="w-20 text-center text-sm font-bold text-primary border border-border rounded-lg px-2 py-1 focus:outline-none focus:border-primary"
-          />
-          <span className="text-muted-foreground text-sm">—</span>
-          <input
-            type="number"
-            value={maxPrice}
-            onChange={(e) => { const v = Number(e.target.value); if (v <= PRICE_MAX && v >= minPrice + 500) onMaxChange(v) }}
-            className="w-24 text-center text-sm font-bold text-primary border border-border rounded-lg px-2 py-1 focus:outline-none focus:border-primary"
-          />
-          <span className="text-sm text-primary font-bold">₽</span>
-        </div>
-      </div>
-      <div className="relative h-6 mx-2.5">
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-2 bg-border rounded-full" />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 h-2 rounded-full bg-primary"
-          style={{ left: `${pctMin}%`, width: `${pctMax - pctMin}%` }}
-        />
+    <div className="flex items-center gap-2">
+      <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Бюджет</p>
+      <div className="flex items-center gap-1.5 ml-2">
         <input
-          type="range"
-          min={PRICE_MIN}
-          max={PRICE_MAX}
-          step={100}
+          type="number"
           value={minPrice}
-          onChange={(e) => {
-            const v = Number(e.target.value)
-            if (v <= maxPrice - 500) onMinChange(v)
-          }}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          style={{ zIndex: minPrice > PRICE_MAX - 1000 ? 5 : 4 }}
+          placeholder="от"
+          onChange={(e) => onMinChange(e.target.value === "" ? "" : Number(e.target.value))}
+          className="w-20 text-center text-sm font-bold text-primary border border-border rounded-lg px-2 py-1 focus:outline-none focus:border-primary"
         />
+        <span className="text-muted-foreground text-sm">—</span>
         <input
-          type="range"
-          min={PRICE_MIN}
-          max={PRICE_MAX}
-          step={100}
+          type="number"
           value={maxPrice}
-          onChange={(e) => {
-            const v = Number(e.target.value)
-            if (v >= minPrice + 500) onMaxChange(v)
-          }}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          style={{ zIndex: minPrice > PRICE_MAX - 1000 ? 4 : 5 }}
+          placeholder="до"
+          onChange={(e) => onMaxChange(e.target.value === "" ? "" : Number(e.target.value))}
+          className="w-24 text-center text-sm font-bold text-primary border border-border rounded-lg px-2 py-1 focus:outline-none focus:border-primary"
         />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none"
-          style={{ left: `calc(${pctMin}% - 10px)`, zIndex: 6 }}
-        />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-primary rounded-full shadow pointer-events-none"
-          style={{ left: `calc(${pctMax}% - 10px)`, zIndex: 6 }}
-        />
-      </div>
-      <div className="flex justify-between text-xs text-muted-foreground mt-1 mx-2.5">
-        <span>{PRICE_MIN.toLocaleString("ru")} ₽</span>
-        <span>{PRICE_MAX.toLocaleString("ru")} ₽</span>
+        <span className="text-sm text-primary font-bold">₽</span>
       </div>
     </div>
   )
@@ -225,16 +177,9 @@ function CompositionGrid({
   showDischargeBadge?: boolean
 }) {
   const [modal, setModal] = useState<ModalItem>(null)
-  const [activeColors, setActiveColors] = useState<string[]>([])
   const [activeSubcategories, setActiveSubcategories] = useState<string[]>([])
-  const [minPrice, setMinPrice] = useState(PRICE_MIN)
-  const [maxPrice, setMaxPrice] = useState(PRICE_MAX)
-
-  const toggleColor = (colorId: string) => {
-    setActiveColors((prev) =>
-      prev.includes(colorId) ? prev.filter((c) => c !== colorId) : [...prev, colorId]
-    )
-  }
+  const [minPrice, setMinPrice] = useState<number | "">("")
+  const [maxPrice, setMaxPrice] = useState<number | "">("")
 
   const toggleSubcategory = (id: string) => {
     setActiveSubcategories((prev) =>
@@ -243,21 +188,19 @@ function CompositionGrid({
   }
 
   const resetAll = () => {
-    setActiveColors([])
     setActiveSubcategories([])
-    setMinPrice(PRICE_MIN)
-    setMaxPrice(PRICE_MAX)
+    setMinPrice("")
+    setMaxPrice("")
   }
 
   const hasFilters =
-    activeColors.length > 0 ||
     activeSubcategories.length > 0 ||
-    minPrice > PRICE_MIN ||
-    maxPrice < PRICE_MAX
+    minPrice !== "" ||
+    maxPrice !== ""
 
   const filtered = items
-    .filter((item) => item.priceNum >= minPrice && item.priceNum <= maxPrice)
-    .filter((item) => activeColors.length === 0 || activeColors.some((c) => item.colors.includes(c)))
+    .filter((item) => minPrice === "" || item.priceNum >= minPrice)
+    .filter((item) => maxPrice === "" || item.priceNum <= maxPrice)
     .filter(
       (item) =>
         activeSubcategories.length === 0 ||
@@ -360,43 +303,13 @@ function CompositionGrid({
           </div>
         )}
 
-        {/* Price range slider */}
-        <PriceSlider
+        {/* Price inputs */}
+        <PriceInputs
           minPrice={minPrice}
           maxPrice={maxPrice}
           onMinChange={setMinPrice}
           onMaxChange={setMaxPrice}
         />
-
-        {/* Color filter */}
-        <div>
-          <p className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Цвет композиций</p>
-          <div className="flex flex-wrap gap-2">
-            {COLOR_OPTIONS.map((color) => {
-              const isActive = activeColors.includes(color.id)
-              return (
-                <button
-                  key={color.id}
-                  onClick={() => toggleColor(color.id)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border-2 transition-all ${
-                    isActive
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border bg-white text-muted-foreground hover:border-primary/50"
-                  }`}
-                >
-                  <span
-                    className="w-4 h-4 rounded-full flex-shrink-0"
-                    style={{
-                      backgroundColor: color.hex,
-                      border: color.border ? "1px solid #d1d5db" : "none",
-                    }}
-                  />
-                  {color.label}
-                </button>
-              )
-            })}
-          </div>
-        </div>
 
         {hasFilters && (
           <button
