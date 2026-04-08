@@ -27,7 +27,8 @@ export function Navbar() {
             <img
               src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/465cc8c2-ca6e-4fcc-a0aa-7bab4c240a9a.png"
               alt="Шарим — студия аэродизайна"
-              className="h-14 w-auto object-contain"
+              className="h-20 w-auto object-contain"
+              style={{ mixBlendMode: "multiply" }}
             />
           </div>
 
