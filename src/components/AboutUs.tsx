@@ -15,8 +15,8 @@ export function AboutUs() {
               <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-2xl shadow-xl px-3 sm:px-5 py-2 sm:py-3 flex items-center gap-2">
                 <span className="text-xl sm:text-2xl">🎈</span>
                 <div>
-                  <p className="text-xs text-muted-foreground">с нами с</p>
-                  <p className="font-bold text-foreground text-sm">2018 года</p>
+                  <p className="text-xs text-muted-foreground">с Вами с</p>
+                  <p className="font-bold text-foreground text-sm">2020 года</p>
                 </div>
               </div>
             </div>
@@ -39,18 +39,17 @@ export function AboutUs() {
                 Я заказала шарики, увидела восторг в её глазах и поняла: <span className="text-foreground font-medium">вот оно</span>.
               </p>
               <p>
-                С 2018 года мы создаём атмосферу праздника для сотен семей Краснодара и края.
+                С 2020 года мы создаём атмосферу праздника для сотен семей Краснодара и края.
                 Каждая композиция — это не просто шарики, это эмоции, которые остаются в памяти навсегда.
               </p>
               <p>
-                Мы работаем круглосуточно, потому что праздники случаются в любое время.
-                И мы всегда рядом, чтобы ваш момент стал особенным.
+                Мы работаем по всему Краснодару и Краснодарскому краю круглосуточно без выходных.
               </p>
             </div>
 
             <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-1 sm:pt-2">
               <div className="bg-white rounded-2xl shadow-sm border border-border px-3 sm:px-5 py-3 text-center">
-                <p className="text-xl sm:text-2xl font-bold text-primary">500+</p>
+                <p className="text-xl sm:text-2xl font-bold text-primary">5000+</p>
                 <p className="text-xs text-muted-foreground mt-0.5">клиентов</p>
               </div>
               <div className="bg-white rounded-2xl shadow-sm border border-border px-3 sm:px-5 py-3 text-center">

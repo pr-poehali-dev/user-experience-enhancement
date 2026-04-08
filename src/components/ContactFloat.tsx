@@ -80,7 +80,7 @@ export function ContactFloat() {
           className="absolute bottom-0 right-0 text-background font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
           style={{ background: "hsl(var(--foreground))", fontSize: "0.85rem" }}
         >
-          Свяжитесь с нами
+          Напишите нам
         </span>
       )}
     </div>

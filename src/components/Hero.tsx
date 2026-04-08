@@ -111,28 +111,14 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Phone + address */}
-        <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border/50 space-y-2">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            <a
-              href="tel:+79885973303"
-              className="flex items-center gap-2 text-sm sm:text-base text-foreground/75 hover:text-primary transition-colors"
-            >
-              <Icon name="Phone" className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
-              8 988 597 33 03
-            </a>
-            <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
-            <a
-              href="tel:+79182457204"
-              className="flex items-center gap-2 text-sm sm:text-base text-foreground/75 hover:text-primary transition-colors"
-            >
-              <Icon name="Phone" className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
-              8 918 245 72 04
-            </a>
-          </div>
-          <div className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-muted-foreground">
-            <Icon name="MapPin" className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
-            <span>ул. Героя Яцкова 19к3</span>
+        {/* Bottom CTA */}
+        <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border/50 flex flex-col items-center gap-2">
+          <div className="inline-flex flex-col items-center gap-1 bg-green-50 border-2 border-green-200 rounded-2xl px-8 py-4 cursor-pointer hover:bg-green-100 transition-colors">
+            <div className="flex items-center gap-2">
+              <Icon name="Gift" className="h-6 w-6 text-green-600" />
+              <span className="text-xl sm:text-2xl font-bold text-green-700">Бесплатная доставка</span>
+            </div>
+            <span className="text-sm text-green-600/80">Узнавайте у менеджера</span>
           </div>
         </div>
       </div>
