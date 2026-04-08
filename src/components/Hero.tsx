@@ -5,28 +5,30 @@ import { useNavigate } from "react-router-dom"
 const floatingItems = [
   { emoji: "🎈", size: "text-6xl", left: "3%", delay: "0s", duration: "8s", startY: "110vh" },
   { emoji: "🎀", size: "text-4xl", left: "10%", delay: "1.2s", duration: "10s", startY: "110vh" },
+  { emoji: "🎈", size: "text-7xl", left: "18%", delay: "0.5s", duration: "7s", startY: "110vh" },
   { emoji: "🎊", size: "text-5xl", left: "26%", delay: "2s", duration: "11s", startY: "110vh" },
   { emoji: "🧸", size: "text-4xl", left: "32%", delay: "3.2s", duration: "9s", startY: "110vh" },
+  { emoji: "🎈", size: "text-5xl", left: "40%", delay: "0.8s", duration: "8.5s", startY: "110vh" },
   { emoji: "🎉", size: "text-6xl", left: "50%", delay: "1.5s", duration: "10s", startY: "110vh" },
+  { emoji: "🪀", size: "text-4xl", left: "57%", delay: "4s", duration: "12s", startY: "110vh" },
   { emoji: "🎈", size: "text-8xl", left: "64%", delay: "0.3s", duration: "7s", startY: "110vh" },
   { emoji: "🎀", size: "text-5xl", left: "72%", delay: "2.5s", duration: "11s", startY: "110vh" },
   { emoji: "🎁", size: "text-4xl", left: "79%", delay: "1.8s", duration: "9s", startY: "110vh" },
+  { emoji: "🎈", size: "text-5xl", left: "86%", delay: "1s", duration: "8s", startY: "110vh" },
   { emoji: "🎊", size: "text-6xl", left: "92%", delay: "0.6s", duration: "11s", startY: "110vh" },
   { emoji: "🪆", size: "text-4xl", left: "7%", delay: "3s", duration: "10s", startY: "110vh" },
+  { emoji: "🎈", size: "text-7xl", left: "48%", delay: "3.5s", duration: "8s", startY: "110vh" },
   { emoji: "🧨", size: "text-4xl", left: "22%", delay: "4.5s", duration: "12s", startY: "110vh" },
   { emoji: "🎠", size: "text-5xl", left: "88%", delay: "2.8s", duration: "9s", startY: "110vh" },
   { emoji: "🪅", size: "text-4xl", left: "55%", delay: "5s", duration: "13s", startY: "110vh" },
   { emoji: "🎈", size: "text-5xl", left: "15%", delay: "6s", duration: "9s", startY: "60vh" },
+  { emoji: "🎁", size: "text-5xl", left: "35%", delay: "0s", duration: "10s", startY: "70vh" },
   { emoji: "🎉", size: "text-4xl", left: "60%", delay: "7s", duration: "8s", startY: "50vh" },
   { emoji: "🎊", size: "text-4xl", left: "75%", delay: "2s", duration: "11s", startY: "65vh" },
+  { emoji: "🎈", size: "text-6xl", left: "44%", delay: "8s", duration: "9s", startY: "80vh" },
   { emoji: "🧸", size: "text-3xl", left: "95%", delay: "1s", duration: "12s", startY: "55vh" },
   { emoji: "🎀", size: "text-3xl", left: "2%", delay: "9s", duration: "10s", startY: "40vh" },
 ]
-
-const sidePhotos = {
-  left: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6dc788aa-110e-4d80-a876-8ed8d7083487.jpg",
-  right: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/d10af886-e42f-408a-bc4d-c49c5bde68ee.jpg",
-}
 
 export function Hero() {
   const navigate = useNavigate()
@@ -65,98 +67,75 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Three-column layout */}
-      <div className="relative z-10 w-full min-h-screen flex items-stretch">
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center py-20">
+        <div className="space-y-5">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
+            Воздушные
+            <span className="block font-semibold mt-2 text-primary">шарики</span>
+          </h1>
 
-        {/* Left photo panel */}
-        <div className="hidden lg:flex flex-1 items-end justify-end pb-0 pr-4 overflow-hidden">
-          <img
-            src={sidePhotos.left}
-            alt="Шары для девушки"
-            className="h-[85vh] w-auto object-cover object-top rounded-t-[2.5rem] shadow-2xl opacity-90"
-            style={{ maxWidth: "320px" }}
-          />
-        </div>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Стильные композиции из шаров для любого праздника{" "}
+            <span
+              className="font-bold"
+              style={{
+                background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              по низким ценам
+            </span>
+          </p>
 
-        {/* Center card */}
-        <div className="flex-shrink-0 w-full lg:w-[480px] xl:w-[520px] flex items-center justify-center px-4 lg:px-0 py-16">
-          <div className="w-full bg-white/75 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/60 px-8 py-10 text-center space-y-6">
+          {/* Delivery highlight */}
+          <div className="inline-flex items-center gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-6 py-3">
+            <Icon name="Truck" className="h-6 w-6 text-primary flex-shrink-0" />
+            <span className="text-xl md:text-2xl font-bold text-primary">
+              Доставка по Краснодару 24/7
+            </span>
+          </div>
 
-            <h1 className="text-5xl md:text-6xl font-normal tracking-tight leading-tight">
-              Воздушные
-              <span className="block font-semibold text-primary mt-1">шарики</span>
-            </h1>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Стильные композиции из шаров для любого праздника{" "}
-              <span
-                className="font-bold"
-                style={{
-                  background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                по низким ценам
-              </span>
-            </p>
-
-            {/* Delivery */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-2xl px-5 py-2.5">
-              <Icon name="Truck" className="h-5 w-5 text-primary flex-shrink-0" />
-              <span className="text-base font-bold text-primary">Доставка по Краснодару 24/7</span>
-            </div>
-
-            {/* CTA */}
+          <div className="flex justify-center pt-2">
             <Button
               size="lg"
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl group shadow-lg"
-              style={{ height: "3.75rem", fontSize: "1.1rem" }}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-16 group shadow-lg"
+              style={{ height: "4.5rem", fontSize: "1.25rem" }}
               onClick={() => navigate("/catalog")}
             >
               Смотреть каталог
-              <Icon name="ArrowRight" className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
             </Button>
-
-            {/* Divider */}
-            <div className="border-t border-border/40 pt-4 space-y-2">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a
-                  href="tel:+79885973303"
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
-                >
-                  <Icon name="Phone" className="h-3.5 w-3.5 text-primary flex-shrink-0" />
-                  8 988 597 33 03
-                </a>
-                <span className="hidden sm:block text-muted-foreground/30">·</span>
-                <a
-                  href="tel:+79182457204"
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
-                >
-                  <Icon name="Phone" className="h-3.5 w-3.5 text-primary flex-shrink-0" />
-                  8 918 245 72 04
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
-                <Icon name="MapPin" className="h-3.5 w-3.5 text-primary flex-shrink-0" />
-                ул. Героя Яцкова 19к3
-              </div>
-            </div>
-
           </div>
         </div>
 
-        {/* Right photo panel */}
-        <div className="hidden lg:flex flex-1 items-end justify-start pb-0 pl-4 overflow-hidden">
-          <img
-            src={sidePhotos.right}
-            alt="Шары для мальчика"
-            className="h-[85vh] w-auto object-cover object-top rounded-t-[2.5rem] shadow-2xl opacity-90"
-            style={{ maxWidth: "320px" }}
-          />
+        {/* Phone + address */}
+        <div className="mt-10 pt-8 border-t border-border/50 space-y-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="tel:+79885973303"
+              className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
+            >
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 988 597 33 03
+            </a>
+            <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
+            <a
+              href="tel:+79182457204"
+              className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
+            >
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 918 245 72 04
+            </a>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
+            Мы находимся по адресу:{" "}
+            <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
+          </div>
         </div>
-
       </div>
     </section>
   )
