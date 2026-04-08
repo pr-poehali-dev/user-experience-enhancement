@@ -44,8 +44,8 @@ export function ContactFloat() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-      {/* Contact items — снизу вверх: телефон внизу, макс вверху */}
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {/* Contact items */}
       {open && (
         <div className="flex flex-col items-end gap-2 mb-1">
           {contacts.slice().reverse().map((c) => (
@@ -64,26 +64,25 @@ export function ContactFloat() {
         </div>
       )}
 
-      {/* Toggle button */}
-      <div className="relative">
-        <button
-          onClick={() => setOpen((p) => !p)}
-          className="w-[4.5rem] h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105"
-          style={{ background: "hsl(var(--primary))" }}
-          aria-label="Связаться с нами"
-        >
-          <Icon name={open ? "X" : "MessageCircle"} size={34} />
-        </button>
+      {/* Toggle button (мессенджеры) — поднята на mb-12 от низа */}
+      <button
+        onClick={() => setOpen((p) => !p)}
+        className="w-[4.5rem] h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105 mb-14"
+        style={{ background: "hsl(var(--primary))" }}
+        aria-label="Связаться с нами"
+      >
+        <Icon name={open ? "X" : "MessageCircle"} size={34} />
+      </button>
 
-        {!open && (
-          <span
-            className="absolute -top-12 right-0 text-background font-bold px-5 py-2.5 rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
-            style={{ background: "hsl(var(--foreground))", fontSize: "1.1rem" }}
-          >
-            Свяжитесь с нами
-          </span>
-        )}
-      </div>
+      {/* «Свяжитесь с нами» — внизу, под кнопкой */}
+      {!open && (
+        <span
+          className="absolute bottom-0 right-0 text-background font-bold px-5 py-2.5 rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
+          style={{ background: "hsl(var(--foreground))", fontSize: "1.1rem" }}
+        >
+          Свяжитесь с нами
+        </span>
+      )}
     </div>
   )
 }

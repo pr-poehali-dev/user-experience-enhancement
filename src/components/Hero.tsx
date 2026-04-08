@@ -68,9 +68,9 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center py-32">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center py-20">
         <div className="space-y-5">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-balance">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
             Воздушные
             <span className="block font-semibold mt-2 text-primary">шарики</span>
           </h1>
@@ -111,30 +111,30 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Phone numbers */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 pt-10 border-t border-border/50">
-          <a
-            href="tel:+79885973303"
-            className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
-          >
-            <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
-            8 988 597 33 03
-          </a>
-          <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
-          <a
-            href="tel:+79182457204"
-            className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
-          >
-            <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
-            8 918 245 72 04
-          </a>
-        </div>
-
-        {/* Address */}
-        <div className="mt-3 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-          <Icon name="MapPin" className="h-4 w-4 text-primary" />
-          Мы находимся по адресу:{" "}
-          <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
+        {/* Phone + address */}
+        <div className="mt-10 pt-8 border-t border-border/50 space-y-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="tel:+79885973303"
+              className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
+            >
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 988 597 33 03
+            </a>
+            <span className="hidden sm:block text-muted-foreground/30 text-xl">·</span>
+            <a
+              href="tel:+79182457204"
+              className="flex items-center gap-2 text-base text-foreground/75 hover:text-primary transition-colors"
+            >
+              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
+              8 918 245 72 04
+            </a>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
+            Мы находимся по адресу:{" "}
+            <span className="font-semibold text-foreground">ул. Героя Яцкова 19к3</span>
+          </div>
         </div>
       </div>
     </section>

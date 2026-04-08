@@ -325,19 +325,18 @@ function CompositionGrid({
               {dischargeSubcategories.map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 const isBoy = cat.id === "boy-discharge"
-                const borderColor = isBoy ? "border-blue-400" : "border-pink-400"
                 const activeBg = isBoy
-                  ? "bg-gradient-to-br from-blue-400 to-blue-600 text-white border-blue-500 shadow-blue-200"
-                  : "bg-gradient-to-br from-pink-400 to-rose-500 text-white border-pink-400 shadow-pink-200"
-                const inactiveBorder = isBoy ? "border-blue-300 hover:border-blue-400 hover:bg-blue-50" : "border-pink-300 hover:border-pink-400 hover:bg-pink-50"
+                  ? "bg-gradient-to-br from-blue-400 to-blue-600 text-white"
+                  : "bg-gradient-to-br from-pink-400 to-rose-500 text-white"
                 return (
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`flex flex-col items-center justify-center gap-3 py-6 px-4 rounded-2xl font-bold border-3 border-2 transition-all shadow-md ${
-                      isActive ? `${activeBg} shadow-lg scale-[1.02]` : `bg-white text-foreground ${inactiveBorder} ${borderColor}`
+                    className={`flex flex-col items-center justify-center gap-3 py-6 px-4 rounded-2xl font-bold border-2 transition-all shadow-md ${
+                      isActive
+                        ? `${activeBg} border-transparent shadow-lg scale-[1.02]`
+                        : "bg-white text-foreground border-border hover:border-primary/40 hover:bg-primary/5"
                     }`}
-                    style={{ borderWidth: "3px" }}
                   >
                     <span className="text-4xl">{cat.emoji}</span>
                     <span className="text-base">{cat.label}</span>
@@ -446,22 +445,21 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8"
       onClick={onClose}
     >
       <div
-        className="relative w-full h-full flex flex-col"
+        className="relative w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl"
+        style={{ height: "88vh" }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Full-screen image */}
-        <div className="absolute inset-0">
-          <img
-            src={modal.image}
-            alt={modal.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30" />
-        </div>
+        {/* Full image filling container */}
+        <img
+          src={modal.image}
+          alt={modal.title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/20" />
 
         {/* Close button */}
         <button
@@ -568,6 +566,7 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
 }
 
 export default function Catalog() {
+
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
