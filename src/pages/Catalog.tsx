@@ -445,115 +445,125 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4 md:p-8"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4 md:p-6"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl"
-        style={{ height: "92vh" }}
+        className="relative w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl flex flex-row bg-white"
+        style={{ height: "90vh" }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Full image filling container */}
-        <img
-          src={modal.image}
-          alt={modal.title}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/20" />
+        {/* LEFT — фото */}
+        <div className="relative w-[55%] flex-shrink-0">
+          <img
+            src={modal.image}
+            alt={modal.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Category badge */}
+          {modal.subcategory && (
+            <div className="absolute top-3 left-3 z-10">
+              <span className="text-xs bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full font-medium">
+                {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.emoji}{" "}
+                {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.label}
+              </span>
+            </div>
+          )}
+        </div>
 
-        {/* Close button */}
-        <button
-          className="absolute top-4 right-4 z-10 w-11 h-11 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/40 transition-colors shadow-lg"
-          onClick={onClose}
-        >
-          <Icon name="X" size={22} className="text-white" />
-        </button>
-
-        {/* Category badge */}
-        {modal.subcategory && (
-          <div className="absolute top-4 left-4 z-10">
-            <span className="text-sm bg-white/20 backdrop-blur-md text-white px-4 py-1.5 rounded-full font-medium">
-              {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.emoji}{" "}
-              {birthdaySubcategories.find((s) => s.id === modal.subcategory)?.label}
-            </span>
-          </div>
-        )}
-
-        {/* Bottom panel */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 px-3 pb-4 pt-3 sm:px-4 sm:pb-6 sm:pt-4 md:px-8">
-          {/* Title + price */}
-          <div className="mb-2 sm:mb-4">
-            <h3
-              className="text-white text-lg sm:text-2xl md:text-3xl font-medium mb-0.5 sm:mb-1 drop-shadow-lg"
-              style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}
+        {/* RIGHT — контент */}
+        <div className="flex-1 flex flex-col overflow-hidden bg-white">
+          {/* Close */}
+          <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-border/40">
+            <div>
+              <h3
+                className="text-lg sm:text-xl font-medium text-foreground leading-tight"
+                style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}
+              >
+                {modal.title}
+              </h3>
+              <span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span>
+            </div>
+            <button
+              className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors ml-3"
+              onClick={onClose}
             >
-              {modal.title}
-            </h3>
-            <span className="text-white/90 font-bold text-lg sm:text-2xl drop-shadow">{modal.price}</span>
+              <Icon name="X" size={18} />
+            </button>
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-2 mb-2 sm:mb-4">
+          <div className="flex gap-2 px-5 pt-4 pb-2">
             <button
               onClick={() => setActiveTab("content")}
-              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all ${
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl font-semibold text-sm transition-all ${
                 activeTab === "content"
-                  ? "bg-white text-foreground shadow-lg"
-                  : "bg-white/20 backdrop-blur-md text-white hover:bg-white/30"
+                  ? "bg-primary text-primary-foreground shadow"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
               }`}
             >
-              <Icon name="Sparkles" size={15} />
+              <Icon name="Sparkles" size={14} />
               Наполнение
             </button>
             <button
               onClick={() => setActiveTab("order")}
-              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all ${
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl font-semibold text-sm transition-all ${
                 activeTab === "order"
-                  ? "bg-white text-foreground shadow-lg"
-                  : "bg-white/20 backdrop-blur-md text-white hover:bg-white/30"
+                  ? "bg-primary text-primary-foreground shadow"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
               }`}
             >
-              <Icon name="MessageCircle" size={15} />
+              <Icon name="MessageCircle" size={14} />
               Как заказать
             </button>
           </div>
 
-          {/* Tab content */}
-          <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-3 sm:p-4 md:p-5 max-w-2xl">
+          {/* Tab content — scrollable */}
+          <div className="flex-1 overflow-y-auto px-5 pb-5">
             {activeTab === "content" && (
-              <div className="space-y-3">
-                <p className="text-white leading-relaxed text-xs sm:text-sm md:text-base">{modal.description}</p>
-                <div className="bg-white/20 rounded-xl px-4 py-2.5 text-white text-sm font-medium">
-                  🎨 Наполнение можно изменить под ваш бюджет и пожелания
+              <div className="space-y-4 pt-2">
+                <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{modal.description}</p>
+                <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
+                  🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания — просто скажите нам!
+                </div>
+                <div className="bg-muted/50 rounded-xl px-4 py-3 text-sm text-muted-foreground space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Clock" size={14} className="text-primary flex-shrink-0" />
+                    <span>Доставка 24/7 по Краснодару и краю</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Icon name="MapPin" size={14} className="text-primary flex-shrink-0" />
+                    <span>Самовывоз: ул. Героя Яцкова 19к3</span>
+                  </div>
                 </div>
               </div>
             )}
             {activeTab === "order" && (
-              <div className="space-y-3">
-                <p className="text-white text-sm md:text-base leading-relaxed">
+              <div className="space-y-3 pt-2">
+                <p className="text-foreground/80 text-sm leading-relaxed">
                   Напишите нам номер понравившейся композиции в любом мессенджере или позвоните — сориентируем по наполнению и доставке.
                 </p>
-                <div className="bg-white/20 rounded-xl px-4 py-2 font-mono text-base font-bold text-white text-center">
+                <div className="bg-muted rounded-xl px-4 py-2.5 font-mono text-sm font-bold text-foreground text-center">
                   № {modal.id} — {modal.title}
                 </div>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  <a href="tel:+79885973303" className="flex items-center gap-1.5 bg-white text-foreground px-4 py-2 rounded-full text-sm font-bold hover:bg-white/90 transition-colors shadow">
-                    <Icon name="Phone" size={14} className="text-primary" /> 8 988 597 33 03
+                <a href="tel:+79885973303" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors">
+                  <Icon name="Phone" size={15} className="text-primary" /> 8 988 597 33 03
+                </a>
+                <div className="flex flex-wrap gap-2">
+                  <a href="https://wa.me/79885973303" className="flex items-center gap-1.5 bg-green-500 text-white px-3 py-2 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
+                    <Icon name="MessageSquare" size={13} /> WhatsApp
                   </a>
-                  <a href="https://wa.me/79885973303" className="flex items-center gap-1.5 bg-green-500 text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-green-600 transition-colors">
-                    <Icon name="MessageSquare" size={14} /> WhatsApp
+                  <a href="#" className="flex items-center gap-1.5 bg-blue-500 text-white px-3 py-2 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
+                    <Icon name="Send" size={13} /> Telegram
                   </a>
-                  <a href="#" className="flex items-center gap-1.5 bg-blue-500 text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                    <Icon name="Send" size={14} /> Telegram
+                  <a href="#" className="flex items-center gap-1.5 bg-blue-700 text-white px-3 py-2 rounded-full text-xs font-medium hover:bg-blue-800 transition-colors">
+                    <Icon name="MessageCircle" size={13} /> ВКонтакте
                   </a>
-                  <a href="#" className="flex items-center gap-1.5 bg-blue-700 text-white px-3 py-2 rounded-full text-sm font-medium hover:bg-blue-800 transition-colors">
-                    <Icon name="MessageCircle" size={14} /> ВКонтакте
+                  <a href="#" className="flex items-center gap-1.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-2 rounded-full text-xs font-medium hover:opacity-90 transition-opacity">
+                    <Icon name="Instagram" size={13} /> Instagram
                   </a>
-                  <a href="#" className="flex items-center gap-1.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
-                    <Icon name="Instagram" size={14} /> Instagram
-                  </a>
-                  <a href="#" className="flex items-center gap-1.5 text-white px-3 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity" style={{ backgroundColor: "#1e3a5f" }}>
-                    <Icon name="Flame" size={14} /> Max
+                  <a href="#" className="flex items-center gap-1.5 text-white px-3 py-2 rounded-full text-xs font-medium" style={{ backgroundColor: "#1e3a5f" }}>
+                    <Icon name="Flame" size={13} /> Max
                   </a>
                 </div>
               </div>
