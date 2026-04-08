@@ -449,12 +449,12 @@ function CompositionModal({ modal, onClose }: { modal: Composition; onClose: () 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl flex flex-row bg-white"
+        className="relative w-full max-w-6xl rounded-3xl overflow-hidden shadow-2xl flex flex-row bg-white"
         style={{ height: "90vh" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* LEFT — фото */}
-        <div className="relative w-[55%] flex-shrink-0">
+        <div className="relative w-[62%] flex-shrink-0">
           <img
             src={modal.image}
             alt={modal.title}
