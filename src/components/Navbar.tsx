@@ -42,7 +42,7 @@ export function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="relative flex items-center justify-between h-16 sm:h-20">
 
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
@@ -53,8 +53,8 @@ export function Navbar() {
             />
           </div>
 
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop nav links — по центру */}
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {showCatalogBtn ? (
               <Button
                 onClick={() => navigate("/catalog")}

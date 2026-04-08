@@ -582,7 +582,10 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
 
           {/* Как заказать — внизу, фиксированный */}
           <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-3 bg-white">
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Как заказать</p>
+            <div>
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Как заказать</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">Напишите нам номер композиции, сориентируем по наполнению и доставке</p>
+            </div>
             <div className="flex flex-col gap-2">
               <a href="tel:+79885973303" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors text-sm">
                 <Icon name="Phone" size={14} className="text-primary" /> 8 988 597 33 03

@@ -67,60 +67,58 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
-        <div className="space-y-4 sm:space-y-5">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
-            Воздушные
-            <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
-          </h1>
+      {/* Content — равномерно на весь экран */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-evenly px-4 sm:px-6 lg:px-8 text-center py-24">
 
-          <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Стильные композиции из шаров для любого праздника{" "}
-            <span
-              className="font-bold"
-              style={{
-                background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              по низким ценам
-            </span>
-          </p>
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
+          Воздушные
+          <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
+        </h1>
 
-          {/* Delivery highlight */}
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
-            <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-            <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
-              Доставка по Краснодару 24/7
-            </span>
+        <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Стильные композиции из шаров для любого праздника{" "}
+          <span
+            className="font-bold"
+            style={{
+              background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            по низким ценам
+          </span>
+        </p>
+
+        <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
+          <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+          <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
+            Доставка по Краснодару 24/7
+          </span>
+        </div>
+
+        <Button
+          size="lg"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
+          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
+          onClick={() => navigate("/catalog")}
+        >
+          Смотреть каталог
+          <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
+        </Button>
+
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
+            <span>ул. Героя Яцкова 19к3</span>
           </div>
-
-          <div className="flex justify-center pt-1 sm:pt-2">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
-              style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
-              onClick={() => navigate("/catalog")}
-            >
-              Смотреть каталог
-              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          <span className="hidden sm:block text-muted-foreground/30">·</span>
+          <div className="flex items-center gap-2">
+            <Icon name="Clock" className="h-4 w-4 text-primary flex-shrink-0" />
+            <span>Работаем 24/7</span>
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-border/50 flex flex-col items-center gap-2">
-          <div className="inline-flex flex-col items-center gap-1 bg-green-50 border-2 border-green-200 rounded-2xl px-8 py-4 cursor-pointer hover:bg-green-100 transition-colors">
-            <div className="flex items-center gap-2">
-              <Icon name="Gift" className="h-6 w-6 text-green-600" />
-              <span className="text-xl sm:text-2xl font-bold text-green-700">Бесплатная доставка</span>
-            </div>
-            <span className="text-sm text-green-600/80">Узнавайте у менеджера</span>
-          </div>
-        </div>
       </div>
     </section>
   )
