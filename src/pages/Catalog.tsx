@@ -178,6 +178,7 @@ function CompositionGrid({
 }) {
   const [modal, setModal] = useState<ModalItem>(null)
   const [activeSubcategories, setActiveSubcategories] = useState<string[]>([])
+  const [activeColors, setActiveColors] = useState<string[]>([])
   const [minPrice, setMinPrice] = useState<number | "">("")
   const [maxPrice, setMaxPrice] = useState<number | "">("")
 
@@ -187,14 +188,22 @@ function CompositionGrid({
     )
   }
 
+  const toggleColor = (id: string) => {
+    setActiveColors((prev) =>
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+    )
+  }
+
   const resetAll = () => {
     setActiveSubcategories([])
+    setActiveColors([])
     setMinPrice("")
     setMaxPrice("")
   }
 
   const hasFilters =
     activeSubcategories.length > 0 ||
+    activeColors.length > 0 ||
     minPrice !== "" ||
     maxPrice !== ""
 
@@ -205,6 +214,11 @@ function CompositionGrid({
       (item) =>
         activeSubcategories.length === 0 ||
         (item.subcategory && activeSubcategories.includes(item.subcategory))
+    )
+    .filter(
+      (item) =>
+        activeColors.length === 0 ||
+        activeColors.some((c) => item.colors.includes(c))
     )
 
   const getBirthdayLabel = (id: string) =>
@@ -302,6 +316,37 @@ function CompositionGrid({
             </div>
           </div>
         )}
+
+        {/* Color filter */}
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Цвет</p>
+          <div className="flex flex-wrap gap-1.5 ml-2">
+            {COLOR_OPTIONS.map((color) => {
+              const isActive = activeColors.includes(color.id)
+              return (
+                <button
+                  key={color.id}
+                  onClick={() => toggleColor(color.id)}
+                  title={color.label}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border-2 transition-all ${
+                    isActive
+                      ? "border-primary shadow-md scale-105"
+                      : "border-transparent bg-muted hover:border-border"
+                  }`}
+                >
+                  <span
+                    className="w-3.5 h-3.5 rounded-full flex-shrink-0"
+                    style={{
+                      background: color.hex,
+                      border: color.border ? "1px solid #d1d5db" : undefined,
+                    }}
+                  />
+                  <span className="text-foreground/80">{color.label}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
 
         {/* Price inputs */}
         <PriceInputs
