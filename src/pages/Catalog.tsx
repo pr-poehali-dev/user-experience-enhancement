@@ -401,9 +401,9 @@ function CompositionGrid({
                 </div>
               )}
               {/* Price always visible */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-2.5 px-3">
                 <p className="text-white text-xs font-semibold truncate opacity-0 group-hover:opacity-100 transition-opacity duration-300">{item.title}</p>
-                <p className="text-white font-bold text-sm">{item.price}</p>
+                <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
               </div>
             </div>
           ))}
