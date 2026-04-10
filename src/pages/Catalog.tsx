@@ -282,7 +282,7 @@ function CompositionGrid({
                       <span className="absolute -top-2 -right-1 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">ХИТ</span>
                     )}
                     <span className="text-lg sm:text-2xl">{cat.emoji}</span>
-                    <span className="text-center leading-tight" style={{ fontSize: "0.65rem" }}>{cat.label}</span>
+                    <span className="text-center leading-tight text-xs sm:text-sm">{cat.label}</span>
                   </button>
                 )
               })}
@@ -321,9 +321,9 @@ function CompositionGrid({
         )}
 
         {/* Color filter */}
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Цвет</p>
-          <div className="flex flex-wrap gap-1.5 ml-2">
+        <div>
+          <div className="flex flex-wrap gap-2">
+            <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap self-center">Цвет</p>
             {COLOR_OPTIONS.map((color) => {
               const isActive = activeColors.includes(color.id)
               return (
@@ -331,16 +331,16 @@ function CompositionGrid({
                   key={color.id}
                   onClick={() => toggleColor(color.id)}
                   title={color.label}
-                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border-2 transition-all ${
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border-2 transition-all ${
                     isActive
                       ? "border-primary shadow-md scale-105"
                       : "border-transparent bg-muted hover:border-border"
                   }`}
                 >
                   <span
-                    className="w-3.5 h-3.5 rounded-full flex-shrink-0"
+                    className="w-4 h-4 rounded-full flex-shrink-0"
                     style={{
-                      background: color.hex,
+                      background: color.id === "beige" ? "#8B6914" : color.hex,
                       border: color.border ? "1px solid #d1d5db" : undefined,
                     }}
                   />
