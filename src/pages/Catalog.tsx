@@ -351,10 +351,10 @@ function CompositionGrid({
                   </span>
                 </div>
               )}
-              {/* Title on hover */}
-              <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-white text-xs font-semibold truncate">{item.title}</p>
-                <p className="text-white/80 text-xs">{item.price}</p>
+              {/* Price always visible */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                <p className="text-white text-xs font-semibold truncate opacity-0 group-hover:opacity-100 transition-opacity duration-300">{item.title}</p>
+                <p className="text-white font-bold text-sm">{item.price}</p>
               </div>
             </div>
           ))}
