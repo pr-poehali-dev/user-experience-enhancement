@@ -34,14 +34,17 @@ type Composition = {
 }
 
 const COLOR_OPTIONS = [
-  { id: "pink", label: "Розовые", hex: "#f472b6" },
-  { id: "purple", label: "Фиолетовые", hex: "#a78bfa" },
-  { id: "white", label: "Белые", hex: "#f3f4f6", border: true },
-  { id: "black", label: "Чёрные", hex: "#1f2937" },
+  { id: "gold", label: "Золотые", hex: "#d4a017" },
   { id: "blue", label: "Синие", hex: "#60a5fa" },
+  { id: "beige", label: "Бежевые", hex: "#e8d5b0", border: true },
+  { id: "pink", label: "Розовые", hex: "#f472b6" },
+  { id: "yellow", label: "Жёлтые", hex: "#facc15" },
   { id: "green", label: "Зелёные", hex: "#4ade80" },
-  { id: "gold", label: "Золотые", hex: "#d97706" },
-  { id: "silver", label: "Серебряные", hex: "#9ca3af" },
+  { id: "black", label: "Чёрные", hex: "#1f2937" },
+  { id: "silver", label: "Серебристые", hex: "#9ca3af" },
+  { id: "purple", label: "Фиолетовые", hex: "#a78bfa" },
+  { id: "red", label: "Красные", hex: "#f87171" },
+  { id: "orange", label: "Оранжевые", hex: "#fb923c" },
 ]
 
 const compositions: Record<string, Composition[]> = {
