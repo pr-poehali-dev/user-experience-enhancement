@@ -122,18 +122,18 @@ export function Hero() {
               8 918 245 72 04
             </a>
           </div>
-          <div className="flex items-center gap-3 pt-1">
-            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition-colors shadow-md">
-              <Icon name="MessageSquare" size={18} />
+          <div className="flex flex-wrap justify-center items-center gap-2 pt-1">
+            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-md">
+              <Icon name="MessageSquare" size={16} /> WhatsApp
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white hover:bg-blue-600 transition-colors shadow-md">
-              <Icon name="Send" size={18} />
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-md">
+              <Icon name="Send" size={16} /> Telegram
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center text-white hover:bg-blue-800 transition-colors shadow-md">
-              <Icon name="MessageCircle" size={18} />
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-md">
+              <Icon name="MessageCircle" size={16} /> ВКонтакте
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-md" style={{ background: "linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
-              <Icon name="Instagram" size={18} />
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity shadow-md" style={{ background: "linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
+              <Icon name="Instagram" size={16} /> Instagram
             </a>
           </div>
         </div>
