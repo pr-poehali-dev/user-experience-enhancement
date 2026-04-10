@@ -92,7 +92,7 @@ export function Hero() {
         <Button
           size="lg"
           className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
-          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
+          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600, marginTop: "2.5rem" }}
           onClick={() => navigate("/catalog")}
         >
           Смотреть каталог
