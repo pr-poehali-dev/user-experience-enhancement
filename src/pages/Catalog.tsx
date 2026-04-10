@@ -147,7 +147,7 @@ function PriceInputs({
 }) {
   return (
     <div className="flex items-center gap-2">
-      <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Бюджет</p>
+      <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Бюджет</p>
       <div className="flex items-center gap-1.5 ml-2">
         <input
           type="number"
@@ -232,14 +232,14 @@ function CompositionGrid({
   return (
     <>
       {/* Filters */}
-      <div className="mb-6 sm:mb-8 space-y-4 sm:space-y-6 bg-muted/40 rounded-2xl p-3 sm:p-5">
+      <div className="mb-4 sm:mb-8 space-y-2 sm:space-y-6 bg-muted/40 rounded-2xl p-2.5 sm:p-5">
 
         {/* Birthday subcategory filter */}
         {showSubcategoryBadge && (
           <div>
-            <p className="text-sm font-semibold text-muted-foreground mb-2 sm:mb-3 uppercase tracking-wide">Выберите для кого нужны шарики</p>
+            <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-3 uppercase tracking-wide">Выберите для кого нужны шарики</p>
             {/* Main 4 — full row, bigger */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-2 sm:mb-3">
+            <div className="grid grid-cols-4 gap-1.5 sm:gap-3 mb-1.5 sm:mb-3">
               {birthdaySubcategories.filter(c => c.main).map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 const mainColors: Record<string, string> = {
@@ -252,27 +252,27 @@ function CompositionGrid({
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`flex flex-col items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-5 px-2 sm:px-3 rounded-2xl font-bold border-2 transition-all ${
+                    className={`flex flex-col items-center justify-center gap-1 sm:gap-2 py-2 sm:py-5 px-1 sm:px-3 rounded-xl sm:rounded-2xl font-bold border-2 transition-all ${
                       isActive
                         ? `${mainColors[cat.id]} text-white shadow-lg scale-[1.03] border-transparent`
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
                     }`}
                   >
-                    <span className="text-2xl sm:text-3xl">{cat.emoji}</span>
-                    <span className="text-xs sm:text-base text-center leading-tight">{cat.label}</span>
+                    <span className="text-xl sm:text-3xl">{cat.emoji}</span>
+                    <span className="text-[10px] sm:text-base text-center leading-tight">{cat.label}</span>
                   </button>
                 )
               })}
             </div>
             {/* Secondary — smaller grid */}
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
+            <div className="grid grid-cols-6 gap-1 sm:gap-2">
               {birthdaySubcategories.filter(c => !c.main).map((cat) => {
                 const isActive = activeSubcategories.includes(cat.id)
                 return (
                   <button
                     key={cat.id}
                     onClick={() => toggleSubcategory(cat.id)}
-                    className={`relative flex flex-col items-center justify-center gap-1 py-2.5 sm:py-4 px-1 sm:px-2 rounded-xl font-semibold border-2 transition-all ${
+                    className={`relative flex flex-col items-center justify-center gap-0.5 sm:gap-1 py-1.5 sm:py-4 px-0.5 sm:px-2 rounded-lg sm:rounded-xl font-semibold border-2 transition-all ${
                       isActive
                         ? "border-primary bg-primary text-primary-foreground shadow-md scale-[1.03]"
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
@@ -282,7 +282,7 @@ function CompositionGrid({
                       <span className="absolute -top-2 -right-1 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">ХИТ</span>
                     )}
                     <span className="text-lg sm:text-2xl">{cat.emoji}</span>
-                    <span className="text-center leading-tight text-xs sm:text-sm">{cat.label}</span>
+                    <span className="text-center leading-tight text-[9px] sm:text-sm">{cat.label}</span>
                   </button>
                 )
               })}
@@ -322,8 +322,8 @@ function CompositionGrid({
 
         {/* Color filter */}
         <div>
-          <div className="flex flex-wrap gap-2">
-            <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap self-center">Цвет</p>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap self-center">Цвет</p>
             {COLOR_OPTIONS.map((color) => {
               const isActive = activeColors.includes(color.id)
               return (
@@ -331,14 +331,14 @@ function CompositionGrid({
                   key={color.id}
                   onClick={() => toggleColor(color.id)}
                   title={color.label}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium border-2 transition-all ${
+                  className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 transition-all ${
                     isActive
                       ? "border-primary shadow-md scale-105"
                       : "border-transparent bg-muted hover:border-border"
                   }`}
                 >
                   <span
-                    className="w-4 h-4 rounded-full flex-shrink-0"
+                    className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
                     style={{
                       background: color.id === "beige" ? "#8B6914" : color.hex,
                       border: color.border ? "1px solid #d1d5db" : undefined,
