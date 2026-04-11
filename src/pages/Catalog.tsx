@@ -203,7 +203,7 @@ function CompositionGrid({
 
   const toggleSubcategory = (id: string) => {
     setActiveSubcategories((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+      prev.includes(id) ? [] : [id]
     )
   }
 
