@@ -55,7 +55,13 @@ export function Navbar() {
         <div className="relative flex items-center justify-between h-16 sm:h-24">
 
           {/* Logo */}
-          <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate("/")}>
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => {
+            if (location.pathname === "/") {
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            } else {
+              navigate("/")
+            }
+          }}>
             <img
               src="https://cdn.poehali.dev/files/53388624-09fc-4e5b-be49-44cc6273a16d.png"
               alt="Шарим — студия аэродизайна"

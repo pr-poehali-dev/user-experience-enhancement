@@ -62,7 +62,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-24 pb-10 gap-6 sm:gap-8">
 
-        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-normal text-balance">
+        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-normal text-balance">
           Воздушные
           <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
         </h1>
@@ -95,7 +95,7 @@ export function Hero() {
         <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
           <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
           <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
-            Доставка по Краснодару 24/7
+            Доставка по Краснодару и краю 24/7
           </span>
         </div>
 

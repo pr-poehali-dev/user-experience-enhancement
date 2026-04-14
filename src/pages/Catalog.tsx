@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
@@ -1673,6 +1673,21 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
   const goPrev = () => { if (hasPrev) onNavigate(allItems[idx - 1]) }
   const goNext = () => { if (hasNext) onNavigate(allItems[idx + 1]) }
 
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].screenX
+  }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].screenX
+    const diff = touchStartX.current - touchEndX.current
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goNext()
+      else goPrev()
+    }
+  }
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") goPrev()
@@ -1693,6 +1708,8 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
         className="sm:hidden w-full rounded-t-3xl overflow-hidden shadow-2xl flex flex-col bg-white"
         style={{ maxHeight: "95vh" }}
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Фото 3:4 */}
         <div className="relative w-full flex-shrink-0" style={{ aspectRatio: "3/4", maxHeight: "58vh" }}>

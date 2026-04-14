@@ -19,7 +19,7 @@ function CatalogCTA() {
           <span className="text-primary">шарики?</span>
         </h2>
         <p className="text-base sm:text-xl text-muted-foreground">
-          Более 100 композиций — доставка 24/7 по Краснодару
+          Более 2000 композиций — доставка 24/7 по Краснодару
         </p>
         <Button
           size="lg"
