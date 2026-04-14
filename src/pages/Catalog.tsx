@@ -43,12 +43,6 @@ const COLOR_OPTIONS = [
 
 const compositions: Record<string, Composition[]> = {
   girl: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор для девушки 1", description: "Розовые и белые шары с фольгированными сердечками.", price: "1 490 ₽", priceNum: 1490, colors: ["pink", "white"], subcategory: "girl" },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор для девушки 2", description: "Сиреневые и золотые шары с фольгированной короной.", price: "1 890 ₽", priceNum: 1890, colors: ["purple", "gold"], subcategory: "girl" },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор для девушки 3", description: "Большая облачная композиция из розовых шаров разных размеров.", price: "2 200 ₽", priceNum: 2200, colors: ["pink"], subcategory: "girl" },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор для девушки 4", description: "Яркая арка из розовых, коралловых и белых шаров для фотозоны.", price: "3 500 ₽", priceNum: 3500, colors: ["pink", "white"], subcategory: "girl" },
-    { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор для девушки 5", description: "Фольгированная цифра в розово-золотом оформлении.", price: "990 ₽", priceNum: 990, colors: ["pink", "gold"], subcategory: "girl" },
-    { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Набор для девушки 6", description: "Нежные пастельные шары с живыми цветами и атласными лентами.", price: "2 800 ₽", priceNum: 2800, colors: ["pink", "white"], subcategory: "girl" },
     { id: 7, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9c99662e-bef5-4504-a623-e3bdc9ab36a3.jpg", title: "Набор для девушки 7", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 8, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/c4801d79-dc90-4d7f-8763-42f85ecd49bf.jpg", title: "Набор для девушки 8", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 9, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/3fd83284-b2ec-45ff-bd42-c6eb2cd87246.jpg", title: "Набор для девушки 9", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
@@ -395,10 +389,6 @@ const compositions: Record<string, Composition[]> = {
     { id: 350, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/c93d7fdb-48d6-4614-8167-e68ba6ac25bc.jpg", title: "Набор для девушки 350", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
   ],
   man: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор для мужчины 1", description: "Синие, чёрные и серебряные шары — строго и стильно.", price: "1 690 ₽", priceNum: 1690, colors: ["blue", "black", "silver"], subcategory: "man" },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор для мужчины 2", description: "Тёмно-синие шары с золотыми звёздами и фольгированными цифрами.", price: "2 290 ₽", priceNum: 2290, colors: ["blue", "gold"], subcategory: "man" },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор для мужчины 3", description: "Арка из синих и серебряных шаров — эффектная фотозона.", price: "3 200 ₽", priceNum: 3200, colors: ["blue", "silver"], subcategory: "man" },
-    { id: 4, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/e181a691-cf65-4ea5-b27d-18453bd9656d.jpg", title: "Набор для мужчины 4", description: "Большая фольгированная цифра в синем и золотом цвете.", price: "990 ₽", priceNum: 990, colors: ["blue", "gold"], subcategory: "man" },
     { id: 5, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/66fd2a4c-a22c-4717-8995-bdd2ec581332.jpg", title: "Набор для мужчины 5", description: "Шары для мужчины.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "black", "silver"], subcategory: "man" },
     { id: 6, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/492be4c8-e1c9-4086-af13-a90da62cb5c5.jpg", title: "Набор для мужчины 6", description: "Шары для мужчины.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "black", "silver"], subcategory: "man" },
     { id: 7, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f5e51be1-3813-4c3c-ab24-38f23ad99861.jpg", title: "Набор для мужчины 7", description: "Шары для мужчины.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "black", "silver"], subcategory: "man" },
@@ -1346,21 +1336,22 @@ type ModalItem = Composition | null
 const PRICE_MIN = 0
 const PRICE_MAX = 20000
 
-// Равномерная подборка: 4 основных + по 2 остальных (кроме баблс/сюрприз — по 1 из 8)
+// Все композиции дня рождения в случайном порядке
 function buildBirthdayGrid(): Composition[] {
-  const main = [...compositions.girl, ...compositions.man, ...compositions.boy, ...compositions["kid-girl"]]
-  const secondary = [...compositions["first-year"], ...compositions["ceiling"], ...compositions["numbers"], ...compositions["cartoon"]]
-  const rare = [...compositions["bubbles-box"], ...compositions["surprise-box"]]
-  const result: Composition[] = []
-  let si = 0, ri = 0
-  for (let i = 0; i < main.length; i++) {
-    result.push(main[i])
-    if (i % 2 === 1 && si < secondary.length) { result.push(secondary[si++]) }
-    if (i % 8 === 7 && ri < rare.length) { result.push(rare[ri++]) }
+  const all = [
+    ...compositions.girl,
+    ...compositions.man,
+    ...compositions.boy,
+    ...compositions["kid-girl"],
+  ]
+  // Fisher-Yates shuffle с фиксированным seed-like подходом (детерминировано по дню)
+  const arr = [...all]
+  const seed = Math.floor(Date.now() / 86400000) // меняется раз в день
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = (seed * (i + 1) * 1664525 + 1013904223) % (i + 1)
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
-  while (si < secondary.length) result.push(secondary[si++])
-  while (ri < rare.length) result.push(rare[ri++])
-  return result
+  return arr
 }
 
 const allBirthdayCompositions: Composition[] = buildBirthdayGrid()
@@ -1630,9 +1621,33 @@ function CompositionGrid({
                   </span>
                 </div>
               )}
+              {/* Color dots — always visible bottom-right */}
+              {item.colors && item.colors.length > 0 && (
+                <div className="absolute top-2 right-2 flex gap-1">
+                  {item.colors.slice(0, 4).map((colorId) => {
+                    const colorOpt = COLOR_OPTIONS.find((c) => c.id === colorId)
+                    if (!colorOpt) return null
+                    return (
+                      <span
+                        key={colorId}
+                        title={colorOpt.label}
+                        className="w-3.5 h-3.5 rounded-full shadow-md border border-white/60 flex-shrink-0"
+                        style={{ background: colorOpt.hex }}
+                      />
+                    )
+                  })}
+                </div>
+              )}
               {/* Price always visible */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-2.5 px-3">
-                <p className="text-white text-xs font-semibold truncate opacity-0 group-hover:opacity-100 transition-opacity duration-300">{item.title}</p>
+                <p
+                  className="text-white text-xs font-black truncate mb-0.5"
+                  style={{
+                    textShadow: "0 0 8px rgba(0,0,0,0.9), 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000",
+                    WebkitTextStroke: "0.4px rgba(0,0,0,0.6)",
+                    letterSpacing: "0.01em",
+                  }}
+                >{item.title}</p>
                 <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
               </div>
             </div>

@@ -79,7 +79,7 @@ export function Navbar() {
               <>
                 <span onClick={() => navigate("/catalog")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Каталог</span>
                 <a href="#popular" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">Популярное</a>
-                <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">О нас</a>
+                <span onClick={() => navigate("/about")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">О нас</span>
                 <span onClick={() => navigate("/contacts")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Контакты</span>
               </>
             )}
@@ -111,7 +111,7 @@ export function Navbar() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
               >
                 {orderOpen ? "Закрыть" : "Заказать"}
-                <Icon name={orderOpen ? "X" : "ChevronUp"} className="ml-1.5 h-4 w-4" />
+                <Icon name={orderOpen ? "X" : "ChevronDown"} className="ml-1.5 h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -139,7 +139,7 @@ export function Navbar() {
           <div className="px-6 py-6 space-y-4">
             <span onClick={() => { navigate("/catalog"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Каталог</span>
             <a href="#popular" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-medium text-foreground/70 hover:text-foreground">Популярное</a>
-            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-medium text-foreground/70 hover:text-foreground">О нас</a>
+            <span onClick={() => { navigate("/about"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">О нас</span>
             <span onClick={() => { navigate("/contacts"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Контакты</span>
             <div className="flex flex-col gap-2 pt-1 border-t border-border">
               <a href="tel:+79885973303" className="flex items-center gap-2 text-sm text-foreground/70 pt-2"><Icon name="Phone" className="h-4 w-4 text-primary" />8 988 597 33 03</a>

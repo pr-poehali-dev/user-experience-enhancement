@@ -82,13 +82,6 @@ export function Hero() {
           </span>
         </p>
 
-        <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
-          <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-          <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
-            Доставка по Краснодару 24/7
-          </span>
-        </div>
-
         <Button
           size="lg"
           className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
@@ -98,6 +91,13 @@ export function Hero() {
           Смотреть каталог
           <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
         </Button>
+
+        <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
+          <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+          <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
+            Доставка по Краснодару 24/7
+          </span>
+        </div>
 
         <div className="flex flex-col items-center gap-3 mt-16 sm:mt-20">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-foreground/70">
@@ -134,6 +134,9 @@ export function Hero() {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity shadow-md" style={{ background: "linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
               <Icon name="Instagram" size={16} /> Instagram
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity shadow-md" style={{ background: "#1e3a5f" }}>
+              <Icon name="Flame" size={16} /> Max
             </a>
           </div>
         </div>
