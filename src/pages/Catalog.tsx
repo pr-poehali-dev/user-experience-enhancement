@@ -9,12 +9,6 @@ const birthdaySubcategories = [
   { id: "man", label: "Для мужчины", emoji: "🎩", color: "from-blue-500 to-blue-700", main: true },
   { id: "boy", label: "Для мальчика", emoji: "🚀", color: "from-cyan-400 to-blue-500", main: true },
   { id: "kid-girl", label: "Для девочки", emoji: "👑", color: "from-purple-400 to-pink-500", main: true },
-  { id: "bubbles-box", label: "Баблс-бокс", emoji: "💐", color: "from-sky-300 to-blue-400", hit: true },
-  { id: "surprise-box", label: "Коробка-сюрприз", emoji: "🎁", color: "from-rose-400 to-pink-500" },
-  { id: "first-year", label: "Шарики на 1 годик", emoji: "🍼", color: "from-yellow-300 to-orange-400" },
-  { id: "cartoon", label: "Мульт-герои", emoji: "🦄", color: "from-pink-400 to-purple-500" },
-  { id: "ceiling", label: "Под потолок", emoji: "🏠", color: "from-indigo-400 to-purple-500" },
-  { id: "numbers", label: "Шары-цифры", emoji: "🔢", color: "from-emerald-400 to-teal-500" },
 ]
 
 const dischargeSubcategories = [
