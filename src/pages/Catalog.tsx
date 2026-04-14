@@ -1137,7 +1137,7 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
             </p>
           </div>
           <div className="flex-1 overflow-y-auto px-5 pb-4 space-y-3 min-h-0">
-            <p className="text-foreground/80 leading-relaxed text-sm sm:text-base">{modal.description}</p>
+            <p className="text-foreground/80 leading-relaxed text-sm sm:text-base text-left">{modal.description}</p>
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
