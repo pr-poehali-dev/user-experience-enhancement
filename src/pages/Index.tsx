@@ -3,7 +3,6 @@ import { Navbar } from "@/components/Navbar"
 import { Hero } from "@/components/Hero"
 import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { PopularPackages } from "@/components/PopularPackages"
-import { Newsletter } from "@/components/Newsletter"
 import { Footer } from "@/components/Footer"
 import { ContactFloat } from "@/components/ContactFloat"
 import { Button } from "@/components/ui/button"
@@ -51,7 +50,6 @@ export default function Index() {
       <Hero />
       <WhyChooseUs />
       <PopularPackages />
-      <Newsletter />
       <CatalogCTA />
       <Footer />
       <ContactFloat />

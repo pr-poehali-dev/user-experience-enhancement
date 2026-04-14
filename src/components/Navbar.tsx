@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 
 const orderContacts = [
@@ -20,6 +20,16 @@ export function Navbar() {
   const [orderOpen, setOrderOpen] = useState(false)
   const orderRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const handlePopular = () => {
+    if (location.pathname === "/") {
+      const el = document.getElementById("popular")
+      if (el) el.scrollIntoView({ behavior: "smooth" })
+    } else {
+      navigate("/#popular")
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +88,7 @@ export function Navbar() {
             ) : (
               <>
                 <span onClick={() => navigate("/catalog")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Каталог</span>
-                <a href="#popular" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">Популярное</a>
+                <span onClick={handlePopular} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Популярное</span>
                 <span onClick={() => navigate("/about")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">О нас</span>
                 <span onClick={() => navigate("/contacts")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Контакты</span>
               </>
@@ -138,7 +148,7 @@ export function Navbar() {
         <div className="md:hidden bg-white border-t border-border">
           <div className="px-6 py-6 space-y-4">
             <span onClick={() => { navigate("/catalog"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Каталог</span>
-            <a href="#popular" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-medium text-foreground/70 hover:text-foreground">Популярное</a>
+            <span onClick={() => { handlePopular(); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Популярное</span>
             <span onClick={() => { navigate("/about"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">О нас</span>
             <span onClick={() => { navigate("/contacts"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Контакты</span>
             <div className="flex flex-col gap-2 pt-1 border-t border-border">

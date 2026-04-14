@@ -59,16 +59,16 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Content — равномерно на весь экран */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-evenly px-4 sm:px-6 lg:px-8 text-center py-24">
+      {/* Content — сдвинуто вниз */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 text-center pt-32 pb-10 gap-6 sm:gap-8">
 
-        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-balance">
+        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-normal text-balance">
           Воздушные
           <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
         </h1>
 
         <p className="text-base sm:text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed">
-          Стильные композиции из шаров для любого праздника{" "}
+          Стильные композиции из шаров{" "}
           <span
             className="font-bold"
             style={{
@@ -85,7 +85,7 @@ export function Hero() {
         <Button
           size="lg"
           className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
-          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600, marginTop: "2.5rem" }}
+          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
           onClick={() => navigate("/catalog")}
         >
           Смотреть каталог
@@ -99,7 +99,7 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center gap-3 mt-16 sm:mt-20">
+        <div className="flex flex-col items-center gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-foreground/70">
             <div className="flex items-center gap-2">
               <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />

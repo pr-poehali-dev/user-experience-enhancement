@@ -5,10 +5,10 @@ import { Footer } from "@/components/Footer"
 import Icon from "@/components/ui/icon"
 
 const birthdaySubcategories = [
-  { id: "girl", label: "Для девушки", emoji: "💕", color: "from-pink-400 to-rose-500", main: true },
+  { id: "girl", label: "Для девушки", emoji: "🌹", color: "from-pink-400 to-rose-500", main: true },
   { id: "man", label: "Для мужчины", emoji: "🎩", color: "from-blue-500 to-blue-700", main: true },
+  { id: "kid-girl", label: "Для девочки", emoji: "🎀", color: "from-purple-400 to-pink-500", main: true },
   { id: "boy", label: "Для мальчика", emoji: "🚀", color: "from-cyan-400 to-blue-500", main: true },
-  { id: "kid-girl", label: "Для девочки", emoji: "👑", color: "from-purple-400 to-pink-500", main: true },
 ]
 
 const dischargeSubcategories = [
@@ -1115,9 +1115,6 @@ const compositions: Record<string, Composition[]> = {
     { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6e06a4e4-06f7-40ba-8231-248d6ee7fa9c.jpg", title: "Фигурка 3", description: "Фольгированная принцесса с розовыми и золотыми шарами.", price: "1 390 ₽", priceNum: 1390, colors: ["pink", "gold"], subcategory: "cartoon" },
   ],
   discharge: [
-    { id: 1, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор на выписку мальчика 1", description: "Шары для выписки мальчика.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "white"], subcategory: "boy-discharge" },
-    { id: 2, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор на выписку мальчика 2", description: "Шары для выписки мальчика.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "white"], subcategory: "boy-discharge" },
-    { id: 3, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/30158ce7-cc58-475e-9f95-85bc8e9f0376.jpg", title: "Набор на выписку мальчика 3", description: "Шары для выписки мальчика.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "white"], subcategory: "boy-discharge" },
     { id: 97, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/22d1e846-f3ed-4233-add8-b04c4757b1d6.png", title: "Набор на выписку мальчика 4", description: "Шары для выписки мальчика.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "white"], subcategory: "boy-discharge" },
     { id: 98, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b5beb1b2-88f2-4ca4-92d4-d597512dbd8a.png", title: "Набор на выписку мальчика 5", description: "Шары для выписки мальчика.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "white"], subcategory: "boy-discharge" },
     { id: 99, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/58820ce5-b53c-4276-afeb-c386a1b9b2d6.jpg", title: "Набор на выписку мальчика 6", description: "Шары для выписки мальчика.", price: "Цена по запросу", priceNum: 0, colors: ["blue", "white"], subcategory: "boy-discharge" },
@@ -1638,16 +1635,21 @@ function CompositionGrid({
                   })}
                 </div>
               )}
-              {/* Price always visible */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-2.5 px-3">
+              {/* Title on hover — bold styled label */}
+              <div className="absolute bottom-0 left-0 right-0 pt-6 pb-2.5 px-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <p
-                  className="text-white text-xs font-black truncate mb-0.5"
+                  className="text-white text-xs font-black truncate mb-1 px-2 py-0.5 rounded-md inline-block max-w-full"
                   style={{
-                    textShadow: "0 0 8px rgba(0,0,0,0.9), 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000",
-                    WebkitTextStroke: "0.4px rgba(0,0,0,0.6)",
-                    letterSpacing: "0.01em",
+                    background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
+                    textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+                    letterSpacing: "0.03em",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
                   }}
                 >{item.title}</p>
+              </div>
+              {/* Price always visible */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-2.5 px-3">
+                <div className="h-5 mb-0.5" />
                 <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
               </div>
             </div>
@@ -1737,8 +1739,11 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
         <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
           <div className="px-4 pt-4 pb-2 flex items-start justify-between gap-2 flex-shrink-0">
             <div>
-              <h3 className="text-base font-bold text-foreground leading-tight">{modal.title}</h3>
-              <span className="text-primary font-bold text-lg">{modal.price}</span>
+              <h3
+                className="text-sm font-black leading-tight text-white inline-block px-2 py-0.5 rounded-md mb-1"
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)", letterSpacing: "0.02em", boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}
+              >{modal.title}</h3>
+              <div><span className="text-primary font-bold text-lg">{modal.price}</span></div>
             </div>
           </div>
           <div className="px-4 pb-1 flex-shrink-0">
@@ -1816,10 +1821,11 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
         <div className="flex-1 flex flex-col overflow-hidden bg-white">
           <div className="flex items-start justify-between px-5 pt-5 pb-3 border-b border-border/40 flex-shrink-0">
             <div className="flex-1 min-w-0 pr-3">
-              <h3 className="text-lg sm:text-xl font-medium text-foreground leading-tight" style={{ fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}>
-                {modal.title}
-              </h3>
-              <span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span>
+              <h3
+                className="text-base sm:text-lg font-black leading-tight text-white inline-block px-3 py-1 rounded-lg mb-1"
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)", letterSpacing: "0.02em", boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
+              >{modal.title}</h3>
+              <div><span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span></div>
             </div>
             <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}>
               <Icon name="X" size={18} />
