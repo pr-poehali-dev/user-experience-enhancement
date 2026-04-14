@@ -46,14 +46,14 @@ export default function Delivery() {
             <Icon name="MapPin" size={20} className="text-primary mt-0.5 flex-shrink-0" />
             <div className="flex-1">
               <p className="text-sm text-muted-foreground mb-1">Адрес:</p>
-              <p className="font-bold text-xl text-foreground group-hover:text-primary transition-colors underline underline-offset-2">ул. Героя Яцкова 19к3</p>
+              <p className="font-semibold text-foreground group-hover:text-primary transition-colors underline underline-offset-2">ул. Героя Яцкова 19к3</p>
               <p className="text-sm text-muted-foreground">г. Краснодар</p>
             </div>
             <Icon name="ExternalLink" size={16} className="text-muted-foreground mt-1 group-hover:text-primary transition-colors" />
           </a>
           <div className="flex items-center gap-4 p-4 rounded-2xl bg-rose-50">
             <Icon name="Clock" size={20} className="text-primary flex-shrink-0" />
-            <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Режим работы:</span> круглосуточно, 24/7</p>
+            <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground text-sm">Режим работы:</span> круглосуточно, 24/7</p>
           </div>
         </div>
 
@@ -113,7 +113,7 @@ export default function Delivery() {
               <Icon name="Clock" size={22} className="text-primary" />
             </div>
             <div>
-              <p className="font-bold text-xl text-foreground">Круглосуточно, 24/7</p>
+              <p className="font-semibold text-foreground">Круглосуточно, 24/7</p>
               <p className="text-sm text-muted-foreground">Без выходных и праздников</p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Delivery() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:+79885973303"
-              className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full font-semibold transition-colors shadow-md"
+              className="flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary/5 px-6 py-3 rounded-full font-semibold transition-colors"
             >
               <Icon name="Phone" size={18} /> 8 988 597 33 03
             </a>

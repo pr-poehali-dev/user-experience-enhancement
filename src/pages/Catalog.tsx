@@ -1933,6 +1933,70 @@ export default function Catalog() {
     )
   }
 
+  if (section === "other") {
+    return (
+      <div className="min-h-screen">
+        <Navbar />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+          <button
+            onClick={() => navigate("/catalog")}
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
+          >
+            <Icon name="ArrowLeft" size={16} /> Назад
+          </button>
+          <div className="flex items-center gap-3 mb-6 sm:mb-10">
+            <span className="text-3xl sm:text-4xl">🎉</span>
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold leading-tight">Другое мероприятие</h1>
+              <p className="text-muted-foreground text-xs sm:text-sm">Гендер пати, выпускной, девичник, признание в любви</p>
+            </div>
+          </div>
+          <div className="text-center py-24 text-muted-foreground">
+            <span className="text-6xl mb-6 block">🎀</span>
+            <p className="text-xl font-medium mb-2">Раздел скоро появится</p>
+            <p className="text-sm">Пока можете заказать любую композицию через мессенджер</p>
+            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors shadow-md">
+              <Icon name="MessageSquare" size={18} /> Написать в WhatsApp
+            </a>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
+  if (section === "custom") {
+    return (
+      <div className="min-h-screen">
+        <Navbar />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+          <button
+            onClick={() => navigate("/catalog")}
+            className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
+          >
+            <Icon name="ArrowLeft" size={16} /> Назад
+          </button>
+          <div className="flex items-center gap-3 mb-6 sm:mb-10">
+            <span className="text-3xl sm:text-4xl">✨</span>
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold leading-tight">Собрать свою композицию</h1>
+              <p className="text-muted-foreground text-xs sm:text-sm">Цифры, баблс, фигуры, хром, пастель</p>
+            </div>
+          </div>
+          <div className="text-center py-24 text-muted-foreground">
+            <span className="text-6xl mb-6 block">✨</span>
+            <p className="text-xl font-medium mb-2">Раздел скоро появится</p>
+            <p className="text-sm">Опишите желаемую композицию в мессенджере — подберём под вас</p>
+            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors shadow-md">
+              <Icon name="MessageSquare" size={18} /> Написать в WhatsApp
+            </a>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -1947,7 +2011,7 @@ export default function Catalog() {
           Каталог <span className="font-semibold">шариков</span>
         </h1>
         <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-10">Выберите повод для праздника</p>
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-8">
           <button
             onClick={() => navigate("/catalog?section=birthday")}
             className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 min-h-[180px] sm:min-h-[400px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
@@ -1977,6 +2041,38 @@ export default function Catalog() {
             <div className="relative flex items-center gap-1 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium">
               Смотреть <Icon name="ArrowRight" size={14} className="sm:hidden" />
               <span className="hidden sm:inline">композиции</span>
+              <Icon name="ArrowRight" size={18} className="hidden sm:inline" />
+            </div>
+          </button>
+          <button
+            onClick={() => navigate("/catalog?section=other")}
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-violet-400 via-fuchsia-400 to-pink-500 min-h-[180px] sm:min-h-[320px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
+          >
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+            <span className="relative text-5xl sm:text-7xl">🎉</span>
+            <div className="relative text-center">
+              <h2 className="text-white text-lg sm:text-3xl font-bold mb-1 sm:mb-2 leading-tight">Другое мероприятие</h2>
+              <p className="text-white/80 text-xs sm:text-base hidden sm:block">Гендер пати, выпускной, девичник, признание в любви</p>
+            </div>
+            <div className="relative flex items-center gap-1 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium">
+              Смотреть <Icon name="ArrowRight" size={14} className="sm:hidden" />
+              <span className="hidden sm:inline">композиции</span>
+              <Icon name="ArrowRight" size={18} className="hidden sm:inline" />
+            </div>
+          </button>
+          <button
+            onClick={() => navigate("/catalog?section=custom")}
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 min-h-[180px] sm:min-h-[320px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
+          >
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+            <span className="relative text-5xl sm:text-7xl">✨</span>
+            <div className="relative text-center">
+              <h2 className="text-white text-lg sm:text-3xl font-bold mb-1 sm:mb-2 leading-tight">Собрать свою композицию</h2>
+              <p className="text-white/80 text-xs sm:text-base hidden sm:block">Цифры, баблс, фигуры, хром, пастель</p>
+            </div>
+            <div className="relative flex items-center gap-1 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium">
+              Смотреть <Icon name="ArrowRight" size={14} className="sm:hidden" />
+              <span className="hidden sm:inline">элементы</span>
               <Icon name="ArrowRight" size={18} className="hidden sm:inline" />
             </div>
           </button>
