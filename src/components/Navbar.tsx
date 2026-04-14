@@ -87,10 +87,9 @@ export function Navbar() {
               </div>
             ) : (
               <>
-                <span onClick={() => navigate("/catalog")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Каталог</span>
-                <span onClick={handlePopular} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Популярное</span>
                 <span onClick={() => navigate("/about")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">О нас</span>
                 <span onClick={() => navigate("/contacts")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Контакты</span>
+                <span onClick={() => navigate("/delivery")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Доставка</span>
               </>
             )}
           </div>
@@ -147,10 +146,9 @@ export function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-border">
           <div className="px-6 py-6 space-y-4">
-            <span onClick={() => { navigate("/catalog"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Каталог</span>
-            <span onClick={() => { handlePopular(); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Популярное</span>
             <span onClick={() => { navigate("/about"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">О нас</span>
             <span onClick={() => { navigate("/contacts"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Контакты</span>
+            <span onClick={() => { navigate("/delivery"); setIsMobileMenuOpen(false) }} className="block text-base font-medium text-foreground/70 hover:text-foreground cursor-pointer">Доставка</span>
             <div className="flex flex-col gap-2 pt-1 border-t border-border">
               <a href="tel:+79885973303" className="flex items-center gap-2 text-sm text-foreground/70 pt-2"><Icon name="Phone" className="h-4 w-4 text-primary" />8 988 597 33 03</a>
               <a href="tel:+79182457204" className="flex items-center gap-2 text-sm text-foreground/70"><Icon name="Phone" className="h-4 w-4 text-primary" />8 918 245 72 04</a>

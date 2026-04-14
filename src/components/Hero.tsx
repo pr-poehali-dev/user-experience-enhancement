@@ -59,8 +59,8 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Content — сдвинуто вниз */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 text-center pt-32 pb-10 gap-6 sm:gap-8">
+      {/* Content */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-24 pb-10 gap-6 sm:gap-8">
 
         <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-normal text-balance">
           Воздушные

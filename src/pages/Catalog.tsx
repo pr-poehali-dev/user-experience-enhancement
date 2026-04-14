@@ -1477,8 +1477,8 @@ function CompositionGrid({
                         : "border-border bg-white text-foreground hover:border-primary/60 hover:bg-primary/5"
                     }`}
                   >
-                    <span className="text-xl sm:text-3xl">{cat.emoji}</span>
-                    <span className="text-[10px] sm:text-base text-center leading-tight">{cat.label}</span>
+                    <span className="text-2xl sm:text-3xl">{cat.emoji}</span>
+                    <span className="text-xs sm:text-base text-center leading-tight">{cat.label}</span>
                   </button>
                 )
               })}
@@ -1500,8 +1500,8 @@ function CompositionGrid({
                     {cat.hit && (
                       <span className="absolute -top-2 -right-1 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">ХИТ</span>
                     )}
-                    <span className="text-lg sm:text-2xl">{cat.emoji}</span>
-                    <span className="text-center leading-tight text-[9px] sm:text-sm">{cat.label}</span>
+                    <span className="text-xl sm:text-2xl">{cat.emoji}</span>
+                    <span className="text-center leading-tight text-[10px] sm:text-sm">{cat.label}</span>
                   </button>
                 )
               })}
@@ -1531,7 +1531,7 @@ function CompositionGrid({
                     }`}
                   >
                     <span className="text-4xl">{cat.emoji}</span>
-                    <span className="text-base">{cat.label}</span>
+                    <span className="text-lg font-bold">{cat.label}</span>
                   </button>
                 )
               })}
@@ -1635,21 +1635,12 @@ function CompositionGrid({
                   })}
                 </div>
               )}
-              {/* Title on hover — bold styled label */}
-              <div className="absolute bottom-0 left-0 right-0 pt-6 pb-2.5 px-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              {/* Price + title overlay */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-2.5 px-3">
                 <p
-                  className="text-white text-xs font-black truncate mb-1 px-2 py-0.5 rounded-md inline-block max-w-full"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
-                    textShadow: "0 1px 4px rgba(0,0,0,0.5)",
-                    letterSpacing: "0.03em",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-                  }}
+                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
                 >{item.title}</p>
-              </div>
-              {/* Price always visible */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent pt-6 pb-2.5 px-3">
-                <div className="h-5 mb-0.5" />
                 <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
               </div>
             </div>
