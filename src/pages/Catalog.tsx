@@ -1674,19 +1674,49 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
   const goNext = () => { if (hasNext) onNavigate(allItems[idx + 1]) }
 
   const touchStartX = useRef(0)
-  const touchEndX = useRef(0)
+  const touchCurrentX = useRef(0)
+  const isDragging = useRef(false)
+  const [swipeOffset, setSwipeOffset] = useState(0)
+  const [slideDir, setSlideDir] = useState<"left" | "right" | null>(null)
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.changedTouches[0].screenX
+    touchStartX.current = e.changedTouches[0].clientX
+    touchCurrentX.current = e.changedTouches[0].clientX
+    isDragging.current = true
+    setSlideDir(null)
   }
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    touchEndX.current = e.changedTouches[0].screenX
-    const diff = touchStartX.current - touchEndX.current
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) goNext()
-      else goPrev()
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current) return
+    touchCurrentX.current = e.changedTouches[0].clientX
+    const diff = touchCurrentX.current - touchStartX.current
+    if ((diff > 0 && !hasPrev) || (diff < 0 && !hasNext)) {
+      setSwipeOffset(diff * 0.3)
+    } else {
+      setSwipeOffset(diff)
     }
   }
+  const handleTouchEnd = () => {
+    isDragging.current = false
+    const diff = touchCurrentX.current - touchStartX.current
+    if (Math.abs(diff) > 60) {
+      if (diff < 0 && hasNext) {
+        setSlideDir("left")
+        setTimeout(() => { goNext(); setSwipeOffset(0); setSlideDir(null) }, 200)
+        return
+      }
+      if (diff > 0 && hasPrev) {
+        setSlideDir("right")
+        setTimeout(() => { goPrev(); setSwipeOffset(0); setSlideDir(null) }, 200)
+        return
+      }
+    }
+    setSwipeOffset(0)
+  }
+
+  useEffect(() => {
+    setSwipeOffset(0)
+    setSlideDir(null)
+  }, [modal])
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -1697,6 +1727,10 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
     window.addEventListener("keydown", handler)
     return () => window.removeEventListener("keydown", handler)
   }, [idx, allItems])
+
+  const slideTransform = slideDir === "left" ? "translateX(-100%)" : slideDir === "right" ? "translateX(100%)" : `translateX(${swipeOffset}px)`
+  const slideTransition = slideDir ? "transform 0.2s ease-out, opacity 0.2s ease-out" : isDragging.current ? "none" : "transform 0.25s ease-out"
+  const slideOpacity = slideDir ? 0 : 1
 
   return (
     <div
@@ -1709,10 +1743,20 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
         style={{ maxHeight: "95vh" }}
         onClick={(e) => e.stopPropagation()}
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         {/* Фото 3:4 */}
-        <div className="relative w-full flex-shrink-0" style={{ aspectRatio: "3/4", maxHeight: "58vh" }}>
+        <div
+          className="relative w-full flex-shrink-0"
+          style={{
+            aspectRatio: "3/4",
+            maxHeight: "58vh",
+            transform: slideTransform,
+            transition: slideTransition,
+            opacity: slideOpacity,
+          }}
+        >
           <img
             src={modal.image}
             alt={modal.title}

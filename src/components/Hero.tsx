@@ -92,9 +92,9 @@ export function Hero() {
           <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
         </Button>
 
-        <div className="inline-flex items-center gap-2 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3">
-          <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-          <span className="text-base sm:text-xl md:text-2xl font-bold text-primary">
+        <div className="inline-flex items-center gap-1.5 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3">
+          <Icon name="Truck" className="h-4 w-4 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+          <span className="text-[13px] sm:text-xl md:text-2xl font-bold text-primary whitespace-nowrap">
             Доставка по Краснодару и краю 24/7
           </span>
         </div>
