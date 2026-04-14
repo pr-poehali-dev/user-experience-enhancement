@@ -99,12 +99,17 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 mt-6 sm:mt-10">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-foreground/70">
-            <div className="flex items-center gap-2">
+            <a
+              href="https://2gis.ru/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%93%D0%B5%D1%80%D0%BE%D1%8F%20%D0%AF%D1%86%D0%BA%D0%BE%D0%B2%D0%B0%2019%D0%BA3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
+            >
               <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
-              <span>ул. Героя Яцкова 19к3</span>
-            </div>
+              <span className="underline underline-offset-2">ул. Героя Яцкова 19к3</span>
+            </a>
             <span className="hidden sm:block text-foreground/20">·</span>
             <div className="flex items-center gap-2">
               <Icon name="Clock" className="h-4 w-4 text-primary flex-shrink-0" />
