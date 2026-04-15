@@ -1803,8 +1803,19 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
               <Icon name="Sparkles" size={11} /> Наполнение
             </p>
           </div>
-          <div className="px-4 pb-3 space-y-2 flex-shrink-0">
-            <p className="text-sm text-foreground/80 leading-relaxed">{modal.description}</p>
+          <div className="px-4 pb-3 space-y-1.5 flex-shrink-0">
+            {modal.description.includes(',') ? (
+              <ul className="space-y-1">
+                {modal.description.split(',').map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
+                    <span className="text-primary mt-0.5 flex-shrink-0">•</span>
+                    <span>{item.trim().replace(/\.$/, '')}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-foreground/80 leading-relaxed">{modal.description}</p>
+            )}
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-3 py-2 text-primary text-xs font-medium">
               🎨 Наполнение можно изменить под ваш бюджет и пожелания
             </div>
@@ -1889,7 +1900,18 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
             </p>
           </div>
           <div className="flex-1 overflow-y-auto px-5 pb-4 space-y-3 min-h-0">
-            <p className="text-foreground/80 leading-relaxed text-sm sm:text-base text-left">{modal.description}</p>
+            {modal.description.includes(',') ? (
+              <ul className="space-y-1.5">
+                {modal.description.split(',').map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm sm:text-base text-foreground/80">
+                    <span className="text-primary mt-0.5 flex-shrink-0">•</span>
+                    <span>{item.trim().replace(/\.$/, '')}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-foreground/80 leading-relaxed text-sm sm:text-base text-left">{modal.description}</p>
+            )}
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
