@@ -43,7 +43,7 @@ const COLOR_OPTIONS = [
 
 const compositions: Record<string, Composition[]> = {
   girl: [
-    { id: 7, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9c99662e-bef5-4504-a623-e3bdc9ab36a3.jpg", title: "Набор для девушки 7", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
+    { id: 7, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9c99662e-bef5-4504-a623-e3bdc9ab36a3.jpg", title: "Набор для девушки 7", description: "Красивая композиция из шаров на день рождения.", price: "4 230 ₽", priceNum: 4230, colors: ["pink"], subcategory: "girl" },
     { id: 8, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/c4801d79-dc90-4d7f-8763-42f85ecd49bf.jpg", title: "Набор для девушки 8", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 9, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/3fd83284-b2ec-45ff-bd42-c6eb2cd87246.jpg", title: "Набор для девушки 9", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 10, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/6b5ed6c2-adbc-46f4-a8da-7c50eab42f8e.jpg", title: "Набор для девушки 10", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
