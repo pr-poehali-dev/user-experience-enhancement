@@ -25,6 +25,7 @@ type Composition = {
   priceNum: number
   colors: string[]
   subcategory?: string
+  contain?: boolean
 }
 
 const COLOR_OPTIONS = [
@@ -36,6 +37,7 @@ const COLOR_OPTIONS = [
   { id: "green", label: "Зелёные", hex: "#4ade80" },
   { id: "black", label: "Чёрные", hex: "#1f2937" },
   { id: "silver", label: "Серебристые", hex: "#9ca3af" },
+  { id: "cream", label: "Кремовые", hex: "#f5e6c8", border: true },
   { id: "purple", label: "Фиолетовые", hex: "#a78bfa" },
   { id: "red", label: "Красные", hex: "#f87171" },
   { id: "orange", label: "Оранжевые", hex: "#fb923c" },
@@ -101,7 +103,7 @@ const compositions: Record<string, Composition[]> = {
     { id: 62, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a47a35e0-55b1-46ed-b63a-edcfef017821.jpg", title: "Набор для девушки 62", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 63, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7b61b975-b73a-4c5d-af07-eaf4e72d13d9.jpg", title: "Набор для девушки 63", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 64, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b211aa7f-330e-4d1a-a79b-1de7b9e6a4dc.jpg", title: "Набор для девушки 64", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
-    { id: 65, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/c8ce9107-26b4-455f-9660-4510cc5604eb.jpg", title: "Набор для девушки 65", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
+    { id: 65, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f3962649-7e65-4ace-9443-30e042a7a9a4.jpg", title: "Набор для девушки 65", description: "Красивая композиция из шаров на день рождения.", price: "7 160 ₽", priceNum: 7160, colors: ["silver", "brown", "cream"], subcategory: "girl", contain: true },
     { id: 66, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7db3285d-352e-4125-b4c7-a88006126bcc.jpg", title: "Набор для девушки 66", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 67, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/3e389bd7-f598-4ed3-8d89-40e7535095ba.jpg", title: "Набор для девушки 67", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
     { id: 68, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f3fff6c6-9a1b-4f38-a98b-e6c673478cdc.jpg", title: "Набор для девушки 68", description: "Красивая композиция из шаров на день рождения.", price: "1 500 ₽", priceNum: 1500, colors: ["pink"], subcategory: "girl" },
@@ -1760,7 +1762,7 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
           <img
             src={modal.image}
             alt={modal.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full ${modal.contain ? "object-contain bg-white" : "object-cover"}`}
           />
           {/* Закрыть */}
           <button
@@ -1853,7 +1855,7 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
           <img
             src={modal.image}
             alt={modal.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full ${modal.contain ? "object-contain bg-white" : "object-cover"}`}
           />
           {modal.subcategory && (
             <div className="absolute top-3 left-3 z-10">
