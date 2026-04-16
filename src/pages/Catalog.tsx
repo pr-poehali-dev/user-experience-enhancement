@@ -1443,6 +1443,11 @@ function CompositionGrid({
         activeColors.length === 0 ||
         activeColors.some((c) => item.colors.includes(c))
     )
+    .sort((a, b) => {
+      const numA = parseInt(a.title.match(/\d+$/)?.[0] ?? "0")
+      const numB = parseInt(b.title.match(/\d+$/)?.[0] ?? "0")
+      return numA - numB
+    })
 
   const getBirthdayLabel = (id: string) =>
     birthdaySubcategories.find((s) => s.id === id)?.label ?? id
