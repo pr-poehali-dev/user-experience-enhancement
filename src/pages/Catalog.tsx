@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
@@ -1327,20 +1327,16 @@ function CompositionGrid({
   const [activeColors, setActiveColors] = useState<string[]>([])
   const [minPrice, setMinPrice] = useState<number | "">("")
   const [maxPrice, setMaxPrice] = useState<number | "">("")
-  const [visibleCount, setVisibleCount] = useState<number>(60)
+  const [visibleCount, setVisibleCount] = useState<number>(24)
 
   const toggleSubcategory = (id: string) => {
-    setActiveSubcategories((prev) =>
-      prev.includes(id) ? [] : [id]
-    )
-    setVisibleCount(60)
+    setActiveSubcategories((prev) => prev.includes(id) ? [] : [id])
+    setVisibleCount(24)
   }
 
   const toggleColor = (id: string) => {
-    setActiveColors((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
-    )
-    setVisibleCount(60)
+    setActiveColors((prev) => prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id])
+    setVisibleCount(24)
   }
 
   const resetAll = () => {
@@ -1348,8 +1344,10 @@ function CompositionGrid({
     setActiveColors([])
     setMinPrice("")
     setMaxPrice("")
-    setVisibleCount(60)
+    setVisibleCount(24)
   }
+
+  useEffect(() => { setVisibleCount(24) }, [minPrice, maxPrice])
 
   const hasFilters =
     activeSubcategories.length > 0 ||
@@ -1357,35 +1355,16 @@ function CompositionGrid({
     minPrice !== "" ||
     maxPrice !== ""
 
-  // Сброс пагинации при смене фильтров по цене
-  const prevMinPrice = useRef(minPrice)
-  const prevMaxPrice = useRef(maxPrice)
-  useEffect(() => {
-    if (prevMinPrice.current !== minPrice || prevMaxPrice.current !== maxPrice) {
-      setVisibleCount(60)
-      prevMinPrice.current = minPrice
-      prevMaxPrice.current = maxPrice
-    }
-  }, [minPrice, maxPrice])
-
-  const filtered = items
+  const filtered = useMemo(() => items
     .filter((item) => minPrice === "" || item.priceNum >= minPrice)
     .filter((item) => maxPrice === "" || item.priceNum <= maxPrice)
-    .filter(
-      (item) =>
-        activeSubcategories.length === 0 ||
-        (item.subcategory && activeSubcategories.includes(item.subcategory))
-    )
-    .filter(
-      (item) =>
-        activeColors.length === 0 ||
-        activeColors.some((c) => item.colors.includes(c))
-    )
+    .filter((item) => activeSubcategories.length === 0 || (item.subcategory && activeSubcategories.includes(item.subcategory)))
+    .filter((item) => activeColors.length === 0 || activeColors.some((c) => item.colors.includes(c)))
     .sort((a, b) => {
       const numA = parseInt(a.title.match(/\d+$/)?.[0] ?? "0")
       const numB = parseInt(b.title.match(/\d+$/)?.[0] ?? "0")
       return numA - numB
-    })
+    }), [items, minPrice, maxPrice, activeSubcategories, activeColors])
 
   const getBirthdayLabel = (id: string) =>
     birthdaySubcategories.find((s) => s.id === id)?.label ?? id
@@ -1594,7 +1573,7 @@ function CompositionGrid({
       {filtered.length > visibleCount && (
         <div className="flex justify-center mt-6">
           <button
-            onClick={() => setVisibleCount((prev) => prev + 60)}
+            onClick={() => setVisibleCount((prev) => prev + 24)}
             className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
           >
             Показать следующие наборы ({filtered.length - visibleCount} шт.)
