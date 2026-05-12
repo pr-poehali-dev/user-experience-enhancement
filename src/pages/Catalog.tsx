@@ -1322,32 +1322,69 @@ function CompositionGrid({
   showSubcategoryBadge?: boolean
   showDischargeBadge?: boolean
 }) {
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const activeSubcategories = useMemo(() => {
+    const val = searchParams.get("sub")
+    return val ? [val] : []
+  }, [searchParams])
+
+  const activeColors = useMemo(() => {
+    const val = searchParams.get("colors")
+    return val ? val.split(",") : []
+  }, [searchParams])
+
+  const minPrice: number | "" = useMemo(() => {
+    const val = searchParams.get("minPrice")
+    return val ? Number(val) : ""
+  }, [searchParams])
+
+  const maxPrice: number | "" = useMemo(() => {
+    const val = searchParams.get("maxPrice")
+    return val ? Number(val) : ""
+  }, [searchParams])
+
   const [modal, setModal] = useState<ModalItem>(null)
-  const [activeSubcategories, setActiveSubcategories] = useState<string[]>([])
-  const [activeColors, setActiveColors] = useState<string[]>([])
-  const [minPrice, setMinPrice] = useState<number | "">("")
-  const [maxPrice, setMaxPrice] = useState<number | "">("")
   const [visibleCount, setVisibleCount] = useState<number>(24)
 
+  const updateParams = (updates: Record<string, string | null>) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      Object.entries(updates).forEach(([k, v]) => {
+        if (v === null || v === "") next.delete(k)
+        else next.set(k, v)
+      })
+      return next
+    }, { replace: true })
+  }
+
   const toggleSubcategory = (id: string) => {
-    setActiveSubcategories((prev) => prev.includes(id) ? [] : [id])
+    updateParams({ sub: activeSubcategories.includes(id) ? null : id })
     setVisibleCount(24)
   }
 
   const toggleColor = (id: string) => {
-    setActiveColors((prev) => prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id])
+    const next = activeColors.includes(id)
+      ? activeColors.filter(c => c !== id)
+      : [...activeColors, id]
+    updateParams({ colors: next.length ? next.join(",") : null })
+    setVisibleCount(24)
+  }
+
+  const setMinPrice = (val: number | "") => {
+    updateParams({ minPrice: val === "" ? null : String(val) })
+    setVisibleCount(24)
+  }
+
+  const setMaxPrice = (val: number | "") => {
+    updateParams({ maxPrice: val === "" ? null : String(val) })
     setVisibleCount(24)
   }
 
   const resetAll = () => {
-    setActiveSubcategories([])
-    setActiveColors([])
-    setMinPrice("")
-    setMaxPrice("")
+    updateParams({ sub: null, colors: null, minPrice: null, maxPrice: null })
     setVisibleCount(24)
   }
-
-  useEffect(() => { setVisibleCount(24) }, [minPrice, maxPrice])
 
   const hasFilters =
     activeSubcategories.length > 0 ||
