@@ -1342,6 +1342,10 @@ function CompositionGrid({
         if (v === null || v === "") next.delete(k)
         else next.set(k, v)
       })
+      // Обязательно сохраняем section
+      if (!next.has("section") && prev.has("section")) {
+        next.set("section", prev.get("section")!)
+      }
       return next
     }, { replace: true })
   }
