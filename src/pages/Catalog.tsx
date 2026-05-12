@@ -1921,13 +1921,29 @@ export default function Catalog() {
   const [searchParams] = useSearchParams()
   const section = searchParams.get("section")
 
+  // Запоминаем раздел в localStorage, восстанавливаем при потере URL
+  useEffect(() => {
+    if (section) {
+      localStorage.setItem("catalog_section", section)
+    }
+  }, [section])
+
+  useEffect(() => {
+    if (!section) {
+      const saved = localStorage.getItem("catalog_section")
+      if (saved) {
+        navigate(`/catalog?section=${saved}`, { replace: true })
+      }
+    }
+  }, [])
+
   const renderContent = () => {
     if (section === "birthday") {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <div className="flex items-center gap-4 mb-3">
             <button
-              onClick={() => navigate("/catalog")}
+              onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
               className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-sm"
             >
               <Icon name="ArrowLeft" size={16} /> Назад
@@ -1949,7 +1965,7 @@ export default function Catalog() {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
-            onClick={() => navigate("/catalog")}
+            onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
           >
             <Icon name="ArrowLeft" size={16} /> Назад
@@ -1970,7 +1986,7 @@ export default function Catalog() {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
-            onClick={() => navigate("/catalog")}
+            onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
           >
             <Icon name="ArrowLeft" size={16} /> Назад
@@ -1998,7 +2014,7 @@ export default function Catalog() {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
-            onClick={() => navigate("/catalog")}
+            onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
           >
             <Icon name="ArrowLeft" size={16} /> Назад
