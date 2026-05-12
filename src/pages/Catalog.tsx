@@ -4,6 +4,8 @@ import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import Icon from "@/components/ui/icon"
 
+declare global { interface Window { _catalogScrollY?: number } }
+
 const birthdaySubcategories = [
   { id: "girl", label: "Для девушки", emoji: "🌹", color: "from-pink-400 to-rose-500", main: true },
   { id: "man", label: "Для мужчины", emoji: "🎩", color: "from-blue-500 to-blue-700", main: true },
@@ -1552,7 +1554,7 @@ function CompositionGrid({
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
               className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-110"
-              onClick={() => setModal(item)}
+              onClick={() => { window._catalogScrollY = window.scrollY; setModal(item) }}
             >
               <img src={item.image} alt={item.title} className="w-full object-cover group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "1/1" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1611,8 +1613,16 @@ function CompositionGrid({
         <CompositionModal
           modal={modal}
           allItems={filtered}
-          onNavigate={(item) => setModal(item)}
-          onClose={() => setModal(null)}
+          onNavigate={(item) => {
+            const newIdx = filtered.findIndex(i => i.image === item.image)
+            if (newIdx >= visibleCount) setVisibleCount(newIdx + 12)
+            setModal(item)
+          }}
+          onClose={() => {
+            const scrollY = window._catalogScrollY ?? 0
+            setModal(null)
+            requestAnimationFrame(() => window.scrollTo(0, scrollY))
+          }}
         />
       )}
     </>
