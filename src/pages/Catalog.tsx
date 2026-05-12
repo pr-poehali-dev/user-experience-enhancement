@@ -1327,17 +1327,20 @@ function CompositionGrid({
   const [activeColors, setActiveColors] = useState<string[]>([])
   const [minPrice, setMinPrice] = useState<number | "">("")
   const [maxPrice, setMaxPrice] = useState<number | "">("")
+  const [visibleCount, setVisibleCount] = useState<number>(60)
 
   const toggleSubcategory = (id: string) => {
     setActiveSubcategories((prev) =>
       prev.includes(id) ? [] : [id]
     )
+    setVisibleCount(60)
   }
 
   const toggleColor = (id: string) => {
     setActiveColors((prev) =>
       prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
     )
+    setVisibleCount(60)
   }
 
   const resetAll = () => {
@@ -1345,6 +1348,7 @@ function CompositionGrid({
     setActiveColors([])
     setMinPrice("")
     setMaxPrice("")
+    setVisibleCount(60)
   }
 
   const hasFilters =
@@ -1528,7 +1532,7 @@ function CompositionGrid({
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
-          {filtered.map((item, idx) => (
+          {filtered.slice(0, visibleCount).map((item, idx) => (
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
               className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-110"
@@ -1574,6 +1578,16 @@ function CompositionGrid({
               </div>
             </div>
           ))}
+        </div>
+      )}
+      {filtered.length > visibleCount && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setVisibleCount((prev) => prev + 60)}
+            className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+          >
+            Загрузить ещё ({filtered.length - visibleCount} шт.)
+          </button>
         </div>
       )}
 
