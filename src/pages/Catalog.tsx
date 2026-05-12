@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
@@ -1358,9 +1358,9 @@ function CompositionGrid({
     maxPrice !== ""
 
   // Сброс пагинации при смене фильтров по цене
-  const prevMinPrice = React.useRef(minPrice)
-  const prevMaxPrice = React.useRef(maxPrice)
-  React.useEffect(() => {
+  const prevMinPrice = useRef(minPrice)
+  const prevMaxPrice = useRef(maxPrice)
+  useEffect(() => {
     if (prevMinPrice.current !== minPrice || prevMaxPrice.current !== maxPrice) {
       setVisibleCount(60)
       prevMinPrice.current = minPrice
