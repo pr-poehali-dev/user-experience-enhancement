@@ -1332,7 +1332,19 @@ function CompositionGrid({
   }, [searchParams])
 
   const [modal, setModal] = useState<ModalItem>(null)
-  const [visibleCount, setVisibleCount] = useState<number>(24)
+
+  const visibleCountKey = "catalog_visible_" + (searchParams.get("section") ?? "home")
+  const [visibleCount, setVisibleCountState] = useState<number>(() => {
+    const saved = sessionStorage.getItem(visibleCountKey)
+    return saved ? parseInt(saved) : 24
+  })
+  const setVisibleCount = (val: number | ((prev: number) => number)) => {
+    setVisibleCountState(prev => {
+      const next = typeof val === "function" ? val(prev) : val
+      sessionStorage.setItem(visibleCountKey, String(next))
+      return next
+    })
+  }
 
   const updateParams = (updates: Record<string, string | null>) => {
     setSearchParams(prev => {
@@ -1349,9 +1361,14 @@ function CompositionGrid({
     }, { replace: true })
   }
 
+  const resetVisible = () => {
+    sessionStorage.removeItem(visibleCountKey)
+    setVisibleCount(24)
+  }
+
   const toggleSubcategory = (id: string) => {
     updateParams({ sub: activeSubcategories.includes(id) ? null : id })
-    setVisibleCount(24)
+    resetVisible()
   }
 
   const toggleColor = (id: string) => {
@@ -1359,22 +1376,22 @@ function CompositionGrid({
       ? activeColors.filter(c => c !== id)
       : [...activeColors, id]
     updateParams({ colors: next.length ? next.join(",") : null })
-    setVisibleCount(24)
+    resetVisible()
   }
 
   const setMinPrice = (val: number | "") => {
     updateParams({ minPrice: val === "" ? null : String(val) })
-    setVisibleCount(24)
+    resetVisible()
   }
 
   const setMaxPrice = (val: number | "") => {
     updateParams({ maxPrice: val === "" ? null : String(val) })
-    setVisibleCount(24)
+    resetVisible()
   }
 
   const resetAll = () => {
     updateParams({ sub: null, colors: null, minPrice: null, maxPrice: null })
-    setVisibleCount(24)
+    resetVisible()
   }
 
   const hasFilters =
