@@ -1357,6 +1357,17 @@ function CompositionGrid({
     minPrice !== "" ||
     maxPrice !== ""
 
+  // Сброс пагинации при смене фильтров по цене
+  const prevMinPrice = React.useRef(minPrice)
+  const prevMaxPrice = React.useRef(maxPrice)
+  React.useEffect(() => {
+    if (prevMinPrice.current !== minPrice || prevMaxPrice.current !== maxPrice) {
+      setVisibleCount(60)
+      prevMinPrice.current = minPrice
+      prevMaxPrice.current = maxPrice
+    }
+  }, [minPrice, maxPrice])
+
   const filtered = items
     .filter((item) => minPrice === "" || item.priceNum >= minPrice)
     .filter((item) => maxPrice === "" || item.priceNum <= maxPrice)
@@ -1586,7 +1597,7 @@ function CompositionGrid({
             onClick={() => setVisibleCount((prev) => prev + 60)}
             className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
           >
-            Загрузить ещё ({filtered.length - visibleCount} шт.)
+            Показать следующие наборы ({filtered.length - visibleCount} шт.)
           </button>
         </div>
       )}
