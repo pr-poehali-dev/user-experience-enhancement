@@ -1891,16 +1891,13 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
 }
 
 export default function Catalog() {
-
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-
   const section = searchParams.get("section")
 
-  if (section === "birthday") {
-    return (
-      <div className="min-h-screen">
-        <Navbar />
+  const renderContent = () => {
+    if (section === "birthday") {
+      return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <div className="flex items-center gap-4 mb-3">
             <button
@@ -1917,17 +1914,13 @@ export default function Catalog() {
               <p className="text-muted-foreground text-xs sm:text-sm">Для девушки, мужчины, мальчика, девочки и другие</p>
             </div>
           </div>
-          <CompositionGrid items={allBirthdayCompositions} showSubcategoryBadge />
+          <CompositionGrid key="birthday" items={allBirthdayCompositions} showSubcategoryBadge />
         </div>
-        <Footer />
-      </div>
-    )
-  }
+      )
+    }
 
-  if (section === "discharge") {
-    return (
-      <div className="min-h-screen">
-        <Navbar />
+    if (section === "discharge") {
+      return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
             onClick={() => navigate("/catalog")}
@@ -1942,17 +1935,13 @@ export default function Catalog() {
               <p className="text-muted-foreground text-xs sm:text-sm">Встречаем малыша из роддома</p>
             </div>
           </div>
-          <CompositionGrid items={compositions.discharge} showDischargeBadge />
+          <CompositionGrid key="discharge" items={compositions.discharge} showDischargeBadge />
         </div>
-        <Footer />
-      </div>
-    )
-  }
+      )
+    }
 
-  if (section === "other") {
-    return (
-      <div className="min-h-screen">
-        <Navbar />
+    if (section === "other") {
+      return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
             onClick={() => navigate("/catalog")}
@@ -1976,15 +1965,11 @@ export default function Catalog() {
             </a>
           </div>
         </div>
-        <Footer />
-      </div>
-    )
-  }
+      )
+    }
 
-  if (section === "custom") {
-    return (
-      <div className="min-h-screen">
-        <Navbar />
+    if (section === "custom") {
+      return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
           <button
             onClick={() => navigate("/catalog")}
@@ -2008,14 +1993,10 @@ export default function Catalog() {
             </a>
           </div>
         </div>
-        <Footer />
-      </div>
-    )
-  }
+      )
+    }
 
-  return (
-    <div className="min-h-screen">
-      <Navbar />
+    return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
         <button
           onClick={() => navigate("/")}
@@ -2094,6 +2075,13 @@ export default function Catalog() {
           </button>
         </div>
       </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      {renderContent()}
       <Footer />
     </div>
   )
