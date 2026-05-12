@@ -1624,7 +1624,7 @@ function CompositionModal({ modal, allItems, onNavigate, onClose }: {
   onNavigate: (item: Composition) => void
   onClose: () => void
 }) {
-  const idx = allItems.findIndex((i) => i === modal || (i.id === modal.id && i.subcategory === modal.subcategory))
+  const idx = allItems.findIndex((i) => i === modal || (i.id === modal.id && i.subcategory === modal.subcategory && i.image === modal.image))
   const hasPrev = idx > 0
   const hasNext = idx < allItems.length - 1
 
