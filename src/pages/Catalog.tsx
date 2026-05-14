@@ -1231,7 +1231,7 @@ function CompositionGrid({
   const visibleCountKey = "catalog_visible_" + (searchParams.get("section") ?? "home")
   const [visibleCount, setVisibleCountState] = useState<number>(() => {
     const saved = sessionStorage.getItem(visibleCountKey)
-    return saved ? parseInt(saved) : 24
+    return saved ? parseInt(saved) : 50
   })
   const setVisibleCount = (val: number | ((prev: number) => number)) => {
     setVisibleCountState(prev => {
@@ -1258,7 +1258,7 @@ function CompositionGrid({
 
   const resetVisible = () => {
     sessionStorage.removeItem(visibleCountKey)
-    setVisibleCount(24)
+    setVisibleCount(50)
   }
 
   const toggleSubcategory = (id: string) => {
@@ -1513,7 +1513,7 @@ function CompositionGrid({
       {filtered.length > visibleCount && (
         <div className="flex justify-center mt-6">
           <button
-            onClick={() => setVisibleCount((prev) => prev + 24)}
+            onClick={() => setVisibleCount((prev) => prev + 50)}
             className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
           >
             Показать следующие наборы ({filtered.length - visibleCount} шт.)
