@@ -60,14 +60,14 @@ const compositions: Record<string, Composition[]> = {
 
     { id: 15, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/8f7c075c-87bf-476f-a6b8-629984c74a4a.jpg", title: "Набор для девушки 15", description: "Цифры фольгированные (2шт), Сердце фольгированное (1шт), Звезда фольгированная (1шт), Конфетти шары (2шт), Пастель шары (8шт)", price: "3 740 ₽", priceNum: 3740, colors: ["red", "rosegold"], subcategory: "girl" },
     { id: 16, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/93df0c07-b260-4461-a39b-5d354e8dbe46.jpg", title: "Набор для девушки 16", description: "Шар-баблс Гигант латексный с надписью и бантиками (1шт), Сердце фольгированное с бантиками (1шт), Шары пастель с бантиками (6шт)", price: "3 480 ₽", priceNum: 3480, colors: ["pink"], subcategory: "girl" },
-    { id: 17, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b7548198-01e7-43b0-8a91-6c3e89cba0e7.jpg", title: "Набор для девушки 17", description: "Цифры фольгированные (2шт), Сердца фольгированные (3шт)", price: "2 650 ₽", priceNum: 2650, colors: ["pink", "silver"], subcategory: "girl" },
+
 
     { id: 20, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/45c49962-4e56-453b-8e46-8e58bdaa0df7.jpg", title: "Набор для девушки 20", description: "Шар-Баблс Гигант стеклянный с надписью и бантиками (1шт), Стеклянные шары с бантиками (7шт)", price: "4 000 ₽", priceNum: 4000, colors: ["white"], subcategory: "girl" },
     { id: 21, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/4e259000-cb7c-4a7a-96cf-84db21d7c173.jpg", title: "Набор для девушки 21", description: "Шар-Баблс Гигант стеклянный с надписью (1шт), Прозрачные шары (2шт), Пастель шары (6шт)", price: "3 290 ₽", priceNum: 3290, colors: ["cream", "white"], subcategory: "girl" },
 
 
 
-    { id: 25, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/93f9a47f-87dd-45ca-b2f8-efe34a12b90a.jpg", title: "Набор для девушки 25", description: "Сердца фольгированные (3шт), Конфетти шары (2шт), Пастель шары (7шт)", price: "2 360 ₽", priceNum: 2360, colors: ["cream", "white"], subcategory: "girl" },
+
     { id: 27, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a580c851-e92b-453d-983d-e7eb3730e151.jpg", title: "Набор для девушки 27", description: "Цифры фольгированные (2шт), Сердце фольгированное (1шт), Стеклянные шары (9шт)", price: "3 570 ₽", priceNum: 3570, colors: ["cream"], subcategory: "girl" },
 
 
@@ -79,8 +79,8 @@ const compositions: Record<string, Composition[]> = {
     { id: 38, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/cc0fa4b6-fbe3-4c29-9bae-067098ca7a60.jpg", title: "Набор для девушки 38", description: "Шар-Баблс гигант латексный с бантиками и надписью (1шт), Прозрачные шары с конфетти (2шт), Пастель шары (14шт)", price: "4 220 ₽", priceNum: 4220, colors: ["white", "pink", "cream"], subcategory: "girl" },
     { id: 39, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/6e509ede-c7dd-4473-96a7-1590415b4f96.jpg", title: "Набор для девушки 39", description: "Шар-баблс гигант прозрачный с конфетти и надписью (1шт), Пастель шары (10шт)", price: "3 100 ₽", priceNum: 3100, colors: ["white"], subcategory: "girl" },
 
-    { id: 42, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f870b36b-1e36-4fb1-a0dd-2ef71170bf8b.jpg", title: "Набор для девушки 42", description: "Цифры фольгированные (2шт), Баблс-шар гигант прозрачный с перьями и надписью (1шт), Сердца фольгированные (4шт), Конфетти шары (2шт)", price: "5 400 ₽", priceNum: 5400, colors: ["pink"], subcategory: "girl" },
-    { id: 44, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/42af5c39-754f-456d-a490-2d041bff0ff5.jpg", title: "Набор для девушки 44", description: "Шар-сердце гигант с надписью (1шт), Цифры фольгированные (2шт), Сердца фольгированные (5шт)", price: "4 850 ₽", priceNum: 4850, colors: ["gold", "pink"], subcategory: "girl" },
+
+
 
 
 
