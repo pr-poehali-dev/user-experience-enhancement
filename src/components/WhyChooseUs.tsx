@@ -30,7 +30,7 @@ export function WhyChooseUs() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-20">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 sm:mb-6 text-balance">
-            Почему выбирают <span className="font-semibold text-primary">Шарим</span>
+            Почему выбирают <span className="font-semibold text-primary">Шаровик</span> <span className="font-semibold" style={{ color: "#f97316" }}>Затейник</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-balance leading-relaxed">
             Делаем праздники яркими и незабываемыми — с любовью к каждой детали
@@ -41,7 +41,7 @@ export function WhyChooseUs() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center space-y-4">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary mb-2">
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-2 ${index % 2 === 0 ? "bg-primary/10 text-primary" : "bg-orange-100 text-orange-500"}`}>
                 <Icon name={feature.icon} size={32} />
               </div>
               <h3 className="text-xl font-semibold">{feature.title}</h3>

@@ -71,7 +71,7 @@ export function PopularPackages() {
         <div className="flex items-end justify-between mb-10 sm:mb-16">
           <div className="max-w-3xl">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 sm:mb-6 text-balance">
-              Популярные <span className="font-semibold text-primary">наборы</span>
+              Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground text-balance leading-relaxed">
               Самые любимые композиции наших покупателей — уже готовые к заказу
@@ -105,7 +105,7 @@ export function PopularPackages() {
             {packages.map((pkg, index) => (
               <div key={index} className="snap-start flex-shrink-0" style={{ width: "calc(50% - 6px)" }}>
                 <Card className="group overflow-hidden border-0 bg-card shadow-md h-full flex flex-col">
-                  <div className="relative overflow-hidden bg-pink-50" style={{ aspectRatio: "4/3" }}>
+                  <div className="relative overflow-hidden bg-orange-50" style={{ aspectRatio: "4/3" }}>
                     <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                     <div className="absolute top-2 right-2 flex items-center gap-1 bg-white/95 backdrop-blur-sm px-2 py-1 rounded-full">
@@ -127,7 +127,7 @@ export function PopularPackages() {
                       </div>
                     </div>
                     <div className="flex items-center justify-between mt-auto pt-2 border-t border-border">
-                      <div className="text-sm font-bold text-primary">{pkg.price}</div>
+                      <div className="text-sm font-bold text-orange-500">{pkg.price}</div>
                       <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full text-xs px-3 h-7">
                         Заказать
                       </Button>
@@ -159,7 +159,7 @@ export function PopularPackages() {
               className="group overflow-hidden border-0 bg-card hover:shadow-2xl transition-all duration-500 flex-shrink-0"
               style={{ width: "320px" }}
             >
-              <div className="relative h-52 overflow-hidden bg-pink-50">
+              <div className="relative h-52 overflow-hidden bg-orange-50">
                 <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                 <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
@@ -184,7 +184,7 @@ export function PopularPackages() {
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div>
                     <div className="text-xs text-muted-foreground mb-0.5">Цена от</div>
-                    <div className="text-xl font-semibold text-primary">{pkg.price}</div>
+                    <div className="text-xl font-semibold text-orange-500">{pkg.price}</div>
                   </div>
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full">
                     Заказать

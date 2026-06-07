@@ -26,7 +26,7 @@ export function Hero() {
   const navigate = useNavigate()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-pink-100 via-rose-50 to-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-100 via-orange-50 to-background">
       <style>{`
         @keyframes floatUp {
           0% { transform: translateY(0) rotate(-4deg); opacity: 0; }
@@ -64,7 +64,15 @@ export function Hero() {
 
         <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-normal text-balance">
           Воздушные
-          <span className="block font-semibold mt-1 sm:mt-2 text-primary">шарики</span>
+          <span
+            className="block font-semibold mt-1 sm:mt-2"
+            style={{
+              background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >шарики</span>
         </h1>
 
         <p className="text-base sm:text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed">
@@ -92,9 +100,9 @@ export function Hero() {
           <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
         </Button>
 
-        <div className="inline-flex items-center gap-1.5 sm:gap-3 bg-primary/10 border-2 border-primary/30 rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3">
-          <Icon name="Truck" className="h-4 w-4 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-          <span className="text-[13px] sm:text-xl md:text-2xl font-bold text-primary whitespace-nowrap">
+        <div className="inline-flex items-center gap-1.5 sm:gap-3 bg-orange-100 border-2 border-orange-300 rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3">
+          <Icon name="Truck" className="h-4 w-4 sm:h-6 sm:w-6 text-orange-500 flex-shrink-0" />
+          <span className="text-[13px] sm:text-xl md:text-2xl font-bold text-orange-600 whitespace-nowrap">
             Доставка по Краснодару и краю 24/7
           </span>
         </div>

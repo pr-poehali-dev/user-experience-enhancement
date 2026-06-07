@@ -139,7 +139,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
                 className="text-sm font-black leading-tight text-white inline-block px-2 py-0.5 rounded-md mb-1"
                 style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)", letterSpacing: "0.02em", boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}
               >{modal.title}</h3>
-              <div><span className="text-primary font-bold text-lg">{modal.price}</span></div>
+              <div><span className="text-orange-500 font-bold text-lg">{modal.price}</span></div>
             </div>
           </div>
           <div className="px-4 pb-1 flex-shrink-0">
@@ -232,7 +232,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
                 className="text-base sm:text-lg font-black leading-tight text-white inline-block px-3 py-1 rounded-lg mb-1"
                 style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)", letterSpacing: "0.02em", boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
               >{modal.title}</h3>
-              <div><span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span></div>
+              <div><span className="text-orange-500 font-bold text-base sm:text-lg">{modal.price}</span></div>
             </div>
             <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}>
               <Icon name="X" size={18} />

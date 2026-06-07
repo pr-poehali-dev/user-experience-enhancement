@@ -11,7 +11,7 @@ import Icon from "@/components/ui/icon"
 function CatalogCTA() {
   const navigate = useNavigate()
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100 text-center px-4">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-violet-200 via-orange-50 to-orange-100 text-center px-4">
       <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
         <span className="text-6xl sm:text-7xl">🎈</span>
         <h2 className="text-3xl sm:text-5xl font-bold leading-tight">
