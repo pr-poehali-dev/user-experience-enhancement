@@ -41,7 +41,7 @@ export default function Delivery() {
             href={MAP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-start gap-4 p-4 rounded-2xl bg-rose-50 hover:bg-rose-100 transition-colors mb-4 group"
+            className="flex items-start gap-4 p-4 rounded-2xl bg-orange-50 hover:bg-orange-100 transition-colors mb-4 group"
           >
             <Icon name="MapPin" size={20} className="text-primary mt-0.5 flex-shrink-0" />
             <div className="flex-1">
@@ -51,7 +51,7 @@ export default function Delivery() {
             </div>
             <Icon name="ExternalLink" size={16} className="text-muted-foreground mt-1 group-hover:text-primary transition-colors" />
           </a>
-          <div className="flex items-center gap-4 p-4 rounded-2xl bg-rose-50">
+          <div className="flex items-center gap-4 p-4 rounded-2xl bg-orange-50">
             <Icon name="Clock" size={20} className="text-primary flex-shrink-0" />
             <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground text-sm">Режим работы:</span> круглосуточно, 24/7</p>
           </div>
@@ -63,14 +63,14 @@ export default function Delivery() {
             <Icon name="MapPin" size={22} className="text-primary" /> Зона доставки
           </h2>
           <div className="space-y-3">
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-rose-50">
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-orange-50">
               <Icon name="CheckCircle" size={20} className="text-primary mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-foreground">Весь Краснодар</p>
                 <p className="text-sm text-muted-foreground">Доставляем в любой район города</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-rose-50">
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-orange-50">
               <Icon name="CheckCircle" size={20} className="text-primary mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-foreground">Краснодарский край</p>
@@ -86,7 +86,7 @@ export default function Delivery() {
             <Icon name="Tag" size={22} className="text-primary" /> Стоимость доставки
           </h2>
           <div className="space-y-3">
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-rose-50">
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-orange-50">
               <Icon name="Truck" size={20} className="text-primary mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-foreground">от 300 ₽</p>
@@ -108,7 +108,7 @@ export default function Delivery() {
           <h2 className="font-semibold text-xl mb-5 flex items-center gap-2">
             <Icon name="Clock" size={22} className="text-primary" /> График работы
           </h2>
-          <div className="flex items-center gap-4 p-4 rounded-2xl bg-rose-50">
+          <div className="flex items-center gap-4 p-4 rounded-2xl bg-orange-50">
             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Icon name="Clock" size={22} className="text-primary" />
             </div>

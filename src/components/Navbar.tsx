@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 
 const orderContacts = [
-  { label: "8 988 597 33 03", href: "tel:+79885973303", icon: "Phone", bg: "linear-gradient(135deg, #fb7185, #e11d48)" },
+  { label: "8 988 597 33 03", href: "tel:+79885973303", icon: "Phone", bg: "linear-gradient(135deg, #f97316, #ea580c)" },
   { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "linear-gradient(135deg, #4ade80, #16a34a)" },
   { label: "Telegram", href: "#", icon: "Send", bg: "linear-gradient(135deg, #60a5fa, #3b82f6)" },
   { label: "ВКонтакте", href: "#", icon: "MessageCircle", bg: "linear-gradient(135deg, #3b82f6, #1d4ed8)" },
@@ -63,10 +63,9 @@ export function Navbar() {
             }
           }}>
             <img
-              src="https://cdn.poehali.dev/files/53388624-09fc-4e5b-be49-44cc6273a16d.png"
-              alt="Шарим — студия аэродизайна"
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain"
-              style={{ mixBlendMode: "multiply" }}
+              src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d0c9b73b-4c45-43ec-b52c-439d5631fb72.png"
+              alt="Шаровик Затейник — магазин воздушных шаров"
+              className="h-10 sm:h-14 md:h-16 w-auto object-contain"
             />
           </div>
 

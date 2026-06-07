@@ -72,7 +72,7 @@ export function Hero() {
           <span
             className="font-bold"
             style={{
-              background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)",
+              background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",

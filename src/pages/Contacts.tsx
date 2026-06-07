@@ -38,7 +38,7 @@ export default function Contacts() {
               <a
                 key={p.href}
                 href={p.href}
-                className="flex items-center justify-between px-5 py-4 bg-white rounded-2xl border border-border shadow-sm hover:border-primary/40 hover:bg-rose-50 transition-all group"
+                className="flex items-center justify-between px-5 py-4 bg-white rounded-2xl border border-border shadow-sm hover:border-primary/40 hover:bg-orange-50 transition-all group"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">

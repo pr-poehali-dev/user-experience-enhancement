@@ -137,7 +137,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             <div>
               <h3
                 className="text-sm font-black leading-tight text-white inline-block px-2 py-0.5 rounded-md mb-1"
-                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)", letterSpacing: "0.02em", boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)", letterSpacing: "0.02em", boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}
               >{modal.title}</h3>
               <div><span className="text-primary font-bold text-lg">{modal.price}</span></div>
             </div>
@@ -230,7 +230,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             <div className="flex-1 min-w-0 pr-3">
               <h3
                 className="text-base sm:text-lg font-black leading-tight text-white inline-block px-3 py-1 rounded-lg mb-1"
-                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #fb7185)", letterSpacing: "0.02em", boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)", letterSpacing: "0.02em", boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
               >{modal.title}</h3>
               <div><span className="text-primary font-bold text-base sm:text-lg">{modal.price}</span></div>
             </div>
@@ -270,10 +270,10 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               <p className="text-xs text-muted-foreground leading-relaxed">Напишите нам номер композиции, сориентируем по наполнению и доставке</p>
             </div>
             <div className="flex flex-col gap-2">
-              <a href="tel:+79885973303" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors text-sm">
+              <a href="tel:+79885973303" className="flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-orange-100 transition-colors text-sm">
                 <Icon name="Phone" size={14} className="text-primary" /> 8 988 597 33 03
               </a>
-              <a href="tel:+79182457204" className="flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-rose-100 transition-colors text-sm">
+              <a href="tel:+79182457204" className="flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-orange-100 transition-colors text-sm">
                 <Icon name="Phone" size={14} className="text-primary" /> 8 918 245 72 04
               </a>
             </div>

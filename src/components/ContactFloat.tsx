@@ -36,7 +36,7 @@ const contacts = [
     label: "8 988 597 33 03",
     href: "tel:+79885973303",
     icon: "Phone",
-    bg: "linear-gradient(135deg, #fb7185, #e11d48)",
+    bg: "linear-gradient(135deg, #f97316, #e11d48)",
   },
 ]
 
