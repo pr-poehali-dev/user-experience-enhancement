@@ -376,7 +376,7 @@ export default function CompositionGrid({
           modal={modal}
           allItems={filtered}
           onNavigate={(item) => {
-            const newIdx = filtered.findIndex(i => i.image === item.image)
+            const newIdx = filtered.findIndex(i => `${i.subcategory ?? ""}|${i.id}|${i.title}` === `${item.subcategory ?? ""}|${item.id}|${item.title}`)
             if (newIdx >= visibleCount) setVisibleCount(newIdx + 12)
             setModal(item)
           }}

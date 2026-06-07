@@ -2,13 +2,15 @@ import { useState, useRef, useEffect } from "react"
 import Icon from "@/components/ui/icon"
 import { Composition, birthdaySubcategories } from "@/data/catalogData"
 
+const itemKey = (i: Composition) => `${i.subcategory ?? ""}|${i.id}|${i.title}`
+
 export default function CompositionModal({ modal, allItems, onNavigate, onClose }: {
   modal: Composition
   allItems: Composition[]
   onNavigate: (item: Composition) => void
   onClose: () => void
 }) {
-  const idx = allItems.findIndex((i) => i.image === modal.image)
+  const idx = allItems.findIndex((i) => itemKey(i) === itemKey(modal))
   const hasPrev = idx > 0
   const hasNext = idx < allItems.length - 1
 
