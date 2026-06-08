@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const TRUCK = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/074811f1-9b19-4586-b2f8-248763d426ba.jpg"
-const SHOP = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/896da21d-c344-445a-89dc-858a50aa5637.jpg"
+const TRUCK = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f8161fa5-5534-4ca4-a113-bbe4b2e824cf.png"
+const SHOP = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/8be22410-cd5e-43bd-aae5-9fb28b715aab.png"
 
 const socials = [
   { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "#22c55e" },
