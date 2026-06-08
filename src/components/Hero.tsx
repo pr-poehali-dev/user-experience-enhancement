@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/634d66f1-c703-43b1-a102-78abae6ec77e.png"
+const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f38b9cf5-7654-49ef-93ec-596adbc54042.png"
 
 
 const socials = [
