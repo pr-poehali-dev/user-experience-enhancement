@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/85d86bb5-8a2a-4a5f-b8b1-1e14e40a9ad6.png"
+const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/5cda8fd8-0cad-466f-a041-a3daf786e848.png"
 const TRUCK = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/52edcac8-a209-4a46-b75c-4d2434e18013.png"
 const SHOP  = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/4fb6f795-35ad-452d-96d8-ff3f0fd35222.png"
 
