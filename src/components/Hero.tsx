@@ -51,15 +51,24 @@ export function Hero() {
             </span>
           </p>
 
-          <Button
-            size="lg"
+          <button
             onClick={() => navigate("/catalog")}
-            className="rounded-full px-10 sm:px-16 group shadow-xl text-white border-0"
-            style={{ height: "4.5rem", fontSize: "1.5rem", fontWeight: 700, background: "linear-gradient(135deg, #fb923c, #f97316)" }}
+            className="group relative overflow-hidden rounded-full px-10 sm:px-16 text-white font-bold shadow-2xl hover:scale-105 transition-transform active:scale-95"
+            style={{
+              height: "4.5rem",
+              fontSize: "1.5rem",
+              background: "linear-gradient(160deg, #ffb347 0%, #ff6a00 40%, #e63000 100%)",
+              border: "3px solid rgba(255,255,255,0.7)",
+              boxShadow: "0 6px 32px rgba(230,90,0,0.45), inset 0 1px 0 rgba(255,255,255,0.35)",
+            }}
           >
-            Смотреть каталог
-            <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            {/* gloss highlight */}
+            <span className="pointer-events-none absolute inset-x-4 top-1 h-[40%] rounded-full bg-white/25 blur-sm" />
+            <span className="relative flex items-center gap-3">
+              Смотреть каталог
+              <span className="text-2xl group-hover:translate-x-1 transition-transform inline-block">→</span>
+            </span>
+          </button>
 
           <div className="inline-flex items-center gap-2 sm:gap-3 bg-orange-50 border-2 border-orange-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm">
             <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
@@ -71,8 +80,8 @@ export function Hero() {
       </div>
 
       {/* Bottom info bar */}
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-3 sm:px-6 lg:px-8 pb-6">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-8 py-4 flex flex-col xl:flex-row items-center justify-between gap-4">
+      <div className="relative z-10 w-full px-3 sm:px-6 lg:px-8 pb-6">
+        <div className="bg-white/85 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-10 py-4 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 divide-x divide-border/60">
             <div className="flex items-center gap-3 pl-0">

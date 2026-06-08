@@ -67,22 +67,12 @@ export function ContactFloat() {
       {/* Toggle button */}
       <button
         onClick={() => setOpen((p) => !p)}
-        className="w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105 mb-12 sm:mb-14"
+        className="w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full text-primary-foreground shadow-2xl transition-all flex items-center justify-center hover:scale-105"
         style={{ background: "hsl(var(--primary))" }}
         aria-label="Связаться с нами"
       >
         <Icon name={open ? "X" : "MessageCircle"} size={26} />
       </button>
-
-      {/* «Свяжитесь с нами» */}
-      {!open && (
-        <span
-          className="absolute bottom-0 right-0 text-background font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl whitespace-nowrap shadow-xl pointer-events-none"
-          style={{ background: "hsl(var(--foreground))", fontSize: "0.85rem" }}
-        >
-          Напишите нам
-        </span>
-      )}
     </div>
   )
 }
