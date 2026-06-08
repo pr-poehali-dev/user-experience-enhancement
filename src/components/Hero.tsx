@@ -32,8 +32,8 @@ export function Hero() {
         className="absolute z-[2] pointer-events-none select-none hidden lg:block"
         style={{
           left: "-3%",
-          bottom: "4%",
-          width: "clamp(320px, 36vw, 560px)",
+          bottom: "18%",
+          width: "clamp(260px, 28vw, 440px)",
           objectFit: "contain",
         }}
       />
@@ -45,7 +45,7 @@ export function Hero() {
         className="absolute z-[2] pointer-events-none select-none hidden lg:block"
         style={{
           right: "-2%",
-          bottom: "4%",
+          bottom: "16%",
           width: "clamp(280px, 32vw, 500px)",
           objectFit: "contain",
         }}
