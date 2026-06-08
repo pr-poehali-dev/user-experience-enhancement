@@ -2,13 +2,13 @@ import { useEffect, useRef } from "react"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const BG     = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/e6bd09a3-5691-4295-8b35-c6443f571dfd.png"
+const BG     = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/85d86bb5-8a2a-4a5f-b8b1-1e14e40a9ad6.png"
 const SHOP   = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7db538f7-d2ec-4f48-92b0-d7b4fc40b9e1.png"
 const TRUCK  = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/6193d6eb-0c26-49cb-b3f6-84b41733d33a.png"
 const MAX_ICON = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/555d9ff8-3bba-4e68-837c-85a402fed391.png"
 
 const socials = [
-  { label: "Max",       href: "#",                           img: MAX_ICON,       bg: "linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)" },
+  { label: "Max",       href: "#",                           icon: "MessageCircle", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)" },
   { label: "WhatsApp",  href: "https://wa.me/79885973303",   icon: "MessageSquare", bg: "#22c55e" },
   { label: "Telegram",  href: "#",                           icon: "Send",          bg: "#0ea5e9" },
   { label: "ВКонтакте", href: "#",                           icon: "MessageCircle", bg: "#2563eb" },
