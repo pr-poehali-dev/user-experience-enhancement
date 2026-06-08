@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const TRUCK = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f8161fa5-5534-4ca4-a113-bbe4b2e824cf.png"
-const SHOP = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/8be22410-cd5e-43bd-aae5-9fb28b715aab.png"
+const HERO_BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/3d507d4c-77ac-4713-9c9c-bf06d0f225a2.png"
 
 const socials = [
   { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "#22c55e" },
@@ -17,73 +16,53 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-violet-100 via-violet-50 to-orange-50">
-      {/* Floating decor */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <span className="absolute left-[30%] top-[14%] text-3xl">⭐</span>
-        <span className="absolute right-[26%] top-[10%] text-2xl">✨</span>
-        <span className="absolute left-[44%] top-[24%] text-xl">⭐</span>
-        <span className="absolute right-[34%] bottom-[24%] text-2xl">✨</span>
-      </div>
+      {/* Background scene — truck + shop */}
+      <div
+        className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-center"
+        style={{ backgroundImage: `url(${HERO_BG})` }}
+      />
 
       {/* Main hero row */}
-      <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(420px,1.1fr)_1fr] items-center gap-6 lg:gap-4 h-full">
+      <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6 flex items-center justify-center">
+        {/* Center — content */}
+        <div className="flex flex-col items-center text-center gap-5 sm:gap-7">
+          <h1 className="font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-7xl lg:text-8xl drop-shadow-sm">
+            <span className="block text-primary">Воздушные</span>
+            <span
+              className="block"
+              style={{
+                background: "linear-gradient(100deg, hsl(var(--primary)) 35%, #ec4899 60%, #f97316 90%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >шарики</span>
+          </h1>
 
-          {/* Left — truck */}
-          <div className="hidden lg:flex justify-center items-center">
-            <img src={TRUCK} alt="Грузовик с шарами" className="w-full max-w-[460px] object-contain drop-shadow-2xl" />
-          </div>
+          <p className="text-lg sm:text-2xl text-foreground/70 max-w-md leading-snug font-medium">
+            Стильные композиции из шаров{" "}
+            <span className="font-extrabold">
+              <span className="text-primary">по</span>{" "}
+              <span className="text-orange-500">низким</span>{" "}
+              <span className="text-primary">ценам</span>
+            </span>
+          </p>
 
-          {/* Center — content */}
-          <div className="flex flex-col items-center text-center gap-5 sm:gap-7 order-first lg:order-none">
-            <h1 className="font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-7xl lg:text-8xl">
-              <span className="block text-primary">Воздушные</span>
-              <span
-                className="block"
-                style={{
-                  background: "linear-gradient(100deg, hsl(var(--primary)) 35%, #ec4899 60%, #f97316 90%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >шарики</span>
-            </h1>
+          <Button
+            size="lg"
+            onClick={() => navigate("/catalog")}
+            className="rounded-full px-10 sm:px-16 group shadow-xl text-white border-0"
+            style={{ height: "4.5rem", fontSize: "1.5rem", fontWeight: 700, background: "linear-gradient(135deg, #fb923c, #f97316)" }}
+          >
+            Смотреть каталог
+            <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
+          </Button>
 
-            <p className="text-lg sm:text-2xl text-foreground/70 max-w-md leading-snug font-medium">
-              Стильные композиции из шаров{" "}
-              <span className="font-extrabold">
-                <span className="text-primary">по</span>{" "}
-                <span className="text-orange-500">низким</span>{" "}
-                <span className="text-primary">ценам</span>
-              </span>
-            </p>
-
-            <Button
-              size="lg"
-              onClick={() => navigate("/catalog")}
-              className="rounded-full px-10 sm:px-16 group shadow-xl text-white border-0"
-              style={{ height: "4.5rem", fontSize: "1.5rem", fontWeight: 700, background: "linear-gradient(135deg, #fb923c, #f97316)" }}
-            >
-              Смотреть каталог
-              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
-            </Button>
-
-            <div className="inline-flex items-center gap-2 sm:gap-3 bg-orange-50 border-2 border-orange-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm">
-              <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-orange-500 flex-shrink-0" />
-              <span className="text-sm sm:text-lg font-bold text-orange-600 whitespace-nowrap">
-                Доставка по Краснодару и краю 24/7
-              </span>
-            </div>
-          </div>
-
-          {/* Right — shop */}
-          <div className="hidden lg:flex justify-center items-center">
-            <img src={SHOP} alt="Магазин Шаровик Затейник" className="w-full max-w-[480px] object-contain drop-shadow-2xl" />
-          </div>
-
-          {/* Mobile truck */}
-          <div className="flex lg:hidden justify-center">
-            <img src={TRUCK} alt="Грузовик с шарами" className="w-full max-w-[320px] object-contain drop-shadow-xl" />
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-orange-50 border-2 border-orange-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm">
+            <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-orange-500 flex-shrink-0" />
+            <span className="text-sm sm:text-lg font-bold text-orange-600 whitespace-nowrap">
+              Доставка по Краснодару и краю 24/7
+            </span>
           </div>
         </div>
       </div>
