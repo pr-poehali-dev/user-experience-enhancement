@@ -1,24 +1,13 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useNavigate, useLocation } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 
-const orderContacts = [
-  { label: "8 988 597 33 03", href: "tel:+79885973303", icon: "Phone", bg: "linear-gradient(135deg, #f97316, #ea580c)" },
-  { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "linear-gradient(135deg, #4ade80, #16a34a)" },
-  { label: "Telegram", href: "#", icon: "Send", bg: "linear-gradient(135deg, #60a5fa, #3b82f6)" },
-  { label: "ВКонтакте", href: "#", icon: "MessageCircle", bg: "linear-gradient(135deg, #3b82f6, #1d4ed8)" },
-  { label: "Instagram", href: "#", icon: "Instagram", bg: "linear-gradient(135deg, #ec4899, #9333ea)" },
-  { label: "Max", href: "#", icon: "Flame", bg: "#1e3a5f" },
-]
-
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showCatalogBtn, setShowCatalogBtn] = useState(false)
-  const [orderOpen, setOrderOpen] = useState(false)
-  const orderRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -41,14 +30,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (orderRef.current && !orderRef.current.contains(e.target as Node)) setOrderOpen(false)
-    }
-    document.addEventListener("mousedown", handler)
-    return () => document.removeEventListener("mousedown", handler)
-  }, [])
-
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -63,14 +44,14 @@ export function Navbar() {
             }
           }}>
             <img
-              src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d0c9b73b-4c45-43ec-b52c-439d5631fb72.png"
+              src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/11bed93d-83b2-4394-b230-5a71a39a7427.png"
               alt="Шаровик Затейник — магазин воздушных шаров"
               className="h-10 sm:h-14 md:h-16 w-auto object-contain"
             />
           </div>
 
           {/* Desktop nav links — по центру */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6 absolute left-1/2 -translate-x-1/2">
+          <div className="hidden md:flex items-center gap-7 lg:gap-12 absolute left-1/2 -translate-x-1/2">
             {[
               { label: "О нас", icon: "Star", action: () => navigate("/about") },
               { label: "Каталог", icon: "Sparkles", action: () => navigate("/catalog") },
@@ -91,36 +72,16 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Right side — Заказать с телефонами снизу */}
+          {/* Right side — номер телефона */}
           <div className="hidden md:flex items-center gap-4">
-            {/* Заказать с соцсетями и телефонами */}
-            <div className="relative" ref={orderRef}>
-              {orderOpen && (
-                <div className="absolute top-full right-0 mt-3 flex flex-col items-end gap-2 z-50">
-                  {orderContacts.map((c) => (
-                    <a
-                      key={c.label}
-                      href={c.href}
-                      target={c.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-full shadow-lg text-white font-semibold text-sm hover:scale-105 transition-transform whitespace-nowrap"
-                      style={{ background: c.bg }}
-                    >
-                      <Icon name={c.icon} size={15} />
-                      {c.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-              <Button
-                onClick={() => setOrderOpen((p) => !p)}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-7 shadow-lg font-bold"
-                style={{ height: "3rem", fontSize: "1.05rem" }}
-              >
-                {orderOpen ? "Закрыть" : "Заказать"}
-                <Icon name={orderOpen ? "X" : "ChevronDown"} className="ml-1.5 h-4 w-4" />
-              </Button>
-            </div>
+            <a
+              href="tel:+79880653700"
+              className="flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 shadow-lg font-bold transition-colors"
+              style={{ height: "3rem", fontSize: "1.05rem" }}
+            >
+              <Icon name="Phone" className="h-4 w-4" />
+              +7 988 065 37 00
+            </a>
           </div>
 
           {/* Mobile right side */}

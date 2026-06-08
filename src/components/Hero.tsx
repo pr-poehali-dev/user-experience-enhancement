@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom"
 
 const HERO_BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7fa61040-2d84-48bd-83c8-fd37fba5d88e.png"
 
+const MAX_ICON = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a2fc43e5-0684-4a7f-8b92-ae7af3e01398.png"
+
 const socials = [
   { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "#22c55e" },
   { label: "Telegram", href: "#", icon: "Send", bg: "#0ea5e9" },
   { label: "ВКонтакте", href: "#", icon: "MessageCircle", bg: "#2563eb" },
   { label: "Instagram", href: "#", icon: "Instagram", bg: "linear-gradient(135deg, #f97316, #ec4899)" },
+  { label: "Max", href: "#", img: MAX_ICON, bg: "linear-gradient(135deg, #3b82f6, #8b5cf6, #a855f7)" },
 ]
 
 export function Hero() {
@@ -59,9 +62,9 @@ export function Hero() {
           </Button>
 
           <div className="inline-flex items-center gap-2 sm:gap-3 bg-orange-50 border-2 border-orange-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm">
-            <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-orange-500 flex-shrink-0" />
-            <span className="text-sm sm:text-lg font-bold text-orange-600 whitespace-nowrap">
-              Доставка по Краснодару и краю 24/7
+            <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+            <span className="text-sm sm:text-lg font-bold text-primary whitespace-nowrap">
+              Доставка по Краснодару 24/7
             </span>
           </div>
         </div>
@@ -74,21 +77,11 @@ export function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 divide-x divide-border/60">
             <div className="flex items-center gap-3 pl-0">
               <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Phone" className="h-5 w-5 text-primary" />
+                <Icon name="Sparkles" className="h-5 w-5 text-primary" />
               </span>
               <div className="text-left leading-tight">
-                <a href="tel:+79885973303" className="block text-sm font-bold text-foreground hover:text-primary transition-colors">8 988 597 33 03</a>
-                <a href="tel:+79182457204" className="block text-sm font-bold text-foreground hover:text-primary transition-colors">8 918 245 72 04</a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 pl-6">
-              <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="MapPin" className="h-5 w-5 text-primary" />
-              </span>
-              <div className="text-left leading-tight">
-                <span className="block text-sm font-bold text-foreground">ул. Героя Яцкова, 19к3</span>
-                <span className="block text-sm text-muted-foreground">г. Краснодар</span>
+                <span className="block text-sm font-bold text-foreground">Более 5000</span>
+                <span className="block text-sm text-muted-foreground">композиций</span>
               </div>
             </div>
 
@@ -113,7 +106,11 @@ export function Hero() {
                 className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform shadow-md whitespace-nowrap"
                 style={{ background: s.bg }}
               >
-                <Icon name={s.icon} size={16} /> {s.label}
+                {s.img ? (
+                  <img src={s.img} alt={s.label} className="w-4 h-4 rounded-sm object-contain" />
+                ) : (
+                  <Icon name={s.icon} size={16} />
+                )} {s.label}
               </a>
             ))}
           </div>
