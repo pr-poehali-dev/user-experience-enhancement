@@ -2,109 +2,126 @@ import { useEffect, useRef } from "react"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const HERO_BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7fa61040-2d84-48bd-83c8-fd37fba5d88e.png"
-
+const BG     = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/e6bd09a3-5691-4295-8b35-c6443f571dfd.png"
+const SHOP   = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7db538f7-d2ec-4f48-92b0-d7b4fc40b9e1.png"
+const TRUCK  = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/6193d6eb-0c26-49cb-b3f6-84b41733d33a.png"
 const MAX_ICON = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/555d9ff8-3bba-4e68-837c-85a402fed391.png"
 
 const socials = [
-  { label: "Max", href: "#", img: MAX_ICON, bg: "linear-gradient(135deg, #3b82f6, #8b5cf6, #a855f7)" },
-  { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "#22c55e" },
-  { label: "Telegram", href: "#", icon: "Send", bg: "#0ea5e9" },
-  { label: "ВКонтакте", href: "#", icon: "MessageCircle", bg: "#2563eb" },
-  { label: "Instagram", href: "#", icon: "Instagram", bg: "linear-gradient(135deg, #f97316, #ec4899)" },
+  { label: "Max",       href: "#",                           img: MAX_ICON,       bg: "linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)" },
+  { label: "WhatsApp",  href: "https://wa.me/79885973303",   icon: "MessageSquare", bg: "#22c55e" },
+  { label: "Telegram",  href: "#",                           icon: "Send",          bg: "#0ea5e9" },
+  { label: "ВКонтакте", href: "#",                           icon: "MessageCircle", bg: "#2563eb" },
+  { label: "Instagram", href: "#",                           icon: "Instagram",     bg: "linear-gradient(135deg,#f97316,#ec4899)" },
 ]
-
-function FloatingBalloon() {
-  return (
-    <div
-      className="absolute pointer-events-none select-none z-[2]"
-      style={{
-        left: "62%",
-        bottom: "28%",
-        fontSize: "2.8rem",
-        animation: "balloonFloat 4s ease-in-out infinite",
-        filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.18))",
-      }}
-    >
-      🎈
-    </div>
-  )
-}
 
 export function Hero() {
   const navigate = useNavigate()
   const headlightRef = useRef<HTMLDivElement>(null)
 
+  /* Фары моргают раз в 5 сек */
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>
+    let t: ReturnType<typeof setTimeout>
     const blink = () => {
       const el = headlightRef.current
       if (!el) return
-      el.style.opacity = "0.2"
-      setTimeout(() => { if (el) el.style.opacity = "1" }, 120)
-      setTimeout(() => { if (el) el.style.opacity = "0.2" }, 240)
-      setTimeout(() => { if (el) el.style.opacity = "1" }, 360)
-      timeout = setTimeout(blink, 5000)
+      el.style.opacity = "0.15"
+      setTimeout(() => { if (el) el.style.opacity = "1" }, 130)
+      setTimeout(() => { if (el) el.style.opacity = "0.15" }, 260)
+      setTimeout(() => { if (el) el.style.opacity = "1" }, 390)
+      t = setTimeout(blink, 5000)
     }
-    timeout = setTimeout(blink, 5000)
-    return () => clearTimeout(timeout)
+    t = setTimeout(blink, 2000)
+    return () => clearTimeout(t)
   }, [])
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-white">
-      {/* Background scene */}
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+
+      {/* ── ФОН (светло-фиолетовый с подарками) ── */}
       <div
-        className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url(${HERO_BG})` }}
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${BG})` }}
       />
 
-      {/* Фары машины — светящийся оверлей */}
-      <div
-        ref={headlightRef}
-        className="absolute z-[2] pointer-events-none transition-opacity duration-100"
-        style={{
-          left: "4%",
-          bottom: "8%",
-          width: "120px",
-          height: "40px",
-          background: "radial-gradient(ellipse at left, rgba(255,240,120,0.85) 0%, rgba(255,220,60,0.4) 50%, transparent 80%)",
-          borderRadius: "50%",
-          filter: "blur(6px)",
-        }}
-      />
-
-      {/* Шарики в кузове — шевелятся */}
-      <div
+      {/* ── МАГАЗИН — слева снизу ── */}
+      <img
+        src={SHOP}
+        alt="Магазин Шаровик Затейник"
         className="absolute z-[2] pointer-events-none select-none"
         style={{
+          left: "-2%",
+          bottom: "4%",
+          width: "clamp(260px, 30vw, 480px)",
+          objectFit: "contain",
+        }}
+      />
+
+      {/* ── МАШИНА — справа снизу ── */}
+      <img
+        src={TRUCK}
+        alt="Машина доставки"
+        className="absolute z-[2] pointer-events-none select-none"
+        style={{
+          right: "-2%",
+          bottom: "3%",
+          width: "clamp(280px, 34vw, 520px)",
+          objectFit: "contain",
+          animation: "truckBob 4s ease-in-out infinite",
+        }}
+      />
+
+      {/* ── ФАРЫ машины ── */}
+      <div
+        ref={headlightRef}
+        className="absolute z-[3] pointer-events-none transition-opacity duration-100"
+        style={{
+          right: "6%",
+          bottom: "9%",
+          width: "clamp(50px, 5vw, 80px)",
+          height: "clamp(16px, 2vw, 28px)",
+          background: "radial-gradient(ellipse at right, rgba(255,235,100,0.9) 0%, rgba(255,210,50,0.5) 50%, transparent 80%)",
+          borderRadius: "50%",
+          filter: "blur(5px)",
+        }}
+      />
+
+      {/* ── ЛЕТАЮЩИЙ ШАРИК над магазином ── */}
+      <div
+        className="absolute z-[3] pointer-events-none select-none text-5xl"
+        style={{
           left: "14%",
-          bottom: "18%",
-          display: "flex",
-          gap: "4px",
-          fontSize: "1.4rem",
+          bottom: "52%",
+          animation: "balloonFloat 3.5s ease-in-out infinite",
+          filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.2))",
         }}
       >
-        {["🎈", "🎀", "🎈"].map((b, i) => (
+        🎈
+      </div>
+
+      {/* ── ШАРИКИ В КУЗОВЕ — шевелятся ── */}
+      <div
+        className="absolute z-[3] pointer-events-none select-none flex gap-1"
+        style={{ right: "20%", bottom: "28%", fontSize: "clamp(1rem, 2vw, 1.6rem)" }}
+      >
+        {(["🟣","🟠","🟣"] as const).map((_, i) => (
           <span
             key={i}
             style={{
               display: "inline-block",
-              animation: `cargoWiggle${i % 2 === 0 ? "A" : "B"} 2.5s ease-in-out infinite`,
-              animationDelay: `${i * 0.4}s`,
+              animation: `cargoWiggle${i % 2 === 0 ? "A" : "B"} 2.4s ease-in-out infinite`,
+              animationDelay: `${i * 0.35}s`,
             }}
           >
-            {b}
+            🎈
           </span>
         ))}
       </div>
 
-      {/* Летающий шарик внутри магазина */}
-      <FloatingBalloon />
-
-      {/* Main hero row */}
+      {/* ── ЦЕНТРАЛЬНЫЙ КОНТЕНТ ── */}
       <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6 flex items-center justify-center">
-        {/* Center — content */}
         <div className="flex flex-col items-center text-center gap-5 sm:gap-7">
+
           <h1 className="font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-7xl lg:text-8xl drop-shadow-sm">
             <span className="block text-primary">Воздушные</span>
             <span
@@ -118,7 +135,7 @@ export function Hero() {
             >шарики</span>
           </h1>
 
-          <p className="text-lg sm:text-2xl text-foreground/70 max-w-lg leading-snug font-medium">
+          <p className="text-lg sm:text-2xl text-foreground/80 max-w-lg leading-snug font-medium drop-shadow-sm">
             Стильные композиции из воздушных и гелиевых шаров с доставкой
           </p>
 
@@ -140,19 +157,19 @@ export function Hero() {
             </span>
           </button>
 
-          <div className="inline-flex items-center gap-3 sm:gap-4 bg-orange-50 border-2 border-orange-200 rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-md">
+          <div className="inline-flex items-center gap-3 sm:gap-4 bg-orange-50/90 border-2 border-orange-200 rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-md backdrop-blur-sm">
             <Icon name="Truck" className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0" style={{ color: "#f97316" }} />
             <span className="font-extrabold text-lg sm:text-2xl whitespace-nowrap" style={{ color: "#f97316" }}>
-              Доставка по Краснодару{" "}
-              <span style={{ color: "#f97316", fontSize: "inherit" }}>24/7</span>
+              Доставка по Краснодару <span style={{ color: "#f97316" }}>24/7</span>
             </span>
           </div>
+
         </div>
       </div>
 
-      {/* Bottom info bar — только соцсети */}
+      {/* ── НИЖНЯЯ ПЛАШКА — соцсети ── */}
       <div className="relative z-10 w-full px-3 sm:px-6 lg:px-8 pb-6">
-        <div className="bg-white/85 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-10 py-4 flex flex-wrap items-center justify-around gap-3 w-full">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-10 py-4 flex flex-wrap items-center justify-around gap-3 w-full">
           {socials.map((s) => (
             <a
               key={s.label}
@@ -174,16 +191,20 @@ export function Hero() {
 
       <style>{`
         @keyframes balloonFloat {
-          0%, 100% { transform: translateY(0) rotate(-4deg); }
-          50% { transform: translateY(-22px) rotate(4deg); }
+          0%,100% { transform: translateY(0) rotate(-5deg); }
+          50%      { transform: translateY(-24px) rotate(5deg); }
+        }
+        @keyframes truckBob {
+          0%,100% { transform: translateY(0); }
+          50%      { transform: translateY(-6px); }
         }
         @keyframes cargoWiggleA {
-          0%, 100% { transform: translateY(0) rotate(-3deg); }
-          50% { transform: translateY(-6px) rotate(3deg); }
+          0%,100% { transform: translateY(0) rotate(-4deg); }
+          50%     { transform: translateY(-8px) rotate(4deg); }
         }
         @keyframes cargoWiggleB {
-          0%, 100% { transform: translateY(0) rotate(3deg); }
-          50% { transform: translateY(-8px) rotate(-3deg); }
+          0%,100% { transform: translateY(0) rotate(4deg); }
+          50%     { transform: translateY(-10px) rotate(-4deg); }
         }
       `}</style>
     </section>
