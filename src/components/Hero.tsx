@@ -70,12 +70,11 @@ export function Hero() {
             </span>
           </button>
 
-          <div className="inline-flex items-center gap-2 sm:gap-3 bg-orange-50 border-2 border-orange-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm">
-            <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-            <span className="text-sm sm:text-lg font-bold text-primary whitespace-nowrap">
-              Доставка по Краснодару 24/7
-            </span>
-          </div>
+          <img
+            src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/ca01be13-ac51-4d8b-ab15-f050a5f17de2.png"
+            alt="Доставка по Краснодару"
+            className="h-16 sm:h-20 w-auto object-contain"
+          />
         </div>
       </div>
 
