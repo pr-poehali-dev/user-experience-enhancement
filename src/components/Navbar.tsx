@@ -70,33 +70,25 @@ export function Navbar() {
           </div>
 
           {/* Desktop nav links — по центру */}
-          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-            {showCatalogBtn ? (
-              <div className="flex items-center gap-6">
-                <a href="tel:+79885973303" className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
-                  <Icon name="Phone" className="h-4 w-4 text-primary" />
-                  8 988 597 33 03
-                </a>
-                <Button
-                  onClick={() => navigate("/catalog")}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 shadow-lg"
-                  style={{ height: "3rem", fontSize: "1.1rem" }}
-                >
-                  Смотреть каталог
-                  <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
-                </Button>
-                <a href="tel:+79182457204" className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
-                  <Icon name="Phone" className="h-4 w-4 text-primary" />
-                  8 918 245 72 04
-                </a>
-              </div>
-            ) : (
-              <>
-                <span onClick={() => navigate("/about")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">О нас</span>
-                <span onClick={() => navigate("/contacts")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Контакты</span>
-                <span onClick={() => navigate("/delivery")} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer">Доставка</span>
-              </>
-            )}
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 absolute left-1/2 -translate-x-1/2">
+            {[
+              { label: "О нас", icon: "Star", action: () => navigate("/about") },
+              { label: "Каталог", icon: "Sparkles", action: () => navigate("/catalog") },
+              { label: "Доставка", icon: "Gift", action: () => navigate("/delivery") },
+              { label: "Отзывы", icon: "MessageCircle", action: handlePopular },
+              { label: "Контакты", icon: "Phone", action: () => navigate("/contacts") },
+            ].map((item) => (
+              <span
+                key={item.label}
+                onClick={item.action}
+                className="flex items-center gap-2 text-base font-semibold text-foreground/80 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
+              >
+                <span className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name={item.icon} className="text-primary" size={18} />
+                </span>
+                {item.label}
+              </span>
+            ))}
           </div>
 
           {/* Right side — Заказать с телефонами снизу */}
@@ -122,7 +114,8 @@ export function Navbar() {
               )}
               <Button
                 onClick={() => setOrderOpen((p) => !p)}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-7 shadow-lg font-bold"
+                style={{ height: "3rem", fontSize: "1.05rem" }}
               >
                 {orderOpen ? "Закрыть" : "Заказать"}
                 <Icon name={orderOpen ? "X" : "ChevronDown"} className="ml-1.5 h-4 w-4" />

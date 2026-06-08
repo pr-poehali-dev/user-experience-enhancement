@@ -2,158 +2,143 @@ import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const floatingItems = [
-  { emoji: "🎈", size: "text-6xl", left: "3%", delay: "0s", duration: "8s" },
-  { emoji: "🎀", size: "text-4xl", left: "10%", delay: "1.2s", duration: "10s" },
-  { emoji: "🎈", size: "text-7xl", left: "18%", delay: "0.5s", duration: "7s" },
-  { emoji: "🎊", size: "text-5xl", left: "26%", delay: "2s", duration: "11s" },
-  { emoji: "🧸", size: "text-4xl", left: "32%", delay: "3.2s", duration: "9s" },
-  { emoji: "🎈", size: "text-5xl", left: "40%", delay: "0.8s", duration: "8.5s" },
-  { emoji: "🎉", size: "text-6xl", left: "50%", delay: "1.5s", duration: "10s" },
-  { emoji: "🎈", size: "text-8xl", left: "64%", delay: "0.3s", duration: "7s" },
-  { emoji: "🎀", size: "text-5xl", left: "72%", delay: "2.5s", duration: "11s" },
-  { emoji: "🎁", size: "text-4xl", left: "79%", delay: "1.8s", duration: "9s" },
-  { emoji: "🎈", size: "text-5xl", left: "86%", delay: "1s", duration: "8s" },
-  { emoji: "🎊", size: "text-6xl", left: "92%", delay: "0.6s", duration: "11s" },
-  { emoji: "🪆", size: "text-4xl", left: "7%", delay: "3s", duration: "10s" },
-  { emoji: "🎈", size: "text-7xl", left: "48%", delay: "3.5s", duration: "8s" },
-  { emoji: "🧨", size: "text-4xl", left: "22%", delay: "4.5s", duration: "12s" },
-  { emoji: "🎠", size: "text-5xl", left: "88%", delay: "2.8s", duration: "9s" },
-  { emoji: "🪅", size: "text-4xl", left: "55%", delay: "5s", duration: "13s" },
+const TRUCK = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/074811f1-9b19-4586-b2f8-248763d426ba.jpg"
+const SHOP = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/896da21d-c344-445a-89dc-858a50aa5637.jpg"
+
+const socials = [
+  { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "#22c55e" },
+  { label: "Telegram", href: "#", icon: "Send", bg: "#0ea5e9" },
+  { label: "ВКонтакте", href: "#", icon: "MessageCircle", bg: "#2563eb" },
+  { label: "Instagram", href: "#", icon: "Instagram", bg: "linear-gradient(135deg, #f97316, #ec4899)" },
 ]
 
 export function Hero() {
   const navigate = useNavigate()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-100 via-orange-50 to-background">
-      <style>{`
-        @keyframes floatUp {
-          0% { transform: translateY(0) rotate(-4deg); opacity: 0; }
-          8% { opacity: 0.75; }
-          88% { opacity: 0.45; }
-          100% { transform: translateY(-130vh) rotate(4deg); opacity: 0; }
-        }
-        .item-float {
-          animation: floatUp linear infinite;
-          position: absolute;
-          pointer-events: none;
-        }
-      `}</style>
-
-      {/* Floating festive items */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {floatingItems.map((b, i) => (
-          <div
-            key={i}
-            className={`item-float ${b.size}`}
-            style={{
-              left: b.left,
-              bottom: "-10vh",
-              animationDelay: b.delay,
-              animationDuration: b.duration,
-            }}
-          >
-            {b.emoji}
-          </div>
-        ))}
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-violet-100 via-violet-50 to-orange-50">
+      {/* Floating decor */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <span className="absolute left-[30%] top-[14%] text-3xl">⭐</span>
+        <span className="absolute right-[26%] top-[10%] text-2xl">✨</span>
+        <span className="absolute left-[44%] top-[24%] text-xl">⭐</span>
+        <span className="absolute right-[34%] bottom-[24%] text-2xl">✨</span>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-24 pb-10 gap-6 sm:gap-8">
+      {/* Main hero row */}
+      <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(420px,1.1fr)_1fr] items-center gap-6 lg:gap-4 h-full">
 
-        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-normal text-balance">
-          Воздушные
-          <span
-            className="block font-semibold mt-1 sm:mt-2"
-            style={{
-              background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >шарики</span>
-        </h1>
+          {/* Left — truck */}
+          <div className="hidden lg:flex justify-center items-center">
+            <img src={TRUCK} alt="Грузовик с шарами" className="w-full max-w-[460px] object-contain drop-shadow-2xl" />
+          </div>
 
-        <p className="text-base sm:text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed">
-          Стильные композиции из шаров{" "}
-          <span
-            className="font-bold"
-            style={{
-              background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            по низким ценам
-          </span>
-        </p>
+          {/* Center — content */}
+          <div className="flex flex-col items-center text-center gap-5 sm:gap-7 order-first lg:order-none">
+            <h1 className="font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-7xl lg:text-8xl">
+              <span className="block text-primary">Воздушные</span>
+              <span
+                className="block"
+                style={{
+                  background: "linear-gradient(100deg, hsl(var(--primary)) 35%, #ec4899 60%, #f97316 90%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >шарики</span>
+            </h1>
 
-        <Button
-          size="lg"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 sm:px-20 group shadow-xl"
-          style={{ height: "4.5rem", fontSize: "1.6rem", fontWeight: 600 }}
-          onClick={() => navigate("/catalog")}
-        >
-          Смотреть каталог
-          <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
-        </Button>
+            <p className="text-lg sm:text-2xl text-foreground/70 max-w-md leading-snug font-medium">
+              Стильные композиции из шаров{" "}
+              <span className="font-extrabold">
+                <span className="text-primary">по</span>{" "}
+                <span className="text-orange-500">низким</span>{" "}
+                <span className="text-primary">ценам</span>
+              </span>
+            </p>
 
-        <div className="inline-flex items-center gap-1.5 sm:gap-3 bg-orange-100 border-2 border-orange-300 rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3">
-          <Icon name="Truck" className="h-4 w-4 sm:h-6 sm:w-6 text-orange-500 flex-shrink-0" />
-          <span className="text-[13px] sm:text-xl md:text-2xl font-bold text-orange-600 whitespace-nowrap">
-            Доставка по Краснодару и краю 24/7
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center gap-3 mt-6 sm:mt-10">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-foreground/70">
-            <a
-              href="https://2gis.ru/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%93%D0%B5%D1%80%D0%BE%D1%8F%20%D0%AF%D1%86%D0%BA%D0%BE%D0%B2%D0%B0%2019%D0%BA3"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-primary transition-colors"
+            <Button
+              size="lg"
+              onClick={() => navigate("/catalog")}
+              className="rounded-full px-10 sm:px-16 group shadow-xl text-white border-0"
+              style={{ height: "4.5rem", fontSize: "1.5rem", fontWeight: 700, background: "linear-gradient(135deg, #fb923c, #f97316)" }}
             >
-              <Icon name="MapPin" className="h-4 w-4 text-primary flex-shrink-0" />
-              <span className="underline underline-offset-2">ул. Героя Яцкова 19к3</span>
-            </a>
-            <span className="hidden sm:block text-foreground/20">·</span>
-            <div className="flex items-center gap-2">
-              <Icon name="Clock" className="h-4 w-4 text-primary flex-shrink-0" />
-              <span>Работаем 24/7</span>
+              Смотреть каталог
+              <Icon name="ArrowRight" className="ml-3 h-7 w-7 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-orange-50 border-2 border-orange-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm">
+              <Icon name="Truck" className="h-5 w-5 sm:h-6 sm:w-6 text-orange-500 flex-shrink-0" />
+              <span className="text-sm sm:text-lg font-bold text-orange-600 whitespace-nowrap">
+                Доставка по Краснодару и краю 24/7
+              </span>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-5">
-            <a href="tel:+79885973303" className="flex items-center gap-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors">
-              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
-              8 988 597 33 03
-            </a>
-            <span className="hidden sm:block text-muted-foreground/30">·</span>
-            <a href="tel:+79182457204" className="flex items-center gap-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors">
-              <Icon name="Phone" className="h-4 w-4 text-primary flex-shrink-0" />
-              8 918 245 72 04
-            </a>
+
+          {/* Right — shop */}
+          <div className="hidden lg:flex justify-center items-center">
+            <img src={SHOP} alt="Магазин Шаровик Затейник" className="w-full max-w-[480px] object-contain drop-shadow-2xl" />
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-2 pt-1">
-            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-md">
-              <Icon name="MessageSquare" size={16} /> WhatsApp
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-md">
-              <Icon name="Send" size={16} /> Telegram
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-md">
-              <Icon name="MessageCircle" size={16} /> ВКонтакте
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity shadow-md" style={{ background: "linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
-              <Icon name="Instagram" size={16} /> Instagram
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity shadow-md" style={{ background: "#1e3a5f" }}>
-              <Icon name="Flame" size={16} /> Max
-            </a>
+
+          {/* Mobile truck */}
+          <div className="flex lg:hidden justify-center">
+            <img src={TRUCK} alt="Грузовик с шарами" className="w-full max-w-[320px] object-contain drop-shadow-xl" />
           </div>
         </div>
+      </div>
 
+      {/* Bottom info bar */}
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-3 sm:px-6 lg:px-8 pb-6">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-8 py-4 flex flex-col xl:flex-row items-center justify-between gap-4">
+
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 divide-x divide-border/60">
+            <div className="flex items-center gap-3 pl-0">
+              <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="Phone" className="h-5 w-5 text-primary" />
+              </span>
+              <div className="text-left leading-tight">
+                <a href="tel:+79885973303" className="block text-sm font-bold text-foreground hover:text-primary transition-colors">8 988 597 33 03</a>
+                <a href="tel:+79182457204" className="block text-sm font-bold text-foreground hover:text-primary transition-colors">8 918 245 72 04</a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 pl-6">
+              <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="MapPin" className="h-5 w-5 text-primary" />
+              </span>
+              <div className="text-left leading-tight">
+                <span className="block text-sm font-bold text-foreground">ул. Героя Яцкова, 19к3</span>
+                <span className="block text-sm text-muted-foreground">г. Краснодар</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 pl-6">
+              <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="Clock" className="h-5 w-5 text-primary" />
+              </span>
+              <div className="text-left leading-tight">
+                <span className="block text-sm font-bold text-foreground">Работаем 24/7</span>
+                <span className="block text-sm text-muted-foreground">без выходных</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform shadow-md whitespace-nowrap"
+                style={{ background: s.bg }}
+              >
+                <Icon name={s.icon} size={16} /> {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
