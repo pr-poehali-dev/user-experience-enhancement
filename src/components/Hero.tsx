@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/5cda8fd8-0cad-466f-a041-a3daf786e848.png"
+const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/05ecda25-9449-4b64-a881-c034bfdb0a4d.png"
 
 
 const socials = [
@@ -75,7 +75,7 @@ export function Hero() {
 
       {/* Нижняя плашка — соцсети */}
       <div className="relative z-10 w-full px-3 sm:px-6 lg:px-8 pb-6">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-10 py-4 flex flex-wrap items-center justify-around gap-3 w-full">
+        <div className="px-4 sm:px-10 py-4 flex flex-wrap items-center justify-around gap-3 w-full">
           {socials.map((s) => (
             <a
               key={s.label}

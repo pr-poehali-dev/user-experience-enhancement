@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useNavigate, useLocation } from "react-router-dom"
 import Icon from "@/components/ui/icon"
+import { useFavorites } from "@/context/FavoritesContext"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -10,6 +11,7 @@ export function Navbar() {
   const [showCatalogBtn, setShowCatalogBtn] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
+  const { count } = useFavorites()
 
   const handlePopular = () => {
     if (location.pathname === "/") {
@@ -46,18 +48,18 @@ export function Navbar() {
             <img
               src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/11bed93d-83b2-4394-b230-5a71a39a7427.png"
               alt="Шаровик Затейник — магазин воздушных шаров"
-              className="h-10 sm:h-14 md:h-16 w-auto object-contain"
+              className="h-12 sm:h-16 md:h-20 w-auto object-contain"
             />
           </div>
 
           {/* Desktop nav links — по центру */}
           <div className="hidden md:flex items-center gap-5 lg:gap-9 absolute left-1/2 -translate-x-1/2">
             {[
-              { label: "О нас", icon: "Star", action: () => navigate("/about") },
-              { label: "Доставка", icon: "Gift", action: () => navigate("/delivery") },
-              { label: "Каталог", icon: "Sparkles", action: () => navigate("/catalog") },
-              { label: "Отзывы", icon: "MessageCircle", action: handlePopular },
-              { label: "Прайс", icon: "Phone", action: () => navigate("/contacts") },
+              { label: "О нас",    icon: "Star",         action: () => navigate("/about") },
+              { label: "Доставка", icon: "Truck",        action: () => navigate("/delivery") },
+              { label: "Каталог",  icon: "Balloon",      action: () => navigate("/catalog") },
+              { label: "Отзывы",   icon: "MessageCircle",action: handlePopular },
+              { label: "Прайс",    icon: "Tag",          action: () => navigate("/contacts") },
             ].map((item) => (
               <span
                 key={item.label}
@@ -65,15 +67,33 @@ export function Navbar() {
                 className="flex items-center gap-2 text-base font-semibold text-foreground/80 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
               >
                 <span className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Icon name={item.icon} className="text-primary" size={18} />
+                  <Icon name={item.icon} fallback="Star" className="text-primary" size={18} />
                 </span>
                 {item.label}
               </span>
             ))}
           </div>
 
-          {/* Right side — телефон у правого края */}
-          <div className="hidden md:flex items-center">
+          {/* Right side — избранное + телефон */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Избранное */}
+            <button
+              onClick={() => navigate("/favorites")}
+              className="relative flex items-center justify-center w-11 h-11 rounded-full hover:bg-primary/10 transition-colors"
+              title="Избранное"
+            >
+              <Icon name="Heart" className="text-primary" size={22} />
+              {count > 0 && (
+                <span
+                  className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1"
+                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)", fontSize: "0.7rem" }}
+                >
+                  {count}
+                </span>
+              )}
+            </button>
+
+            {/* Телефон */}
             <a
               href="tel:+79880653700"
               className="flex items-center gap-2 text-white font-bold rounded-full px-5 whitespace-nowrap"
@@ -91,6 +111,22 @@ export function Navbar() {
 
           {/* Mobile right side */}
           <div className="flex md:hidden items-center gap-2">
+            {/* Избранное мобильное */}
+            <button
+              onClick={() => navigate("/favorites")}
+              className="relative p-2"
+              title="Избранное"
+            >
+              <Icon name="Heart" className="text-primary" size={22} />
+              {count > 0 && (
+                <span
+                  className="absolute top-0 right-0 text-white text-xs font-bold rounded-full min-w-[16px] h-[16px] flex items-center justify-center px-0.5"
+                  style={{ background: "#e63000", fontSize: "0.65rem" }}
+                >
+                  {count}
+                </span>
+              )}
+            </button>
             {showCatalogBtn && !isMobileMenuOpen && (
               <button
                 onClick={() => window.location.href = "/catalog"}

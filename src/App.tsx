@@ -10,6 +10,7 @@ import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import Delivery from "./pages/Delivery";
 import NotFound from "./pages/NotFound";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <FavoritesProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -29,6 +31,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      </FavoritesProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
