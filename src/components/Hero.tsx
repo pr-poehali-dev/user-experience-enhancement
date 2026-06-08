@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 const HERO_BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7fa61040-2d84-48bd-83c8-fd37fba5d88e.png"
 
-const MAX_ICON = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a2fc43e5-0684-4a7f-8b92-ae7af3e01398.png"
+const MAX_ICON = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/555d9ff8-3bba-4e68-837c-85a402fed391.png"
 
 const socials = [
   { label: "WhatsApp", href: "https://wa.me/79885973303", icon: "MessageSquare", bg: "#22c55e" },
@@ -24,6 +24,11 @@ export function Hero() {
         className="absolute inset-0 z-0 bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: `url(${HERO_BG})` }}
       />
+
+      {/* Маска над зоной заголовка — скрывает конфетти из фона */}
+      <div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none">
+        <div className="w-[600px] h-[420px] rounded-[3rem] bg-white/55 blur-2xl" />
+      </div>
 
       {/* Main hero row */}
       <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6 flex items-center justify-center">
@@ -69,10 +74,7 @@ export function Hero() {
             <Icon name="Truck" className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0" style={{ color: "#f97316" }} />
             <span className="font-extrabold text-lg sm:text-2xl whitespace-nowrap" style={{ color: "#f97316" }}>
               Доставка по Краснодару{" "}
-              <span
-                className="inline-block px-2 py-0.5 rounded-lg text-white ml-1"
-                style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)", fontSize: "inherit" }}
-              >24/7</span>
+              <span style={{ color: "#7c3aed", fontSize: "inherit" }}>24/7</span>
             </span>
           </div>
         </div>

@@ -32,7 +32,7 @@ export function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-sm" : "bg-transparent"}`}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-8 lg:px-10">
         <div className="relative flex items-center justify-between h-16 sm:h-24">
 
           {/* Logo */}
@@ -50,14 +50,14 @@ export function Navbar() {
             />
           </div>
 
-          {/* Desktop nav links + phone */}
+          {/* Desktop nav links — по центру */}
           <div className="hidden md:flex items-center gap-5 lg:gap-9 absolute left-1/2 -translate-x-1/2">
             {[
               { label: "О нас", icon: "Star", action: () => navigate("/about") },
-              { label: "Каталог", icon: "Sparkles", action: () => navigate("/catalog") },
               { label: "Доставка", icon: "Gift", action: () => navigate("/delivery") },
+              { label: "Каталог", icon: "Sparkles", action: () => navigate("/catalog") },
               { label: "Отзывы", icon: "MessageCircle", action: handlePopular },
-              { label: "Контакты", icon: "Phone", action: () => navigate("/contacts") },
+              { label: "Прайс", icon: "Phone", action: () => navigate("/contacts") },
             ].map((item) => (
               <span
                 key={item.label}
@@ -70,8 +70,10 @@ export function Navbar() {
                 {item.label}
               </span>
             ))}
+          </div>
 
-            {/* Телефон сразу после Контактов */}
+          {/* Right side — телефон у правого края */}
+          <div className="hidden md:flex items-center">
             <a
               href="tel:+79880653700"
               className="flex items-center gap-2 text-white font-bold rounded-full px-5 whitespace-nowrap"
@@ -79,7 +81,6 @@ export function Navbar() {
                 height: "2.75rem",
                 fontSize: "1rem",
                 background: "linear-gradient(135deg, #7c3aed, #a855f7)",
-                boxShadow: "0 0 0 0 rgba(168,85,247,0.5)",
                 animation: "phonePulse 2s infinite",
               }}
             >
@@ -87,9 +88,6 @@ export function Navbar() {
               +7 988 065 37 00
             </a>
           </div>
-
-          {/* Right side — пустой (телефон перенесён в центр) */}
-          <div className="hidden md:flex items-center gap-4" />
 
           {/* Mobile right side */}
           <div className="flex md:hidden items-center gap-2">
