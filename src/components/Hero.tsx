@@ -65,7 +65,7 @@ export function Hero() {
 
           <div className="inline-flex items-center gap-3 sm:gap-4 bg-orange-50/90 border-2 border-orange-200 rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-md backdrop-blur-sm">
             <Icon name="Truck" className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0" style={{ color: "#f97316" }} />
-            <span className="font-extrabold text-base sm:text-xl whitespace-nowrap" style={{ color: "#f97316" }}>
+            <span className="font-extrabold text-lg sm:text-xl whitespace-nowrap" style={{ color: "#f97316" }}>
               Доставка по Краснодару <span style={{ color: "#f97316" }}>24/7</span>
             </span>
           </div>
