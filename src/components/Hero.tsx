@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/05ecda25-9449-4b64-a881-c034bfdb0a4d.png"
+const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/3ba8882a-4f8d-4c53-9d30-12e0dac5e1ad.png"
 
 
 const socials = [
@@ -82,7 +82,7 @@ export function Hero() {
               href={s.href}
               target={s.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white px-6 py-3 rounded-full text-base font-semibold hover:scale-105 transition-transform shadow-md whitespace-nowrap"
+              className="flex items-center justify-center gap-2 text-white px-6 py-3 rounded-full text-base font-semibold hover:scale-105 transition-transform shadow-md whitespace-nowrap w-40"
               style={{ background: s.bg }}
             >
               <Icon name={s.icon} size={18} /> {s.label}

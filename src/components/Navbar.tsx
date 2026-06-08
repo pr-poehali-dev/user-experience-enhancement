@@ -48,7 +48,7 @@ export function Navbar() {
             <img
               src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/11bed93d-83b2-4394-b230-5a71a39a7427.png"
               alt="Шаровик Затейник — магазин воздушных шаров"
-              className="h-12 sm:h-16 md:h-20 w-auto object-contain"
+              className="h-10 sm:h-14 md:h-16 w-auto object-contain mt-3 sm:mt-4"
             />
           </div>
 
