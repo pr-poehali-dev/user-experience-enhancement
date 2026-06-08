@@ -42,21 +42,16 @@ export function Hero() {
             >шарики</span>
           </h1>
 
-          <p className="text-lg sm:text-2xl text-foreground/70 max-w-md leading-snug font-medium">
-            Стильные композиции из шаров{" "}
-            <span className="font-extrabold">
-              <span className="text-primary">по</span>{" "}
-              <span className="text-orange-500">низким</span>{" "}
-              <span className="text-primary">ценам</span>
-            </span>
+          <p className="text-lg sm:text-2xl text-foreground/70 max-w-lg leading-snug font-medium">
+            Стильные композиции из воздушных и гелиевых шаров с доставкой
           </p>
 
           <button
             onClick={() => navigate("/catalog")}
-            className="group relative overflow-hidden rounded-full px-10 sm:px-16 text-white font-bold shadow-2xl hover:scale-105 transition-transform active:scale-95"
+            className="group relative overflow-hidden rounded-full px-12 sm:px-20 text-white font-bold shadow-2xl hover:scale-105 transition-transform active:scale-95"
             style={{
-              height: "4.5rem",
-              fontSize: "1.5rem",
+              height: "5rem",
+              fontSize: "1.65rem",
               background: "linear-gradient(160deg, #ffb347 0%, #ff6a00 40%, #e63000 100%)",
               border: "3px solid rgba(255,255,255,0.7)",
               boxShadow: "0 6px 32px rgba(230,90,0,0.45), inset 0 1px 0 rgba(255,255,255,0.35)",
@@ -70,41 +65,44 @@ export function Hero() {
             </span>
           </button>
 
-          <img
-            src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/ca01be13-ac51-4d8b-ab15-f050a5f17de2.png"
-            alt="Доставка по Краснодару"
-            className="h-16 sm:h-20 w-auto object-contain"
-          />
+          <div className="inline-flex items-center gap-3 sm:gap-4 bg-orange-50 border-2 border-orange-200 rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-md">
+            <Icon name="Truck" className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0" style={{ color: "#f97316" }} />
+            <span className="font-extrabold text-lg sm:text-2xl whitespace-nowrap" style={{ color: "#f97316" }}>
+              Доставка по Краснодару{" "}
+              <span
+                className="inline-block px-2 py-0.5 rounded-lg text-white ml-1"
+                style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)", fontSize: "inherit" }}
+              >24/7</span>
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Bottom info bar */}
       <div className="relative z-10 w-full px-3 sm:px-6 lg:px-8 pb-6">
-        <div className="bg-white/85 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-10 py-4 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
+        <div className="bg-white/85 backdrop-blur-xl rounded-3xl shadow-lg border border-white/60 px-4 sm:px-8 py-4 flex flex-wrap items-center justify-between gap-3 w-full">
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 divide-x divide-border/60">
-            <div className="flex items-center gap-3 pl-0">
-              <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Sparkles" className="h-5 w-5 text-primary" />
-              </span>
-              <div className="text-left leading-tight">
-                <span className="block text-sm font-bold text-foreground">Более 5000</span>
-                <span className="block text-sm text-muted-foreground">композиций</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 pl-6">
-              <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="Clock" className="h-5 w-5 text-primary" />
-              </span>
-              <div className="text-left leading-tight">
-                <span className="block text-sm font-bold text-foreground">Работаем 24/7</span>
-                <span className="block text-sm text-muted-foreground">без выходных</span>
-              </div>
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Icon name="Sparkles" className="h-5 w-5 text-primary" />
+            </span>
+            <div className="text-left leading-tight">
+              <span className="block text-sm font-bold text-foreground">Более 5000</span>
+              <span className="block text-sm text-muted-foreground">композиций</span>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Icon name="Clock" className="h-5 w-5 text-primary" />
+            </span>
+            <div className="text-left leading-tight">
+              <span className="block text-sm font-bold text-foreground">Работаем 24/7</span>
+              <span className="block text-sm text-muted-foreground">без выходных</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
             {socials.map((s) => (
               <a
                 key={s.label}

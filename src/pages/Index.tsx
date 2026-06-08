@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero"
 import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { PopularPackages } from "@/components/PopularPackages"
 import { Footer } from "@/components/Footer"
-import { ContactFloat } from "@/components/ContactFloat"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
@@ -52,7 +51,6 @@ export default function Index() {
       <PopularPackages />
       <CatalogCTA />
       <Footer />
-      <ContactFloat />
     </main>
   )
 }

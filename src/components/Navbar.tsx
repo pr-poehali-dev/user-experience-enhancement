@@ -50,8 +50,8 @@ export function Navbar() {
             />
           </div>
 
-          {/* Desktop nav links — по центру */}
-          <div className="hidden md:flex items-center gap-7 lg:gap-12 absolute left-1/2 -translate-x-1/2">
+          {/* Desktop nav links + phone */}
+          <div className="hidden md:flex items-center gap-5 lg:gap-9 absolute left-1/2 -translate-x-1/2">
             {[
               { label: "О нас", icon: "Star", action: () => navigate("/about") },
               { label: "Каталог", icon: "Sparkles", action: () => navigate("/catalog") },
@@ -70,19 +70,26 @@ export function Navbar() {
                 {item.label}
               </span>
             ))}
-          </div>
 
-          {/* Right side — номер телефона */}
-          <div className="hidden md:flex items-center gap-4">
+            {/* Телефон сразу после Контактов */}
             <a
               href="tel:+79880653700"
-              className="flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 shadow-lg font-bold transition-colors"
-              style={{ height: "3rem", fontSize: "1.05rem" }}
+              className="flex items-center gap-2 text-white font-bold rounded-full px-5 whitespace-nowrap"
+              style={{
+                height: "2.75rem",
+                fontSize: "1rem",
+                background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+                boxShadow: "0 0 0 0 rgba(168,85,247,0.5)",
+                animation: "phonePulse 2s infinite",
+              }}
             >
               <Icon name="Phone" className="h-4 w-4" />
               +7 988 065 37 00
             </a>
           </div>
+
+          {/* Right side — пустой (телефон перенесён в центр) */}
+          <div className="hidden md:flex items-center gap-4" />
 
           {/* Mobile right side */}
           <div className="flex md:hidden items-center gap-2">
