@@ -2,8 +2,7 @@ import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
 const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/5cda8fd8-0cad-466f-a041-a3daf786e848.png"
-const TRUCK = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/52edcac8-a209-4a46-b75c-4d2434e18013.png"
-const SHOP  = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/4fb6f795-35ad-452d-96d8-ff3f0fd35222.png"
+
 
 const socials = [
   { label: "Max",       href: "#",                          icon: "MessageCircle", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)" },
@@ -25,31 +24,7 @@ export function Hero() {
         style={{ backgroundImage: `url(${BG})` }}
       />
 
-      {/* Грузовик — слева снизу */}
-      <img
-        src={TRUCK}
-        alt="Грузовик доставки"
-        className="absolute z-[2] pointer-events-none select-none hidden lg:block"
-        style={{
-          left: "-3%",
-          bottom: "18%",
-          width: "clamp(260px, 28vw, 440px)",
-          objectFit: "contain",
-        }}
-      />
 
-      {/* Магазин — справа снизу */}
-      <img
-        src={SHOP}
-        alt="Магазин Шаровик Затейник"
-        className="absolute z-[2] pointer-events-none select-none hidden lg:block"
-        style={{
-          right: "-2%",
-          bottom: "16%",
-          width: "clamp(280px, 32vw, 500px)",
-          objectFit: "contain",
-        }}
-      />
 
       {/* Центральный контент */}
       <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6 flex items-center justify-center">
