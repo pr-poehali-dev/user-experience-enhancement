@@ -21,7 +21,7 @@ export function Hero() {
       }}>
         <div style={{
           fontSize: "clamp(44px, 6.5vw, 105px)",
-          fontWeight: 900,
+          fontWeight: 800,
           fontFamily: "'Montserrat', sans-serif",
           color: "#3b0f9e",
           letterSpacing: "-0.5px",
@@ -32,7 +32,7 @@ export function Hero() {
         </div>
         <div style={{
           fontSize: "clamp(56px, 8vw, 128px)",
-          fontWeight: 900,
+          fontWeight: 800,
           fontFamily: "'Montserrat', sans-serif",
           letterSpacing: "-0.5px",
           background: "linear-gradient(105deg, #5b21b6 0%, #7c3aed 25%, #db2777 60%, #f97316 100%)",
