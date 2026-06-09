@@ -32,7 +32,7 @@ export function Hero() {
       <div style={{
         textAlign: "center",
         lineHeight: 1.05,
-        marginTop: "-12vh",
+        marginTop: "-20vh",
       }}>
         <div style={{
           fontSize: "clamp(44px, 6.5vw, 105px)",
@@ -41,15 +41,16 @@ export function Hero() {
           color: "#3b0f9e",
           letterSpacing: "-0.5px",
           textShadow: "0 3px 0 rgba(255,255,255,0.4)",
-          marginBottom: "0.05em",
+          marginBottom: "-0.05em",
         }}>
           Воздушные
         </div>
         <div style={{
-          fontSize: "clamp(56px, 8vw, 128px)",
+          fontSize: "clamp(60px, 8.5vw, 136px)",
           fontWeight: 800,
           fontFamily: "'Montserrat', sans-serif",
           letterSpacing: "-0.5px",
+          lineHeight: 0.9,
           background: "linear-gradient(105deg, #5b21b6 0%, #7c3aed 25%, #db2777 60%, #f97316 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
