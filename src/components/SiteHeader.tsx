@@ -1,7 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-const LOGO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/2b7aa5e7-076f-477e-9c08-2524b06cad6a.png"
+const LOGO_FULL = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/2b7aa5e7-076f-477e-9c08-2524b06cad6a.png"
+const LOGO_COMPACT = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9eef4dd7-63f9-4820-bcbd-49aa233a21f2.png"
 
 const NAV = [
   { label: "О нас",     path: "/about",    svg: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> },
@@ -31,6 +32,9 @@ export function SiteHeader() {
     }
   }
 
+  const isCompact = !isHome || scrolled
+  const logo = isCompact ? LOGO_COMPACT : LOGO_FULL
+
   return (
     <header style={{
       position: "fixed",
@@ -39,26 +43,27 @@ export function SiteHeader() {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      padding: "0px 32px 0px 8px",
-      height: "clamp(72px, 10vw, 120px)",
-      background: (!isHome || scrolled) ? "rgba(237,233,254,0.97)" : "transparent",
-      backdropFilter: (!isHome || scrolled) ? "blur(10px)" : "none",
-      boxShadow: (!isHome || scrolled) ? "0 2px 16px rgba(124,58,237,0.12)" : "none",
-      transition: "background 0.3s, box-shadow 0.3s",
+      padding: isCompact ? "0px 28px 0px 8px" : "0px 32px 0px 8px",
+      height: isCompact ? "clamp(56px, 7vw, 80px)" : "clamp(72px, 10vw, 120px)",
+      background: isCompact ? "rgba(255,255,255,0.97)" : "transparent",
+      backdropFilter: isCompact ? "blur(12px)" : "none",
+      boxShadow: isCompact ? "0 2px 20px rgba(124,58,237,0.14)" : "none",
+      transition: "all 0.3s ease",
     }}>
       {/* Логотип */}
       <img
-        src={LOGO}
+        src={logo}
         alt="Шаровик Затейник"
         onClick={() => navigate("/")}
         style={{
-          height: "clamp(60px, 8.5vw, 115px)",
+          height: isCompact ? "clamp(40px, 5vw, 64px)" : "clamp(60px, 8.5vw, 115px)",
           width: "auto",
           cursor: "pointer",
           filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
           flexShrink: 0,
           marginLeft: "clamp(8px, 2vw, 32px)",
-          marginTop: "12px",
+          marginTop: isCompact ? "0px" : "12px",
+          transition: "all 0.3s ease",
         }}
       />
 
@@ -70,7 +75,8 @@ export function SiteHeader() {
         position: "absolute",
         left: "50%",
         transform: "translateX(-50%)",
-        top: "42px",
+        top: isCompact ? "50%" : "42px",
+        marginTop: isCompact ? "-14px" : "0",
       }}>
         {NAV.map((item) => (
           <button
@@ -80,7 +86,7 @@ export function SiteHeader() {
               display: "flex", alignItems: "center", gap: 8,
               background: "transparent", border: "none", cursor: "pointer",
               padding: "6px 4px",
-              fontSize: "clamp(14px, 1.35vw, 19px)",
+              fontSize: "clamp(13px, 1.25vw, 17px)",
               fontWeight: 700,
               fontFamily: "'Montserrat', sans-serif",
               color: "#1a1a1a",
@@ -110,16 +116,16 @@ export function SiteHeader() {
           background: "linear-gradient(135deg, #7c3aed, #a855f7)",
           color: "#fff",
           borderRadius: 999,
-          padding: "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
+          padding: isCompact ? "clamp(7px,0.9vh,10px) clamp(12px,1.4vw,20px)" : "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
           fontWeight: 800,
-          fontSize: "clamp(14px, 1.4vw, 20px)",
+          fontSize: isCompact ? "clamp(12px, 1.2vw, 16px)" : "clamp(14px, 1.4vw, 20px)",
           fontFamily: "'Montserrat', sans-serif",
           textDecoration: "none",
           whiteSpace: "nowrap",
           flexShrink: 0,
           animation: "phonePulse 2s infinite",
           transition: "transform 0.2s",
-          marginTop: "12px",
+          marginTop: isCompact ? "0px" : "12px",
         }}
         onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
         onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}

@@ -66,8 +66,8 @@ export function Hero() {
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
       }}>
-        <div>Стильные композиции из воздушных шаров</div>
-        <div><span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span> по Краснодару и краю</div>
+        <div>Стильные композиции</div>
+        <div>из шаров <span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span></div>
       </div>
 
       {/* Кнопка "Смотреть каталог" */}
@@ -142,7 +142,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div style={{ width: 1, height: 40, background: "#e5e7eb", flexShrink: 0 }} />
+          <div style={{ width: 2, height: 44, background: "rgba(124,58,237,0.25)", borderRadius: 2, flexShrink: 0 }} />
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{
