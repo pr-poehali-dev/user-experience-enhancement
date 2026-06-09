@@ -109,7 +109,7 @@ export function Hero() {
             padding: "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
             fontWeight: 800,
             fontSize: "clamp(14px, 1.4vw, 20px)",
-            marginTop: "-10px",
+            marginTop: "-26px",
             fontFamily: "'Montserrat', sans-serif",
             textDecoration: "none",
             whiteSpace: "nowrap",
