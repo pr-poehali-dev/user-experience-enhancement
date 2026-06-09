@@ -33,9 +33,7 @@ export function Hero() {
 
   return (
     <>
-      {/* ══════════════════════════════════
-          ФИКСИРОВАННАЯ ШАПКА
-      ══════════════════════════════════ */}
+      {/* ── ФИКСИРОВАННАЯ ШАПКА ── */}
       <header style={{
         position: "fixed",
         top: 0,
@@ -43,11 +41,10 @@ export function Hero() {
         right: 0,
         zIndex: 100,
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "space-between",
-        padding: "6px 24px 6px 12px",
-        background: "rgba(255,255,255,0.15)",
-        backdropFilter: "blur(2px)",
+        padding: "4px 20px 4px 8px",
+        background: "transparent",
       }}>
 
         {/* Логотип */}
@@ -64,16 +61,15 @@ export function Hero() {
           }}
         />
 
-        {/* Навигация по центру */}
+        {/* Навигация — по центру, прижата к верху */}
         <nav style={{
           display: "flex",
           alignItems: "center",
-          gap: "clamp(4px, 1.6vw, 24px)",
+          gap: "clamp(6px, 1.8vw, 26px)",
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
-          top: "50%",
-          marginTop: "-4px",
+          top: "8px",
         }}>
           {NAV_ITEMS.map((item) => (
             <button
@@ -82,12 +78,12 @@ export function Hero() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 7,
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
-                padding: "4px 4px",
-                fontSize: "clamp(12px, 1.15vw, 16px)",
+                padding: "5px 6px",
+                fontSize: "clamp(13px, 1.3vw, 18px)",
                 fontWeight: 700,
                 color: "#3b1fa3",
                 whiteSpace: "nowrap",
@@ -95,7 +91,7 @@ export function Hero() {
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.color = "#7c3aed"
-                ;(e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"
+                ;(e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"
               }}
               onMouseLeave={e => {
                 (e.currentTarget as HTMLElement).style.color = "#3b1fa3"
@@ -103,14 +99,14 @@ export function Hero() {
               }}
             >
               <span style={{
-                width: "clamp(24px, 2.4vw, 34px)",
-                height: "clamp(24px, 2.4vw, 34px)",
+                width: "clamp(28px, 2.8vw, 38px)",
+                height: "clamp(28px, 2.8vw, 38px)",
                 borderRadius: "50%",
                 background: "rgba(124,58,237,0.13)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "clamp(11px, 1vw, 15px)",
+                fontSize: "clamp(13px, 1.2vw, 17px)",
               }}>
                 {item.icon}
               </span>
@@ -119,7 +115,7 @@ export function Hero() {
           ))}
         </nav>
 
-        {/* Телефон — пульсирующий */}
+        {/* Телефон — пульсирующий, прижат к верху */}
         <a
           href="tel:+79880653700"
           style={{
@@ -131,10 +127,11 @@ export function Hero() {
             borderRadius: 999,
             padding: "clamp(8px,1vh,13px) clamp(12px,1.5vw,22px)",
             fontWeight: 800,
-            fontSize: "clamp(12px, 1.15vw, 16px)",
+            fontSize: "clamp(12px, 1.2vw, 17px)",
             textDecoration: "none",
             whiteSpace: "nowrap",
             flexShrink: 0,
+            marginTop: "8px",
             animation: "phonePulse 2s infinite",
             transition: "transform 0.2s",
           }}
@@ -145,9 +142,7 @@ export function Hero() {
         </a>
       </header>
 
-      {/* ══════════════════════════════════
-          HERO-СЕКЦИЯ (фон + кнопка каталога)
-      ══════════════════════════════════ */}
+      {/* ── HERO-СЕКЦИЯ ── */}
       <section style={{
         position: "relative",
         width: "100%",
@@ -156,14 +151,12 @@ export function Hero() {
         backgroundSize: "cover",
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
-        display: "flex",
-        flexDirection: "column",
       }}>
 
-        {/* Кнопка "Смотреть каталог" */}
+        {/* Смотреть каталог */}
         <div style={{
           position: "absolute",
-          top: "57%",
+          top: "62%",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 10,
@@ -196,92 +189,54 @@ export function Hero() {
           </button>
         </div>
 
-        {/* ── НИЖНЯЯ ПОЛОСА ── */}
+        {/* Соцсети — без фона, плавают над картинкой */}
         <div style={{
           position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: "rgba(255,255,255,0.93)",
-          backdropFilter: "blur(8px)",
+          bottom: "3%",
+          left: "50%",
+          transform: "translateX(-50%)",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          padding: "clamp(8px,1.2vh,14px) clamp(16px,3vw,40px)",
+          gap: "clamp(6px, 0.9vw, 12px)",
           zIndex: 10,
-          gap: 12,
           flexWrap: "wrap",
+          justifyContent: "center",
         }}>
-
-          {/* Левая часть: Режим работы + Адрес */}
-          <div style={{ display: "flex", alignItems: "center", gap: 24, flexShrink: 0 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{
-                width: 40, height: 40, borderRadius: "50%",
-                background: "linear-gradient(135deg,#7c3aed,#a855f7)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 18, color: "#fff", flexShrink: 0,
-              }}>🕐</span>
-              <div>
-                <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b" }}>Работаем 24/7</div>
-                <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280" }}>без выходных</div>
-              </div>
-            </div>
-
-            <div style={{ width: 1, height: 36, background: "#e5e7eb" }} />
-
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{
-                width: 40, height: 40, borderRadius: "50%",
-                background: "linear-gradient(135deg,#7c3aed,#a855f7)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 18, color: "#fff", flexShrink: 0,
-              }}>📍</span>
-              <div>
-                <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b" }}>ул. Героя Яцкова, 19к3</div>
-                <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280" }}>г. Краснодар</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Правая часть: Соцсети */}
-          <div style={{ display: "flex", alignItems: "center", gap: "clamp(5px,0.8vw,10px)", flexWrap: "wrap" }}>
-            {SOCIALS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target={s.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                  background: s.bg,
-                  color: "#fff",
-                  borderRadius: 999,
-                  padding: "clamp(7px,0.9vh,11px) clamp(10px,1.3vw,18px)",
-                  fontWeight: 700,
-                  fontSize: "clamp(11px,1vw,14px)",
-                  textDecoration: "none",
-                  whiteSpace: "nowrap",
-                  boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
-                  transition: "transform 0.18s, box-shadow 0.18s",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.transform = "scale(1.07)"
-                  ;(e.currentTarget as HTMLElement).style.boxShadow = "0 4px 18px rgba(0,0,0,0.25)"
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.transform = "scale(1)"
-                  ;(e.currentTarget as HTMLElement).style.boxShadow = "0 2px 10px rgba(0,0,0,0.15)"
-                }}
-              >
-                {s.label}
-              </a>
-            ))}
-          </div>
-
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                background: s.bg,
+                color: "#fff",
+                borderRadius: 999,
+                padding: "clamp(8px,1vh,12px) clamp(12px,1.5vw,20px)",
+                fontWeight: 700,
+                fontSize: "clamp(12px,1.1vw,15px)",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+                transition: "transform 0.18s, box-shadow 0.18s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.transform = "scale(1.08)"
+                ;(e.currentTarget as HTMLElement).style.boxShadow = "0 5px 20px rgba(0,0,0,0.28)"
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.transform = "scale(1)"
+                ;(e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.18)"
+              }}
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
+
       </section>
     </>
   )
