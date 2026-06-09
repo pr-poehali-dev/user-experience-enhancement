@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Delivery from "./pages/Delivery";
 import NotFound from "./pages/NotFound";
 import { FavoritesProvider } from "./context/FavoritesContext";
+import { SiteHeader } from "./components/SiteHeader";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Sonner />
       <FavoritesProvider>
       <BrowserRouter>
+        <SiteHeader />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/catalog" element={<Catalog />} />
