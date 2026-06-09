@@ -42,7 +42,7 @@ export function Hero() {
             filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
             flexShrink: 0,
             marginLeft: "clamp(8px, 2vw, 32px)",
-            marginTop: "clamp(6px, 1vh, 14px)",
+            marginTop: "clamp(14px, 2vh, 26px)",
           }}
         />
 
@@ -54,6 +54,7 @@ export function Hero() {
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
+          top: "6px",
         }}>
           {[
             { label: "О нас", path: "/about", svg: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> },
