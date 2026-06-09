@@ -71,30 +71,38 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(60px, 12vh, 120px)",
+          marginTop: "clamp(80px, 17vh, 160px)",
           display: "flex",
           alignItems: "center",
-          gap: 12,
-          background: "linear-gradient(160deg, #ff6a00 0%, #e63000 100%)",
+          gap: 14,
+          background: "linear-gradient(160deg, #ff7a10 0%, #e63000 100%)",
           color: "#fff",
-          border: "none",
+          border: "4px solid #c44a00",
           borderRadius: 999,
-          padding: "clamp(14px, 2vh, 22px) clamp(40px, 5vw, 80px)",
-          fontSize: "clamp(16px, 1.8vw, 26px)",
-          fontWeight: 700,
+          padding: "clamp(16px, 2.4vh, 26px) clamp(48px, 6vw, 96px)",
+          fontSize: "clamp(18px, 2vw, 30px)",
+          fontWeight: 800,
           fontFamily: "'Montserrat', sans-serif",
           cursor: "pointer",
-          boxShadow: "0 6px 32px rgba(230,90,0,0.45)",
-          transition: "transform 0.2s, box-shadow 0.2s",
+          boxShadow: "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)",
+          transition: "transform 0.15s, box-shadow 0.15s",
           whiteSpace: "nowrap",
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.transform = "scale(1.06)"
-          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 12px 44px rgba(230,90,0,0.65)"
+          (e.currentTarget as HTMLElement).style.transform = "translateY(-3px) scale(1.04)"
+          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 11px 0 #a33a00, 0 14px 40px rgba(180,60,0,0.55)"
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.transform = "scale(1)"
-          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 6px 32px rgba(230,90,0,0.45)"
+          (e.currentTarget as HTMLElement).style.transform = "translateY(0) scale(1)"
+          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)"
+        }}
+        onMouseDown={e => {
+          (e.currentTarget as HTMLElement).style.transform = "translateY(5px)"
+          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 3px 0 #a33a00, 0 4px 16px rgba(180,60,0,0.35)"
+        }}
+        onMouseUp={e => {
+          (e.currentTarget as HTMLElement).style.transform = "translateY(0)"
+          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)"
         }}
       >
         Смотреть каталог →
