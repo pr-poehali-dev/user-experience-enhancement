@@ -190,33 +190,9 @@ export function Hero() {
           Смотреть каталог →
         </button>
 
-        {/* Доставка */}
-        <button
-          onClick={() => navigate("/delivery")}
-          style={{
-            background: "rgba(255,245,235,0.93)",
-            color: "#e63000",
-            border: "2px solid #f97316",
-            borderRadius: 999,
-            padding: "clamp(9px,1.3vh,15px) clamp(20px,3vw,50px)",
-            fontSize: "clamp(12px, 1.3vw, 18px)",
-            fontWeight: 700,
-            cursor: "pointer",
-            boxShadow: "0 3px 16px rgba(249,115,22,0.2)",
-            transition: "transform 0.2s",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            whiteSpace: "nowrap",
-          }}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.04)")}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
-        >
-          🚚 Доставка по Краснодару и краю 24/7
-        </button>
       </div>
 
-      {/* ── НИЖНЯЯ ПОЛОСА ── */}
+      {/* ── НИЖНЯЯ ПОЛОСА — только соцсети ── */}
       <div style={{
         position: "absolute",
         bottom: 0,
@@ -226,43 +202,12 @@ export function Hero() {
         backdropFilter: "blur(8px)",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "center",
         padding: "clamp(8px,1.2vh,14px) clamp(16px,3vw,40px)",
         zIndex: 10,
         flexWrap: "wrap",
         gap: 8,
       }}>
-
-        {/* Режим работы */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{
-            width: 40, height: 40, borderRadius: "50%",
-            background: "linear-gradient(135deg,#7c3aed,#a855f7)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 18, color: "#fff", flexShrink: 0,
-          }}>🕐</span>
-          <div>
-            <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b" }}>Работаем 24/7</div>
-            <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280" }}>без выходных</div>
-          </div>
-        </div>
-
-        <div style={{ width: 1, height: 36, background: "#e5e7eb" }} />
-
-        {/* Адрес */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{
-            width: 40, height: 40, borderRadius: "50%",
-            background: "linear-gradient(135deg,#7c3aed,#a855f7)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 18, color: "#fff", flexShrink: 0,
-          }}>📍</span>
-          <div>
-            <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b" }}>ул. Героя Яцкова, 19к3</div>
-            <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280" }}>г. Краснодар</div>
-          </div>
-        </div>
-
         {/* Соцсети */}
         <div style={{ display: "flex", alignItems: "center", gap: "clamp(5px,0.8vw,10px)", flexWrap: "wrap" }}>
           {SOCIALS.map((s) => (
