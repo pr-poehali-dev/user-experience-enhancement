@@ -1,96 +1,132 @@
-import Icon from "@/components/ui/icon"
 import { useNavigate } from "react-router-dom"
 
-const BG    = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/603f02c6-b1cb-4124-9cda-95ffd92a8965.png"
-
-
-const socials = [
-  { label: "Max",       href: "#",                          icon: "MessageCircle", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)" },
-  { label: "WhatsApp",  href: "https://wa.me/79885973303",  icon: "MessageSquare", bg: "#22c55e" },
-  { label: "Telegram",  href: "#",                          icon: "Send",          bg: "#0ea5e9" },
-  { label: "ВКонтакте", href: "#",                          icon: "MessageCircle", bg: "#2563eb" },
-  { label: "Instagram", href: "#",                          icon: "Instagram",     bg: "linear-gradient(135deg,#f97316,#ec4899)" },
-]
+const BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/1e04c8a9-4efc-4c40-9620-2478e28757d8.png"
 
 export function Hero() {
   const navigate = useNavigate()
 
-  return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: "smooth" })
+  }
 
-      {/* Фон */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${BG})` }}
+  return (
+    <section className="relative w-full overflow-hidden" style={{ aspectRatio: "1456/816" }}>
+      {/* Фоновое фото */}
+      <img
+        src={BG}
+        alt="Шаровик Затейник"
+        className="w-full h-full object-cover"
+        draggable={false}
       />
 
+      {/* Прозрачные кнопки поверх фото */}
 
+      {/* Навигация: О нас */}
+      <button
+        onClick={() => navigate("/about")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
+        style={{ top: "5%", left: "20%", width: "7%", height: "7%" }}
+        aria-label="О нас"
+      />
 
-      {/* Центральный контент */}
-      <div className="relative z-10 flex-1 w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-6 flex items-center justify-center">
-        <div className="flex flex-col items-center text-center gap-5 sm:gap-7">
+      {/* Навигация: Прайс */}
+      <button
+        onClick={() => navigate("/contacts")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
+        style={{ top: "5%", left: "30%", width: "7%", height: "7%" }}
+        aria-label="Прайс"
+      />
 
-          <h1 className="font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-7xl lg:text-8xl drop-shadow-sm">
-            <span className="block text-primary">Воздушные</span>
-            <span
-              className="block"
-              style={{
-                background: "linear-gradient(100deg, hsl(var(--primary)) 35%, #ec4899 60%, #f97316 90%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >шарики</span>
-          </h1>
+      {/* Навигация: Каталог */}
+      <button
+        onClick={() => navigate("/catalog")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
+        style={{ top: "5%", left: "43%", width: "7%", height: "7%" }}
+        aria-label="Каталог"
+      />
 
-          <p className="text-lg sm:text-2xl text-foreground/80 max-w-lg leading-snug font-medium drop-shadow-sm">
-            Стильные композиции из воздушных и гелиевых шаров с доставкой
-          </p>
+      {/* Навигация: Отзывы */}
+      <button
+        onClick={() => scrollTo("popular")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
+        style={{ top: "5%", left: "55%", width: "7%", height: "7%" }}
+        aria-label="Отзывы"
+      />
 
-          <button
-            onClick={() => navigate("/catalog")}
-            className="group relative overflow-hidden rounded-full px-12 sm:px-20 text-white font-bold shadow-2xl hover:scale-105 transition-transform active:scale-95"
-            style={{
-              height: "5rem",
-              fontSize: "1.65rem",
-              background: "linear-gradient(160deg, #ff6a00 0%, #e63000 100%)",
-              boxShadow: "0 6px 32px rgba(230,90,0,0.45)",
-            }}
-          >
-            <span className="relative flex items-center gap-3">
-              Смотреть каталог
-              <span className="text-2xl group-hover:translate-x-1 transition-transform inline-block">→</span>
-            </span>
-          </button>
+      {/* Навигация: Доставка */}
+      <button
+        onClick={() => navigate("/delivery")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
+        style={{ top: "5%", left: "67%", width: "7%", height: "7%" }}
+        aria-label="Доставка"
+      />
 
-          <div className="inline-flex items-center gap-3 sm:gap-4 bg-orange-50/90 border-2 border-orange-200 rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-md backdrop-blur-sm">
-            <Icon name="Truck" className="h-7 w-7 sm:h-8 sm:w-8 flex-shrink-0" style={{ color: "#f97316" }} />
-            <span className="font-extrabold text-lg sm:text-xl whitespace-nowrap" style={{ color: "#f97316" }}>
-              Доставка по Краснодару <span style={{ color: "#f97316" }}>24/7</span>
-            </span>
-          </div>
+      {/* Кнопка телефона */}
+      <a
+        href="tel:+79880653700"
+        className="absolute cursor-pointer bg-transparent border-none"
+        style={{ top: "3%", left: "78%", width: "19%", height: "10%" }}
+        aria-label="Позвонить"
+      />
 
-        </div>
-      </div>
+      {/* Кнопка "Смотреть каталог" */}
+      <button
+        onClick={() => navigate("/catalog")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-full transition-colors"
+        style={{ top: "57%", left: "34%", width: "22%", height: "11%" }}
+        aria-label="Смотреть каталог"
+      />
 
-      {/* Нижняя плашка — соцсети */}
-      <div className="relative z-10 w-full px-3 sm:px-6 lg:px-8 pb-6">
-        <div className="px-4 sm:px-10 py-4 flex flex-wrap items-center justify-around gap-3 w-full">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target={s.href.startsWith("http") ? "_blank" : undefined}
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-white px-6 py-3 rounded-full text-base font-semibold hover:scale-105 transition-transform shadow-md whitespace-nowrap w-40"
-              style={{ background: s.bg }}
-            >
-              <Icon name={s.icon} size={18} /> {s.label}
-            </a>
-          ))}
-        </div>
-      </div>
+      {/* Кнопка "Доставка по Краснодару 24/7" */}
+      <button
+        onClick={() => navigate("/delivery")}
+        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-full transition-colors"
+        style={{ top: "70%", left: "32%", width: "26%", height: "9%" }}
+        aria-label="Доставка по Краснодару"
+      />
 
+      {/* WhatsApp */}
+      <a
+        href="https://wa.me/79885973303"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute cursor-pointer bg-transparent border-none"
+        style={{ top: "86%", left: "41%", width: "10%", height: "10%" }}
+        aria-label="WhatsApp"
+      />
+
+      {/* Telegram */}
+      <a
+        href="#"
+        className="absolute cursor-pointer bg-transparent border-none"
+        style={{ top: "86%", left: "52%", width: "10%", height: "10%" }}
+        aria-label="Telegram"
+      />
+
+      {/* ВКонтакте */}
+      <a
+        href="#"
+        className="absolute cursor-pointer bg-transparent border-none"
+        style={{ top: "86%", left: "63%", width: "10%", height: "10%" }}
+        aria-label="ВКонтакте"
+      />
+
+      {/* Instagram */}
+      <a
+        href="#"
+        className="absolute cursor-pointer bg-transparent border-none"
+        style={{ top: "86%", left: "74%", width: "10%", height: "10%" }}
+        aria-label="Instagram"
+      />
+
+      {/* Max */}
+      <a
+        href="#"
+        className="absolute cursor-pointer bg-transparent border-none"
+        style={{ top: "86%", left: "85%", width: "9%", height: "10%" }}
+        aria-label="Max"
+      />
     </section>
   )
 }
