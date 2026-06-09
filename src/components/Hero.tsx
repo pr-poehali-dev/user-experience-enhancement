@@ -38,7 +38,7 @@ export function Hero() {
       <div style={{
         textAlign: "center",
         lineHeight: 1.05,
-        marginTop: "-36vh",
+        marginTop: "-20vh",
       }}>
         <div style={{
           fontSize: "clamp(44px, 6.5vw, 105px)",
@@ -70,9 +70,9 @@ export function Hero() {
       {/* Подпись */}
       <div style={{
         textAlign: "center",
-        marginTop: "clamp(28px, 4vh, 48px)",
+        marginTop: "clamp(12px, 2vh, 24px)",
         lineHeight: 1.35,
-        fontSize: "clamp(20px, 2.1vw, 30px)",
+        fontSize: "clamp(16px, 1.6vw, 24px)",
         fontWeight: 500,
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
@@ -85,7 +85,7 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(100px, 20vh, 190px)",
+          marginTop: "clamp(20px, 3vh, 36px)",
           display: "flex",
           alignItems: "center",
           gap: 14,
