@@ -77,16 +77,15 @@ export function Hero() {
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
       }}>
-        Стильные композиции из шаров{" "}
-        <span style={{ color: "#3d2070", fontWeight: 700 }}>с </span>
-        <span style={{ color: "#e63000", fontWeight: 700 }}>доставкой</span>
+        <div>Стильные композиции</div>
+        <div>из шаров <span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span></div>
       </div>
 
       {/* Кнопка "Смотреть каталог" */}
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(100px, 20vh, 190px)",
+          marginTop: "clamp(20px, 3vh, 36px)",
           display: "flex",
           alignItems: "center",
           gap: 14,
