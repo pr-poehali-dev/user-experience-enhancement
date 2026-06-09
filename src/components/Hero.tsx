@@ -54,7 +54,7 @@ export function Hero() {
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
-          top: "6px",
+          top: "16px",
         }}>
           {[
             { label: "О нас", path: "/about", svg: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> },
