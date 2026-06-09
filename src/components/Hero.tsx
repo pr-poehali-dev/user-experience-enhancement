@@ -14,28 +14,32 @@ export function Hero() {
       alignItems: "center",
       justifyContent: "center",
     }}>
-      {/* Заголовок по центру */}
       <div style={{
         textAlign: "center",
-        lineHeight: 1,
+        lineHeight: 1.05,
+        marginTop: "-12vh",
       }}>
         <div style={{
-          fontSize: "clamp(48px, 7vw, 110px)",
+          fontSize: "clamp(44px, 6.5vw, 105px)",
           fontWeight: 900,
-          color: "#4c1d95",
-          letterSpacing: "-1px",
-          textShadow: "0 2px 12px rgba(0,0,0,0.08)",
+          fontFamily: "'Nunito', sans-serif",
+          color: "#3b0f9e",
+          letterSpacing: "-0.5px",
+          textShadow: "0 3px 0 rgba(255,255,255,0.4)",
+          marginBottom: "0.05em",
         }}>
           Воздушные
         </div>
         <div style={{
-          fontSize: "clamp(56px, 8.5vw, 130px)",
+          fontSize: "clamp(56px, 8vw, 128px)",
           fontWeight: 900,
-          letterSpacing: "-1px",
-          background: "linear-gradient(100deg, #6d28d9 30%, #ec4899 60%, #f97316 90%)",
+          fontFamily: "'Nunito', sans-serif",
+          letterSpacing: "-0.5px",
+          background: "linear-gradient(105deg, #5b21b6 0%, #7c3aed 25%, #db2777 60%, #f97316 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
+          textShadow: "none",
         }}>
           шарики
         </div>
