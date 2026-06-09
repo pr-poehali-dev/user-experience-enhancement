@@ -70,9 +70,9 @@ export function Hero() {
       {/* Подпись */}
       <div style={{
         textAlign: "center",
-        marginTop: "clamp(12px, 2vh, 24px)",
+        marginTop: "clamp(28px, 4vh, 48px)",
         lineHeight: 1.35,
-        fontSize: "clamp(16px, 1.6vw, 24px)",
+        fontSize: "clamp(20px, 2.1vw, 30px)",
         fontWeight: 500,
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
