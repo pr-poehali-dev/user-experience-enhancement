@@ -41,6 +41,8 @@ export function Hero() {
             cursor: "pointer",
             filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
             flexShrink: 0,
+            marginLeft: "clamp(8px, 2vw, 32px)",
+            marginTop: "clamp(6px, 1vh, 14px)",
           }}
         />
 
@@ -48,7 +50,7 @@ export function Hero() {
         <nav style={{
           display: "flex",
           alignItems: "center",
-          gap: "clamp(6px, 1.8vw, 28px)",
+          gap: "clamp(10px, 2.4vw, 38px)",
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
