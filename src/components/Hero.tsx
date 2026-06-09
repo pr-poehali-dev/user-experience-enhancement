@@ -71,7 +71,7 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(80px, 17vh, 160px)",
+          marginTop: "clamp(100px, 20vh, 190px)",
           display: "flex",
           alignItems: "center",
           gap: 14,
@@ -79,10 +79,10 @@ export function Hero() {
           color: "#fff",
           border: "4px solid #c44a00",
           borderRadius: 999,
-          padding: "clamp(16px, 2.4vh, 26px) clamp(48px, 6vw, 96px)",
-          fontSize: "clamp(18px, 2vw, 30px)",
-          fontWeight: 800,
-          fontFamily: "'Montserrat', sans-serif",
+          padding: "clamp(16px, 2.4vh, 26px) clamp(28px, 3.5vw, 56px)",
+          fontSize: "clamp(20px, 2.4vw, 34px)",
+          fontWeight: 700,
+          fontFamily: "'Nunito', sans-serif",
           cursor: "pointer",
           boxShadow: "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)",
           transition: "transform 0.15s, box-shadow 0.15s",
