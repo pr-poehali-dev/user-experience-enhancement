@@ -56,6 +56,7 @@ export function SiteHeader() {
           filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
           flexShrink: 0,
           marginLeft: "clamp(8px, 2vw, 32px)",
+          marginTop: "12px",
         }}
       />
 
@@ -67,7 +68,7 @@ export function SiteHeader() {
         position: "absolute",
         left: "50%",
         transform: "translateX(-50%)",
-        top: "30px",
+        top: "42px",
       }}>
         {NAV.map((item) => (
           <button
@@ -116,6 +117,7 @@ export function SiteHeader() {
           flexShrink: 0,
           animation: "phonePulse 2s infinite",
           transition: "transform 0.2s",
+          marginTop: "12px",
         }}
         onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
         onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
