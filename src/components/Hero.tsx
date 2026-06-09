@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-const BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/1e04c8a9-4efc-4c40-9620-2478e28757d8.png"
+const BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/1bab2356-274e-4dba-857a-73ed5e1a8c61.png"
 
 export function Hero() {
   const navigate = useNavigate()
