@@ -114,57 +114,62 @@ export function Hero() {
       {/* Нижняя полоса */}
       <div style={{
         position: "absolute",
-        bottom: 0, left: 0, right: 0,
+        bottom: "3%", left: 0, right: 0,
         background: "rgba(255,255,255,0.93)",
         backdropFilter: "blur(8px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "clamp(10px,1.4vh,18px) clamp(20px,3vw,48px)",
+        padding: "clamp(14px,2vh,24px) clamp(24px,3vw,52px)",
         flexWrap: "wrap",
-        gap: 10,
+        gap: 12,
         zIndex: 10,
       }}>
 
         {/* Работаем + Адрес */}
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px,2.5vw,36px)", flexWrap: "wrap" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(20px,3vw,44px)", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{
-              width: 40, height: 40, borderRadius: "50%",
+              width: 48, height: 48, borderRadius: "50%",
               background: "linear-gradient(135deg,#7c3aed,#a855f7)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 18, color: "#fff", flexShrink: 0,
+              fontSize: 22, color: "#fff", flexShrink: 0,
             }}>🕐</span>
             <div>
-              <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
-              <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>без выходных</div>
+              <div style={{ fontWeight: 800, fontSize: "clamp(14px,1.3vw,18px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
+              <div style={{ fontSize: "clamp(12px,1.05vw,15px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>без выходных</div>
             </div>
           </div>
 
-          <div style={{ width: 1, height: 36, background: "#e5e7eb", flexShrink: 0 }} />
+          <div style={{ width: 1, height: 40, background: "#e5e7eb", flexShrink: 0 }} />
 
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{
-              width: 40, height: 40, borderRadius: "50%",
+              width: 48, height: 48, borderRadius: "50%",
               background: "linear-gradient(135deg,#7c3aed,#a855f7)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 18, color: "#fff", flexShrink: 0,
+              fontSize: 22, color: "#fff", flexShrink: 0,
             }}>📍</span>
             <div>
-              <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
-              <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>г. Краснодар</div>
+              <div style={{ fontWeight: 800, fontSize: "clamp(14px,1.3vw,18px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
+              <div style={{ fontSize: "clamp(12px,1.05vw,15px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>г. Краснодар</div>
             </div>
           </div>
         </div>
 
         {/* Соцсети */}
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px,0.9vw,12px)", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(7px,1vw,14px)", flexWrap: "wrap" }}>
           {[
-            { label: "WhatsApp",  href: "https://wa.me/79885973303", bg: "#25D366" },
-            { label: "Telegram",  href: "https://t.me/sharovik_krd",  bg: "#229ED9" },
-            { label: "ВКонтакте", href: "https://vk.com/sharovik_krd", bg: "#0077FF" },
-            { label: "Instagram", href: "https://instagram.com/sharovik_krd", bg: "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)" },
-            { label: "Max",       href: "#", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6)" },
+            { label: "WhatsApp",  href: "https://wa.me/79885973303", bg: "#25D366",
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2.005C6.477 2.005 2 6.478 2 11.99c0 1.76.46 3.41 1.255 4.849L2.039 21.5l4.77-1.253A9.944 9.944 0 0011.99 22c5.514 0 9.991-4.477 9.991-9.99 0-5.514-4.477-9.995-9.991-9.995z"/></svg> },
+            { label: "Telegram",  href: "https://t.me/sharovik_krd", bg: "#229ED9",
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> },
+            { label: "ВКонтакте", href: "https://vk.com/sharovik_krd", bg: "#0077FF",
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.85c-.7 0-.91-.56-2.16-1.81-1.09-1.05-1.57-.93-1.57.22v1.65c0 .39-.13.62-1.18.62-1.74 0-3.67-1.05-5.03-3.01C4.42 10.5 4 8.5 4 8.5s0-.23.25-.23h1.85c.68 0 .94.31 1.19 1.04.65 1.88 1.73 3.53 2.18 3.53.17 0 .24-.08.24-.52V10.3c-.06-1.11-.65-1.2-.65-1.6 0-.22.18-.44.46-.44h2.91c.49 0 .67.26.67.83v2.81c0 .49.22.67.34.67.17 0 .35-.18.69-.52 1.07-1.2 1.84-3.05 1.84-3.05.1-.21.28-.41.97-.41h1.85c.56 0 .68.29.56.68-.22 1.04-2.37 4.07-2.37 4.07-.19.3-.26.44 0 .77.18.25 1.04 1.04 1.57 1.67.97 1.09 1.71 2.01 1.91 2.64.18.62-.16.93-.72.93z"/></svg> },
+            { label: "Instagram", href: "https://instagram.com/sharovik_krd", bg: "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)",
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> },
+            { label: "Max", href: "#", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6)",
+              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg> },
           ].map(s => (
             <a
               key={s.label}
@@ -172,13 +177,13 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: "flex", alignItems: "center", gap: 6,
+                display: "flex", alignItems: "center", gap: 8,
                 background: s.bg,
                 color: "#fff",
                 borderRadius: 999,
-                padding: "clamp(8px,1vh,12px) clamp(12px,1.4vw,20px)",
+                padding: "clamp(9px,1.1vh,14px) clamp(14px,1.6vw,22px)",
                 fontWeight: 700,
-                fontSize: "clamp(12px,1.1vw,15px)",
+                fontSize: "clamp(13px,1.2vw,16px)",
                 fontFamily: "'Montserrat',sans-serif",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
@@ -194,6 +199,7 @@ export function Hero() {
                 ;(e.currentTarget as HTMLElement).style.boxShadow = "0 2px 10px rgba(0,0,0,0.15)"
               }}
             >
+              {s.icon}
               {s.label}
             </a>
           ))}
