@@ -67,6 +67,21 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Подпись */}
+      <div style={{
+        textAlign: "center",
+        marginTop: "clamp(12px, 2vh, 24px)",
+        lineHeight: 1.35,
+        fontSize: "clamp(16px, 1.6vw, 24px)",
+        fontWeight: 500,
+        fontFamily: "'Montserrat', sans-serif",
+        color: "#3d2070",
+      }}>
+        Стильные композиции из шаров{" "}
+        <span style={{ color: "#3d2070", fontWeight: 700 }}>с </span>
+        <span style={{ color: "#e63000", fontWeight: 700 }}>доставкой</span>
+      </div>
+
       {/* Кнопка "Смотреть каталог" */}
       <button
         onClick={() => navigate("/catalog")}
