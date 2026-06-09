@@ -35,6 +35,8 @@ export function SiteHeader() {
   const isCompact = !isHome
   const logo = isCompact ? LOGO_COMPACT : LOGO_FULL
 
+  const showBg = isCompact || scrolled
+
   return (
     <header style={{
       position: "fixed",
@@ -45,12 +47,30 @@ export function SiteHeader() {
       justifyContent: "space-between",
       padding: isCompact ? "0px 28px 0px 8px" : "0px 32px 0px 8px",
       height: isCompact ? "clamp(60px, 7.5vw, 86px)" : "clamp(80px, 11vw, 128px)",
-      background: (isCompact || scrolled) ? "rgba(242,237,255,0.97)" : "transparent",
-      backdropFilter: (isCompact || scrolled) ? "blur(14px)" : "none",
-      boxShadow: (isCompact || scrolled) ? "0 3px 24px rgba(124,58,237,0.13)" : "none",
-      borderBottom: (isCompact || scrolled) ? "1px solid rgba(167,139,250,0.2)" : "none",
+      background: "transparent",
       transition: "all 0.3s ease",
     }}>
+      {/* Волнообразный фон-арка */}
+      {showBg && (
+        <svg
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}
+          viewBox="0 0 1440 110"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id="blur-shadow">
+              <feDropShadow dx="0" dy="3" stdDeviation="8" floodColor="rgba(124,58,237,0.15)"/>
+            </filter>
+          </defs>
+          {/* Арка: высоко у логотипа (слева), плоско по центру, высоко у телефона (справа) */}
+          <path
+            d="M0,0 L0,85 Q180,55 360,72 Q720,90 1080,72 Q1260,55 1440,85 L1440,0 Z"
+            fill="rgba(242,237,255,0.97)"
+            filter="url(#blur-shadow)"
+          />
+        </svg>
+      )}
       {/* Логотип */}
       <img
         src={logo}
