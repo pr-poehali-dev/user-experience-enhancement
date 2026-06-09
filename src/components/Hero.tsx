@@ -66,8 +66,8 @@ export function Hero() {
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
       }}>
-        <div>Стильные композиции</div>
-        <div>из шаров <span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span></div>
+        <div>Стильные композиции из воздушных шаров</div>
+        <div><span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span> по Краснодару и краю</div>
       </div>
 
       {/* Кнопка "Смотреть каталог" */}
@@ -115,8 +115,9 @@ export function Hero() {
       <div style={{
         position: "absolute",
         bottom: "3%", left: 0, right: 0,
-        background: "rgba(255,255,255,0.93)",
-        backdropFilter: "blur(8px)",
+        background: "rgba(237,233,254,0.95)",
+        backdropFilter: "blur(10px)",
+        borderTop: "1px solid rgba(167,139,250,0.3)",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -169,7 +170,7 @@ export function Hero() {
             { label: "Instagram", href: "https://instagram.com/sharovik_krd", bg: "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)",
               icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> },
             { label: "Max", href: "#", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6)",
-              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="url(#mg)"/><defs><linearGradient id="mg" x1="0" y1="0" x2="24" y2="24"><stop stopColor="#4f8ef7"/><stop offset="1" stopColor="#a855f7"/></linearGradient></defs><path d="M5 17V7l4.5 5.5L14 7v10" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="17.5" cy="12" r="2.5" stroke="white" strokeWidth="2"/></svg> },
+              icon: <img src="https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a2855267-b382-4ddd-b7f8-f179ae031524.png" width="20" height="20" style={{borderRadius:5, objectFit:"cover", flexShrink:0}} /> },
           ].map(s => (
             <a
               key={s.label}
