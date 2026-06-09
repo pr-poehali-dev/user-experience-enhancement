@@ -45,9 +45,9 @@ export function SiteHeader() {
       justifyContent: "space-between",
       padding: isCompact ? "0px 28px 0px 8px" : "0px 32px 0px 8px",
       height: isCompact ? "clamp(56px, 7vw, 80px)" : "clamp(72px, 10vw, 120px)",
-      background: isCompact ? "rgba(255,255,255,0.97)" : "transparent",
-      backdropFilter: isCompact ? "blur(12px)" : "none",
-      boxShadow: isCompact ? "0 2px 20px rgba(124,58,237,0.14)" : "none",
+      background: (isCompact || scrolled) ? "rgba(255,255,255,0.97)" : "transparent",
+      backdropFilter: (isCompact || scrolled) ? "blur(12px)" : "none",
+      boxShadow: (isCompact || scrolled) ? "0 2px 20px rgba(124,58,237,0.14)" : "none",
       transition: "all 0.3s ease",
     }}>
       {/* Логотип */}
