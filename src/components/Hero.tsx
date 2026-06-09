@@ -54,11 +54,11 @@ export function Hero() {
           transform: "translateX(-50%)",
         }}>
           {[
-            { label: "О нас",     icon: "⭐", path: "/about" },
-            { label: "Прайс",    icon: "🎁", path: "/contacts" },
-            { label: "Каталог",  icon: "🎈", path: "/catalog" },
-            { label: "Отзывы",   icon: "💬", path: "#popular" },
-            { label: "Доставка", icon: "🚚", path: "/delivery" },
+            { label: "О нас", path: "/about", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> },
+            { label: "Прайс", path: "/contacts", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg> },
+            { label: "Каталог", path: "/catalog", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> },
+            { label: "Отзывы", path: "#popular", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> },
+            { label: "Доставка", path: "/delivery", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> },
           ].map((item) => (
             <button
               key={item.label}
@@ -70,10 +70,10 @@ export function Hero() {
                 }
               }}
               style={{
-                display: "flex", alignItems: "center", gap: 6,
+                display: "flex", alignItems: "center", gap: 8,
                 background: "transparent", border: "none", cursor: "pointer",
-                padding: "5px 4px",
-                fontSize: "clamp(13px, 1.2vw, 17px)",
+                padding: "6px 4px",
+                fontSize: "clamp(14px, 1.35vw, 19px)",
                 fontWeight: 700,
                 fontFamily: "'Montserrat', sans-serif",
                 color: "#3b1fa3",
@@ -90,13 +90,13 @@ export function Hero() {
               }}
             >
               <span style={{
-                width: "clamp(26px, 2.6vw, 36px)",
-                height: "clamp(26px, 2.6vw, 36px)",
+                width: "clamp(30px, 3vw, 42px)",
+                height: "clamp(30px, 3vw, 42px)",
                 borderRadius: "50%",
                 background: "rgba(124,58,237,0.12)",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "clamp(12px, 1.1vw, 16px)",
-              }}>{item.icon}</span>
+                flexShrink: 0,
+              }}>{item.svg}</span>
               {item.label}
             </button>
           ))}
