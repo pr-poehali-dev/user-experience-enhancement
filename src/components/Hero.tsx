@@ -120,9 +120,9 @@ export function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "clamp(14px,2vh,24px) clamp(24px,3vw,52px)",
-        flexWrap: "wrap",
-        gap: 12,
+        padding: "clamp(10px,1.6vh,18px) clamp(20px,2.5vw,44px)",
+        flexWrap: "nowrap",
+        gap: 16,
         zIndex: 10,
       }}>
 
@@ -177,13 +177,13 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: "flex", alignItems: "center", gap: 8,
+                display: "flex", alignItems: "center", gap: 6,
                 background: s.bg,
                 color: "#fff",
                 borderRadius: 999,
-                padding: "clamp(9px,1.1vh,14px) clamp(14px,1.6vw,22px)",
+                padding: "clamp(7px,0.9vh,11px) clamp(10px,1.1vw,16px)",
                 fontWeight: 700,
-                fontSize: "clamp(13px,1.2vw,16px)",
+                fontSize: "clamp(12px,1vw,14px)",
                 fontFamily: "'Montserrat',sans-serif",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
