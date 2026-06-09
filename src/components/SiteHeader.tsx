@@ -47,30 +47,12 @@ export function SiteHeader() {
       justifyContent: "space-between",
       padding: isCompact ? "0px 28px 0px 8px" : "0px 32px 0px 8px",
       height: isCompact ? "clamp(60px, 7.5vw, 86px)" : "clamp(80px, 11vw, 128px)",
-      background: "transparent",
+      background: showBg ? "rgba(242,237,255,0.97)" : "transparent",
+      backdropFilter: showBg ? "blur(14px)" : "none",
+      boxShadow: showBg ? "0 3px 24px rgba(124,58,237,0.13)" : "none",
+      borderBottom: showBg ? "1px solid rgba(167,139,250,0.2)" : "none",
       transition: "all 0.3s ease",
     }}>
-      {/* Волнообразный фон-арка */}
-      {showBg && (
-        <svg
-          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}
-          viewBox="0 0 1440 110"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <filter id="blur-shadow">
-              <feDropShadow dx="0" dy="3" stdDeviation="8" floodColor="rgba(124,58,237,0.15)"/>
-            </filter>
-          </defs>
-          {/* Широко по краям (логотип и телефон), узко по центру (кнопки) */}
-          <path
-            d="M0,0 L0,90 Q60,115 180,110 Q280,106 380,78 L1060,78 Q1160,106 1260,110 Q1380,115 1440,90 L1440,0 Z"
-            fill="rgba(242,237,255,0.97)"
-            filter="url(#blur-shadow)"
-          />
-        </svg>
-      )}
       {/* Логотип */}
       <img
         src={logo}
@@ -82,7 +64,7 @@ export function SiteHeader() {
           cursor: "pointer",
           filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
           flexShrink: 0,
-          marginLeft: "clamp(8px, 2vw, 32px)",
+          marginLeft: "clamp(20px, 3vw, 48px)",
           marginTop: isCompact ? "0px" : "12px",
           transition: "all 0.3s ease",
         }}
