@@ -20,19 +20,112 @@ export function Hero() {
       alignItems: "center",
       justifyContent: "center",
     }}>
-      {/* Логотип слева сверху */}
-      <img
-        src={LOGO}
-        alt="Шаровик Затейник"
-        style={{
+      {/* ── ШАПКА: логотип + навигация + телефон ── */}
+      <div style={{
+        position: "absolute",
+        top: 0, left: 0, right: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "6px 24px 6px 8px",
+        zIndex: 20,
+      }}>
+        {/* Логотип */}
+        <img
+          src={LOGO}
+          alt="Шаровик Затейник"
+          onClick={() => navigate("/")}
+          style={{
+            height: "clamp(70px, 10vw, 130px)",
+            width: "auto",
+            cursor: "pointer",
+            filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
+            flexShrink: 0,
+          }}
+        />
+
+        {/* Навигация */}
+        <nav style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "clamp(6px, 1.8vw, 28px)",
           position: "absolute",
-          top: "clamp(8px, 1.5vh, 20px)",
-          left: "clamp(8px, 1.5vw, 24px)",
-          height: "clamp(80px, 11vw, 150px)",
-          width: "auto",
-          filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
-        }}
-      />
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}>
+          {[
+            { label: "О нас",     icon: "⭐", path: "/about" },
+            { label: "Прайс",    icon: "🎁", path: "/contacts" },
+            { label: "Каталог",  icon: "🎈", path: "/catalog" },
+            { label: "Отзывы",   icon: "💬", path: "#popular" },
+            { label: "Доставка", icon: "🚚", path: "/delivery" },
+          ].map((item) => (
+            <button
+              key={item.label}
+              onClick={() => {
+                if (item.path === "#popular") {
+                  document.getElementById("popular")?.scrollIntoView({ behavior: "smooth" })
+                } else {
+                  navigate(item.path)
+                }
+              }}
+              style={{
+                display: "flex", alignItems: "center", gap: 6,
+                background: "transparent", border: "none", cursor: "pointer",
+                padding: "5px 4px",
+                fontSize: "clamp(13px, 1.2vw, 17px)",
+                fontWeight: 700,
+                fontFamily: "'Montserrat', sans-serif",
+                color: "#3b1fa3",
+                whiteSpace: "nowrap",
+                transition: "color 0.2s, transform 0.15s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.color = "#7c3aed"
+                ;(e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.color = "#3b1fa3"
+                ;(e.currentTarget as HTMLElement).style.transform = "translateY(0)"
+              }}
+            >
+              <span style={{
+                width: "clamp(26px, 2.6vw, 36px)",
+                height: "clamp(26px, 2.6vw, 36px)",
+                borderRadius: "50%",
+                background: "rgba(124,58,237,0.12)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: "clamp(12px, 1.1vw, 16px)",
+              }}>{item.icon}</span>
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* Телефон */}
+        <a
+          href="tel:+79880653700"
+          style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+            color: "#fff",
+            borderRadius: 999,
+            padding: "clamp(8px,1vh,12px) clamp(12px,1.5vw,22px)",
+            fontWeight: 800,
+            fontSize: "clamp(12px, 1.15vw, 16px)",
+            fontFamily: "'Montserrat', sans-serif",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+            flexShrink: 0,
+            animation: "phonePulse 2s infinite",
+            transition: "transform 0.2s",
+          }}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
+        >
+          📞 +7 988 065 37 00
+        </a>
+      </div>
 
       {/* Заголовок */}
       <div style={{
