@@ -909,26 +909,14 @@ export default function Catalog() {
   const [searchParams] = useSearchParams()
   const section = searchParams.get("section")
 
-  // Запоминаем раздел в localStorage, восстанавливаем при потере URL
   useEffect(() => {
-    if (section) {
-      localStorage.setItem("catalog_section", section)
-    }
-  }, [section])
-
-  useEffect(() => {
-    if (!section) {
-      const saved = localStorage.getItem("catalog_section")
-      if (saved) {
-        navigate(`/catalog?section=${saved}`, { replace: true })
-      }
-    }
+    localStorage.removeItem("catalog_section")
   }, [])
 
   const renderContent = () => {
     if (section === "birthday") {
       return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
           <div className="flex items-center gap-4 mb-3">
             <button
               onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
@@ -951,7 +939,7 @@ export default function Catalog() {
 
     if (section === "discharge") {
       return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
           <button
             onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
@@ -972,7 +960,7 @@ export default function Catalog() {
 
     if (section === "other") {
       return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
           <button
             onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
@@ -1000,7 +988,7 @@ export default function Catalog() {
 
     if (section === "custom") {
       return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
           <button
             onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
@@ -1038,10 +1026,10 @@ export default function Catalog() {
           Каталог <span className="font-semibold">шариков</span>
         </h1>
         <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-10">Выберите повод для праздника</p>
-        <div className="grid grid-cols-2 gap-3 sm:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6">
           <button
             onClick={() => navigate("/catalog?section=birthday")}
-            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 min-h-[180px] sm:min-h-[400px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 min-h-[160px] sm:min-h-[280px] flex flex-col items-center justify-center gap-2 sm:gap-3 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-6"
           >
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <span className="relative text-5xl sm:text-8xl">🎂</span>
@@ -1057,7 +1045,7 @@ export default function Catalog() {
           </button>
           <button
             onClick={() => navigate("/catalog?section=discharge")}
-            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 min-h-[180px] sm:min-h-[400px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 min-h-[160px] sm:min-h-[280px] flex flex-col items-center justify-center gap-2 sm:gap-3 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-6"
           >
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <span className="relative text-5xl sm:text-8xl">👶</span>
@@ -1073,7 +1061,7 @@ export default function Catalog() {
           </button>
           <button
             onClick={() => navigate("/catalog?section=other")}
-            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-violet-400 via-fuchsia-400 to-pink-500 min-h-[180px] sm:min-h-[320px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-violet-400 via-fuchsia-400 to-pink-500 min-h-[160px] sm:min-h-[280px] flex flex-col items-center justify-center gap-2 sm:gap-3 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-6"
           >
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <span className="relative text-5xl sm:text-7xl">🎉</span>
@@ -1089,7 +1077,7 @@ export default function Catalog() {
           </button>
           <button
             onClick={() => navigate("/catalog?section=custom")}
-            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 min-h-[180px] sm:min-h-[320px] flex flex-col items-center justify-center gap-2 sm:gap-4 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-8"
+            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 min-h-[160px] sm:min-h-[280px] flex flex-col items-center justify-center gap-2 sm:gap-3 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-6"
           >
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <span className="relative text-5xl sm:text-7xl">✨</span>
