@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 const LOGO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/2b7aa5e7-076f-477e-9c08-2524b06cad6a.png"
@@ -13,7 +13,9 @@ const NAV = [
 
 export function SiteHeader() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
+  const isHome = location.pathname === "/"
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -37,11 +39,11 @@ export function SiteHeader() {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      padding: "0px 24px 0px 8px",
-      height: "clamp(64px, 9vw, 110px)",
-      background: scrolled ? "rgba(237,233,254,0.97)" : "transparent",
-      backdropFilter: scrolled ? "blur(10px)" : "none",
-      boxShadow: scrolled ? "0 2px 16px rgba(124,58,237,0.10)" : "none",
+      padding: "0px 32px 0px 8px",
+      height: "clamp(72px, 10vw, 120px)",
+      background: (!isHome || scrolled) ? "rgba(237,233,254,0.97)" : "transparent",
+      backdropFilter: (!isHome || scrolled) ? "blur(10px)" : "none",
+      boxShadow: (!isHome || scrolled) ? "0 2px 16px rgba(124,58,237,0.12)" : "none",
       transition: "background 0.3s, box-shadow 0.3s",
     }}>
       {/* Логотип */}

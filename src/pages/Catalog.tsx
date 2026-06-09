@@ -1109,8 +1109,7 @@ export default function Catalog() {
   }
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen pt-[clamp(72px,10vw,120px)]">
       {renderContent()}
       <Footer />
     </div>

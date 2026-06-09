@@ -5,8 +5,7 @@ import { Footer } from "@/components/Footer"
 export default function About() {
   return (
     <main className="min-h-screen">
-      <Navbar />
-      <div className="pt-16 sm:pt-24">
+      <div className="pt-[clamp(72px,10vw,120px)]">
         <AboutUs />
       </div>
       <Footer />

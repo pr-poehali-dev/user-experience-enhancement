@@ -18,9 +18,7 @@ const socials = [
 export default function Contacts() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 to-background">
-      <Navbar />
-
-      <div className="max-w-xl mx-auto px-4 sm:px-6 pt-32 pb-20">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 pt-[clamp(80px,11vw,130px)] pb-20">
 
         <div className="text-center mb-10">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">

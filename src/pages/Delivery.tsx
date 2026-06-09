@@ -7,10 +7,8 @@ const MAP_URL = "https://2gis.ru/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%
 export default function Delivery() {
   return (
     <div className="min-h-screen">
-      <Navbar />
-
       {/* Hero с картой на фоне */}
-      <div className="relative pt-24 pb-16 overflow-hidden">
+      <div className="relative pt-[clamp(72px,10vw,120px)] pb-16 overflow-hidden">
         {/* Карта Краснодара как фон */}
         <iframe
           src="https://yandex.ru/map-widget/v1/?ll=38.9769%2C45.0448&z=12&l=map"
