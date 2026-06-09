@@ -85,7 +85,7 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(20px, 3vh, 36px)",
+          marginTop: "clamp(100px, 20vh, 190px)",
           display: "flex",
           alignItems: "center",
           gap: 14,
