@@ -1109,7 +1109,7 @@ export default function Catalog() {
   }
 
   return (
-    <div className="min-h-screen pt-[clamp(72px,10vw,120px)]">
+    <div className="min-h-screen pt-[clamp(60px,7.5vw,86px)]">
       {renderContent()}
       <Footer />
     </div>
