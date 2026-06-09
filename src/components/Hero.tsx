@@ -72,7 +72,7 @@ export function Hero() {
         textAlign: "center",
         marginTop: "clamp(40px, 6.5vh, 62px)",
         lineHeight: 1.35,
-        fontSize: "clamp(18px, 1.9vw, 28px)",
+        fontSize: "clamp(20px, 2.2vw, 32px)",
         fontWeight: 500,
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
@@ -85,7 +85,7 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(60px, 9vh, 100px)",
+          marginTop: "clamp(40px, 6vh, 72px)",
           display: "flex",
           alignItems: "center",
           gap: 14,
