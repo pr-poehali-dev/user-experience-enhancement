@@ -11,78 +11,83 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ aspectRatio: "1456/816" }}>
-      {/* Фоновое фото */}
+    <section className="relative w-full" style={{ aspectRatio: "1456/816" }}>
       <img
         src={BG}
         alt="Шаровик Затейник"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover block"
         draggable={false}
       />
 
-      {/* Прозрачные кнопки поверх фото */}
+      {/* Логотип */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "0%", left: "0%", width: "14%", height: "18%" }}
+        aria-label="На главную"
+      />
 
-      {/* Навигация: О нас */}
+      {/* О нас */}
       <button
         onClick={() => navigate("/about")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
-        style={{ top: "5%", left: "20%", width: "7%", height: "7%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "1%", left: "20%", width: "8%", height: "10%" }}
         aria-label="О нас"
       />
 
-      {/* Навигация: Прайс */}
+      {/* Прайс */}
       <button
         onClick={() => navigate("/contacts")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
-        style={{ top: "5%", left: "30%", width: "7%", height: "7%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "1%", left: "30%", width: "8%", height: "10%" }}
         aria-label="Прайс"
       />
 
-      {/* Навигация: Каталог */}
+      {/* Каталог */}
       <button
         onClick={() => navigate("/catalog")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
-        style={{ top: "5%", left: "43%", width: "7%", height: "7%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "1%", left: "41.5%", width: "8%", height: "10%" }}
         aria-label="Каталог"
       />
 
-      {/* Навигация: Отзывы */}
+      {/* Отзывы */}
       <button
         onClick={() => scrollTo("popular")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
-        style={{ top: "5%", left: "55%", width: "7%", height: "7%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "1%", left: "52%", width: "8%", height: "10%" }}
         aria-label="Отзывы"
       />
 
-      {/* Навигация: Доставка */}
+      {/* Доставка */}
       <button
         onClick={() => navigate("/delivery")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-lg transition-colors"
-        style={{ top: "5%", left: "67%", width: "7%", height: "7%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "1%", left: "63%", width: "8%", height: "10%" }}
         aria-label="Доставка"
       />
 
-      {/* Кнопка телефона */}
+      {/* Телефон */}
       <a
         href="tel:+79880653700"
-        className="absolute cursor-pointer bg-transparent border-none"
-        style={{ top: "3%", left: "78%", width: "19%", height: "10%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "1%", left: "75%", width: "23%", height: "11%" }}
         aria-label="Позвонить"
       />
 
-      {/* Кнопка "Смотреть каталог" */}
+      {/* Смотреть каталог */}
       <button
         onClick={() => navigate("/catalog")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-full transition-colors"
-        style={{ top: "57%", left: "34%", width: "22%", height: "11%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "57%", left: "34%", width: "23%", height: "11%" }}
         aria-label="Смотреть каталог"
       />
 
-      {/* Кнопка "Доставка по Краснодару 24/7" */}
+      {/* Доставка по Краснодару 24/7 */}
       <button
         onClick={() => navigate("/delivery")}
-        className="absolute cursor-pointer bg-transparent border-none hover:bg-white/10 rounded-full transition-colors"
-        style={{ top: "70%", left: "32%", width: "26%", height: "9%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "70%", left: "31%", width: "27%", height: "9%" }}
         aria-label="Доставка по Краснодару"
       />
 
@@ -91,40 +96,40 @@ export function Hero() {
         href="https://wa.me/79885973303"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute cursor-pointer bg-transparent border-none"
-        style={{ top: "86%", left: "41%", width: "10%", height: "10%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "86%", left: "41%", width: "10%", height: "12%" }}
         aria-label="WhatsApp"
       />
 
       {/* Telegram */}
       <a
         href="#"
-        className="absolute cursor-pointer bg-transparent border-none"
-        style={{ top: "86%", left: "52%", width: "10%", height: "10%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "86%", left: "52%", width: "10%", height: "12%" }}
         aria-label="Telegram"
       />
 
       {/* ВКонтакте */}
       <a
         href="#"
-        className="absolute cursor-pointer bg-transparent border-none"
-        style={{ top: "86%", left: "63%", width: "10%", height: "10%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "86%", left: "63%", width: "10%", height: "12%" }}
         aria-label="ВКонтакте"
       />
 
       {/* Instagram */}
       <a
         href="#"
-        className="absolute cursor-pointer bg-transparent border-none"
-        style={{ top: "86%", left: "74%", width: "10%", height: "10%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "86%", left: "74%", width: "10%", height: "12%" }}
         aria-label="Instagram"
       />
 
       {/* Max */}
       <a
         href="#"
-        className="absolute cursor-pointer bg-transparent border-none"
-        style={{ top: "86%", left: "85%", width: "9%", height: "10%" }}
+        className="absolute bg-transparent border-none cursor-pointer"
+        style={{ top: "86%", left: "85%", width: "9%", height: "12%" }}
         aria-label="Max"
       />
     </section>

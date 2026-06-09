@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom"
-import { Navbar } from "@/components/Navbar"
 import { Hero } from "@/components/Hero"
 import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { PopularPackages } from "@/components/PopularPackages"
@@ -45,7 +44,6 @@ function CatalogCTA() {
 export default function Index() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       <Hero />
       <WhyChooseUs />
       <PopularPackages />
