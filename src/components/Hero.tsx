@@ -111,6 +111,95 @@ export function Hero() {
         Смотреть каталог →
       </button>
 
+      {/* Нижняя полоса */}
+      <div style={{
+        position: "absolute",
+        bottom: 0, left: 0, right: 0,
+        background: "rgba(255,255,255,0.93)",
+        backdropFilter: "blur(8px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "clamp(10px,1.4vh,18px) clamp(20px,3vw,48px)",
+        flexWrap: "wrap",
+        gap: 10,
+        zIndex: 10,
+      }}>
+
+        {/* Работаем + Адрес */}
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px,2.5vw,36px)", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{
+              width: 40, height: 40, borderRadius: "50%",
+              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 18, color: "#fff", flexShrink: 0,
+            }}>🕐</span>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
+              <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>без выходных</div>
+            </div>
+          </div>
+
+          <div style={{ width: 1, height: 36, background: "#e5e7eb", flexShrink: 0 }} />
+
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{
+              width: 40, height: 40, borderRadius: "50%",
+              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 18, color: "#fff", flexShrink: 0,
+            }}>📍</span>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: "clamp(12px,1.1vw,15px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
+              <div style={{ fontSize: "clamp(10px,0.9vw,13px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>г. Краснодар</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Соцсети */}
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px,0.9vw,12px)", flexWrap: "wrap" }}>
+          {[
+            { label: "WhatsApp",  href: "https://wa.me/79885973303", bg: "#25D366" },
+            { label: "Telegram",  href: "https://t.me/sharovik_krd",  bg: "#229ED9" },
+            { label: "ВКонтакте", href: "https://vk.com/sharovik_krd", bg: "#0077FF" },
+            { label: "Instagram", href: "https://instagram.com/sharovik_krd", bg: "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)" },
+            { label: "Max",       href: "#", bg: "linear-gradient(135deg,#3b82f6,#8b5cf6)" },
+          ].map(s => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex", alignItems: "center", gap: 6,
+                background: s.bg,
+                color: "#fff",
+                borderRadius: 999,
+                padding: "clamp(8px,1vh,12px) clamp(12px,1.4vw,20px)",
+                fontWeight: 700,
+                fontSize: "clamp(12px,1.1vw,15px)",
+                fontFamily: "'Montserrat',sans-serif",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
+                transition: "transform 0.18s, box-shadow 0.18s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.transform = "scale(1.07)"
+                ;(e.currentTarget as HTMLElement).style.boxShadow = "0 4px 18px rgba(0,0,0,0.25)"
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.transform = "scale(1)"
+                ;(e.currentTarget as HTMLElement).style.boxShadow = "0 2px 10px rgba(0,0,0,0.15)"
+              }}
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
     </section>
   )
 }
