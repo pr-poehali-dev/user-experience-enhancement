@@ -32,7 +32,7 @@ export function SiteHeader() {
     }
   }
 
-  const isCompact = !isHome || scrolled
+  const isCompact = !isHome
   const logo = isCompact ? LOGO_COMPACT : LOGO_FULL
 
   return (
