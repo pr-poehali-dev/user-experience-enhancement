@@ -44,10 +44,11 @@ export function SiteHeader() {
       alignItems: "center",
       justifyContent: "space-between",
       padding: isCompact ? "0px 28px 0px 8px" : "0px 32px 0px 8px",
-      height: isCompact ? "clamp(56px, 7vw, 80px)" : "clamp(72px, 10vw, 120px)",
-      background: (isCompact || scrolled) ? "rgba(255,255,255,0.97)" : "transparent",
-      backdropFilter: (isCompact || scrolled) ? "blur(12px)" : "none",
-      boxShadow: (isCompact || scrolled) ? "0 2px 20px rgba(124,58,237,0.14)" : "none",
+      height: isCompact ? "clamp(60px, 7.5vw, 86px)" : "clamp(80px, 11vw, 128px)",
+      background: (isCompact || scrolled) ? "rgba(242,237,255,0.97)" : "transparent",
+      backdropFilter: (isCompact || scrolled) ? "blur(14px)" : "none",
+      boxShadow: (isCompact || scrolled) ? "0 3px 24px rgba(124,58,237,0.13)" : "none",
+      borderBottom: (isCompact || scrolled) ? "1px solid rgba(167,139,250,0.2)" : "none",
       transition: "all 0.3s ease",
     }}>
       {/* Логотип */}
