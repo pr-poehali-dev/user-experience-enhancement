@@ -32,7 +32,7 @@ export function Hero() {
       <div style={{
         textAlign: "center",
         lineHeight: 1.05,
-        marginTop: "-30vh",
+        marginTop: "-36vh",
       }}>
         <div style={{
           fontSize: "clamp(44px, 6.5vw, 105px)",
