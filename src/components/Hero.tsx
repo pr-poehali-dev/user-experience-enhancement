@@ -70,9 +70,9 @@ export function Hero() {
       {/* Подпись */}
       <div style={{
         textAlign: "center",
-        marginTop: "clamp(12px, 2vh, 24px)",
+        marginTop: "clamp(20px, 3.5vh, 36px)",
         lineHeight: 1.35,
-        fontSize: "clamp(16px, 1.6vw, 24px)",
+        fontSize: "clamp(18px, 1.9vw, 28px)",
         fontWeight: 500,
         fontFamily: "'Montserrat', sans-serif",
         color: "#3d2070",
@@ -85,7 +85,7 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(20px, 3vh, 36px)",
+          marginTop: "clamp(36px, 5.5vh, 64px)",
           display: "flex",
           alignItems: "center",
           gap: 14,
@@ -93,7 +93,7 @@ export function Hero() {
           color: "#fff",
           border: "4px solid #c44a00",
           borderRadius: 999,
-          padding: "clamp(16px, 2.4vh, 26px) clamp(28px, 3.5vw, 56px)",
+          padding: "clamp(10px, 1.4vh, 16px) clamp(28px, 3.5vw, 56px)",
           fontSize: "clamp(20px, 2.4vw, 34px)",
           fontWeight: 700,
           fontFamily: "'Nunito', sans-serif",
