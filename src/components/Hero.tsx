@@ -48,6 +48,8 @@ export function Hero() {
           letterSpacing: "-0.5px",
           textShadow: "0 3px 0 rgba(255,255,255,0.4)",
           marginBottom: "-0.05em",
+          transform: "scaleY(1.15)",
+          display: "block",
         }}>
           Воздушные
         </div>
@@ -57,6 +59,8 @@ export function Hero() {
           fontFamily: "'Montserrat', sans-serif",
           letterSpacing: "-0.5px",
           lineHeight: 0.9,
+          transform: "scaleY(1.15)",
+          display: "block",
           background: "linear-gradient(105deg, #5b21b6 0%, #7c3aed 25%, #db2777 60%, #f97316 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
