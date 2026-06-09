@@ -27,7 +27,7 @@ export function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "6px 24px 6px 8px",
+        padding: "2px 24px 2px 8px",
         zIndex: 20,
       }}>
         {/* Логотип */}
@@ -56,7 +56,7 @@ export function Hero() {
           {[
             { label: "О нас", path: "/about", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> },
             { label: "Прайс", path: "/contacts", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg> },
-            { label: "Каталог", path: "/catalog", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> },
+            { label: "Каталог", path: "/catalog", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="11" r="7"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M9 8 Q10 6 12 7" strokeWidth="1.8"/></svg> },
             { label: "Отзывы", path: "#popular", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> },
             { label: "Доставка", path: "/delivery", svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> },
           ].map((item) => (
@@ -76,7 +76,7 @@ export function Hero() {
                 fontSize: "clamp(14px, 1.35vw, 19px)",
                 fontWeight: 700,
                 fontFamily: "'Montserrat', sans-serif",
-                color: "#3b1fa3",
+                color: "#1a1a1a",
                 whiteSpace: "nowrap",
                 transition: "color 0.2s, transform 0.15s",
               }}
@@ -85,7 +85,7 @@ export function Hero() {
                 ;(e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.color = "#3b1fa3"
+                (e.currentTarget as HTMLElement).style.color = "#1a1a1a"
                 ;(e.currentTarget as HTMLElement).style.transform = "translateY(0)"
               }}
             >
