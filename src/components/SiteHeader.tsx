@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 const LOGO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/2b7aa5e7-076f-477e-9c08-2524b06cad6a.png"
 
@@ -12,6 +13,13 @@ const NAV = [
 
 export function SiteHeader() {
   const navigate = useNavigate()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   const go = (path: string) => {
     if (path === "#popular") {
@@ -27,10 +35,14 @@ export function SiteHeader() {
       top: 0, left: 0, right: 0,
       zIndex: 100,
       display: "flex",
-      alignItems: "flex-start",
+      alignItems: "center",
       justifyContent: "space-between",
       padding: "0px 24px 0px 8px",
-      pointerEvents: "none",
+      height: "clamp(64px, 9vw, 110px)",
+      background: scrolled ? "rgba(237,233,254,0.97)" : "transparent",
+      backdropFilter: scrolled ? "blur(10px)" : "none",
+      boxShadow: scrolled ? "0 2px 16px rgba(124,58,237,0.10)" : "none",
+      transition: "background 0.3s, box-shadow 0.3s",
     }}>
       {/* Логотип */}
       <img
@@ -38,14 +50,12 @@ export function SiteHeader() {
         alt="Шаровик Затейник"
         onClick={() => navigate("/")}
         style={{
-          height: "clamp(70px, 10vw, 130px)",
+          height: "clamp(60px, 8.5vw, 115px)",
           width: "auto",
           cursor: "pointer",
           filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.12))",
           flexShrink: 0,
           marginLeft: "clamp(8px, 2vw, 32px)",
-          marginTop: "clamp(14px, 2vh, 26px)",
-          pointerEvents: "all",
         }}
       />
 
@@ -58,7 +68,6 @@ export function SiteHeader() {
         left: "50%",
         transform: "translateX(-50%)",
         top: "30px",
-        pointerEvents: "all",
       }}>
         {NAV.map((item) => (
           <button
@@ -101,14 +110,12 @@ export function SiteHeader() {
           padding: "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
           fontWeight: 800,
           fontSize: "clamp(14px, 1.4vw, 20px)",
-          marginTop: "-44px",
           fontFamily: "'Montserrat', sans-serif",
           textDecoration: "none",
           whiteSpace: "nowrap",
           flexShrink: 0,
           animation: "phonePulse 2s infinite",
           transition: "transform 0.2s",
-          pointerEvents: "all",
         }}
         onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
         onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
