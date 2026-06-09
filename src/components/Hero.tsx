@@ -54,7 +54,7 @@ export function Hero() {
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
-          top: "22px",
+          top: "30px",
         }}>
           {[
             { label: "О нас", path: "/about", svg: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> },
@@ -109,7 +109,7 @@ export function Hero() {
             padding: "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
             fontWeight: 800,
             fontSize: "clamp(14px, 1.4vw, 20px)",
-            marginTop: "-4px",
+            marginTop: "-10px",
             fontFamily: "'Montserrat', sans-serif",
             textDecoration: "none",
             whiteSpace: "nowrap",
