@@ -9,6 +9,7 @@ import {
   dischargeSubcategories,
 } from "@/data/catalogData"
 import CompositionModal from "./CompositionModal"
+import { useFavorites } from "@/context/FavoritesContext"
 
 declare global { interface Window { _catalogScrollY?: number } }
 
@@ -23,26 +24,38 @@ function PriceInputs({
   onMinChange: (v: number | "") => void
   onMaxChange: (v: number | "") => void
 }) {
+  const hasValue = minPrice !== "" || maxPrice !== ""
   return (
-    <div className="flex items-center gap-2">
-      <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Бюджет</p>
-      <div className="flex items-center gap-1.5 ml-2">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <div
+          className="flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-sm"
+          style={{
+            background: hasValue ? "linear-gradient(135deg,#7c3aed,#a855f7)" : "linear-gradient(135deg,#f5f3ff,#ede9fe)",
+            color: hasValue ? "#fff" : "#7c3aed",
+            border: hasValue ? "none" : "2px solid #c4b5fd",
+          }}
+        >
+          <Icon name="Wallet" size={16} />
+          <span className="whitespace-nowrap">Выберите бюджет</span>
+        </div>
+      </div>
+      <div className="flex items-center gap-2 ml-1">
         <input
           type="number"
           value={minPrice}
-          placeholder="от"
+          placeholder="от ₽"
           onChange={(e) => onMinChange(e.target.value === "" ? "" : Number(e.target.value))}
-          className="w-20 text-center text-sm font-bold text-primary border border-border rounded-lg px-2 py-1 focus:outline-none focus:border-primary"
+          className="w-24 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-2 focus:outline-none focus:border-primary bg-white"
         />
-        <span className="text-muted-foreground text-sm">—</span>
+        <span className="text-muted-foreground font-bold">—</span>
         <input
           type="number"
           value={maxPrice}
-          placeholder="до"
+          placeholder="до ₽"
           onChange={(e) => onMaxChange(e.target.value === "" ? "" : Number(e.target.value))}
-          className="w-24 text-center text-sm font-bold text-primary border border-border rounded-lg px-2 py-1 focus:outline-none focus:border-primary"
+          className="w-24 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-2 focus:outline-none focus:border-primary bg-white"
         />
-        <span className="text-sm text-primary font-bold">₽</span>
       </div>
     </div>
   )
@@ -80,6 +93,7 @@ export default function CompositionGrid({
   }, [searchParams])
 
   const [modal, setModal] = useState<ModalItem>(null)
+  const { toggleFavorite, isFavorite } = useFavorites()
 
   const visibleCountKey = "catalog_visible_" + (searchParams.get("section") ?? "home")
   const [visibleCount, setVisibleCountState] = useState<number>(() => {
@@ -253,9 +267,19 @@ export default function CompositionGrid({
         )}
 
         {/* Color filter */}
-        <div>
+        <div className="flex flex-col gap-2">
+          <div
+            className="flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-sm w-fit"
+            style={{
+              background: activeColors.length > 0 ? "linear-gradient(135deg,#f97316,#e63000)" : "linear-gradient(135deg,#fff7ed,#ffedd5)",
+              color: activeColors.length > 0 ? "#fff" : "#f97316",
+              border: activeColors.length > 0 ? "none" : "2px solid #fed7aa",
+            }}
+          >
+            <Icon name="Palette" size={16} />
+            <span>Выберите цвет</span>
+          </div>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap self-center">Цвет</p>
             {COLOR_OPTIONS.map((color) => {
               const isActive = activeColors.includes(color.id)
               return (
@@ -320,6 +344,19 @@ export default function CompositionGrid({
             >
               <img src={item.image} alt={item.title} className="w-full object-cover group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "1/1" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Кнопка избранного */}
+              <button
+                className="absolute top-2 left-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100 hover:scale-110"
+                style={{
+                  background: isFavorite(item.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.85)",
+                }}
+                onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
+                title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill={isFavorite(item.id) ? "#fff" : "none"} stroke={isFavorite(item.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
               {/* Badge */}
               {(showSubcategoryBadge || showDischargeBadge) && item.subcategory && (
                 <div className="absolute top-2 left-2">

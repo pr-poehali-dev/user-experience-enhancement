@@ -43,3 +43,13 @@ export const COLOR_OPTIONS = [
 ]
 
 export type ModalItem = Composition | null
+
+let _allCompositions: Composition[] = []
+
+export function registerAllCompositions(items: Composition[]) {
+  _allCompositions = items
+}
+
+export function getAllCompositions(): Composition[] {
+  return _allCompositions
+}

@@ -1,7 +1,9 @@
 import { useRef, useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
+import PopularModal from "@/components/PopularModal"
 
 const packages = [
   { title: "Набор для девочки 1", category: "Для девочки", count: "15 шариков", emoji: "👑", rating: "4.9", reviews: "128", image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9c99662e-bef5-4504-a623-e3bdc9ab36a3.jpg", highlights: ["Розовые", "Сиреневые", "Фольга"], price: "1 890 ₽" },
@@ -26,13 +28,17 @@ const packages = [
   { title: "Набор для мужчины 5", category: "Для мужчины", count: "10 шариков", emoji: "🎩", rating: "4.8", reviews: "85", image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d31b7e40-58dd-400d-8549-46b93da1df23.jpg", highlights: ["Чёрные", "Белые"], price: "1 290 ₽" },
 ]
 
+export type PopularPkg = typeof packages[0]
+
 export function PopularPackages() {
+  const navigate = useNavigate()
   const scrollRef = useRef<HTMLDivElement>(null)
   const desktopScrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
   const [dCanLeft, setDCanLeft] = useState(false)
   const [dCanRight, setDCanRight] = useState(true)
+  const [modal, setModal] = useState<PopularPkg | null>(null)
 
   const updateArrows = () => {
     const el = scrollRef.current
@@ -70,9 +76,18 @@ export function PopularPackages() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10 sm:mb-16">
           <div className="max-w-3xl">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 sm:mb-6 text-balance">
-              Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
-            </h2>
+            <div className="flex items-center gap-4 flex-wrap mb-4 sm:mb-6">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-balance">
+                Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
+              </h2>
+              <button
+                onClick={() => navigate("/popular")}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm text-white transition-transform hover:scale-105 flex-shrink-0"
+                style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 12px rgba(249,115,22,0.4)" }}
+              >
+                Смотреть все <Icon name="ArrowRight" size={14} />
+              </button>
+            </div>
             <p className="text-base sm:text-lg text-muted-foreground text-balance leading-relaxed">
               Самые любимые композиции наших покупателей — уже готовые к заказу
             </p>
@@ -103,7 +118,7 @@ export function PopularPackages() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {packages.map((pkg, index) => (
-              <div key={index} className="snap-start flex-shrink-0" style={{ width: "calc(50% - 6px)" }}>
+              <div key={index} className="snap-start flex-shrink-0 cursor-pointer" style={{ width: "calc(50% - 6px)" }} onClick={() => setModal(pkg)}>
                 <Card className="group overflow-hidden border-0 bg-card shadow-md h-full flex flex-col">
                   <div className="relative overflow-hidden bg-orange-50" style={{ aspectRatio: "4/3" }}>
                     <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" />
@@ -156,8 +171,9 @@ export function PopularPackages() {
           {packages.map((pkg, index) => (
             <Card
               key={index}
-              className="group overflow-hidden border-0 bg-card hover:shadow-2xl transition-all duration-500 flex-shrink-0"
+              className="group overflow-hidden border-0 bg-card hover:shadow-2xl transition-all duration-500 flex-shrink-0 cursor-pointer"
               style={{ width: "320px" }}
+              onClick={() => setModal(pkg)}
             >
               <div className="relative h-52 overflow-hidden bg-orange-50">
                 <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -195,6 +211,15 @@ export function PopularPackages() {
           ))}
         </div>
       </div>
+
+      {modal && (
+        <PopularModal
+          item={modal}
+          all={packages}
+          onNav={setModal}
+          onClose={() => setModal(null)}
+        />
+      )}
     </section>
   )
 }

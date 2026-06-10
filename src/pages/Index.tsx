@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { Hero } from "@/components/Hero"
-import { WhyChooseUs } from "@/components/WhyChooseUs"
 import { PopularPackages } from "@/components/PopularPackages"
+import { Reviews } from "@/components/Reviews"
 import { Footer } from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
@@ -45,8 +45,8 @@ export default function Index() {
   return (
     <main className="min-h-screen">
       <Hero />
-      <WhyChooseUs />
       <PopularPackages />
+      <Reviews />
       <CatalogCTA />
       <Footer />
     </main>

@@ -10,6 +10,8 @@ import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import Delivery from "./pages/Delivery";
 import NotFound from "./pages/NotFound";
+import Favorites from "./pages/Favorites";
+import PopularAll from "./pages/PopularAll";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/about" element={<About />} />
           <Route path="/delivery" element={<Delivery />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/popular" element={<PopularAll />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

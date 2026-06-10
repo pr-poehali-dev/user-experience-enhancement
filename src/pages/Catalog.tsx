@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import Icon from "@/components/ui/icon"
-import { Composition } from "@/data/catalogData"
+import { Composition, registerAllCompositions } from "@/data/catalogData"
 import CompositionGrid from "@/components/catalog/CompositionGrid"
 
 const compositions: Record<string, Composition[]> = {
@@ -903,6 +903,19 @@ function buildBirthdayGrid(): Composition[] {
 }
 
 const allBirthdayCompositions: Composition[] = buildBirthdayGrid()
+
+// Регистрируем все композиции для страницы Избранного
+const _allForFavorites = [
+  ...compositions.girl,
+  ...compositions.man,
+  ...compositions.boy,
+  ...compositions["kid-girl"],
+  ...(compositions["boy-discharge"] ?? []),
+  ...(compositions["girl-discharge"] ?? []),
+  ...(compositions.other ?? []),
+  ...(compositions.custom ?? []),
+]
+registerAllCompositions(_allForFavorites)
 
 export default function Catalog() {
   const navigate = useNavigate()

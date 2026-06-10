@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import Icon from "@/components/ui/icon"
 import { Composition, birthdaySubcategories } from "@/data/catalogData"
+import { useFavorites } from "@/context/FavoritesContext"
 
 const itemKey = (i: Composition) => `${i.subcategory ?? ""}|${i.id}|${i.title}`
 
@@ -13,6 +14,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
   const idx = allItems.findIndex((i) => itemKey(i) === itemKey(modal))
   const hasPrev = idx > 0
   const hasNext = idx < allItems.length - 1
+  const { toggleFavorite, isFavorite } = useFavorites()
 
   const goPrev = () => { if (hasPrev) onNavigate(allItems[idx - 1]) }
   const goNext = () => { if (hasNext) onNavigate(allItems[idx + 1]) }
@@ -61,6 +63,11 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
     setSwipeOffset(0)
     setSlideDir(null)
   }, [modal])
+
+  useEffect(() => {
+    document.body.setAttribute("data-modal-open", "1")
+    return () => document.body.removeAttribute("data-modal-open")
+  }, [])
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -141,6 +148,16 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               >{modal.title}</h3>
               <div><span className="text-orange-500 font-bold text-lg">{modal.price}</span></div>
             </div>
+            <button
+              onClick={() => toggleFavorite(modal.id)}
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110"
+              style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(243,232,255,1)" }}
+              title={isFavorite(modal.id) ? "Убрать из избранного" : "В избранное"}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </button>
           </div>
           <div className="px-4 pb-1 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1">
@@ -234,9 +251,21 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               >{modal.title}</h3>
               <div><span className="text-orange-500 font-bold text-base sm:text-lg">{modal.price}</span></div>
             </div>
-            <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}>
-              <Icon name="X" size={18} />
-            </button>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <button
+                onClick={() => toggleFavorite(modal.id)}
+                className="w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-transform hover:scale-110"
+                style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(243,232,255,1)" }}
+                title={isFavorite(modal.id) ? "Убрать из избранного" : "В избранное"}
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+              <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}>
+                <Icon name="X" size={18} />
+              </button>
+            </div>
           </div>
           <div className="px-5 pt-4 pb-1 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5">
