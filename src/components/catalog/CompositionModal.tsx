@@ -147,22 +147,24 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
         </div>
         {/* Контент под фото */}
         <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
-          {/* Название и цена — красивое для всех наборов */}
-          <div className="px-4 pt-4 pb-3 flex-shrink-0" style={{background:"linear-gradient(135deg,#f5f3ff,#fff7ed)"}}>
-            <div className="flex items-start justify-between gap-2">
+          {/* Шапка с названием и ценой */}
+          <div className="flex-shrink-0">
+            {/* Полоска-акцент */}
+            <div style={{height:3, background:"linear-gradient(90deg,#7c3aed,#f97316,#f43f5e)"}} />
+            <div className="px-4 pt-3 pb-3 flex items-start justify-between gap-2 bg-white">
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-black leading-snug mb-2.5" style={{color:"#1a1a2e", fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-black" style={{color:"#e63000", fontFamily:"'Montserrat',sans-serif", lineHeight:1}}>{modal.price}</span>
-                  <span className="text-[11px] text-muted-foreground">за набор</span>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-1">🎈 Набор</p>
+                <h3 className="text-base font-extrabold leading-snug text-foreground mb-3" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
+                <div className="inline-flex items-baseline gap-1.5 px-3 py-1 rounded-full" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
+                  <span className="text-lg font-black text-white" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.price}</span>
                 </div>
               </div>
               <button
                 onClick={() => toggleFavorite(modal.id)}
-                className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110"
-                style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.9)" }}
+                className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-all hover:scale-110 active:scale-90 mt-1"
+                style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "#f5f3ff" }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </button>
@@ -289,18 +291,19 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
 
         {/* RIGHT — контент */}
         <div className="flex-1 flex flex-col overflow-hidden bg-white">
-          {/* Заголовок десктоп — красивое для всех */}
-          <div className="px-5 pt-5 pb-4 flex-shrink-0" style={{background:"linear-gradient(135deg,#f5f3ff,#fff7ed)"}}>
-            <div className="flex items-start justify-between gap-3">
+          {/* Заголовок десктоп */}
+          <div className="flex-shrink-0">
+            <div style={{height:3, background:"linear-gradient(90deg,#7c3aed,#f97316,#f43f5e)"}} />
+            <div className="px-5 pt-4 pb-4 flex items-start justify-between gap-3 bg-white">
               <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-black leading-snug mb-2.5" style={{color:"#1a1a2e", fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black" style={{color:"#e63000",fontFamily:"'Montserrat',sans-serif", lineHeight:1}}>{modal.price}</span>
-                  <span className="text-sm text-muted-foreground">за набор</span>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-1">🎈 Набор</p>
+                <h3 className="text-xl font-extrabold leading-snug text-foreground mb-3" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
+                <div className="inline-flex items-baseline gap-1.5 px-4 py-1.5 rounded-full" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
+                  <span className="text-xl font-black text-white" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.price}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <button onClick={() => toggleFavorite(modal.id)} className="w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-transform hover:scale-110" style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.9)" }}>
+              <div className="flex items-center gap-2 flex-shrink-0 mt-1">
+                <button onClick={() => toggleFavorite(modal.id)} className="w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-all hover:scale-110 active:scale-90" style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "#f5f3ff" }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </button>
                 <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}><Icon name="X" size={18} /></button>

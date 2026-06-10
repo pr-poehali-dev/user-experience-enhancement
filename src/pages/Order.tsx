@@ -14,7 +14,7 @@ export default function Order() {
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [contactMethod, setContactMethod] = useState<ContactMethod>("call")
-  const [messenger, setMessenger] = useState<Messenger>("whatsapp")
+  const [messenger, setMessenger] = useState<Messenger | null>(null)
   const [question, setQuestion] = useState("")
   const [sent, setSent] = useState(false)
 
@@ -24,7 +24,7 @@ export default function Order() {
     e.preventDefault()
     if (!name.trim() || !phone.trim()) return
 
-    const messengerLabel = { whatsapp: "WhatsApp", telegram: "Telegram", max: "Max" }[messenger]
+    const messengerLabel = messenger ? { whatsapp: "WhatsApp", telegram: "Telegram", max: "Max" }[messenger] : ""
     const contactLabel = contactMethod === "call" ? "позвонить" : `написать в ${messengerLabel}`
 
     const waText = encodeURIComponent(
@@ -129,7 +129,7 @@ export default function Order() {
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                onClick={() => setContactMethod("call")}
+                onClick={() => { setContactMethod("call"); setMessenger(null) }}
                 className="flex flex-col items-center gap-2 py-4 rounded-2xl border-2 font-semibold transition-all"
                 style={{
                   borderColor: contactMethod === "call" ? "#7c3aed" : "#e5e7eb",
@@ -194,10 +194,17 @@ export default function Order() {
             </p>
           </div>
 
+          {/* Подсказка если мессенджер не выбран */}
+          {contactMethod === "write" && !messenger && (
+            <p className="text-sm text-amber-600 font-medium text-center -mb-1">
+              ⚠️ Выберите мессенджер для продолжения
+            </p>
+          )}
+
           {/* Кнопка отправки */}
           <button
             type="submit"
-            disabled={!name.trim() || !phone.trim()}
+            disabled={!name.trim() || !phone.trim() || (contactMethod === "write" && !messenger)}
             className="w-full py-4 rounded-2xl text-white font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             style={{
               background: "linear-gradient(135deg,#f97316,#e63000)",

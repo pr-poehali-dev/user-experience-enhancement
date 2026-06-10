@@ -163,22 +163,27 @@ export function Hero() {
           boxShadow: "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)",
           transition: "transform 0.15s, box-shadow 0.15s", whiteSpace: "nowrap",
           position: "relative", zIndex: 3,
+          animation: "catalogBtnWiggle 2.8s ease-in-out infinite, catalogBtnGlow 2.8s ease-in-out infinite",
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.transform = "translateY(-3px) scale(1.04)"
+          (e.currentTarget as HTMLElement).style.animation = "none"
+          ;(e.currentTarget as HTMLElement).style.transform = "translateY(-3px) scale(1.04)"
           ;(e.currentTarget as HTMLElement).style.boxShadow = "0 11px 0 #a33a00, 0 14px 40px rgba(180,60,0,0.55)"
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.transform = "translateY(0) scale(1)"
-          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)"
+          (e.currentTarget as HTMLElement).style.animation = "catalogBtnWiggle 2.8s ease-in-out infinite, catalogBtnGlow 2.8s ease-in-out infinite"
+          ;(e.currentTarget as HTMLElement).style.transform = ""
+          ;(e.currentTarget as HTMLElement).style.boxShadow = ""
         }}
         onMouseDown={e => {
-          (e.currentTarget as HTMLElement).style.transform = "translateY(5px)"
+          (e.currentTarget as HTMLElement).style.animation = "none"
+          ;(e.currentTarget as HTMLElement).style.transform = "translateY(5px)"
           ;(e.currentTarget as HTMLElement).style.boxShadow = "0 3px 0 #a33a00, 0 4px 16px rgba(180,60,0,0.35)"
         }}
         onMouseUp={e => {
-          (e.currentTarget as HTMLElement).style.transform = "translateY(0)"
-          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)"
+          (e.currentTarget as HTMLElement).style.transform = ""
+          ;(e.currentTarget as HTMLElement).style.boxShadow = ""
+          ;(e.currentTarget as HTMLElement).style.animation = "catalogBtnWiggle 2.8s ease-in-out infinite, catalogBtnGlow 2.8s ease-in-out infinite"
         }}
       >Смотреть каталог →</button>
 
