@@ -1,8 +1,9 @@
-import { useRef, useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import CompositionModal from "@/components/catalog/CompositionModal"
 import { Composition } from "@/data/catalogData"
+import { useFavorites } from "@/context/FavoritesContext"
 
 const packages: Composition[] = [
   { id: 9001, title: "Набор для девочки 1", description: "Розовые и сиреневые шары, фольгированные фигуры, стеклянные шары с конфетти", price: "1 890 ₽", priceNum: 1890, colors: ["pink", "purple"], subcategory: "kid-girl", image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9c99662e-bef5-4504-a623-e3bdc9ab36a3.jpg" },
@@ -29,46 +30,15 @@ const packages: Composition[] = [
 
 export type PopularPkg = typeof packages[0]
 
-const CARD_W = 260 // ширина карточки px
-const GAP = 16
-
 export function PopularPackages() {
   const navigate = useNavigate()
-  const trackRef = useRef<HTMLDivElement>(null)
   const [modal, setModal] = useState<Composition | null>(null)
-  const [isPaused, setIsPaused] = useState(false)
-  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const posRef = useRef(0)
-
-  const startAuto = useCallback(() => {
-    if (autoRef.current) clearInterval(autoRef.current)
-    autoRef.current = setInterval(() => {
-      const track = trackRef.current
-      if (!track) return
-      const maxScroll = track.scrollWidth / 2
-      posRef.current += 1
-      if (posRef.current >= maxScroll) posRef.current = 0
-      track.style.transform = `translateX(-${posRef.current}px)`
-    }, 20)
-  }, [])
-
-  const stopAuto = useCallback(() => {
-    if (autoRef.current) { clearInterval(autoRef.current); autoRef.current = null }
-  }, [])
-
-  useEffect(() => {
-    if (!isPaused) startAuto()
-    else stopAuto()
-    return () => stopAuto()
-  }, [isPaused, startAuto, stopAuto])
-
-  // Бесконечная лента — дублируем массив
-  const doubled = [...packages, ...packages]
+  const { toggleFavorite, isFavorite } = useFavorites()
 
   return (
-    <section id="popular" className="py-16 sm:py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
-        <div className="flex items-center justify-between flex-wrap gap-4">
+    <section id="popular" className="py-16 sm:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-8 sm:mb-12 flex-wrap gap-4">
           <div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-balance">
               Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
@@ -88,57 +58,59 @@ export function PopularPackages() {
             Смотреть все <Icon name="ArrowRight" size={18} />
           </button>
         </div>
-      </div>
 
-      {/* Бесконечная лента */}
-      <div
-        className="relative"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        style={{ cursor: isPaused ? "grab" : "default" }}
-      >
-        <div
-          ref={trackRef}
-          className="flex"
-          style={{
-            gap: GAP,
-            willChange: "transform",
-            transition: isPaused ? "none" : undefined,
-          }}
-        >
-          {doubled.map((pkg, index) => (
+        {/* Сетка как в обычных разделах */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+          {packages.map((pkg) => (
             <div
-              key={`${pkg.id}-${index}`}
-              className="group relative flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl"
-              style={{ width: CARD_W, height: CARD_W }}
-              onClick={() => { setIsPaused(true); setModal(pkg) }}
+              key={pkg.id}
+              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+              onClick={() => setModal(pkg)}
             >
               <img
                 src={pkg.image}
                 alt={pkg.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                style={{ aspectRatio: "1/1" }}
               />
-              {/* Градиент снизу */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              {/* Цена — всегда видна */}
-              <div className="absolute bottom-3 left-3 right-3">
-                <p className="text-white font-extrabold text-xl drop-shadow-lg">{pkg.price}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Price + title overlay */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-11 px-3">
+                <p
+                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+                >{pkg.title}</p>
+                <p className="text-white font-extrabold text-base drop-shadow-lg">{pkg.price}</p>
               </div>
-              {/* Название — при наведении */}
-              <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent px-3 pt-3 pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-semibold leading-tight drop-shadow">{pkg.title}</p>
+
+              {/* Нижняя панель: ♥ + Оформить */}
+              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2 z-10">
+                <button
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90 flex-shrink-0"
+                  style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
+                  onClick={e => { e.stopPropagation(); toggleFavorite(pkg.id) }}
+                  title={isFavorite(pkg.id) ? "Убрать из избранного" : "В избранное"}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24"
+                    fill={isFavorite(pkg.id) ? "#f43f5e" : "none"}
+                    stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(pkg.id) ? "scale(1.25)" : "scale(1)" }}
+                  >
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </button>
+                <button
+                  className="flex-1 flex items-center justify-center text-white text-[10px] sm:text-xs font-bold py-1.5 rounded-full transition-all hover:opacity-90 active:scale-95"
+                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 2px 8px rgba(249,115,22,0.4)" }}
+                  onClick={e => { e.stopPropagation(); window.location.href = `/order?mode=order&title=${encodeURIComponent(pkg.title)}` }}
+                >
+                  Оформить
+                </button>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Подсказка — пауза при ручном листании */}
-        {isPaused && (
-          <div className="absolute bottom-3 right-4 bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
-            Нажмите для просмотра
-          </div>
-        )}
       </div>
 
       {modal && (
@@ -146,7 +118,7 @@ export function PopularPackages() {
           modal={modal}
           allItems={packages}
           onNavigate={setModal}
-          onClose={() => { setModal(null); setIsPaused(false) }}
+          onClose={() => setModal(null)}
         />
       )}
     </section>

@@ -2,46 +2,84 @@ import { useNavigate } from "react-router-dom"
 
 const BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7fda3455-48ed-4479-b42c-5dac5056af85.png"
 
-// Статичные конфетти — фиксированные позиции, без анимации
+// Статичные конфетти + звёзды + стикеры — фиксированные позиции
 const CONFETTI = [
-  // Прямоугольные конфетти
-  { type: "rect", x: 3, y: 8, w: 18, h: 9, color: "#f97316", rot: 25 },
-  { type: "rect", x: 7, y: 22, w: 14, h: 7, color: "#7c3aed", rot: -15 },
-  { type: "rect", x: 2, y: 42, w: 20, h: 10, color: "#ec4899", rot: 40 },
-  { type: "rect", x: 14, y: 62, w: 16, h: 8, color: "#facc15", rot: -30 },
-  { type: "rect", x: 5, y: 78, w: 18, h: 9, color: "#60a5fa", rot: 15 },
-  { type: "rect", x: 88, y: 12, w: 20, h: 10, color: "#f43f5e", rot: -22 },
-  { type: "rect", x: 92, y: 30, w: 15, h: 8, color: "#a855f7", rot: 35 },
-  { type: "rect", x: 86, y: 55, w: 18, h: 9, color: "#fb923c", rot: -18 },
-  { type: "rect", x: 91, y: 72, w: 16, h: 8, color: "#34d399", rot: 28 },
-  { type: "rect", x: 94, y: 88, w: 14, h: 7, color: "#f97316", rot: -10 },
-  { type: "rect", x: 25, y: 5, w: 16, h: 8, color: "#a855f7", rot: 20 },
-  { type: "rect", x: 70, y: 7, w: 18, h: 9, color: "#facc15", rot: -25 },
-  { type: "rect", x: 45, y: 3, w: 14, h: 7, color: "#ec4899", rot: 10 },
+  // Прямоугольные конфетти — много!
+  { type: "rect", x: 2,  y: 7,  w: 20, h: 10, color: "#f97316", rot: 25 },
+  { type: "rect", x: 6,  y: 20, w: 16, h: 8,  color: "#7c3aed", rot: -15 },
+  { type: "rect", x: 1,  y: 40, w: 22, h: 11, color: "#ec4899", rot: 40 },
+  { type: "rect", x: 13, y: 60, w: 18, h: 9,  color: "#facc15", rot: -30 },
+  { type: "rect", x: 4,  y: 77, w: 20, h: 10, color: "#60a5fa", rot: 15 },
+  { type: "rect", x: 87, y: 11, w: 22, h: 11, color: "#f43f5e", rot: -22 },
+  { type: "rect", x: 91, y: 28, w: 17, h: 9,  color: "#a855f7", rot: 35 },
+  { type: "rect", x: 85, y: 52, w: 20, h: 10, color: "#fb923c", rot: -18 },
+  { type: "rect", x: 90, y: 70, w: 18, h: 9,  color: "#34d399", rot: 28 },
+  { type: "rect", x: 93, y: 87, w: 16, h: 8,  color: "#f97316", rot: -10 },
+  { type: "rect", x: 23, y: 4,  w: 18, h: 9,  color: "#a855f7", rot: 20 },
+  { type: "rect", x: 68, y: 6,  w: 20, h: 10, color: "#facc15", rot: -25 },
+  { type: "rect", x: 44, y: 2,  w: 16, h: 8,  color: "#ec4899", rot: 10 },
+  { type: "rect", x: 55, y: 90, w: 18, h: 9,  color: "#7c3aed", rot: 22 },
+  { type: "rect", x: 38, y: 92, w: 14, h: 7,  color: "#f43f5e", rot: -8 },
+  { type: "rect", x: 76, y: 88, w: 16, h: 8,  color: "#34d399", rot: 32 },
+  { type: "rect", x: 16, y: 85, w: 20, h: 10, color: "#60a5fa", rot: -20 },
   // Круглые конфетти
-  { type: "circle", x: 10, y: 35, r: 9, color: "#facc15" },
-  { type: "circle", x: 18, y: 55, r: 7, color: "#f97316" },
-  { type: "circle", x: 8, y: 90, r: 10, color: "#7c3aed" },
-  { type: "circle", x: 95, y: 45, r: 8, color: "#ec4899" },
-  { type: "circle", x: 82, y: 82, r: 11, color: "#60a5fa" },
-  { type: "circle", x: 38, y: 6, r: 7, color: "#34d399" },
-  { type: "circle", x: 58, y: 4, r: 9, color: "#f43f5e" },
-  { type: "circle", x: 80, y: 5, r: 7, color: "#a855f7" },
-  // Ленточки (прямоугольники узкие длинные)
-  { type: "ribbon", x: 4, y: 16, w: 28, h: 4, color: "#f43f5e", rot: 30 },
-  { type: "ribbon", x: 85, y: 22, w: 32, h: 4, color: "#7c3aed", rot: -28 },
-  { type: "ribbon", x: 6, y: 68, w: 26, h: 3, color: "#facc15", rot: 20 },
-  { type: "ribbon", x: 88, y: 65, w: 30, h: 4, color: "#f97316", rot: -20 },
-  { type: "ribbon", x: 20, y: 90, w: 24, h: 3, color: "#ec4899", rot: 15 },
-  { type: "ribbon", x: 72, y: 92, w: 28, h: 4, color: "#60a5fa", rot: -12 },
-  { type: "ribbon", x: 30, y: 4, w: 22, h: 3, color: "#fb923c", rot: -5 },
-  { type: "ribbon", x: 60, y: 8, w: 20, h: 3, color: "#a855f7", rot: 18 },
+  { type: "circle", x: 9,  y: 33, r: 10, color: "#facc15" },
+  { type: "circle", x: 17, y: 53, r: 8,  color: "#f97316" },
+  { type: "circle", x: 7,  y: 90, r: 12, color: "#7c3aed" },
+  { type: "circle", x: 94, y: 43, r: 10, color: "#ec4899" },
+  { type: "circle", x: 81, y: 80, r: 12, color: "#60a5fa" },
+  { type: "circle", x: 37, y: 5,  r: 8,  color: "#34d399" },
+  { type: "circle", x: 57, y: 3,  r: 10, color: "#f43f5e" },
+  { type: "circle", x: 79, y: 4,  r: 8,  color: "#a855f7" },
+  { type: "circle", x: 50, y: 94, r: 9,  color: "#fb923c" },
+  { type: "circle", x: 30, y: 96, r: 7,  color: "#facc15" },
+  { type: "circle", x: 65, y: 93, r: 11, color: "#ec4899" },
+  // Ленточки
+  { type: "ribbon", x: 3,  y: 15, w: 32, h: 5, color: "#f43f5e", rot: 30 },
+  { type: "ribbon", x: 84, y: 20, w: 36, h: 5, color: "#7c3aed", rot: -28 },
+  { type: "ribbon", x: 5,  y: 67, w: 30, h: 4, color: "#facc15", rot: 20 },
+  { type: "ribbon", x: 87, y: 63, w: 34, h: 5, color: "#f97316", rot: -20 },
+  { type: "ribbon", x: 19, y: 91, w: 28, h: 4, color: "#ec4899", rot: 15 },
+  { type: "ribbon", x: 71, y: 91, w: 32, h: 5, color: "#60a5fa", rot: -12 },
+  { type: "ribbon", x: 29, y: 3,  w: 26, h: 4, color: "#fb923c", rot: -5 },
+  { type: "ribbon", x: 59, y: 7,  w: 24, h: 4, color: "#a855f7", rot: 18 },
+  { type: "ribbon", x: 47, y: 95, w: 20, h: 3, color: "#34d399", rot: -25 },
+  // Звёздочки (эмодзи)
+  { type: "emoji", x: 1,  y: 28, emoji: "⭐", size: 28 },
+  { type: "emoji", x: 97, y: 18, emoji: "✨", size: 24 },
+  { type: "emoji", x: 96, y: 60, emoji: "⭐", size: 30 },
+  { type: "emoji", x: 2,  y: 68, emoji: "🌟", size: 26 },
+  { type: "emoji", x: 50, y: 1,  emoji: "✨", size: 22 },
+  { type: "emoji", x: 34, y: 2,  emoji: "⭐", size: 26 },
+  { type: "emoji", x: 62, y: 1,  emoji: "🌟", size: 24 },
+  { type: "emoji", x: 22, y: 94, emoji: "✨", size: 22 },
+  { type: "emoji", x: 78, y: 94, emoji: "⭐", size: 28 },
+  // Праздничные стикеры
+  { type: "emoji", x: 0,  y: 55, emoji: "🎉", size: 32 },
+  { type: "emoji", x: 97, y: 75, emoji: "🎊", size: 30 },
+  { type: "emoji", x: 42, y: 0,  emoji: "🎈", size: 28 },
+  { type: "emoji", x: 55, y: 97, emoji: "🎁", size: 26 },
+  { type: "emoji", x: 86, y: 96, emoji: "🎉", size: 28 },
+  { type: "emoji", x: 10, y: 97, emoji: "🎊", size: 24 },
 ]
 
 function ConfettiLayer() {
   return (
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 1, overflow: "hidden" }}>
       {CONFETTI.map((c, i) => {
+        if (c.type === "emoji") {
+          return (
+            <div key={i} style={{
+              position: "absolute",
+              left: `${c.x}%`, top: `${c.y}%`,
+              fontSize: c.size,
+              lineHeight: 1,
+              opacity: 0.88,
+              userSelect: "none",
+              filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.15))",
+            }}>{c.emoji}</div>
+          )
+        }
         if (c.type === "circle") {
           return (
             <div key={i} style={{

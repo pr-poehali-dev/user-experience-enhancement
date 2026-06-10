@@ -149,11 +149,8 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
         <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
           <div className="px-4 pt-4 pb-2 flex items-start justify-between gap-2 flex-shrink-0">
             <div>
-              <h3
-                className="text-sm font-black leading-tight text-white inline-block px-2 py-0.5 rounded-md mb-1"
-                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)", letterSpacing: "0.02em", boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}
-              >{modal.title}</h3>
-              <div><span className="text-orange-500 font-bold text-lg">{modal.price}</span></div>
+              <h3 className="text-sm font-black leading-tight text-foreground mb-2">{modal.title}</h3>
+              <div className="mt-1"><span className="text-foreground font-bold text-lg">{modal.price}</span></div>
             </div>
             <button
               onClick={() => toggleFavorite(modal.id)}
@@ -187,9 +184,15 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-3 py-2 text-primary text-xs font-medium">
               🎨 Наполнение можно изменить под ваш бюджет и пожелания
             </div>
-            <div className="bg-muted/50 rounded-xl px-3 py-2 text-xs text-muted-foreground space-y-1">
-              <div className="flex items-start gap-2"><Icon name="Truck" size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Стоимость доставки по г. Краснодар — 350–500 ₽. При заказе на сумму от 3500 ₽ — <b className="text-green-600">ДОСТАВКА БЕСПЛАТНАЯ</b></span></div>
-              <div className="flex items-start gap-2"><Icon name="MapPin" size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span></div>
+            <div className="rounded-xl px-3 py-2 text-xs space-y-1" style={{background:"rgba(0,0,0,0.04)"}}>
+              <div className="flex items-start gap-2 text-black">
+                <Icon name="Truck" size={12} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
+                <span>Стоимость доставки по г. Краснодар — 350–500 ₽. При заказе от 3500 ₽ — <span style={{background:"#e11d48",color:"#fff",borderRadius:4,padding:"1px 5px",fontWeight:700}}>доставка бесплатная</span></span>
+              </div>
+              <div className="flex items-start gap-2 text-black">
+                <Icon name="MapPin" size={12} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
+                <span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
+              </div>
             </div>
           </div>
           <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2.5 bg-white">
@@ -270,11 +273,8 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
         <div className="flex-1 flex flex-col overflow-hidden bg-white">
           <div className="flex items-start justify-between px-5 pt-5 pb-3 border-b border-border/40 flex-shrink-0">
             <div className="flex-1 min-w-0 pr-3">
-              <h3
-                className="text-base sm:text-lg font-black leading-tight text-white inline-block px-3 py-1 rounded-lg mb-1"
-                style={{ background: "linear-gradient(135deg, hsl(var(--primary)), #f97316)", letterSpacing: "0.02em", boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
-              >{modal.title}</h3>
-              <div><span className="text-orange-500 font-bold text-base sm:text-lg">{modal.price}</span></div>
+              <h3 className="text-base sm:text-lg font-black leading-tight text-foreground mb-2">{modal.title}</h3>
+              <div className="mt-1"><span className="text-foreground font-bold text-base sm:text-lg">{modal.price}</span></div>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
@@ -313,9 +313,15 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
-            <div className="bg-muted/50 rounded-xl px-4 py-3 text-sm text-muted-foreground space-y-1.5">
-              <div className="flex items-start gap-2"><Icon name="Truck" size={14} className="text-primary flex-shrink-0 mt-0.5" /><span>Стоимость доставки по г. Краснодар — 350–500 ₽. При заказе на сумму от 3500 ₽ — <b className="text-green-600">ДОСТАВКА БЕСПЛАТНАЯ</b></span></div>
-              <div className="flex items-start gap-2"><Icon name="MapPin" size={14} className="text-primary flex-shrink-0 mt-0.5" /><span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span></div>
+            <div className="rounded-xl px-4 py-3 text-sm space-y-1.5" style={{background:"rgba(0,0,0,0.04)"}}>
+              <div className="flex items-start gap-2 text-black">
+                <Icon name="Truck" size={14} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
+                <span>Стоимость доставки по г. Краснодар — 350–500 ₽. При заказе от 3500 ₽ — <span style={{background:"#e11d48",color:"#fff",borderRadius:4,padding:"1px 6px",fontWeight:700}}>доставка бесплатная</span></span>
+              </div>
+              <div className="flex items-start gap-2 text-black">
+                <Icon name="MapPin" size={14} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
+                <span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
+              </div>
             </div>
           </div>
           <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-2.5 bg-white">

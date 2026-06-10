@@ -1030,15 +1030,8 @@ export default function Catalog() {
     }
 
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
-        <button
-          onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4 sm:mb-6 transition-colors text-sm"
-        >
-          <Icon name="ArrowLeft" size={16} /> На главную
-        </button>
-        <p className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-10" style={{color:"#7c3aed"}}>Выберите повод для праздника</p>
-        <div className="grid grid-cols-2 gap-3 sm:gap-6">
+      <div className="max-w-none px-3 sm:px-5 lg:px-8 pt-2 sm:pt-3 pb-16">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5">
           <button
             onClick={() => navigate("/catalog?section=birthday")}
             className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 min-h-[200px] sm:min-h-[340px] flex flex-col items-center justify-center gap-2 sm:gap-3 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 p-4 sm:p-6"

@@ -80,11 +80,13 @@ export function FloatingSocials() {
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95"
+        className="w-18 h-18 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95"
         style={{
-          background: open ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "linear-gradient(135deg,#25D366,#128C7E)",
-          boxShadow: "0 6px 24px rgba(0,0,0,0.25)",
+          width: 64, height: 64,
+          background: open ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "linear-gradient(135deg,#7c3aed,#a855f7)",
+          boxShadow: "0 6px 28px rgba(124,58,237,0.45)",
           transition: "all 0.2s",
+          animation: open ? "none" : "phonePulse 2.5s ease-in-out infinite",
         }}
         aria-label={open ? "Закрыть" : "Написать нам"}
       >

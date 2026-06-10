@@ -142,27 +142,24 @@ export function SiteHeader() {
       </nav>
 
       {/* Правая часть: Телефон + Избранное */}
-      <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px,0.8vw,12px)", flexShrink: 0, marginTop: isCompact ? "-6px" : "4px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px,1vw,16px)", flexShrink: 0, marginTop: isCompact ? "-4px" : "6px", marginRight: "clamp(4px,0.5vw,12px)" }}>
         {/* Телефон */}
         <a
           href="tel:+79880653700"
           style={{
-            display: "flex", alignItems: "center", gap: 7,
+            display: "flex", alignItems: "center", gap: 8,
             background: "linear-gradient(135deg, #7c3aed, #a855f7)",
             color: "#fff",
             borderRadius: 999,
-            padding: isCompact ? "clamp(6px,0.7vh,8px) clamp(10px,1.1vw,16px)" : "clamp(8px,0.9vh,11px) clamp(13px,1.4vw,22px)",
+            padding: isCompact ? "clamp(7px,0.85vh,10px) clamp(12px,1.3vw,20px)" : "clamp(10px,1.1vh,14px) clamp(16px,1.7vw,26px)",
             fontWeight: 800,
-            fontSize: isCompact ? "clamp(11px, 1.05vw, 13px)" : "clamp(12px, 1.15vw, 16px)",
+            fontSize: isCompact ? "clamp(12px, 1.15vw, 15px)" : "clamp(13px, 1.3vw, 18px)",
             fontFamily: "'Montserrat', sans-serif",
             textDecoration: "none",
             whiteSpace: "nowrap",
             flexShrink: 0,
-            animation: "phonePulse 2s infinite",
-            transition: "transform 0.2s",
+            animation: "phonePulse 2.5s ease-in-out infinite",
           }}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
         >
           📞 +7 988 065 37 00
         </a>

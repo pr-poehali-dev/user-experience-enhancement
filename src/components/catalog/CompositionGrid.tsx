@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import {
   Composition,
@@ -66,6 +66,7 @@ export default function CompositionGrid({
   showDischargeBadge?: boolean
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
 
   const activeSubcategories = useMemo(() => {
     const val = searchParams.get("sub")
@@ -335,61 +336,37 @@ export default function CompositionGrid({
             >
               <img src={item.image} alt={item.title} className="w-full object-cover group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "1/1" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Кнопка избранного — всегда видна, справа, фон всегда белый */}
-              <button
-                className="absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90"
-                style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
-                onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
-                title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
-              >
-                <svg
-                  width="13" height="13" viewBox="0 0 24 24"
-                  fill={isFavorite(item.id) ? "#f43f5e" : "none"}
-                  stroke="#f43f5e" strokeWidth="2.5"
-                  strokeLinecap="round" strokeLinejoin="round"
-                  style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(item.id) ? "scale(1.25)" : "scale(1)" }}
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                </svg>
-              </button>
-              {/* Badge */}
-              {(showSubcategoryBadge || showDischargeBadge) && item.subcategory && (
-                <div className="absolute top-2 left-2">
-                  <span className="text-xs bg-black/50 text-white px-2 py-0.5 rounded-full backdrop-blur-sm">
-                    {showSubcategoryBadge
-                      ? (birthdaySubcategories.find((s) => s.id === item.subcategory)?.emoji + " " + getBirthdayLabel(item.subcategory))
-                      : (dischargeSubcategories.find((s) => s.id === item.subcategory)?.emoji + " " + getDischargeLabel(item.subcategory))
-                    }
-                  </span>
-                </div>
-              )}
-              {/* Color dots */}
-              {item.colors && item.colors.length > 0 && (
-                <div className="absolute bottom-10 left-2 flex gap-1">
-                  {item.colors.slice(0, 4).map((colorId) => {
-                    const colorOpt = COLOR_OPTIONS.find((c) => c.id === colorId)
-                    if (!colorOpt) return null
-                    return (
-                      <span
-                        key={colorId}
-                        title={colorOpt.label}
-                        className="w-3.5 h-3.5 rounded-full shadow-md border border-white/60 flex-shrink-0"
-                        style={{ background: colorOpt.hex }}
-                      />
-                    )
-                  })}
-                </div>
-              )}
               {/* Price + title overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-2.5 px-3">
-                <HighlightedTitle
-                  title={item.title}
-                  id={item.id}
-                  subcategory={item.subcategory}
-                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 block"
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-11 px-3">
+                <p
+                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
-                />
+                >{item.title}</p>
                 <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
+              </div>
+              {/* Нижняя панель: ♥ + Оформить */}
+              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2 z-10">
+                <button
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90 flex-shrink-0"
+                  style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
+                  onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
+                  title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24"
+                    fill={isFavorite(item.id) ? "#f43f5e" : "none"}
+                    stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(item.id) ? "scale(1.25)" : "scale(1)" }}
+                  >
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </button>
+                <button
+                  className="flex-1 flex items-center justify-center text-white text-[10px] sm:text-xs font-bold py-1.5 rounded-full transition-all hover:opacity-90 active:scale-95"
+                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 2px 8px rgba(249,115,22,0.4)" }}
+                  onClick={e => { e.stopPropagation(); navigate(`/order?mode=order&title=${encodeURIComponent(item.title)}`) }}
+                >
+                  Оформить
+                </button>
               </div>
             </div>
           ))}

@@ -102,13 +102,13 @@ export function Reviews() {
 
         <div className="text-center mt-10 sm:mt-14">
           <a
-            href="https://vk.com/sharovik_krd"
+            href="https://www.avito.ru/krasnodar/tovary_dlya_detey_i_igrushki/vozdushnye_shary-ASgBAgICAUSwCw?sellerId=sharovik_krd"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white transition-transform hover:scale-105"
-            style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)", boxShadow: "0 4px 16px rgba(124,58,237,0.3)" }}
+            style={{ background: "linear-gradient(135deg,#00aaff,#0070cc)", boxShadow: "0 4px 16px rgba(0,170,255,0.35)" }}
           >
-            Все отзывы ВКонтакте →
+            Все отзывы на Авито →
           </a>
         </div>
       </div>
