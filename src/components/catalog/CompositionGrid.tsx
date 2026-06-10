@@ -10,6 +10,7 @@ import {
 } from "@/data/catalogData"
 import CompositionModal from "./CompositionModal"
 import { useFavorites } from "@/context/FavoritesContext"
+import { HighlightedTitle } from "@/utils/titleHighlight"
 
 declare global { interface Window { _catalogScrollY?: number } }
 
@@ -381,10 +382,13 @@ export default function CompositionGrid({
               )}
               {/* Price + title overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-2.5 px-3">
-                <p
-                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                <HighlightedTitle
+                  title={item.title}
+                  id={item.id}
+                  subcategory={item.subcategory}
+                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 block"
                   style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
-                >{item.title}</p>
+                />
                 <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
               </div>
             </div>

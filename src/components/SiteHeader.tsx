@@ -142,18 +142,18 @@ export function SiteHeader() {
       </nav>
 
       {/* Правая часть: Телефон + Избранное */}
-      <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px,1vw,14px)", flexShrink: 0, marginTop: isCompact ? 0 : "12px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px,0.8vw,12px)", flexShrink: 0, marginTop: isCompact ? "-6px" : "4px" }}>
         {/* Телефон */}
         <a
           href="tel:+79880653700"
           style={{
-            display: "flex", alignItems: "center", gap: 8,
+            display: "flex", alignItems: "center", gap: 7,
             background: "linear-gradient(135deg, #7c3aed, #a855f7)",
             color: "#fff",
             borderRadius: 999,
-            padding: isCompact ? "clamp(7px,0.9vh,10px) clamp(12px,1.4vw,20px)" : "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
+            padding: isCompact ? "clamp(6px,0.7vh,8px) clamp(10px,1.1vw,16px)" : "clamp(8px,0.9vh,11px) clamp(13px,1.4vw,22px)",
             fontWeight: 800,
-            fontSize: isCompact ? "clamp(12px, 1.2vw, 16px)" : "clamp(14px, 1.4vw, 20px)",
+            fontSize: isCompact ? "clamp(11px, 1.05vw, 13px)" : "clamp(12px, 1.15vw, 16px)",
             fontFamily: "'Montserrat', sans-serif",
             textDecoration: "none",
             whiteSpace: "nowrap",
@@ -173,8 +173,8 @@ export function SiteHeader() {
           style={{
             position: "relative",
             display: "flex", alignItems: "center", justifyContent: "center",
-            width: isCompact ? 40 : 48,
-            height: isCompact ? 40 : 48,
+            width: isCompact ? 36 : 44,
+            height: isCompact ? 36 : 44,
             borderRadius: "50%",
             background: count > 0 ? "linear-gradient(135deg,#fce7f3,#fdf2f8)" : "rgba(124,58,237,0.08)",
             border: count > 0 ? "2px solid #f9a8d4" : "2px solid transparent",

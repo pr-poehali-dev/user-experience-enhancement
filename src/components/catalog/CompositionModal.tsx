@@ -188,9 +188,8 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               🎨 Наполнение можно изменить под ваш бюджет и пожелания
             </div>
             <div className="bg-muted/50 rounded-xl px-3 py-2 text-xs text-muted-foreground space-y-1">
-              <div className="flex items-center gap-2"><Icon name="Truck" size={12} className="text-green-500 flex-shrink-0" /><span><b>Бесплатная доставка</b> при заказе от 3500 ₽</span></div>
-              <div className="flex items-center gap-2"><Icon name="Truck" size={12} className="text-primary flex-shrink-0" /><span>При заказе менее 3500 ₽ — доставка 350–500 ₽</span></div>
-              <div className="flex items-center gap-2"><Icon name="MapPin" size={12} className="text-primary flex-shrink-0" /><span>Самовывоз: ул. Героя Яцкова 19к3</span></div>
+              <div className="flex items-start gap-2"><Icon name="Truck" size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Стоимость доставки по г. Краснодар — 350–500 ₽. При заказе на сумму от 3500 ₽ — <b className="text-green-600">ДОСТАВКА БЕСПЛАТНАЯ</b></span></div>
+              <div className="flex items-start gap-2"><Icon name="MapPin" size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span></div>
             </div>
           </div>
           <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2.5 bg-white">
@@ -209,14 +208,20 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               💬 Уточнить детали
             </button>
             <div className="flex flex-wrap gap-1.5 pt-1">
-              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#25D366"}}>
                 <Icon name="MessageSquare" size={11} /> WhatsApp
               </a>
-              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#229ED9"}}>
                 <Icon name="Send" size={11} /> Telegram
               </a>
-              <a href="tel:+79885973303" className="flex items-center gap-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-medium">
-                <Icon name="Phone" size={11} /> Позвонить
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#0077FF"}}>
+                <Icon name="MessageCircle" size={11} /> ВКонтакте
+              </a>
+              <a href="https://instagram.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"linear-gradient(45deg,#f09433,#dc2743,#bc1888)"}}>
+                <Icon name="Instagram" size={11} /> Instagram
+              </a>
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#1e3a5f"}}>
+                <Icon name="MessageSquare" size={11} /> Max
               </a>
             </div>
           </div>
@@ -309,9 +314,8 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
             <div className="bg-muted/50 rounded-xl px-4 py-3 text-sm text-muted-foreground space-y-1.5">
-              <div className="flex items-center gap-2"><Icon name="Truck" size={14} className="text-green-500 flex-shrink-0" /><span><b>Бесплатная доставка</b> при заказе от 3500 ₽</span></div>
-              <div className="flex items-center gap-2"><Icon name="Truck" size={14} className="text-primary flex-shrink-0" /><span>При заказе менее 3500 ₽ — доставка 350–500 ₽</span></div>
-              <div className="flex items-center gap-2"><Icon name="MapPin" size={14} className="text-primary flex-shrink-0" /><span>Самовывоз: ул. Героя Яцкова 19к3</span></div>
+              <div className="flex items-start gap-2"><Icon name="Truck" size={14} className="text-primary flex-shrink-0 mt-0.5" /><span>Стоимость доставки по г. Краснодар — 350–500 ₽. При заказе на сумму от 3500 ₽ — <b className="text-green-600">ДОСТАВКА БЕСПЛАТНАЯ</b></span></div>
+              <div className="flex items-start gap-2"><Icon name="MapPin" size={14} className="text-primary flex-shrink-0 mt-0.5" /><span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span></div>
             </div>
           </div>
           <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-2.5 bg-white">
@@ -330,17 +334,20 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               💬 Уточнить детали
             </button>
             <div className="flex flex-wrap gap-1.5">
-              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
+              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-90" style={{background:"#25D366"}}>
                 <Icon name="MessageSquare" size={12} /> WhatsApp
               </a>
-              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
+              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-90" style={{background:"#229ED9"}}>
                 <Icon name="Send" size={12} /> Telegram
               </a>
-              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-blue-700 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-800 transition-colors">
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-90" style={{background:"#0077FF"}}>
                 <Icon name="MessageCircle" size={12} /> ВКонтакте
               </a>
-              <a href="tel:+79885973303" className="flex items-center gap-1 text-white px-3 py-1.5 rounded-full text-xs font-medium" style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>
-                <Icon name="Phone" size={12} /> Позвонить
+              <a href="https://instagram.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-90" style={{background:"linear-gradient(45deg,#f09433,#dc2743,#bc1888)"}}>
+                <Icon name="Instagram" size={12} /> Instagram
+              </a>
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-opacity hover:opacity-90" style={{background:"#1e3a5f"}}>
+                <Icon name="MessageSquare" size={12} /> Max
               </a>
             </div>
           </div>

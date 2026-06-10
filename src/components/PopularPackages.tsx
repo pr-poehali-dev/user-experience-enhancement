@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import CompositionModal from "@/components/catalog/CompositionModal"
@@ -29,137 +29,116 @@ const packages: Composition[] = [
 
 export type PopularPkg = typeof packages[0]
 
+const CARD_W = 260 // ширина карточки px
+const GAP = 16
+
 export function PopularPackages() {
   const navigate = useNavigate()
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const desktopScrollRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
-  const [dCanLeft, setDCanLeft] = useState(false)
-  const [dCanRight, setDCanRight] = useState(true)
+  const trackRef = useRef<HTMLDivElement>(null)
   const [modal, setModal] = useState<Composition | null>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const posRef = useRef(0)
 
-  const updateArrows = () => {
-    const el = scrollRef.current
-    if (el) { setCanScrollLeft(el.scrollLeft > 10); setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10) }
-    const d = desktopScrollRef.current
-    if (d) { setDCanLeft(d.scrollLeft > 10); setDCanRight(d.scrollLeft < d.scrollWidth - d.clientWidth - 10) }
-  }
-
-  useEffect(() => {
-    updateArrows()
-    const el = scrollRef.current
-    const d = desktopScrollRef.current
-    el?.addEventListener("scroll", updateArrows)
-    d?.addEventListener("scroll", updateArrows)
-    return () => { el?.removeEventListener("scroll", updateArrows); d?.removeEventListener("scroll", updateArrows) }
+  const startAuto = useCallback(() => {
+    if (autoRef.current) clearInterval(autoRef.current)
+    autoRef.current = setInterval(() => {
+      const track = trackRef.current
+      if (!track) return
+      const maxScroll = track.scrollWidth / 2
+      posRef.current += 1
+      if (posRef.current >= maxScroll) posRef.current = 0
+      track.style.transform = `translateX(-${posRef.current}px)`
+    }, 20)
   }, [])
 
-  const scroll = (ref: React.RefObject<HTMLDivElement>, dir: "left" | "right") => {
-    if (!ref.current) return
-    ref.current.scrollBy({ left: dir === "left" ? -(ref.current.offsetWidth * 0.35) : ref.current.offsetWidth * 0.35, behavior: "smooth" })
-  }
+  const stopAuto = useCallback(() => {
+    if (autoRef.current) { clearInterval(autoRef.current); autoRef.current = null }
+  }, [])
 
-  const categoryEmoji: Record<string, string> = {
-    girl: "🌹", man: "🎩", "kid-girl": "🎀", boy: "🚀",
-    "boy-discharge": "👶", "girl-discharge": "👶",
-  }
+  useEffect(() => {
+    if (!isPaused) startAuto()
+    else stopAuto()
+    return () => stopAuto()
+  }, [isPaused, startAuto, stopAuto])
+
+  // Бесконечная лента — дублируем массив
+  const doubled = [...packages, ...packages]
 
   return (
-    <section id="popular" className="py-16 sm:py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8 sm:mb-12 flex-wrap gap-4">
+    <section id="popular" className="py-16 sm:py-24 bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-balance">
               Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground mt-2">Самые любимые композиции наших покупателей</p>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex gap-2">
-              <button onClick={() => scroll(desktopScrollRef, "left")} disabled={!dCanLeft} className="w-11 h-11 rounded-full border border-border bg-white shadow flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30 disabled:cursor-default">
-                <Icon name="ChevronLeft" size={20} />
-              </button>
-              <button onClick={() => scroll(desktopScrollRef, "right")} disabled={!dCanRight} className="w-11 h-11 rounded-full border border-border bg-white shadow flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30 disabled:cursor-default">
-                <Icon name="ChevronRight" size={20} />
-              </button>
-            </div>
-            <button
-              onClick={() => navigate("/popular")}
-              className="flex items-center gap-2 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 16px rgba(249,115,22,0.4)", padding: "12px 28px", fontSize: "clamp(15px,1.3vw,18px)" }}
-            >
-              Смотреть все <Icon name="ArrowRight" size={18} />
-            </button>
-          </div>
+          <button
+            onClick={() => navigate("/popular")}
+            className="flex items-center gap-2 rounded-full font-bold text-white transition-transform hover:scale-105"
+            style={{
+              background: "linear-gradient(135deg,#f97316,#e63000)",
+              boxShadow: "0 4px 16px rgba(249,115,22,0.4)",
+              padding: "12px 28px",
+              fontSize: "clamp(15px,1.3vw,18px)",
+            }}
+          >
+            Смотреть все <Icon name="ArrowRight" size={18} />
+          </button>
         </div>
+      </div>
 
-        {/* Mobile */}
-        <div className="relative sm:hidden">
-          <div ref={scrollRef} className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-            {packages.map((pkg, index) => (
-              <div key={index} className="snap-start flex-shrink-0 cursor-pointer" style={{ width: "calc(50% - 6px)" }} onClick={() => setModal(pkg)}>
-                <div className="group overflow-hidden rounded-2xl bg-white shadow-md h-full flex flex-col">
-                  <div className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
-                    <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-2 left-2 right-2">
-                      <p className="text-white font-bold text-sm drop-shadow">{pkg.price}</p>
-                    </div>
-                  </div>
-                  <div className="p-3">
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <span className="text-base">{categoryEmoji[pkg.subcategory ?? ""] ?? "🎈"}</span>
-                      <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded-full truncate">{pkg.subcategory}</span>
-                    </div>
-                    <h3 className="text-sm font-semibold leading-tight">{pkg.title}</h3>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center gap-3 mt-3">
-            <button onClick={() => scroll(scrollRef, "left")} disabled={!canScrollLeft} className="w-9 h-9 rounded-full border border-border bg-white shadow flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30">
-              <Icon name="ChevronLeft" size={18} />
-            </button>
-            <button onClick={() => scroll(scrollRef, "right")} disabled={!canScrollRight} className="w-9 h-9 rounded-full border border-border bg-white shadow flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30">
-              <Icon name="ChevronRight" size={18} />
-            </button>
-          </div>
-        </div>
-
-        {/* Desktop */}
-        <div ref={desktopScrollRef} className="hidden sm:flex gap-5 overflow-x-auto scroll-smooth pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          {packages.map((pkg, index) => (
+      {/* Бесконечная лента */}
+      <div
+        className="relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        style={{ cursor: isPaused ? "grab" : "default" }}
+      >
+        <div
+          ref={trackRef}
+          className="flex"
+          style={{
+            gap: GAP,
+            willChange: "transform",
+            transition: isPaused ? "none" : undefined,
+          }}
+        >
+          {doubled.map((pkg, index) => (
             <div
-              key={index}
-              className="group overflow-hidden rounded-2xl bg-white hover:shadow-2xl transition-all duration-500 flex-shrink-0 cursor-pointer flex flex-col"
-              style={{ width: "280px" }}
-              onClick={() => setModal(pkg)}
+              key={`${pkg.id}-${index}`}
+              className="group relative flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl"
+              style={{ width: CARD_W, height: CARD_W }}
+              onClick={() => { setIsPaused(true); setModal(pkg) }}
             >
-              <div className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
-                <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-white font-extrabold text-xl drop-shadow-lg">{pkg.price}</p>
-                </div>
+              <img
+                src={pkg.image}
+                alt={pkg.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Градиент снизу */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              {/* Цена — всегда видна */}
+              <div className="absolute bottom-3 left-3 right-3">
+                <p className="text-white font-extrabold text-xl drop-shadow-lg">{pkg.price}</p>
               </div>
-              <div className="p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg">{categoryEmoji[pkg.subcategory ?? ""] ?? "🎈"}</span>
-                  <h3 className="text-base font-semibold leading-tight">{pkg.title}</h3>
-                </div>
-                <button
-                  className="w-full py-2 rounded-xl text-white text-sm font-bold transition-transform hover:scale-[1.02]"
-                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
-                  onClick={e => { e.stopPropagation(); setModal(pkg) }}
-                >
-                  Смотреть набор
-                </button>
+              {/* Название — при наведении */}
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent px-3 pt-3 pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-sm font-semibold leading-tight drop-shadow">{pkg.title}</p>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Подсказка — пауза при ручном листании */}
+        {isPaused && (
+          <div className="absolute bottom-3 right-4 bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+            Нажмите для просмотра
+          </div>
+        )}
       </div>
 
       {modal && (
@@ -167,7 +146,7 @@ export function PopularPackages() {
           modal={modal}
           allItems={packages}
           onNavigate={setModal}
-          onClose={() => setModal(null)}
+          onClose={() => { setModal(null); setIsPaused(false) }}
         />
       )}
     </section>
