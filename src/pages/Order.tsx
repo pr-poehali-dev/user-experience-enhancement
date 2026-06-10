@@ -190,7 +190,7 @@ export default function Order() {
             style={{ background: "linear-gradient(135deg,#ecfdf5,#d1fae5)" }}>
             <span className="text-xl flex-shrink-0">⏱️</span>
             <p className="text-sm text-green-800 font-medium">
-              Мы свяжемся с вами в течение <strong>15 минут</strong> для уточнения деталей. Работаем 24/7!
+              Мы свяжемся с вами в течение <strong>15 минут</strong> для уточнения деталей.
             </p>
           </div>
 

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import CompositionModal from "@/components/catalog/CompositionModal"
@@ -30,15 +30,46 @@ const packages: Composition[] = [
 
 export type PopularPkg = typeof packages[0]
 
+const CARD_W = 240
+const CARD_GAP = 14
+
 export function PopularPackages() {
   const navigate = useNavigate()
   const [modal, setModal] = useState<Composition | null>(null)
   const { toggleFavorite, isFavorite } = useFavorites()
+  const [isPaused, setIsPaused] = useState(false)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const posRef = useRef(0)
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const startAuto = useCallback(() => {
+    if (autoRef.current) clearInterval(autoRef.current)
+    autoRef.current = setInterval(() => {
+      const track = trackRef.current
+      if (!track) return
+      const halfW = track.scrollWidth / 2
+      posRef.current += 0.7
+      if (posRef.current >= halfW) posRef.current = 0
+      track.style.transform = `translateX(-${posRef.current}px)`
+    }, 16)
+  }, [])
+
+  const stopAuto = useCallback(() => {
+    if (autoRef.current) { clearInterval(autoRef.current); autoRef.current = null }
+  }, [])
+
+  useEffect(() => {
+    if (!isPaused) startAuto()
+    else stopAuto()
+    return () => stopAuto()
+  }, [isPaused, startAuto, stopAuto])
+
+  const doubled = [...packages, ...packages]
 
   return (
-    <section id="popular" className="py-16 sm:py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8 sm:mb-12 flex-wrap gap-4">
+    <section id="popular" className="py-16 sm:py-24 bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-balance">
               Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
@@ -58,39 +89,52 @@ export function PopularPackages() {
             Смотреть все <Icon name="ArrowRight" size={18} />
           </button>
         </div>
+      </div>
 
-        {/* Сетка как в обычных разделах */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
-          {packages.map((pkg) => (
+      {/* Бесконечная лента */}
+      <div
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        style={{ cursor: "pointer" }}
+      >
+        <div
+          ref={trackRef}
+          style={{
+            display: "flex",
+            gap: CARD_GAP,
+            willChange: "transform",
+          }}
+        >
+          {doubled.map((pkg, index) => (
             <div
-              key={pkg.id}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
-              onClick={() => setModal(pkg)}
+              key={`${pkg.id}-${index}`}
+              className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow"
+              style={{ width: CARD_W, height: CARD_W }}
+              onClick={() => { setIsPaused(true); setModal(pkg) }}
             >
               <img
                 src={pkg.image}
                 alt={pkg.title}
-                className="w-full object-cover group-hover:scale-110 transition-transform duration-500"
-                style={{ aspectRatio: "1/1" }}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Price + title overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-11 px-3">
-                <p
-                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
-                >{pkg.title}</p>
-                <p className="text-white font-extrabold text-base drop-shadow-lg">{pkg.price}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              {/* Цена */}
+              <div className="absolute bottom-0 left-0 right-0 pb-9 px-3">
+                <p className="text-white font-extrabold text-lg drop-shadow-lg">{pkg.price}</p>
               </div>
-
-              {/* Нижняя панель: ♥ + Оформить */}
-              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2 z-10">
+              {/* Название при hover */}
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/55 to-transparent px-3 pt-2.5 pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-xs font-semibold leading-tight drop-shadow">{pkg.title}</p>
+              </div>
+              {/* Нижние кнопки */}
+              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2">
+                {/* ♥ */}
                 <button
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90 flex-shrink-0"
-                  style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
+                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                  style={{ background: "rgba(255,255,255,0.92)" }}
                   onClick={e => { e.stopPropagation(); toggleFavorite(pkg.id) }}
-                  title={isFavorite(pkg.id) ? "Убрать из избранного" : "В избранное"}
+                  title="В избранное"
                 >
                   <svg width="13" height="13" viewBox="0 0 24 24"
                     fill={isFavorite(pkg.id) ? "#f43f5e" : "none"}
@@ -100,12 +144,17 @@ export function PopularPackages() {
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
                 </button>
+                {/* Корзина (оформить) — иконка */}
                 <button
-                  className="flex-1 flex items-center justify-center text-white text-[10px] sm:text-xs font-bold py-1.5 rounded-full transition-all hover:opacity-90 active:scale-95"
-                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 2px 8px rgba(249,115,22,0.4)" }}
+                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
                   onClick={e => { e.stopPropagation(); window.location.href = `/order?mode=order&title=${encodeURIComponent(pkg.title)}` }}
+                  title="Оформить заказ"
                 >
-                  Оформить
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                  </svg>
                 </button>
               </div>
             </div>
@@ -118,7 +167,7 @@ export function PopularPackages() {
           modal={modal}
           allItems={packages}
           onNavigate={setModal}
-          onClose={() => setModal(null)}
+          onClose={() => { setModal(null); setIsPaused(false) }}
         />
       )}
     </section>

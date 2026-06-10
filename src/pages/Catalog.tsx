@@ -1030,7 +1030,7 @@ export default function Catalog() {
     }
 
     return (
-      <div className="max-w-none px-3 sm:px-5 lg:px-8 pt-2 sm:pt-3 pb-16">
+      <div className="max-w-none px-3 sm:px-5 lg:px-8 pt-6 sm:pt-10 pb-16">
         <div className="grid grid-cols-2 gap-3 sm:gap-5">
           <button
             onClick={() => navigate("/catalog?section=birthday")}

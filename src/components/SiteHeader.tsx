@@ -86,6 +86,7 @@ export function SiteHeader() {
             window.scrollTo({ top: 0, behavior: "smooth" })
           } else {
             navigate("/")
+            setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100)
           }
         }}
         style={{

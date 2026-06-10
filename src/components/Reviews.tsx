@@ -102,7 +102,7 @@ export function Reviews() {
 
         <div className="text-center mt-10 sm:mt-14">
           <a
-            href="https://www.avito.ru/krasnodar/tovary_dlya_detey_i_igrushki/vozdushnye_shary-ASgBAgICAUSwCw?sellerId=sharovik_krd"
+            href="https://www.avito.ru/profile/rating"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white transition-transform hover:scale-105"
