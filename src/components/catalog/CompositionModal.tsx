@@ -188,27 +188,26 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               🎨 Наполнение можно изменить под ваш бюджет и пожелания
             </div>
             <div className="bg-muted/50 rounded-xl px-3 py-2 text-xs text-muted-foreground space-y-1">
-              <div className="flex items-center gap-2"><Icon name="Clock" size={12} className="text-primary flex-shrink-0" /><span>Доставка 24/7 по Краснодару и Краю</span></div>
+              <div className="flex items-center gap-2"><Icon name="Truck" size={12} className="text-green-500 flex-shrink-0" /><span><b>Бесплатная доставка</b> при заказе от 3500 ₽</span></div>
+              <div className="flex items-center gap-2"><Icon name="Truck" size={12} className="text-primary flex-shrink-0" /><span>При заказе менее 3500 ₽ — доставка 350–500 ₽</span></div>
               <div className="flex items-center gap-2"><Icon name="MapPin" size={12} className="text-primary flex-shrink-0" /><span>Самовывоз: ул. Героя Яцкова 19к3</span></div>
             </div>
           </div>
-          <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2 bg-white">
-            <div className="flex gap-2">
-              <button
-                onClick={() => goOrder("order")}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-white text-sm font-bold transition-transform hover:scale-[1.02]"
-                style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
-              >
-                🎈 Оформить заказ
-              </button>
-              <button
-                onClick={() => goOrder("details")}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-bold border-2 transition-transform hover:scale-[1.02]"
-                style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
-              >
-                💬 Уточнить детали
-              </button>
-            </div>
+          <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2.5 bg-white">
+            <button
+              onClick={() => goOrder("order")}
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-base transition-transform hover:scale-[1.02]"
+              style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 14px rgba(249,115,22,0.35)" }}
+            >
+              🎈 Оформить заказ
+            </button>
+            <button
+              onClick={() => goOrder("details")}
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-base border-2 transition-transform hover:scale-[1.02]"
+              style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
+            >
+              💬 Уточнить детали
+            </button>
             <div className="flex flex-wrap gap-1.5 pt-1">
               <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
                 <Icon name="MessageSquare" size={11} /> WhatsApp
@@ -310,27 +309,26 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
             <div className="bg-muted/50 rounded-xl px-4 py-3 text-sm text-muted-foreground space-y-1.5">
-              <div className="flex items-center gap-2"><Icon name="Clock" size={14} className="text-primary flex-shrink-0" /><span>Доставка 24/7 по Краснодару и Краю</span></div>
+              <div className="flex items-center gap-2"><Icon name="Truck" size={14} className="text-green-500 flex-shrink-0" /><span><b>Бесплатная доставка</b> при заказе от 3500 ₽</span></div>
+              <div className="flex items-center gap-2"><Icon name="Truck" size={14} className="text-primary flex-shrink-0" /><span>При заказе менее 3500 ₽ — доставка 350–500 ₽</span></div>
               <div className="flex items-center gap-2"><Icon name="MapPin" size={14} className="text-primary flex-shrink-0" /><span>Самовывоз: ул. Героя Яцкова 19к3</span></div>
             </div>
           </div>
-          <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-3 bg-white">
-            <div className="flex gap-2">
-              <button
-                onClick={() => goOrder("order")}
-                className="flex-1 py-3 rounded-xl text-white font-bold text-sm transition-transform hover:scale-[1.02]"
-                style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 12px rgba(249,115,22,0.35)" }}
-              >
-                🎈 Оформить заказ
-              </button>
-              <button
-                onClick={() => goOrder("details")}
-                className="flex-1 py-3 rounded-xl font-bold text-sm border-2 transition-transform hover:scale-[1.02]"
-                style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
-              >
-                💬 Уточнить детали
-              </button>
-            </div>
+          <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-2.5 bg-white">
+            <button
+              onClick={() => goOrder("order")}
+              className="w-full py-3.5 rounded-xl text-white font-bold text-base transition-transform hover:scale-[1.02]"
+              style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 14px rgba(249,115,22,0.35)" }}
+            >
+              🎈 Оформить заказ
+            </button>
+            <button
+              onClick={() => goOrder("details")}
+              className="w-full py-3.5 rounded-xl font-bold text-base border-2 transition-transform hover:scale-[1.02]"
+              style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
+            >
+              💬 Уточнить детали
+            </button>
             <div className="flex flex-wrap gap-1.5">
               <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
                 <Icon name="MessageSquare" size={12} /> WhatsApp

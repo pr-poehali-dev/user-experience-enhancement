@@ -28,7 +28,7 @@ function PriceInputs({
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span
-        className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
+        className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap min-w-[70px]"
         style={{
           background: hasValue ? "linear-gradient(135deg,#7c3aed,#a855f7)" : "rgba(124,58,237,0.1)",
           color: hasValue ? "#fff" : "#7c3aed",
@@ -41,7 +41,7 @@ function PriceInputs({
         value={minPrice}
         placeholder="от ₽"
         onChange={(e) => onMinChange(e.target.value === "" ? "" : Number(e.target.value))}
-        className="w-20 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
+        className="w-28 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-1.5 focus:outline-none focus:border-primary bg-white"
       />
       <span className="text-muted-foreground font-bold">—</span>
       <input
@@ -49,7 +49,7 @@ function PriceInputs({
         value={maxPrice}
         placeholder="до ₽"
         onChange={(e) => onMaxChange(e.target.value === "" ? "" : Number(e.target.value))}
-        className="w-20 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
+        className="w-28 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-1.5 focus:outline-none focus:border-primary bg-white"
       />
     </div>
   )
@@ -278,7 +278,7 @@ export default function CompositionGrid({
                   key={color.id}
                   onClick={() => toggleColor(color.id)}
                   title={color.label}
-                  className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 transition-all ${
+                  className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium border-2 transition-all ${
                     isActive
                       ? "border-primary shadow-md scale-105"
                       : "border-transparent bg-muted hover:border-border"
@@ -287,7 +287,7 @@ export default function CompositionGrid({
                   <span
                     className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
                     style={{
-                      background: color.id === "beige" ? "#8B6914" : color.hex,
+                      background: color.hex,
                       border: color.border ? "1px solid #d1d5db" : undefined,
                     }}
                   />
@@ -334,17 +334,20 @@ export default function CompositionGrid({
             >
               <img src={item.image} alt={item.title} className="w-full object-cover group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "1/1" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Кнопка избранного — всегда видна, справа */}
+              {/* Кнопка избранного — всегда видна, справа, фон всегда белый */}
               <button
-                className="absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110"
-                style={{
-                  background: isFavorite(item.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.9)",
-                  backdropFilter: "blur(4px)",
-                }}
+                className="absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90"
+                style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
                 onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
                 title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill={isFavorite(item.id) ? "#fff" : "none"} stroke={isFavorite(item.id) ? "#fff" : "#f43f5e"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="13" height="13" viewBox="0 0 24 24"
+                  fill={isFavorite(item.id) ? "#f43f5e" : "none"}
+                  stroke="#f43f5e" strokeWidth="2.5"
+                  strokeLinecap="round" strokeLinejoin="round"
+                  style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(item.id) ? "scale(1.25)" : "scale(1)" }}
+                >
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </button>

@@ -28,14 +28,7 @@ function CatalogCTA() {
           Каталог
           <Icon name="ArrowRight" className="ml-3 h-6 w-6" />
         </Button>
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-muted-foreground">
-          <a href="tel:+79885973303" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Icon name="Phone" className="h-4 w-4 text-primary" /> 8 988 597 33 03
-          </a>
-          <a href="tel:+79182457204" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Icon name="Phone" className="h-4 w-4 text-primary" /> 8 918 245 72 04
-          </a>
-        </div>
+
       </div>
     </section>
   )

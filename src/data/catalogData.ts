@@ -26,7 +26,6 @@ export type Composition = {
 export const COLOR_OPTIONS = [
   { id: "gold", label: "Золотые", hex: "#d4a017" },
   { id: "blue", label: "Синие", hex: "#60a5fa" },
-  { id: "beige", label: "Коричневые", hex: "#a0785a" },
   { id: "brown", label: "Коричневые", hex: "#a0785a" },
   { id: "white", label: "Белые", hex: "#ffffff", border: true },
   { id: "pink", label: "Розовые", hex: "#f472b6" },

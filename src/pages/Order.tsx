@@ -46,7 +46,7 @@ export default function Order() {
           <div className="text-8xl mb-6">🎉</div>
           <h2 className="text-3xl font-bold mb-3">Заявка отправлена!</h2>
           <p className="text-muted-foreground text-lg mb-2">Мы свяжемся с вами в течение 15 минут для уточнения деталей.</p>
-          <p className="text-muted-foreground mb-8">Работаем 24/7 без выходных 🕐</p>
+
           <button
             onClick={() => navigate("/catalog")}
             className="px-8 py-3 rounded-full text-white font-semibold text-lg transition-transform hover:scale-105"
@@ -125,7 +125,7 @@ export default function Order() {
 
           {/* Способ связи */}
           <div className="flex flex-col gap-3">
-            <label className="text-sm font-semibold text-foreground/70">Как вам удобнее с вами связаться?</label>
+            <label className="text-sm font-semibold text-foreground/70">Как вам будет удобнее, чтобы мы с Вами связались?</label>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
@@ -138,7 +138,7 @@ export default function Order() {
                 }}
               >
                 <span className="text-2xl">📞</span>
-                <span className="text-sm">Позвоните мне</span>
+                <span className="text-sm">Позвонить по номеру</span>
               </button>
               <button
                 type="button"
@@ -151,7 +151,7 @@ export default function Order() {
                 }}
               >
                 <span className="text-2xl">💬</span>
-                <span className="text-sm">Напишите мне</span>
+                <span className="text-sm">Написать</span>
               </button>
             </div>
 

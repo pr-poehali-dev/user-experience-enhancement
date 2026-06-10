@@ -81,7 +81,13 @@ export function SiteHeader() {
       <img
         src={logo}
         alt="Шаровик Затейник"
-        onClick={() => navigate("/")}
+        onClick={() => {
+          if (location.pathname === "/") {
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          } else {
+            navigate("/")
+          }
+        }}
         style={{
           height: isCompact ? "clamp(40px, 5vw, 64px)" : "clamp(60px, 8.5vw, 115px)",
           width: "auto",
