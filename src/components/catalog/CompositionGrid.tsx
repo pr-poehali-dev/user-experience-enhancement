@@ -361,11 +361,15 @@ export default function CompositionGrid({
                   </svg>
                 </button>
                 <button
-                  className="flex-1 flex items-center justify-center text-white text-[10px] sm:text-xs font-bold py-1.5 rounded-full transition-all hover:opacity-90 active:scale-95"
-                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 2px 8px rgba(249,115,22,0.4)" }}
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90 flex-shrink-0"
+                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
                   onClick={e => { e.stopPropagation(); navigate(`/order?mode=order&title=${encodeURIComponent(item.title)}`) }}
+                  title="Оформить заказ"
                 >
-                  Оформить
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                  </svg>
                 </button>
               </div>
             </div>

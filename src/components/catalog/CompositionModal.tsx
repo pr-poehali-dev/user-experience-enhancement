@@ -147,51 +147,29 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
         </div>
         {/* Контент под фото */}
         <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
-          {/* Название и цена — особое для набора девушки 1 (id=9004) */}
-          {modal.id === 9004 ? (
-            <div className="px-4 pt-4 pb-2 flex-shrink-0" style={{background:"linear-gradient(135deg,#fdf2f8,#fff7ed)"}}>
-              <div className="flex items-start justify-between gap-2">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-pink-500 text-base">🌹</span>
-                    <span className="text-xs font-semibold text-pink-400 uppercase tracking-wide">Для девушки</span>
-                  </div>
-                  <h3 className="text-base font-black leading-tight" style={{color:"#1a1a2e"}}>{modal.title}</h3>
-                  <div className="flex items-baseline gap-2 mt-2">
-                    <span className="text-2xl font-black" style={{color:"#e63000", fontFamily:"'Montserrat',sans-serif"}}>{modal.price}</span>
-                    <span className="text-xs text-muted-foreground">за набор</span>
-                  </div>
+          {/* Название и цена — красивое для всех наборов */}
+          <div className="px-4 pt-4 pb-3 flex-shrink-0" style={{background:"linear-gradient(135deg,#f5f3ff,#fff7ed)"}}>
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-black leading-snug mb-2.5" style={{color:"#1a1a2e", fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl font-black" style={{color:"#e63000", fontFamily:"'Montserrat',sans-serif", lineHeight:1}}>{modal.price}</span>
+                  <span className="text-[11px] text-muted-foreground">за набор</span>
                 </div>
-                <button
-                  onClick={() => toggleFavorite(modal.id)}
-                  className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110"
-                  style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(243,232,255,1)" }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="px-4 pt-4 pb-2 flex items-start justify-between gap-2 flex-shrink-0">
-              <div>
-                <h3 className="text-sm font-black leading-tight text-foreground mb-2">{modal.title}</h3>
-                <div className="mt-1"><span className="text-foreground font-bold text-lg">{modal.price}</span></div>
               </div>
               <button
                 onClick={() => toggleFavorite(modal.id)}
                 className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110"
-                style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(243,232,255,1)" }}
+                style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.9)" }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </button>
             </div>
-          )}
+          </div>
 
-          <div className="px-4 pb-1 flex-shrink-0">
+          <div className="px-4 pt-3 pb-1 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1">
               <Icon name="Sparkles" size={11} /> Наполнение
             </p>
@@ -213,41 +191,27 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
               🎨 Наполнение можно изменить под ваш бюджет и пожелания
             </div>
           </div>
-          {/* Раздел Доставка — для набора девушки 1 красивый */}
-          {modal.id === 9004 ? (
-            <div className="px-4 pb-3 flex-shrink-0">
-              <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1 mb-2">
-                <Icon name="Truck" size={11} /> Доставка
-              </p>
-              <div className="rounded-xl overflow-hidden border border-border">
-                <div className="flex items-start gap-3 px-3 py-2.5 bg-orange-50">
-                  <span className="text-base flex-shrink-0 mt-0.5">🚚</span>
-                  <span className="text-xs text-foreground">Доставка по г. Краснодар — <b>150–500 ₽</b></span>
-                </div>
-                <div className="flex items-start gap-3 px-3 py-2.5 bg-green-50 border-t border-border">
-                  <span className="text-base flex-shrink-0 mt-0.5">🎁</span>
-                  <span className="text-xs text-foreground">При заказе от 3500 ₽ — <b className="text-green-700">доставка бесплатная</b></span>
-                </div>
-                <div className="flex items-start gap-3 px-3 py-2.5 bg-violet-50 border-t border-border">
-                  <span className="text-base flex-shrink-0 mt-0.5">📍</span>
-                  <span className="text-xs text-foreground">Самовывоз: р-н Губернский, ул. Героя Яцкова 19к3</span>
-                </div>
+
+          {/* Раздел Доставка — единый для всех */}
+          <div className="px-4 pb-3 flex-shrink-0">
+            <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1 mb-2">
+              <Icon name="Truck" size={11} /> Доставка
+            </p>
+            <div className="rounded-xl overflow-hidden border border-border">
+              <div className="flex items-start gap-3 px-3 py-2.5 bg-green-50">
+                <span className="flex-shrink-0 mt-0.5">🎁</span>
+                <span className="text-xs text-foreground">При заказе от 3500 ₽ — <b>Бесплатно!</b></span>
+              </div>
+              <div className="flex items-start gap-3 px-3 py-2.5 bg-orange-50 border-t border-border">
+                <span className="flex-shrink-0 mt-0.5">🚚</span>
+                <span className="text-xs text-foreground">При сумме менее 3500 ₽ — <b>150–500 ₽</b></span>
+              </div>
+              <div className="flex items-start gap-3 px-3 py-2.5 bg-violet-50 border-t border-border">
+                <span className="flex-shrink-0 mt-0.5">📍</span>
+                <span className="text-xs text-foreground">Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
               </div>
             </div>
-          ) : (
-            <div className="px-4 pb-3 flex-shrink-0">
-              <div className="rounded-xl px-3 py-2 text-xs space-y-1" style={{background:"rgba(0,0,0,0.04)"}}>
-                <div className="flex items-start gap-2 text-black">
-                  <Icon name="Truck" size={12} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
-                  <span>Доставка по г. Краснодар — 150–500 ₽. При заказе от 3500 ₽ — <span style={{background:"#e11d48",color:"#fff",borderRadius:4,padding:"1px 5px",fontWeight:700}}>доставка бесплатная</span></span>
-                </div>
-                <div className="flex items-start gap-2 text-black">
-                  <Icon name="MapPin" size={12} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
-                  <span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
           
           <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2.5 bg-white">
             <button
@@ -324,44 +288,25 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
         </div>
 
         {/* RIGHT — контент */}
-        <div className="flex-1 flex flex-col overflow-hidden" style={{background: modal.id === 9004 ? "linear-gradient(180deg,#fdf2f8 0%,#fff 80px)" : "#fff"}}>
-          {/* Заголовок десктоп — особый для набора девушки 1 */}
-          {modal.id === 9004 ? (
-            <div className="px-5 pt-5 pb-4 border-b border-pink-100 flex-shrink-0">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-lg">🌹</span>
-                    <span className="text-xs font-semibold text-pink-400 uppercase tracking-widest">Для девушки</span>
-                  </div>
-                  <h3 className="text-lg font-black leading-tight" style={{color:"#1a1a2e"}}>{modal.title}</h3>
-                  <div className="flex items-baseline gap-2 mt-2">
-                    <span className="text-3xl font-black" style={{color:"#e63000",fontFamily:"'Montserrat',sans-serif"}}>{modal.price}</span>
-                    <span className="text-sm text-muted-foreground">за набор</span>
-                  </div>
+        <div className="flex-1 flex flex-col overflow-hidden bg-white">
+          {/* Заголовок десктоп — красивое для всех */}
+          <div className="px-5 pt-5 pb-4 flex-shrink-0" style={{background:"linear-gradient(135deg,#f5f3ff,#fff7ed)"}}>
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg font-black leading-snug mb-2.5" style={{color:"#1a1a2e", fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-black" style={{color:"#e63000",fontFamily:"'Montserrat',sans-serif", lineHeight:1}}>{modal.price}</span>
+                  <span className="text-sm text-muted-foreground">за набор</span>
                 </div>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <button onClick={() => toggleFavorite(modal.id)} className="w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-transform hover:scale-110" style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(243,232,255,1)" }}>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                  </button>
-                  <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}><Icon name="X" size={18} /></button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-start justify-between px-5 pt-5 pb-3 border-b border-border/40 flex-shrink-0">
-              <div className="flex-1 min-w-0 pr-3">
-                <h3 className="text-base sm:text-lg font-black leading-tight text-foreground mb-2">{modal.title}</h3>
-                <div className="mt-1"><span className="text-foreground font-bold text-base sm:text-lg">{modal.price}</span></div>
               </div>
               <div className="flex items-center gap-2 flex-shrink-0">
-                <button onClick={() => toggleFavorite(modal.id)} className="w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-transform hover:scale-110" style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(243,232,255,1)" }}>
+                <button onClick={() => toggleFavorite(modal.id)} className="w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-transform hover:scale-110" style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.9)" }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </button>
                 <button className="w-9 h-9 flex-shrink-0 bg-muted rounded-full flex items-center justify-center hover:bg-muted/80 transition-colors" onClick={onClose}><Icon name="X" size={18} /></button>
               </div>
             </div>
-          )}
+          </div>
           <div className="px-5 pt-4 pb-1 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5">
               <Icon name="Sparkles" size={13} /> Наполнение
@@ -383,39 +328,26 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-medium">
               🎨 Наполнение любой композиции можно изменить под ваш бюджет и пожелания.
             </div>
-            {/* Доставка — красивый блок для набора девушки 1 */}
-            {modal.id === 9004 ? (
-              <div>
-                <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5 mb-2">
-                  <Icon name="Truck" size={13} /> Доставка
-                </p>
-                <div className="rounded-xl overflow-hidden border border-border">
-                  <div className="flex items-center gap-3 px-4 py-3 bg-orange-50">
-                    <span className="text-lg">🚚</span>
-                    <span className="text-sm text-foreground">Доставка по г. Краснодар — <b>150–500 ₽</b></span>
-                  </div>
-                  <div className="flex items-center gap-3 px-4 py-3 bg-green-50 border-t border-border">
-                    <span className="text-lg">🎁</span>
-                    <span className="text-sm text-foreground">При заказе от 3500 ₽ — <b className="text-green-700">доставка бесплатная</b></span>
-                  </div>
-                  <div className="flex items-center gap-3 px-4 py-3 bg-violet-50 border-t border-border">
-                    <span className="text-lg">📍</span>
-                    <span className="text-sm text-foreground">Самовывоз: р-н Губернский, ул. Героя Яцкова 19к3</span>
-                  </div>
+            {/* Доставка — единый красивый блок */}
+            <div>
+              <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5 mb-2">
+                <Icon name="Truck" size={13} /> Доставка
+              </p>
+              <div className="rounded-xl overflow-hidden border border-border">
+                <div className="flex items-center gap-3 px-4 py-3 bg-green-50">
+                  <span className="text-base">🎁</span>
+                  <span className="text-sm text-foreground">При заказе от 3500 ₽ — <b>Бесплатно!</b></span>
+                </div>
+                <div className="flex items-center gap-3 px-4 py-3 bg-orange-50 border-t border-border">
+                  <span className="text-base">🚚</span>
+                  <span className="text-sm text-foreground">При сумме менее 3500 ₽ — <b>150–500 ₽</b></span>
+                </div>
+                <div className="flex items-center gap-3 px-4 py-3 bg-violet-50 border-t border-border">
+                  <span className="text-base">📍</span>
+                  <span className="text-sm text-foreground">Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
                 </div>
               </div>
-            ) : (
-            <div className="rounded-xl px-4 py-3 text-sm space-y-1.5" style={{background:"rgba(0,0,0,0.04)"}}>
-              <div className="flex items-start gap-2 text-black">
-                <Icon name="Truck" size={14} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
-                <span>Доставка по г. Краснодар — 150–500 ₽. При заказе от 3500 ₽ — <span style={{background:"#e11d48",color:"#fff",borderRadius:4,padding:"1px 6px",fontWeight:700}}>доставка бесплатная</span></span>
-              </div>
-              <div className="flex items-start gap-2 text-black">
-                <Icon name="MapPin" size={14} className="flex-shrink-0 mt-0.5" style={{color:"#7c3aed"}} />
-                <span>Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
-              </div>
             </div>
-            )}
           </div>
           <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-2.5 bg-white">
             <button

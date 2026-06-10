@@ -17,35 +17,63 @@ const SOCIALS = [
 
 export default function Delivery() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white">
+    <div className="min-h-screen" style={{background:"linear-gradient(180deg,#f5f3ff 0%,#ffffff 50%)"}}>
 
-      {/* Hero с машиной */}
+      {/* HERO: машина на всю ширину */}
       <div className="relative pt-[clamp(72px,10vw,120px)] overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 py-8 sm:py-12">
-          {/* Текст */}
-          <div className="flex-1 text-center sm:text-left">
+        {/* Фоновый градиент */}
+        <div className="absolute inset-0" style={{background:"linear-gradient(160deg,#ede9fe 0%,#fff7ed 60%,#fff 100%)"}} />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+          {/* Заголовок над машиной */}
+          <div className="text-center pt-6 sm:pt-10 pb-4 sm:pb-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4" style={{background:"rgba(124,58,237,0.1)", color:"#7c3aed"}}>
               🚀 Быстрая доставка по Краснодару
             </div>
-            <h1 className="text-4xl sm:text-6xl font-black mb-4 leading-tight" style={{fontFamily:"'Montserrat',sans-serif"}}>
-              <span style={{color:"#7c3aed"}}>Доставим</span><br/>
-              шарики к вам!
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight mb-3" style={{fontFamily:"'Montserrat',sans-serif"}}>
+              <span style={{color:"#7c3aed"}}>Доставим</span>{" "}
+              <span style={{color:"#e63000"}}>шарики</span><br className="hidden sm:block" /> к вам!
             </h1>
-            <p className="text-lg text-muted-foreground mb-6">Работаем 24/7 — привезём в любое время, в любой район Краснодара</p>
-            <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
-              <a href="tel:+79880653700" className="flex items-center gap-2 px-5 py-3 rounded-full text-white font-bold text-sm transition-transform hover:scale-105" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)", boxShadow:"0 4px 16px rgba(124,58,237,0.35)"}}>
-                <Icon name="Phone" size={16} /> +7 988 065 37 00
-              </a>
-              {SOCIALS.map(s => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full flex items-center justify-center transition-transform hover:scale-110 shadow-md" style={{background: s.bg}}>
-                  {s.icon}
-                </a>
-              ))}
-            </div>
+            <p className="text-lg sm:text-xl text-muted-foreground">Работаем 24/7 — привезём в любое время, в любой район Краснодара</p>
           </div>
-          {/* Машина */}
-          <div className="flex-shrink-0 flex items-end justify-center" style={{maxWidth:380}}>
-            <img src={CAR_IMG} alt="Доставка шариков" className="w-full drop-shadow-2xl" style={{maxHeight:320, objectFit:"contain"}} />
+
+          {/* Машина — крупная, на всю ширину */}
+          <div className="flex justify-center">
+            <img
+              src={CAR_IMG}
+              alt="Шаровик Затейник — доставка шариков"
+              className="w-full drop-shadow-2xl"
+              style={{
+                maxWidth: 860,
+                maxHeight: 560,
+                objectFit: "contain",
+              }}
+            />
+          </div>
+
+          {/* Быстрые плашки под машиной */}
+          <div className="flex flex-wrap justify-center gap-3 pb-8 sm:pb-12 -mt-2 sm:-mt-4">
+            <div className="flex items-center gap-2 bg-white rounded-2xl px-4 py-3 shadow-md border border-violet-100">
+              <span className="text-xl">🎁</span>
+              <div>
+                <p className="font-bold text-sm text-foreground">Бесплатно</p>
+                <p className="text-xs text-muted-foreground">от 3500 ₽</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 bg-white rounded-2xl px-4 py-3 shadow-md border border-violet-100">
+              <span className="text-xl">🚚</span>
+              <div>
+                <p className="font-bold text-sm text-foreground">150–500 ₽</p>
+                <p className="text-xs text-muted-foreground">по Краснодару</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 bg-white rounded-2xl px-4 py-3 shadow-md border border-violet-100">
+              <span className="text-xl">⏰</span>
+              <div>
+                <p className="font-bold text-sm text-foreground">Круглосуточно</p>
+                <p className="text-xs text-muted-foreground">24/7, без выходных</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -54,34 +82,28 @@ export default function Delivery() {
 
         {/* Стоимость доставки */}
         <div className="bg-white rounded-3xl shadow-sm border border-border overflow-hidden">
-          <div className="px-6 pt-6 pb-4">
-            <h2 className="font-bold text-xl flex items-center gap-2 mb-4">
+          <div className="px-6 pt-6 pb-2">
+            <h2 className="font-bold text-xl flex items-center gap-2">
               <Icon name="Tag" size={22} className="text-primary" /> Стоимость доставки
             </h2>
           </div>
-          <div className="divide-y divide-border">
-            <div className="flex items-center gap-4 px-6 py-4 bg-orange-50/60">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{background:"linear-gradient(135deg,#f97316,#e63000)"}}>
-                <Icon name="Truck" size={22} className="text-white" />
-              </div>
+          <div className="divide-y divide-border mt-4">
+            <div className="flex items-center gap-4 px-6 py-4 bg-green-50/70">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">🎁</div>
               <div className="flex-1">
-                <p className="font-bold text-foreground text-lg">150 — 500 ₽</p>
-                <p className="text-sm text-muted-foreground">по г. Краснодар — зависит от района и времени</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 px-6 py-4 bg-green-50/60">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{background:"linear-gradient(135deg,#16a34a,#22c55e)"}}>
-                <Icon name="Gift" size={22} className="text-white" />
-              </div>
-              <div className="flex-1">
-                <p className="font-bold text-green-700 text-lg">🎁 Бесплатно!</p>
+                <p className="font-bold text-green-700 text-lg">Бесплатно!</p>
                 <p className="text-sm text-muted-foreground">при заказе на сумму <b>от 3500 ₽</b></p>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-6 py-4">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
-                <Icon name="MapPin" size={22} className="text-white" />
+            <div className="flex items-center gap-4 px-6 py-4 bg-orange-50/60">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">🚚</div>
+              <div className="flex-1">
+                <p className="font-bold text-foreground text-lg">150 — 500 ₽</p>
+                <p className="text-sm text-muted-foreground">при сумме заказа менее 3500 ₽ — зависит от района</p>
               </div>
+            </div>
+            <div className="flex items-center gap-4 px-6 py-4">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">🗺️</div>
               <div className="flex-1">
                 <p className="font-bold text-foreground">Краснодарский край</p>
                 <p className="text-sm text-muted-foreground">Выезжаем за город — уточняйте стоимость</p>
@@ -108,7 +130,7 @@ export default function Delivery() {
               <p className="font-semibold text-foreground group-hover:text-primary transition-colors">р-н Губернский: ул. Героя Яцкова 19к3</p>
               <p className="text-sm text-muted-foreground">г. Краснодар · нажмите, чтобы открыть на карте</p>
             </div>
-            <Icon name="ExternalLink" size={16} className="text-muted-foreground mt-1 group-hover:text-primary transition-colors" />
+            <Icon name="ExternalLink" size={16} className="text-muted-foreground mt-1 group-hover:text-primary transition-colors flex-shrink-0" />
           </a>
         </div>
 
@@ -118,7 +140,7 @@ export default function Delivery() {
             <Icon name="Clock" size={22} className="text-primary" /> График работы
           </h2>
           <div className="flex items-center gap-4 p-4 rounded-2xl" style={{background:"linear-gradient(135deg,#f5f3ff,#ede9fe)"}}>
-            <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-2xl">⏰</div>
+            <div className="text-3xl">⏰</div>
             <div>
               <p className="font-bold text-primary text-lg">Круглосуточно, 24/7</p>
               <p className="text-sm text-muted-foreground">Без выходных и праздников</p>
@@ -126,9 +148,9 @@ export default function Delivery() {
           </div>
         </div>
 
-        {/* Вопросы */}
-        <div className="rounded-3xl p-6 text-center" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
-          <p className="text-white font-bold text-xl mb-2">Есть вопросы по доставке?</p>
+        {/* Вопросы — контакты */}
+        <div className="rounded-3xl p-6 sm:p-8 text-center" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
+          <p className="text-white font-bold text-xl mb-1">Есть вопросы по доставке?</p>
           <p className="text-white/80 text-sm mb-5">Свяжитесь с нами любым удобным способом</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="tel:+79880653700" className="flex items-center gap-2 bg-white text-primary px-5 py-3 rounded-full font-bold text-sm transition-transform hover:scale-105 shadow-lg">
