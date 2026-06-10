@@ -135,8 +135,32 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      {/* Правая часть: Избранное + Телефон */}
-      <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px,1vw,16px)", flexShrink: 0, marginTop: isCompact ? 0 : "12px" }}>
+      {/* Правая часть: Телефон + Избранное */}
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px,1vw,14px)", flexShrink: 0, marginTop: isCompact ? 0 : "12px" }}>
+        {/* Телефон */}
+        <a
+          href="tel:+79880653700"
+          style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+            color: "#fff",
+            borderRadius: 999,
+            padding: isCompact ? "clamp(7px,0.9vh,10px) clamp(12px,1.4vw,20px)" : "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
+            fontWeight: 800,
+            fontSize: isCompact ? "clamp(12px, 1.2vw, 16px)" : "clamp(14px, 1.4vw, 20px)",
+            fontFamily: "'Montserrat', sans-serif",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+            flexShrink: 0,
+            animation: "phonePulse 2s infinite",
+            transition: "transform 0.2s",
+          }}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
+        >
+          📞 +7 988 065 37 00
+        </a>
+
         {/* Кнопка Избранного */}
         <button
           onClick={() => navigate("/favorites")}
@@ -190,30 +214,6 @@ export function SiteHeader() {
             </span>
           )}
         </button>
-
-        {/* Телефон */}
-        <a
-          href="tel:+79880653700"
-          style={{
-            display: "flex", alignItems: "center", gap: 8,
-            background: "linear-gradient(135deg, #7c3aed, #a855f7)",
-            color: "#fff",
-            borderRadius: 999,
-            padding: isCompact ? "clamp(7px,0.9vh,10px) clamp(12px,1.4vw,20px)" : "clamp(10px,1.2vh,15px) clamp(16px,1.8vw,28px)",
-            fontWeight: 800,
-            fontSize: isCompact ? "clamp(12px, 1.2vw, 16px)" : "clamp(14px, 1.4vw, 20px)",
-            fontFamily: "'Montserrat', sans-serif",
-            textDecoration: "none",
-            whiteSpace: "nowrap",
-            flexShrink: 0,
-            animation: "phonePulse 2s infinite",
-            transition: "transform 0.2s",
-          }}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.06)")}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
-        >
-          📞 +7 988 065 37 00
-        </a>
       </div>
     </header>
   )

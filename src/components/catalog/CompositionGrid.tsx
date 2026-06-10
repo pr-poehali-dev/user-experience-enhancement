@@ -26,37 +26,31 @@ function PriceInputs({
 }) {
   const hasValue = minPrice !== "" || maxPrice !== ""
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-center gap-2">
-        <div
-          className="flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-sm"
-          style={{
-            background: hasValue ? "linear-gradient(135deg,#7c3aed,#a855f7)" : "linear-gradient(135deg,#f5f3ff,#ede9fe)",
-            color: hasValue ? "#fff" : "#7c3aed",
-            border: hasValue ? "none" : "2px solid #c4b5fd",
-          }}
-        >
-          <Icon name="Wallet" size={16} />
-          <span className="whitespace-nowrap">Выберите бюджет</span>
-        </div>
-      </div>
-      <div className="flex items-center gap-2 ml-1">
-        <input
-          type="number"
-          value={minPrice}
-          placeholder="от ₽"
-          onChange={(e) => onMinChange(e.target.value === "" ? "" : Number(e.target.value))}
-          className="w-24 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-2 focus:outline-none focus:border-primary bg-white"
-        />
-        <span className="text-muted-foreground font-bold">—</span>
-        <input
-          type="number"
-          value={maxPrice}
-          placeholder="до ₽"
-          onChange={(e) => onMaxChange(e.target.value === "" ? "" : Number(e.target.value))}
-          className="w-24 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-2 focus:outline-none focus:border-primary bg-white"
-        />
-      </div>
+    <div className="flex flex-wrap items-center gap-2">
+      <span
+        className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
+        style={{
+          background: hasValue ? "linear-gradient(135deg,#7c3aed,#a855f7)" : "rgba(124,58,237,0.1)",
+          color: hasValue ? "#fff" : "#7c3aed",
+        }}
+      >
+        💰 Бюджет
+      </span>
+      <input
+        type="number"
+        value={minPrice}
+        placeholder="от ₽"
+        onChange={(e) => onMinChange(e.target.value === "" ? "" : Number(e.target.value))}
+        className="w-20 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
+      />
+      <span className="text-muted-foreground font-bold">—</span>
+      <input
+        type="number"
+        value={maxPrice}
+        placeholder="до ₽"
+        onChange={(e) => onMaxChange(e.target.value === "" ? "" : Number(e.target.value))}
+        className="w-20 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
+      />
     </div>
   )
 }
@@ -267,20 +261,17 @@ export default function CompositionGrid({
         )}
 
         {/* Color filter */}
-        <div className="flex flex-col gap-2">
-          <div
-            className="flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-sm w-fit"
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <span
+            className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
             style={{
-              background: activeColors.length > 0 ? "linear-gradient(135deg,#f97316,#e63000)" : "linear-gradient(135deg,#fff7ed,#ffedd5)",
+              background: activeColors.length > 0 ? "linear-gradient(135deg,#f97316,#e63000)" : "rgba(249,115,22,0.1)",
               color: activeColors.length > 0 ? "#fff" : "#f97316",
-              border: activeColors.length > 0 ? "none" : "2px solid #fed7aa",
             }}
           >
-            <Icon name="Palette" size={16} />
-            <span>Выберите цвет</span>
-          </div>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {COLOR_OPTIONS.map((color) => {
+            🎨 Цвет
+          </span>
+          {COLOR_OPTIONS.map((color) => {
               const isActive = activeColors.includes(color.id)
               return (
                 <button
@@ -304,7 +295,6 @@ export default function CompositionGrid({
                 </button>
               )
             })}
-          </div>
         </div>
 
         {/* Price inputs */}
@@ -344,16 +334,17 @@ export default function CompositionGrid({
             >
               <img src={item.image} alt={item.title} className="w-full object-cover group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "1/1" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Кнопка избранного */}
+              {/* Кнопка избранного — всегда видна, справа */}
               <button
-                className="absolute top-2 left-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100 hover:scale-110"
+                className="absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110"
                 style={{
-                  background: isFavorite(item.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.85)",
+                  background: isFavorite(item.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(255,255,255,0.9)",
+                  backdropFilter: "blur(4px)",
                 }}
                 onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
                 title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill={isFavorite(item.id) ? "#fff" : "none"} stroke={isFavorite(item.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill={isFavorite(item.id) ? "#fff" : "none"} stroke={isFavorite(item.id) ? "#fff" : "#f43f5e"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </button>
@@ -368,9 +359,9 @@ export default function CompositionGrid({
                   </span>
                 </div>
               )}
-              {/* Color dots — always visible bottom-right */}
+              {/* Color dots */}
               {item.colors && item.colors.length > 0 && (
-                <div className="absolute top-2 right-2 flex gap-1">
+                <div className="absolute bottom-10 left-2 flex gap-1">
                   {item.colors.slice(0, 4).map((colorId) => {
                     const colorOpt = COLOR_OPTIONS.find((c) => c.id === colorId)
                     if (!colorOpt) return null

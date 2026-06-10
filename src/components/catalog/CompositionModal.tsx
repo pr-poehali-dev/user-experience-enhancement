@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import { Composition, birthdaySubcategories } from "@/data/catalogData"
 import { useFavorites } from "@/context/FavoritesContext"
@@ -11,10 +12,16 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
   onNavigate: (item: Composition) => void
   onClose: () => void
 }) {
+  const navigate = useNavigate()
   const idx = allItems.findIndex((i) => itemKey(i) === itemKey(modal))
   const hasPrev = idx > 0
   const hasNext = idx < allItems.length - 1
   const { toggleFavorite, isFavorite } = useFavorites()
+
+  const goOrder = (mode: "order" | "details") => {
+    onClose()
+    navigate(`/order?mode=${mode}&title=${encodeURIComponent(modal.title)}`)
+  }
 
   const goPrev = () => { if (hasPrev) onNavigate(allItems[idx - 1]) }
   const goNext = () => { if (hasNext) onNavigate(allItems[idx + 1]) }
@@ -186,17 +193,31 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             </div>
           </div>
           <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2 bg-white">
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Как заказать</p>
-            <p className="text-xs text-muted-foreground">Напишите нам номер композиции, сориентируем по наполнению и доставке</p>
-            <div className="flex flex-wrap gap-2">
-              <a href="tel:+79885973303" className="flex items-center gap-1 bg-primary text-primary-foreground px-3 py-2 rounded-full text-xs font-medium">
-                <Icon name="Phone" size={12} /> 8 988 597 33 03
+            <div className="flex gap-2">
+              <button
+                onClick={() => goOrder("order")}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-white text-sm font-bold transition-transform hover:scale-[1.02]"
+                style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
+              >
+                🎈 Оформить заказ
+              </button>
+              <button
+                onClick={() => goOrder("details")}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-bold border-2 transition-transform hover:scale-[1.02]"
+                style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
+              >
+                💬 Уточнить детали
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                <Icon name="MessageSquare" size={11} /> WhatsApp
               </a>
-              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-2 rounded-full text-xs font-medium">
-                <Icon name="MessageSquare" size={12} /> WhatsApp
+              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                <Icon name="Send" size={11} /> Telegram
               </a>
-              <a href="#" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-2 rounded-full text-xs font-medium">
-                <Icon name="Send" size={12} /> Telegram
+              <a href="tel:+79885973303" className="flex items-center gap-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-medium">
+                <Icon name="Phone" size={11} /> Позвонить
               </a>
             </div>
           </div>
@@ -294,33 +315,34 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             </div>
           </div>
           <div className="border-t border-border px-5 py-4 flex-shrink-0 space-y-3 bg-white">
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Как заказать</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">Напишите нам номер композиции, сориентируем по наполнению и доставке</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <a href="tel:+79885973303" className="flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-orange-100 transition-colors text-sm">
-                <Icon name="Phone" size={14} className="text-primary" /> 8 988 597 33 03
-              </a>
-              <a href="tel:+79182457204" className="flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-xl px-4 py-2.5 font-bold text-foreground hover:bg-orange-100 transition-colors text-sm">
-                <Icon name="Phone" size={14} className="text-primary" /> 8 918 245 72 04
-              </a>
+            <div className="flex gap-2">
+              <button
+                onClick={() => goOrder("order")}
+                className="flex-1 py-3 rounded-xl text-white font-bold text-sm transition-transform hover:scale-[1.02]"
+                style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 12px rgba(249,115,22,0.35)" }}
+              >
+                🎈 Оформить заказ
+              </button>
+              <button
+                onClick={() => goOrder("details")}
+                className="flex-1 py-3 rounded-xl font-bold text-sm border-2 transition-transform hover:scale-[1.02]"
+                style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
+              >
+                💬 Уточнить детали
+              </button>
             </div>
             <div className="flex flex-wrap gap-1.5">
-              <a href="https://wa.me/79885973303" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
+              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-green-600 transition-colors">
                 <Icon name="MessageSquare" size={12} /> WhatsApp
               </a>
-              <a href="#" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
+              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors">
                 <Icon name="Send" size={12} /> Telegram
               </a>
-              <a href="#" className="flex items-center gap-1 bg-blue-700 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-800 transition-colors">
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-blue-700 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-blue-800 transition-colors">
                 <Icon name="MessageCircle" size={12} /> ВКонтакте
               </a>
-              <a href="#" className="flex items-center gap-1 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:opacity-90 transition-opacity">
-                <Icon name="Instagram" size={12} /> Instagram
-              </a>
-              <a href="#" className="flex items-center gap-1 text-white px-3 py-1.5 rounded-full text-xs font-medium" style={{ backgroundColor: "#1e3a5f" }}>
-                <Icon name="Flame" size={12} /> Max
+              <a href="tel:+79885973303" className="flex items-center gap-1 text-white px-3 py-1.5 rounded-full text-xs font-medium" style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>
+                <Icon name="Phone" size={12} /> Позвонить
               </a>
             </div>
           </div>

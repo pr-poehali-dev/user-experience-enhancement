@@ -923,6 +923,7 @@ export default function Catalog() {
   const section = searchParams.get("section")
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     localStorage.removeItem("catalog_section")
   }, [])
 

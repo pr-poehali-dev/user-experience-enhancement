@@ -243,15 +243,46 @@ export function Hero() {
         zIndex: 10,
       }}>
 
-        {/* Соцсети — СЛЕВА */}
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px,1.2vw,18px)", flexWrap: "wrap" }}>
+        {/* СЛЕВА: Работаем + Адрес */}
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(12px,2vw,32px)", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{
+              width: 44, height: 44, borderRadius: "50%",
+              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 20, color: "#fff", flexShrink: 0,
+            }}>🕐</span>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: "clamp(13px,1.2vw,17px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
+              <div style={{ fontSize: "clamp(11px,1vw,14px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>без выходных</div>
+            </div>
+          </div>
+
+          <div style={{ width: 2, height: 44, background: "rgba(124,58,237,0.25)", borderRadius: 2, flexShrink: 0 }} className="hidden sm:block" />
+
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{
+              width: 44, height: 44, borderRadius: "50%",
+              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 20, color: "#fff", flexShrink: 0,
+            }}>📍</span>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: "clamp(13px,1.2vw,17px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
+              <div style={{ fontSize: "clamp(11px,1vw,14px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>г. Краснодар</div>
+            </div>
+          </div>
+        </div>
+
+        {/* СПРАВА: Соцсети */}
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px,1.2vw,16px)", flexWrap: "wrap" }}>
           {[
             { label: "WhatsApp",  href: "https://wa.me/79885973303", bg: "#25D366",
-              icon: <svg width="24" height="24" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.76 1.8 6.76L2 30l7.44-1.76A13.9 13.9 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.4c-2.18 0-4.22-.6-5.96-1.64l-.42-.26-4.42 1.04 1.06-4.3-.28-.44A11.38 11.38 0 014.6 16C4.6 9.7 9.7 4.6 16 4.6S27.4 9.7 27.4 16 22.3 27.4 16 27.4zm6.26-8.54c-.34-.17-2.02-.998-2.334-1.112-.312-.114-.54-.17-.766.17-.228.34-.882 1.112-1.082 1.34-.198.228-.396.256-.73.086-.336-.17-1.416-.522-2.698-1.664-.998-.888-1.672-1.986-1.868-2.32-.196-.336-.02-.518.148-.686.152-.152.336-.396.504-.594.17-.198.226-.34.338-.566.114-.228.056-.428-.028-.596-.086-.17-.766-1.842-1.048-2.522-.276-.66-.558-.57-.766-.582-.198-.01-.426-.012-.654-.012-.228 0-.596.086-.908.426-.312.34-1.192 1.164-1.192 2.838s1.22 3.294 1.39 3.522c.17.228 2.4 3.666 5.814 5.138.812.35 1.446.56 1.94.716.814.26 1.556.224 2.142.136.654-.098 2.014-.822 2.298-1.616.284-.794.284-1.474.198-1.616-.084-.14-.312-.226-.646-.396z"/></svg> },
+              icon: <svg width="22" height="22" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.76 1.8 6.76L2 30l7.44-1.76A13.9 13.9 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.4c-2.18 0-4.22-.6-5.96-1.64l-.42-.26-4.42 1.04 1.06-4.3-.28-.44A11.38 11.38 0 014.6 16C4.6 9.7 9.7 4.6 16 4.6S27.4 9.7 27.4 16 22.3 27.4 16 27.4zm6.26-8.54c-.34-.17-2.02-.998-2.334-1.112-.312-.114-.54-.17-.766.17-.228.34-.882 1.112-1.082 1.34-.198.228-.396.256-.73.086-.336-.17-1.416-.522-2.698-1.664-.998-.888-1.672-1.986-1.868-2.32-.196-.336-.02-.518.148-.686.152-.152.336-.396.504-.594.17-.198.226-.34.338-.566.114-.228.056-.428-.028-.596-.086-.17-.766-1.842-1.048-2.522-.276-.66-.558-.57-.766-.582-.198-.01-.426-.012-.654-.012-.228 0-.596.086-.908.426-.312.34-1.192 1.164-1.192 2.838s1.22 3.294 1.39 3.522c.17.228 2.4 3.666 5.814 5.138.812.35 1.446.56 1.94.716.814.26 1.556.224 2.142.136.654-.098 2.014-.822 2.298-1.616.284-.794.284-1.474.198-1.616-.084-.14-.312-.226-.646-.396z"/></svg> },
             { label: "Telegram",  href: "https://t.me/sharovik_krd", bg: "#229ED9",
-              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> },
+              icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> },
             { label: "ВКонтакте", href: "https://vk.com/sharovik_krd", bg: "#0077FF",
-              icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.85c-.7 0-.91-.56-2.16-1.81-1.09-1.05-1.57-.93-1.57.22v1.65c0 .39-.13.62-1.18.62-1.74 0-3.67-1.05-5.03-3.01C4.42 10.5 4 8.5 4 8.5s0-.23.25-.23h1.85c.68 0 .94.31 1.19 1.04.65 1.9 1.74 3.57 2.19 3.57.17 0 .25-.08.25-.5V10.1c-.06-1.06-.62-1.15-.62-1.53 0-.21.17-.42.45-.42h2.9c.38 0 .51.21.51.66v3.12c0 .38.17.51.28.51.17 0 .31-.13.62-.44 1.07-1.2 1.83-3.06 1.83-3.06.1-.23.3-.44.68-.44h1.85c.56 0 .68.29.56.67-.23.97-2.42 4.14-2.42 4.14-.19.31-.26.45 0 .79.19.26.8.79 1.21 1.27.74.84 1.31 1.55 1.46 2.04.17.49-.08.74-.57.74z"/></svg> },
+              icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.85c-.7 0-.91-.56-2.16-1.81-1.09-1.05-1.57-.93-1.57.22v1.65c0 .39-.13.62-1.18.62-1.74 0-3.67-1.05-5.03-3.01C4.42 10.5 4 8.5 4 8.5s0-.23.25-.23h1.85c.68 0 .94.31 1.19 1.04.65 1.9 1.74 3.57 2.19 3.57.17 0 .25-.08.25-.5V10.1c-.06-1.06-.62-1.15-.62-1.53 0-.21.17-.42.45-.42h2.9c.38 0 .51.21.51.66v3.12c0 .38.17.51.28.51.17 0 .31-.13.62-.44 1.07-1.2 1.83-3.06 1.83-3.06.1-.23.3-.44.68-.44h1.85c.56 0 .68.29.56.67-.23.97-2.42 4.14-2.42 4.14-.19.31-.26.45 0 .79.19.26.8.79 1.21 1.27.74.84 1.31 1.55 1.46 2.04.17.49-.08.74-.57.74z"/></svg> },
           ].map((s) => (
             <a
               key={s.label}
@@ -263,9 +294,9 @@ export function Hero() {
                 display: "flex", alignItems: "center", gap: 8,
                 background: s.bg,
                 borderRadius: 999,
-                padding: "clamp(8px,1vh,12px) clamp(14px,1.6vw,24px)",
+                padding: "clamp(8px,1vh,12px) clamp(12px,1.4vw,22px)",
                 fontWeight: 700,
-                fontSize: "clamp(13px,1.1vw,16px)",
+                fontSize: "clamp(13px,1.05vw,15px)",
                 fontFamily: "'Montserrat',sans-serif",
                 color: "#fff",
                 textDecoration: "none",
@@ -286,39 +317,6 @@ export function Hero() {
               <span className="hidden sm:inline">{s.label}</span>
             </a>
           ))}
-        </div>
-
-        {/* Работаем + Адрес */}
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px,2.5vw,36px)", flexWrap: "wrap" }}>
-          <div style={{ width: 2, height: 44, background: "rgba(124,58,237,0.25)", borderRadius: 2, flexShrink: 0 }} className="hidden sm:block" />
-
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{
-              width: 44, height: 44, borderRadius: "50%",
-              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 20, color: "#fff", flexShrink: 0,
-            }}>🕐</span>
-            <div>
-              <div style={{ fontWeight: 800, fontSize: "clamp(13px,1.2vw,17px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
-              <div style={{ fontSize: "clamp(11px,1vw,14px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>без выходных</div>
-            </div>
-          </div>
-
-          <div style={{ width: 2, height: 44, background: "rgba(124,58,237,0.25)", borderRadius: 2, flexShrink: 0 }} className="hidden sm:block" />
-
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{
-              width: 44, height: 44, borderRadius: "50%",
-              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 20, color: "#fff", flexShrink: 0,
-            }}>📍</span>
-            <div>
-              <div style={{ fontWeight: 800, fontSize: "clamp(13px,1.2vw,17px)", color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
-              <div style={{ fontSize: "clamp(11px,1vw,14px)", color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>г. Краснодар</div>
-            </div>
-          </div>
         </div>
       </div>
 

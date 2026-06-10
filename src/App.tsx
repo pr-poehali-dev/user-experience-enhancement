@@ -12,6 +12,7 @@ import Delivery from "./pages/Delivery";
 import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
 import PopularAll from "./pages/PopularAll";
+import Order from "./pages/Order";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/popular" element={<PopularAll />} />
+          <Route path="/order" element={<Order />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
