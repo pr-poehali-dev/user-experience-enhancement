@@ -197,7 +197,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
           {/* Раздел Доставка — единый для всех */}
           <div className="px-4 pb-3 flex-shrink-0">
             <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1 mb-2">
-              <Icon name="Truck" size={11} /> Доставка
+              <Icon name="Truck" size={11} /> Доставка по г. Краснодар
             </p>
             <div className="rounded-xl overflow-hidden border border-border">
               <div className="flex items-start gap-3 px-3 py-2.5 bg-green-50">
@@ -334,7 +334,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             {/* Доставка — единый красивый блок */}
             <div>
               <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1.5 mb-2">
-                <Icon name="Truck" size={13} /> Доставка
+                <Icon name="Truck" size={13} /> Доставка по г. Краснодар
               </p>
               <div className="rounded-xl overflow-hidden border border-border">
                 <div className="flex items-center gap-3 px-4 py-3 bg-green-50">

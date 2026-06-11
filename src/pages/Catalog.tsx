@@ -7,7 +7,7 @@ import { Composition, registerAllCompositions } from "@/data/catalogData"
 import CompositionGrid from "@/components/catalog/CompositionGrid"
 import { FloatingSocials } from "@/components/FloatingSocials"
 
-const compositions: Record<string, Composition[]> = {
+export const compositions: Record<string, Composition[]> = {
   girl: [
     { id: 7, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/07a8e9dd-25ba-4fae-bede-f14b8a502903.png", title: "Набор для девушки 7", description: "Шар-Баблс гигант стеклянный с конфетти и надписью (1шт), Прозрачные шары с конфетти (2шт), Хром шары серебро (3шт), Стеклянные шары розовые (5шт)", price: "4 180 ₽", priceNum: 4180, colors: ["pink", "silver"], subcategory: "girl" },
     { id: 8, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/97705f28-4088-4952-a2c5-2edbd299f917.png", title: "Набор для девушки 8", description: "Шары-Цифры фольгированные (2шт), Сердца фольгированные (2шт), Звезда фольгированная (1шт), Прозрачные шары с конфетти (3шт), Хром шары (5шт), Пастель шары (3шт)", price: "4 530 ₽", priceNum: 4530, colors: ["rosegold"], subcategory: "girl" },
