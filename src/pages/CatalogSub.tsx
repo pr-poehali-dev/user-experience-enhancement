@@ -88,10 +88,10 @@ export default function CatalogSub() {
       <div className="pt-[clamp(72px,10vw,120px)] border-b border-border/50 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <button
-            onClick={() => navigate("/catalog")}
+            onClick={() => navigate(-1)}
             className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors text-xs mb-2"
           >
-            <Icon name="ArrowLeft" size={13} /> Каталог
+            <Icon name="ArrowLeft" size={13} /> Назад
           </button>
           <div className="flex items-center gap-2.5">
             <span className="text-2xl sm:text-3xl">{info.emoji}</span>
