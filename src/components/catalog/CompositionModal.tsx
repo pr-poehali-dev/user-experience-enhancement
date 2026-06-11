@@ -98,18 +98,18 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
       {/* MOBILE — вертикальная карточка снизу */}
       <div
         className="sm:hidden w-full rounded-t-3xl overflow-hidden shadow-2xl flex flex-col bg-white"
-        style={{ maxHeight: "95vh" }}
+        style={{ maxHeight: "92vh" }}
         onClick={(e) => e.stopPropagation()}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Фото 3:4 */}
+        {/* Фото — компактнее */}
         <div
           className="relative w-full flex-shrink-0"
           style={{
             aspectRatio: "3/4",
-            maxHeight: "58vh",
+            maxHeight: "38vh",
             transform: slideTransform,
             transition: slideTransition,
             opacity: slideOpacity,
@@ -145,106 +145,88 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
             </button>
           )}
         </div>
-        {/* Контент под фото */}
-        <div className="flex-1 overflow-y-auto flex flex-col min-h-0">
-          {/* Шапка с названием и ценой */}
+        {/* Контент под фото — компактный, без скролла */}
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          {/* Шапка: название + цена */}
           <div className="flex-shrink-0">
-            {/* Полоска-акцент */}
-            <div style={{height:3, background:"linear-gradient(90deg,#7c3aed,#f97316,#f43f5e)"}} />
-            <div className="px-4 pt-3 pb-3 flex items-start justify-between gap-2 bg-white">
-              <div className="flex-1 min-w-0">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-1">🎈 Набор</p>
-                <h3 className="text-base font-extrabold leading-snug text-foreground mb-3" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
-                <div className="inline-flex items-baseline gap-1.5 px-3 py-1 rounded-full" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
-                  <span className="text-lg font-black text-white" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.price}</span>
+            <div style={{height:2, background:"linear-gradient(90deg,#7c3aed,#f97316,#f43f5e)"}} />
+            <div className="px-3 pt-2 pb-2 flex items-center justify-between gap-2 bg-white">
+              <div className="flex-1 min-w-0 flex items-center gap-2">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[13px] font-extrabold leading-tight text-foreground truncate" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.title}</h3>
+                </div>
+                <div className="inline-flex items-center px-2.5 py-0.5 rounded-full flex-shrink-0" style={{background:"linear-gradient(135deg,#7c3aed,#a855f7)"}}>
+                  <span className="text-sm font-black text-white" style={{fontFamily:"'Montserrat',sans-serif"}}>{modal.price}</span>
                 </div>
               </div>
               <button
                 onClick={() => toggleFavorite(modal.id)}
-                className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-all hover:scale-110 active:scale-90 mt-1"
+                className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center shadow-sm transition-all active:scale-90"
                 style={{ background: isFavorite(modal.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "#f5f3ff" }}
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill={isFavorite(modal.id) ? "#fff" : "none"} stroke={isFavorite(modal.id) ? "#fff" : "#f43f5e"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </button>
             </div>
           </div>
 
-          <div className="px-4 pt-3 pb-1 flex-shrink-0">
-            <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1">
-              <Icon name="Sparkles" size={11} /> Наполнение
+          {/* Наполнение */}
+          <div className="px-3 pb-0 flex-shrink-0">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-primary/70 flex items-center gap-1 mb-1">
+              <Icon name="Sparkles" size={9} /> Наполнение
             </p>
+            <div className="text-[11px] text-foreground/75 leading-snug line-clamp-2">
+              {modal.description}
+            </div>
+            <p className="text-[10px] text-primary/70 mt-1 font-medium">🎨 Можно изменить под бюджет и пожелания</p>
           </div>
-          <div className="px-4 pb-3 space-y-1.5 flex-shrink-0">
-            {modal.description.includes(',') ? (
-              <ul className="space-y-1">
-                {modal.description.split(',').map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
-                    <span className="text-primary mt-0.5 flex-shrink-0">•</span>
-                    <span>{item.trim().replace(/\.$/, '')}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-sm text-foreground/80 leading-relaxed">{modal.description}</p>
-            )}
-            <div className="bg-primary/8 border border-primary/20 rounded-xl px-3 py-2 text-primary text-xs font-medium">
-              🎨 Наполнение можно изменить под ваш бюджет и пожелания
+
+          {/* Доставка — компактная строка */}
+          <div className="px-3 pt-1.5 pb-1.5 flex-shrink-0">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-primary/70 mb-1 flex items-center gap-1">
+              <Icon name="Truck" size={9} /> Доставка по г. Краснодар
+            </p>
+            <div className="flex gap-1.5 flex-wrap">
+              <span className="text-[10px] bg-green-50 text-green-700 px-2 py-0.5 rounded-full font-medium">🎁 от 3500 ₽ — Бесплатно</span>
+              <span className="text-[10px] bg-orange-50 text-orange-700 px-2 py-0.5 rounded-full font-medium">🚚 менее 3500 ₽ — 150–500 ₽</span>
+              <span className="text-[10px] bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full font-medium">📍 Самовывоз: ул. Героя Яцкова 19к3</span>
             </div>
           </div>
 
-          {/* Раздел Доставка — единый для всех */}
-          <div className="px-4 pb-3 flex-shrink-0">
-            <p className="text-xs font-semibold text-primary uppercase tracking-wide flex items-center gap-1 mb-2">
-              <Icon name="Truck" size={11} /> Доставка по г. Краснодар
-            </p>
-            <div className="rounded-xl overflow-hidden border border-border">
-              <div className="flex items-start gap-3 px-3 py-2.5 bg-green-50">
-                <span className="flex-shrink-0 mt-0.5">🎁</span>
-                <span className="text-xs text-foreground">При заказе от 3500 ₽ — <b>Бесплатно!</b></span>
-              </div>
-              <div className="flex items-start gap-3 px-3 py-2.5 bg-orange-50 border-t border-border">
-                <span className="flex-shrink-0 mt-0.5">🚚</span>
-                <span className="text-xs text-foreground">При сумме менее 3500 ₽ — <b>150–500 ₽</b></span>
-              </div>
-              <div className="flex items-start gap-3 px-3 py-2.5 bg-violet-50 border-t border-border">
-                <span className="flex-shrink-0 mt-0.5">📍</span>
-                <span className="text-xs text-foreground">Самовывоз: р-н Губернский: ул. Героя Яцкова 19к3</span>
-              </div>
+          {/* Кнопки */}
+          <div className="border-t border-border px-3 py-2 flex-shrink-0 space-y-2 bg-white">
+            <div className="flex gap-2">
+              <button
+                onClick={() => goOrder("order")}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-white font-bold text-[13px] transition-transform hover:scale-[1.02]"
+                style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 3px 10px rgba(249,115,22,0.35)" }}
+              >
+                🎈 Оформить заказ
+              </button>
+              <button
+                onClick={() => goOrder("details")}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-[13px] border-2 transition-transform hover:scale-[1.02]"
+                style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
+              >
+                💬 Уточнить детали
+              </button>
             </div>
-          </div>
-          
-          <div className="border-t border-border px-4 py-3 flex-shrink-0 space-y-2.5 bg-white">
-            <button
-              onClick={() => goOrder("order")}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold text-base transition-transform hover:scale-[1.02]"
-              style={{ background: "linear-gradient(135deg,#f97316,#e63000)", boxShadow: "0 4px 14px rgba(249,115,22,0.35)" }}
-            >
-              🎈 Оформить заказ
-            </button>
-            <button
-              onClick={() => goOrder("details")}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-base border-2 transition-transform hover:scale-[1.02]"
-              style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
-            >
-              💬 Уточнить детали
-            </button>
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#25D366"}}>
-                <Icon name="MessageSquare" size={11} /> WhatsApp
+            <div className="flex flex-wrap gap-1.5">
+              <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white" style={{background:"#25D366"}}>
+                <Icon name="MessageSquare" size={10} /> WhatsApp
               </a>
-              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#229ED9"}}>
-                <Icon name="Send" size={11} /> Telegram
+              <a href="https://t.me/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white" style={{background:"#229ED9"}}>
+                <Icon name="Send" size={10} /> Telegram
               </a>
-              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#0077FF"}}>
-                <Icon name="MessageCircle" size={11} /> ВКонтакте
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white" style={{background:"#0077FF"}}>
+                <Icon name="MessageCircle" size={10} /> ВКонтакте
               </a>
-              <a href="https://instagram.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"linear-gradient(45deg,#f09433,#dc2743,#bc1888)"}}>
-                <Icon name="Instagram" size={11} /> Instagram
+              <a href="https://instagram.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white" style={{background:"linear-gradient(45deg,#f09433,#dc2743,#bc1888)"}}>
+                <Icon name="Instagram" size={10} /> Instagram
               </a>
-              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-white" style={{background:"#1e3a5f"}}>
-                <Icon name="MessageSquare" size={11} /> Max
+              <a href="https://vk.com/sharovik_krd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-white" style={{background:"#1e3a5f"}}>
+                <Icon name="MessageSquare" size={10} /> Max
               </a>
             </div>
           </div>

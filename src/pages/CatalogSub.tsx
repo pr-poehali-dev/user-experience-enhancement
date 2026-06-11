@@ -84,30 +84,29 @@ export default function CatalogSub() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero-шапка */}
-      <div className={`bg-gradient-to-br ${info.gradient} pt-[clamp(72px,10vw,120px)] pb-8 sm:pb-12`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Компактный заголовок */}
+      <div className="pt-[clamp(72px,10vw,120px)] border-b border-border/50 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <button
             onClick={() => navigate("/catalog")}
-            className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors text-sm mb-4"
+            className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors text-xs mb-2"
           >
-            <Icon name="ArrowLeft" size={16} /> Назад в каталог
+            <Icon name="ArrowLeft" size={13} /> Каталог
           </button>
-          <div className="flex items-center gap-4">
-            <span className="text-5xl sm:text-6xl drop-shadow-lg">{info.emoji}</span>
+          <div className="flex items-center gap-2.5">
+            <span className="text-2xl sm:text-3xl">{info.emoji}</span>
             <div>
-              <h1 className="text-2xl sm:text-4xl font-black text-white leading-tight drop-shadow">
+              <h1 className="text-base sm:text-xl font-bold text-foreground leading-tight">
                 {info.label}
               </h1>
-              <p className="text-white/80 text-sm sm:text-base mt-1">{info.description}</p>
-              <p className="text-white/70 text-xs sm:text-sm mt-1">{items.length} композиций</p>
+              <p className="text-xs text-muted-foreground">{items.length} композиций</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Сетка */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 pb-20">
         <CompositionGrid items={items} />
       </div>
 

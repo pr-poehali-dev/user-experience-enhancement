@@ -6,60 +6,86 @@ import { Footer } from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
-const CATEGORIES = [
-  { path: "/catalog/girl",          label: "Девушке",          sub: "на ДР",   emoji: "🌹", grad: "from-pink-400 to-rose-500" },
-  { path: "/catalog/man",           label: "Мужчине",          sub: "на ДР",   emoji: "🎩", grad: "from-blue-500 to-blue-700" },
-  { path: "/catalog/boy",           label: "Мальчику",         sub: "на ДР",   emoji: "🚀", grad: "from-cyan-400 to-blue-500" },
-  { path: "/catalog/kid-girl",      label: "Девочке",          sub: "на ДР",   emoji: "🎀", grad: "from-purple-400 to-pink-500" },
-  { path: "/catalog/girl-discharge",label: "Выписка",          sub: "девочки", emoji: "👧", grad: "from-pink-300 to-rose-400" },
-  { path: "/catalog/boy-discharge", label: "Выписка",          sub: "мальчика",emoji: "👦", grad: "from-sky-300 to-blue-400" },
+const BIRTHDAY_CATS = [
+  { path: "/catalog/girl",     label: "Девушке",   emoji: "🌹", color: "#e11d48" },
+  { path: "/catalog/man",      label: "Мужчине",   emoji: "🎩", color: "#1d4ed8" },
+  { path: "/catalog/boy",      label: "Мальчику",  emoji: "🚀", color: "#0284c7" },
+  { path: "/catalog/kid-girl", label: "Девочке",   emoji: "🎀", color: "#9333ea" },
+]
+
+const DISCHARGE_CATS = [
+  { path: "/catalog/girl-discharge", label: "Выписка девочки",   emoji: "👧", color: "#db2777" },
+  { path: "/catalog/boy-discharge",  label: "Выписка мальчика",  emoji: "👦", color: "#0369a1" },
 ]
 
 function CatalogCTA() {
   const navigate = useNavigate()
   return (
-    <section className="py-14 sm:py-20 bg-gradient-to-br from-violet-100 via-orange-50 to-rose-50 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-12 sm:py-20 bg-background border-t border-border/40 px-4">
+      <div className="max-w-3xl mx-auto">
+
         {/* Заголовок */}
-        <div className="text-center mb-10 sm:mb-14">
-          <span className="text-5xl sm:text-6xl block mb-4">🎈</span>
-          <h2 className="text-3xl sm:text-5xl font-bold leading-tight mb-3">
-            Готовы выбрать<br />
-            <span className="text-primary">шарики?</span>
+        <div className="text-center mb-8 sm:mb-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Выберите категорию</p>
+          <h2 className="text-3xl sm:text-5xl font-light tracking-tight">
+            Готовы выбрать{" "}
+            <span className="font-semibold" style={{color:"#f97316"}}>шарики?</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground">
-            Выберите нужную категорию или смотрите весь каталог
+        </div>
+
+        {/* День рождения */}
+        <div className="mb-5">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
+            <span>🎂</span> На День Рождения
           </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+            {BIRTHDAY_CATS.map(cat => (
+              <button
+                key={cat.path}
+                onClick={() => navigate(cat.path)}
+                className="group relative rounded-2xl border border-border bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-150 p-4 flex flex-col items-center gap-2 text-center"
+              >
+                <span className="text-3xl">{cat.emoji}</span>
+                <span className="text-sm font-semibold text-foreground">{cat.label}</span>
+                <span className="text-[11px] text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-0.5">
+                  Смотреть <Icon name="ArrowRight" size={10} />
+                </span>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{background: cat.color}} />
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Сетка категорий */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat.path}
-              onClick={() => navigate(cat.path)}
-              className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br ${cat.grad} p-4 sm:p-6 flex flex-col items-center gap-2 shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all duration-200 text-center`}
-            >
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-              <span className="relative text-3xl sm:text-5xl drop-shadow">{cat.emoji}</span>
-              <div className="relative">
-                <p className="text-white font-black text-sm sm:text-xl leading-tight">{cat.label}</p>
-                <p className="text-white/80 text-xs sm:text-sm font-medium">{cat.sub}</p>
-              </div>
-              <div className="relative flex items-center gap-1 text-white/90 text-[11px] sm:text-sm font-medium mt-1">
-                Смотреть <Icon name="ArrowRight" size={12} />
-              </div>
-            </button>
-          ))}
+        {/* Выписка */}
+        <div className="mb-8">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
+            <span>👶</span> На выписку
+          </p>
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
+            {DISCHARGE_CATS.map(cat => (
+              <button
+                key={cat.path}
+                onClick={() => navigate(cat.path)}
+                className="group relative rounded-2xl border border-border bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-150 p-4 flex flex-col items-center gap-2 text-center"
+              >
+                <span className="text-3xl">{cat.emoji}</span>
+                <span className="text-sm font-semibold text-foreground">{cat.label}</span>
+                <span className="text-[11px] text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-0.5">
+                  Смотреть <Icon name="ArrowRight" size={10} />
+                </span>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{background: cat.color}} />
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Кнопка весь каталог */}
+        {/* Весь каталог */}
         <div className="text-center">
           <Button
             size="lg"
             onClick={() => navigate("/catalog")}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 sm:px-16 shadow-xl"
-            style={{ height: "3.5rem", fontSize: "1.1rem", fontWeight: 700 }}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 sm:px-16 shadow-lg"
+            style={{ height: "3.25rem", fontSize: "1rem", fontWeight: 700 }}
           >
             Весь каталог
             <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
