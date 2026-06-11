@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, useRef, useCallback } from "react"
 import { useSearchParams, useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import {
@@ -103,6 +103,21 @@ export default function CompositionGrid({
       return next
     })
   }
+
+  // Автозагрузка при скролле до конца
+  const sentinelRef = useRef<HTMLDivElement>(null)
+  const loadMore = useCallback(() => {
+    setVisibleCount(prev => prev + 50)
+  }, [])
+  useEffect(() => {
+    const el = sentinelRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) loadMore()
+    }, { rootMargin: "200px" })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [loadMore])
 
   const updateParams = (updates: Record<string, string | null>) => {
     setSearchParams(prev => {
@@ -377,13 +392,12 @@ export default function CompositionGrid({
         </div>
       )}
       {filtered.length > visibleCount && (
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={() => setVisibleCount((prev) => prev + 50)}
-            className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
-          >
-            Показать следующие наборы ({filtered.length - visibleCount} шт.)
-          </button>
+        <div ref={sentinelRef} className="h-16 flex items-center justify-center mt-4">
+          <div className="flex gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-primary/40 animate-bounce" style={{animationDelay:"0ms"}} />
+            <div className="w-2 h-2 rounded-full bg-primary/40 animate-bounce" style={{animationDelay:"150ms"}} />
+            <div className="w-2 h-2 rounded-full bg-primary/40 animate-bounce" style={{animationDelay:"300ms"}} />
+          </div>
         </div>
       )}
 

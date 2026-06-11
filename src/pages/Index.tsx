@@ -38,19 +38,31 @@ function CatalogCTA() {
           <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
             <span>🎂</span> На День Рождения
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {BIRTHDAY_CATS.map(cat => (
               <button
                 key={cat.path}
                 onClick={() => navigate(cat.path)}
-                className="group relative rounded-2xl border border-border bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-150 p-4 flex flex-col items-center gap-2 text-center"
+                className="group relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.03] transition-all duration-200 p-5 sm:p-6 flex flex-col items-center gap-3 text-center"
+                style={{
+                  background: `linear-gradient(145deg, ${cat.color}18 0%, ${cat.color}0a 100%)`,
+                  border: `1.5px solid ${cat.color}30`,
+                }}
               >
-                <span className="text-3xl">{cat.emoji}</span>
-                <span className="text-sm font-semibold text-foreground">{cat.label}</span>
-                <span className="text-[11px] text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-0.5">
-                  Смотреть <Icon name="ArrowRight" size={10} />
+                <div
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl shadow-sm"
+                  style={{ background: `${cat.color}15` }}
+                >
+                  {cat.emoji}
+                </div>
+                <div>
+                  <p className="text-sm sm:text-base font-bold text-foreground leading-tight">{cat.label}</p>
+                  <p className="text-[10px] sm:text-xs font-medium mt-0.5" style={{color: cat.color}}>на День Рождения</p>
+                </div>
+                <span className="text-[11px] font-semibold flex items-center gap-0.5 transition-all" style={{color: cat.color}}>
+                  Смотреть <Icon name="ArrowRight" size={11} />
                 </span>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{background: cat.color}} />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" style={{boxShadow: `inset 0 0 0 2px ${cat.color}60`}} />
               </button>
             ))}
           </div>
@@ -61,19 +73,30 @@ function CatalogCTA() {
           <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
             <span>👶</span> На выписку
           </p>
-          <div className="grid grid-cols-2 gap-2 sm:gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {DISCHARGE_CATS.map(cat => (
               <button
                 key={cat.path}
                 onClick={() => navigate(cat.path)}
-                className="group relative rounded-2xl border border-border bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-150 p-4 flex flex-col items-center gap-2 text-center"
+                className="group relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.03] transition-all duration-200 p-5 sm:p-6 flex flex-col items-center gap-3 text-center"
+                style={{
+                  background: `linear-gradient(145deg, ${cat.color}18 0%, ${cat.color}0a 100%)`,
+                  border: `1.5px solid ${cat.color}30`,
+                }}
               >
-                <span className="text-3xl">{cat.emoji}</span>
-                <span className="text-sm font-semibold text-foreground">{cat.label}</span>
-                <span className="text-[11px] text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-0.5">
-                  Смотреть <Icon name="ArrowRight" size={10} />
+                <div
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl shadow-sm"
+                  style={{ background: `${cat.color}15` }}
+                >
+                  {cat.emoji}
+                </div>
+                <div>
+                  <p className="text-sm sm:text-base font-bold text-foreground leading-tight">{cat.label}</p>
+                </div>
+                <span className="text-[11px] font-semibold flex items-center gap-0.5 transition-all" style={{color: cat.color}}>
+                  Смотреть <Icon name="ArrowRight" size={11} />
                 </span>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{background: cat.color}} />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" style={{boxShadow: `inset 0 0 0 2px ${cat.color}60`}} />
               </button>
             ))}
           </div>
