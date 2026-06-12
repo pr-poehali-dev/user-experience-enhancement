@@ -69,7 +69,8 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {/* Карточки отзывов — только десктоп */}
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {reviews.map((r, i) => (
             <div
               key={i}
@@ -88,19 +89,48 @@ export function Reviews() {
                   {r.occasion}
                 </span>
               </div>
-
               <div className="flex gap-0.5">
                 {[1,2,3,4,5].map(s => (
                   <span key={s} style={{ fontSize: 16, color: s <= r.rating ? "#f97316" : "#e5e7eb" }}>★</span>
                 ))}
               </div>
-
               <p className="text-sm text-foreground/80 leading-relaxed flex-1">"{r.text}"</p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10 sm:mt-14">
+        {/* Мобайл — только кнопка Авито */}
+        <div className="flex sm:hidden flex-col items-center gap-4 py-4">
+          <div className="flex items-center gap-1 mb-2">
+            {[1,2,3,4,5].map(i => (
+              <span key={i} style={{ fontSize: 28, color: "#f97316" }}>★</span>
+            ))}
+          </div>
+          <p className="text-base font-semibold text-center text-foreground/70">
+            Более 1 200 счастливых заказов
+          </p>
+          <a
+            href="https://www.avito.ru/profile/rating"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 10,
+              background: "linear-gradient(135deg,#00aaff,#0070cc)",
+              color: "#fff", borderRadius: 20,
+              padding: "16px 32px",
+              fontWeight: 800, fontSize: 17,
+              fontFamily: "'Montserrat', sans-serif",
+              textDecoration: "none",
+              boxShadow: "0 4px 20px rgba(0,170,255,0.4)",
+            }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            Наши отзывы на Авито
+          </a>
+        </div>
+
+        {/* Десктоп — кнопка под карточками */}
+        <div className="hidden sm:block text-center mt-10 sm:mt-14">
           <a
             href="https://www.avito.ru/profile/rating"
             target="_blank"

@@ -460,7 +460,7 @@ export default function CompositionGrid({
                 window._catalogScrollY = window.scrollY
                 // На мобайле — открываем новую страницу
                 if (window.innerWidth < 640) {
-                  navigate("/composition", { state: { item, scrollY: window.scrollY, backPath: window.location.pathname + window.location.search } })
+                  navigate("/composition", { state: { item, allItems: filtered.slice(0, visibleCount), scrollY: window.scrollY, backPath: window.location.pathname + window.location.search } })
                 } else {
                   setModal(item)
                 }

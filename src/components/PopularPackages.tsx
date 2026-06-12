@@ -103,10 +103,12 @@ export function PopularPackages() {
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    const dx = lastTouchXRef.current - e.touches[0].clientX
+    const rawDx = lastTouchXRef.current - e.touches[0].clientX
     lastTouchXRef.current = e.touches[0].clientX
+    // Умножаем на 3 — пользователь листает в 3 раза быстрее своего пальца
+    const dx = rawDx * 3
     touchVelRef.current = dx
-    if (Math.abs(dx) > 2) touchMovedRef.current = true
+    if (Math.abs(rawDx) > 2) touchMovedRef.current = true
 
     const track = trackRef.current
     if (!track) return
@@ -183,7 +185,7 @@ export function PopularPackages() {
     if (mouseMovedRef.current) return
     e.stopPropagation()
     if (window.innerWidth < 640) {
-      navigate("/composition", { state: { item: pkg, scrollY: 0, backPath: "/" } })
+      navigate("/composition", { state: { item: pkg, allItems: packages, scrollY: 0, backPath: "/" } })
     } else {
       setModal(pkg)
     }

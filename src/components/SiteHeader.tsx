@@ -4,6 +4,8 @@ import { useFavorites } from "@/context/FavoritesContext"
 
 const LOGO_FULL = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/0bd60024-d203-4687-8ece-19f097927434.png"
 const LOGO_COMPACT = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9eef4dd7-63f9-4820-bcbd-49aa233a21f2.png"
+// Новый логотип для бокового меню
+const LOGO_MENU = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9becd1f1-f1f4-44ee-a8af-15d82e98e381.png"
 
 const SOCIALS = [
   { label: "WhatsApp", href: "https://wa.me/79885973303", bg: "#25D366", icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.76 1.8 6.76L2 30l7.44-1.76A13.9 13.9 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm6.26 19.86c-.34-.17-2.02-.998-2.334-1.112-.312-.114-.54-.17-.766.17-.228.34-.882 1.112-1.082 1.34-.198.228-.396.256-.73.086-.336-.17-1.416-.522-2.698-1.664-.998-.888-1.672-1.986-1.868-2.32-.196-.336-.02-.518.148-.686.152-.152.336-.396.504-.594.17-.198.226-.34.338-.566.114-.228.056-.428-.028-.596-.086-.17-.766-1.842-1.048-2.522-.276-.66-.558-.57-.766-.582-.198-.01-.426-.012-.654-.012-.228 0-.596.086-.908.426-.312.34-1.192 1.164-1.192 2.838s1.22 3.294 1.39 3.522c.17.228 2.4 3.666 5.814 5.138.812.35 1.446.56 1.94.716.814.26 1.556.224 2.142.136.654-.098 2.014-.822 2.298-1.616.284-.794.284-1.474.198-1.616-.084-.14-.312-.226-.646-.396z"/></svg> },
@@ -22,17 +24,20 @@ const NAV_DESKTOP = [
 ]
 
 const NAV_MOBILE = [
-  { label: "О нас",     path: "/about",    emoji: "ℹ️" },
-  { label: "Прайс",    path: "/contacts", emoji: "🏷️" },
-  { label: "Доставка", path: "/delivery", emoji: "🚚" },
-  { label: "Отзывы",   path: "#reviews",  emoji: "💬" },
+  { label: "О нас",      path: "/about",     emoji: "ℹ️" },
+  { label: "Прайс",     path: "/contacts",  emoji: "🏷️" },
+  { label: "Доставка",  path: "/delivery",  emoji: "🚚" },
+  { label: "Отзывы",    path: "#reviews",   emoji: "💬" },
+  { label: "Каталог",   path: "/catalog",   emoji: "🎈" },
+  { label: "Соцсети",   path: "#socials",   emoji: "📱" },
+  { label: "Популярное",path: "#popular",   emoji: "⭐" },
 ]
 
 // Кнопка соцсетей — правый нижний угол, всегда видна
 function FloatingSocialsBtn() {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{ position: "fixed", bottom: 24, right: 16, zIndex: 200 }}>
+    <div style={{ position: "fixed", bottom: 90, right: 16, zIndex: 200 }}>
       {/* Список соцсетей */}
       {open && (
         <div style={{ position: "absolute", bottom: 72, right: 0, display: "flex", flexDirection: "column", gap: 10, alignItems: "flex-end" }}>
@@ -62,6 +67,7 @@ function FloatingSocialsBtn() {
       )}
       {/* Круглая кнопка */}
       <button
+        data-socials-btn
         onClick={() => setOpen(v => !v)}
         style={{
           width: 58, height: 58, borderRadius: "50%",
@@ -133,6 +139,17 @@ export function SiteHeader() {
       } else {
         navigate("/")
         setTimeout(() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" }), 400)
+      }
+    } else if (path === "#socials") {
+      // Открываем кнопку соцсетей — эмулируем клик по ней
+      const btn = document.querySelector("[data-socials-btn]") as HTMLButtonElement | null
+      btn?.click()
+    } else if (path === "#popular") {
+      if (location.pathname === "/") {
+        document.getElementById("popular")?.scrollIntoView({ behavior: "smooth" })
+      } else {
+        navigate("/")
+        setTimeout(() => document.getElementById("popular")?.scrollIntoView({ behavior: "smooth" }), 400)
       }
     } else {
       navigate(path)
@@ -309,17 +326,17 @@ export function SiteHeader() {
         <a
           href="tel:+79880653700"
           style={{
-            display: "flex", alignItems: "center", gap: 6,
+            display: "flex", alignItems: "center", gap: 5,
             background: "linear-gradient(135deg, #7c3aed, #a855f7)",
             color: "#fff", borderRadius: 999,
-            padding: "7px 14px",
-            fontWeight: 800, fontSize: 14,
+            padding: "7px 11px",
+            fontWeight: 800, fontSize: 13,
             fontFamily: "'Montserrat', sans-serif",
             textDecoration: "none", whiteSpace: "nowrap",
             animation: "phonePulse 2.5s ease-in-out infinite",
           }}
         >
-          📞 988 065 37 00
+          📞 +7 988 065 37 00
         </a>
 
         {/* Избранное (справа) */}
@@ -372,12 +389,12 @@ export function SiteHeader() {
             }}
             onClick={e => e.stopPropagation()}
           >
-            {/* Логотип в меню */}
-            <div style={{ padding: "0 20px 20px", borderBottom: "1px solid #f0ebff" }}>
+            {/* Логотип в меню — новый, большой, по центру */}
+            <div style={{ padding: "0 12px 16px", borderBottom: "1px solid #f0ebff", display: "flex", justifyContent: "center" }}>
               <img
-                src={LOGO_COMPACT}
+                src={LOGO_MENU}
                 alt="Шаровик Затейник"
-                style={{ height: 48, cursor: "pointer" }}
+                style={{ height: 110, width: "auto", objectFit: "contain", cursor: "pointer" }}
                 onClick={() => { navigate("/"); setMobileMenuOpen(false) }}
               />
             </div>

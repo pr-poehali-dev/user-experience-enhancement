@@ -175,16 +175,30 @@ export function Hero() {
         <MobileBalloonsLayer />
       </div>
 
-      {/* МОБАЙЛ: Новый большой логотип */}
+      {/* МОБАЙЛ: Новый большой логотип — выше, крупнее */}
       <div className="block sm:hidden" style={{
         position: "relative", zIndex: 3, textAlign: "center",
-        marginTop: "12vh", marginBottom: "2vh",
+        marginTop: "8vh", marginBottom: "3vh",
       }}>
         <img
           src={NEW_LOGO}
           alt="Шаровик Затейник"
-          style={{ height: 130, width: "auto", objectFit: "contain", display: "inline-block" }}
+          style={{ height: 170, width: "auto", objectFit: "contain", display: "inline-block",
+            filter: "drop-shadow(0 4px 16px rgba(124,58,237,0.25))" }}
         />
+      </div>
+
+      {/* МОБАЙЛ: Крупная подпись */}
+      <div className="block sm:hidden" style={{
+        textAlign: "center", lineHeight: 1.25, position: "relative", zIndex: 3,
+        marginBottom: "3vh",
+      }}>
+        <div style={{ fontSize: "clamp(22px, 5.5vw, 30px)", fontWeight: 700, color: "#3d2070", fontFamily: "'Montserrat', sans-serif" }}>
+          Стильные композиции
+        </div>
+        <div style={{ fontSize: "clamp(22px, 5.5vw, 30px)", fontWeight: 700, color: "#3d2070", fontFamily: "'Montserrat', sans-serif" }}>
+          из шаров <span style={{ color: "#e63000", fontWeight: 800 }}>с доставкой</span>
+        </div>
       </div>
 
       {/* Заголовок — только десктоп */}
@@ -205,16 +219,7 @@ export function Hero() {
         }}>шарики</div>
       </div>
 
-      {/* Подпись — мобайл (компактнее) */}
-      <div className="block sm:hidden" style={{
-        textAlign: "center", lineHeight: 1.3,
-        fontSize: "clamp(18px, 4.5vw, 26px)", fontWeight: 500,
-        fontFamily: "'Montserrat', sans-serif", color: "#3d2070",
-        position: "relative", zIndex: 3, marginBottom: "2vh",
-      }}>
-        <div>Стильные композиции</div>
-        <div>из шаров <span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span></div>
-      </div>
+      {/* Подпись мобайл — убрана (вынесена выше) */}
 
       {/* Подпись — десктоп */}
       <div className="hidden sm:block" style={{
@@ -227,11 +232,33 @@ export function Hero() {
         <div>из шаров <span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span></div>
       </div>
 
-      {/* Кнопка */}
+      {/* Кнопка — МОБАЙЛ: новый дизайн */}
       <button
+        className="block sm:hidden"
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(16px, 3vh, 52px)", display: "flex", alignItems: "center", gap: 14,
+          display: "flex", alignItems: "center", gap: 10,
+          background: "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #f97316 100%)",
+          color: "#fff",
+          border: "none",
+          borderRadius: 20,
+          padding: "16px 36px",
+          fontSize: 19, fontWeight: 800,
+          fontFamily: "'Nunito', sans-serif", cursor: "pointer",
+          boxShadow: "0 0 0 3px rgba(255,255,255,0.35), 0 8px 28px rgba(124,58,237,0.5)",
+          position: "relative", zIndex: 3, whiteSpace: "nowrap",
+          animation: "catalogBtnWiggle 2.8s ease-in-out infinite",
+        }}
+      >
+        🎈 Смотреть каталог
+      </button>
+
+      {/* Кнопка — ДЕСКТОП: оригинальный стиль */}
+      <button
+        className="hidden sm:flex"
+        onClick={() => navigate("/catalog")}
+        style={{
+          marginTop: "clamp(16px, 3vh, 52px)", alignItems: "center", gap: 14,
           background: "linear-gradient(160deg, #ff7a10 0%, #e63000 100%)", color: "#fff",
           border: "4px solid #c44a00", borderRadius: 999,
           padding: "clamp(10px, 1.4vh, 16px) clamp(28px, 3.5vw, 56px)",
@@ -240,27 +267,7 @@ export function Hero() {
           boxShadow: "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)",
           transition: "transform 0.15s, box-shadow 0.15s", whiteSpace: "nowrap",
           position: "relative", zIndex: 3,
-          animation: "catalogBtnWiggle 2.8s ease-in-out infinite, catalogBtnGlow 2.8s ease-in-out infinite",
-        }}
-        onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.animation = "none"
-          ;(e.currentTarget as HTMLElement).style.transform = "translateY(-3px) scale(1.04)"
-          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 11px 0 #a33a00, 0 14px 40px rgba(180,60,0,0.55)"
-        }}
-        onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.animation = "catalogBtnWiggle 2.8s ease-in-out infinite, catalogBtnGlow 2.8s ease-in-out infinite"
-          ;(e.currentTarget as HTMLElement).style.transform = ""
-          ;(e.currentTarget as HTMLElement).style.boxShadow = ""
-        }}
-        onMouseDown={e => {
-          (e.currentTarget as HTMLElement).style.animation = "none"
-          ;(e.currentTarget as HTMLElement).style.transform = "translateY(5px)"
-          ;(e.currentTarget as HTMLElement).style.boxShadow = "0 3px 0 #a33a00, 0 4px 16px rgba(180,60,0,0.35)"
-        }}
-        onMouseUp={e => {
-          (e.currentTarget as HTMLElement).style.transform = ""
-          ;(e.currentTarget as HTMLElement).style.boxShadow = ""
-          ;(e.currentTarget as HTMLElement).style.animation = "catalogBtnWiggle 2.8s ease-in-out infinite, catalogBtnGlow 2.8s ease-in-out infinite"
+          animation: "catalogBtnWiggle 2.8s ease-in-out infinite",
         }}
       >Смотреть каталог →</button>
 
