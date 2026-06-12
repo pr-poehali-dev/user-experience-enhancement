@@ -278,7 +278,7 @@ export default function CompositionGrid({
         )}
 
         {/* Color filter */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex sm:flex-wrap items-center gap-1.5">
           <span
             className="text-xs font-bold px-2.5 py-1.5 rounded-full whitespace-nowrap flex-shrink-0"
             style={{
@@ -288,8 +288,9 @@ export default function CompositionGrid({
           >
             🎨 Цвет
           </span>
-          <div className="flex-1 overflow-x-auto scrollbar-none">
-            <div className="flex items-center gap-1.5 w-max">
+          {/* Мобайл: горизонтальный скролл; Десктоп: перенос строк */}
+          <div className="flex-1 sm:contents overflow-x-auto scrollbar-none">
+            <div className="flex sm:flex-wrap sm:flex-1 items-center gap-1.5 w-max sm:w-auto">
               {COLOR_OPTIONS.map((color) => {
                 const isActive = activeColors.includes(color.id)
                 return (
