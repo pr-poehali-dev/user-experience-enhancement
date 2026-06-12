@@ -32,7 +32,7 @@ export type PopularPkg = typeof packages[0]
 
 const CARD_W = 240
 const CARD_GAP = 14
-const BASE_SPEED = 0.7 // px per 16ms frame
+const BASE_SPEED = 0.7
 
 export function PopularPackages() {
   const navigate = useNavigate()
@@ -43,20 +43,28 @@ export function PopularPackages() {
   const posRef = useRef(0)
   const speedRef = useRef(BASE_SPEED)
   const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const isPausedRef = useRef(false) // пауза во время ручного свайпа
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // Свайп
+  // Свайп — touch
   const touchStartXRef = useRef(0)
-  const touchStartPosRef = useRef(0)
   const lastTouchXRef = useRef(0)
   const touchVelRef = useRef(0)
+  const touchMovedRef = useRef(false) // двигали ли палец (не просто тап)
+
+  // Свайп — mouse
+  const mouseDownRef = useRef(false)
+  const mouseStartXRef = useRef(0)
+  const lastMouseXRef = useRef(0)
+  const mouseMovedRef = useRef(false)
 
   const startAuto = useCallback(() => {
     if (autoRef.current) clearInterval(autoRef.current)
     autoRef.current = setInterval(() => {
+      if (isPausedRef.current) return
       const track = trackRef.current
       if (!track) return
       const halfW = track.scrollWidth / 2
-      // Плавно возвращаем скорость к базовой
       if (speedRef.current > BASE_SPEED) {
         speedRef.current = Math.max(BASE_SPEED, speedRef.current * 0.97)
       }
@@ -68,23 +76,37 @@ export function PopularPackages() {
 
   useEffect(() => {
     startAuto()
-    return () => { if (autoRef.current) clearInterval(autoRef.current) }
+    return () => {
+      if (autoRef.current) clearInterval(autoRef.current)
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
+    }
   }, [startAuto])
+
+  // Возобновляем авто-прокрутку через 1.5с после того как пользователь прекратил листать
+  const scheduleResume = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
+    resumeTimerRef.current = setTimeout(() => {
+      isPausedRef.current = false
+    }, 1500)
+  }
 
   const doubled = [...packages, ...packages]
 
-  // Обработчики свайпа (touch)
+  // --- Touch handlers ---
   const handleTouchStart = (e: React.TouchEvent) => {
+    isPausedRef.current = true
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
     touchStartXRef.current = e.touches[0].clientX
-    touchStartPosRef.current = posRef.current
     lastTouchXRef.current = e.touches[0].clientX
     touchVelRef.current = 0
+    touchMovedRef.current = false
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
     const dx = lastTouchXRef.current - e.touches[0].clientX
     lastTouchXRef.current = e.touches[0].clientX
     touchVelRef.current = dx
+    if (Math.abs(dx) > 2) touchMovedRef.current = true
 
     const track = trackRef.current
     if (!track) return
@@ -95,29 +117,40 @@ export function PopularPackages() {
     track.style.transform = `translateX(-${posRef.current}px)`
   }
 
-  const handleTouchEnd = () => {
-    // Передаём скорость в авто-прокрутку (ускорение в направлении свайпа)
+  const handleTouchEnd = (e: React.TouchEvent) => {
     const vel = touchVelRef.current
     if (Math.abs(vel) > 1) {
       speedRef.current = Math.max(BASE_SPEED, Math.min(12, Math.abs(vel)))
     }
+    scheduleResume()
+
+    // Если не двигали — это тап, открываем страницу
+    if (!touchMovedRef.current) {
+      const el = e.target as HTMLElement
+      const card = el.closest("[data-pkg-index]") as HTMLElement | null
+      if (card) {
+        const idx = parseInt(card.dataset.pkgIndex ?? "0", 10)
+        const pkg = packages[idx % packages.length]
+        navigate("/composition", { state: { item: pkg, scrollY: 0, backPath: "/" } })
+      }
+    }
   }
 
-  // Обработчики мыши (для ускорения на десктопе)
-  const mouseStartXRef = useRef(0)
-  const mouseDownRef = useRef(false)
-  const lastMouseXRef = useRef(0)
-
+  // --- Mouse handlers ---
   const handleMouseDown = (e: React.MouseEvent) => {
     mouseDownRef.current = true
     mouseStartXRef.current = e.clientX
     lastMouseXRef.current = e.clientX
+    mouseMovedRef.current = false
+    isPausedRef.current = true
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
   }
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!mouseDownRef.current) return
     const dx = lastMouseXRef.current - e.clientX
     lastMouseXRef.current = e.clientX
+    if (Math.abs(dx) > 2) mouseMovedRef.current = true
 
     const track = trackRef.current
     if (!track) return
@@ -131,10 +164,28 @@ export function PopularPackages() {
   const handleMouseUp = (e: React.MouseEvent) => {
     if (!mouseDownRef.current) return
     mouseDownRef.current = false
-    const totalDx = mouseStartXRef.current - e.clientX
-    const vel = Math.abs(totalDx)
-    if (vel > 5) {
-      speedRef.current = Math.max(BASE_SPEED, Math.min(10, vel / 20))
+    const totalDx = Math.abs(mouseStartXRef.current - e.clientX)
+    if (totalDx > 5) {
+      speedRef.current = Math.max(BASE_SPEED, Math.min(10, totalDx / 20))
+    }
+    scheduleResume()
+  }
+
+  const handleMouseLeave = () => {
+    if (mouseDownRef.current) {
+      mouseDownRef.current = false
+      scheduleResume()
+    }
+  }
+
+  const handleCardClick = (pkg: Composition, e: React.MouseEvent) => {
+    // Только если не двигали мышью
+    if (mouseMovedRef.current) return
+    e.stopPropagation()
+    if (window.innerWidth < 640) {
+      navigate("/composition", { state: { item: pkg, scrollY: 0, backPath: "/" } })
+    } else {
+      setModal(pkg)
     }
   }
 
@@ -163,7 +214,7 @@ export function PopularPackages() {
         </div>
       </div>
 
-      {/* Бесконечная лента — никогда не останавливается, ускоряется свайпом */}
+      {/* Лента: пауза при ручном листании, возобновление через 1.5с */}
       <div
         style={{ cursor: "grab", userSelect: "none" }}
         onTouchStart={handleTouchStart}
@@ -172,22 +223,16 @@ export function PopularPackages() {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
       >
-        <div
-          ref={trackRef}
-          style={{
-            display: "flex",
-            gap: CARD_GAP,
-            willChange: "transform",
-          }}
-        >
+        <div ref={trackRef} style={{ display: "flex", gap: CARD_GAP, willChange: "transform" }}>
           {doubled.map((pkg, index) => (
             <div
               key={`${pkg.id}-${index}`}
+              data-pkg-index={String(index)}
               className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow"
               style={{ width: CARD_W, height: CARD_W }}
-              onClick={() => setModal(pkg)}
+              onClick={(e) => handleCardClick(pkg, e)}
             >
               <img
                 src={pkg.image}

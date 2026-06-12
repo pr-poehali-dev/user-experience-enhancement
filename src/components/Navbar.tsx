@@ -42,7 +42,7 @@ export function Navbar() {
           {/* === МОБИЛЬНЫЙ ХЕДЕР === */}
           <div className="flex md:hidden items-center justify-between h-14">
 
-            {/* Кнопка меню слева */}
+            {/* Кнопка меню слева — 3 горизонтальные черточки */}
             <button
               className="p-2 rounded-xl flex items-center justify-center"
               style={{ background: "rgba(124,58,237,0.10)" }}
@@ -52,10 +52,10 @@ export function Navbar() {
               {isMobileMenuOpen
                 ? <X size={22} className="text-primary" />
                 : (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" className="text-primary">
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-primary">
+                    <rect x="3" y="6" width="18" height="2.5" rx="1.25" fill="currentColor"/>
+                    <rect x="3" y="10.75" width="18" height="2.5" rx="1.25" fill="currentColor"/>
+                    <rect x="3" y="15.5" width="18" height="2.5" rx="1.25" fill="currentColor"/>
                   </svg>
                 )
               }

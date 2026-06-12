@@ -70,7 +70,7 @@ function MobileColorFilter({
   return (
     <Fragment>
       {/* Кнопка — только мобайл */}
-      <div className="flex sm:hidden items-center gap-2">
+      <div className="flex sm:hidden items-center gap-2 flex-wrap">
         <button
           onClick={() => setOpen(true)}
           className="flex items-center gap-2 px-3 py-2 rounded-full text-sm font-bold border-2 transition-all"
@@ -80,13 +80,22 @@ function MobileColorFilter({
             color: hasActive ? "#fff" : "#f97316",
           }}
         >
-          <span>🎨</span>
-          <span>Выбрать цвет</span>
-          {hasActive && (
-            <span className="bg-white/30 text-white rounded-full px-1.5 text-xs font-bold">
-              {activeColors.length}
-            </span>
-          )}
+          {/* Если цвет выбран — показываем кружок */}
+          {hasActive
+            ? (() => {
+                const chosen = COLOR_OPTIONS.find(c => activeColors.includes(c.id))
+                return chosen ? (
+                  <span className="w-4 h-4 rounded-full flex-shrink-0 border border-white/50"
+                    style={{ background: chosen.hex }}
+                  />
+                ) : <span>🎨</span>
+              })()
+            : <span>🎨</span>
+          }
+          <span>{hasActive
+            ? (COLOR_OPTIONS.find(c => activeColors.includes(c.id))?.label ?? "Цвет")
+            : "Выбрать цвет"
+          }</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
@@ -140,13 +149,13 @@ function MobileColorFilter({
                 )
               })}
             </div>
-            {/* Кнопка применить */}
+            {/* Кнопка применить — без цифр */}
             <button
               onClick={() => setOpen(false)}
               className="mt-5 w-full py-3 rounded-2xl text-white font-bold text-sm"
               style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
             >
-              Применить {hasActive ? `(${activeColors.length})` : ""}
+              Применить
             </button>
           </div>
         </div>
@@ -238,6 +247,7 @@ export default function CompositionGrid({
   }
 
   const toggleSubcategory = (id: string) => {
+    // Меняем только подкатегорию, НЕ сбрасываем цвет и цену
     updateParams({ sub: activeSubcategories.includes(id) ? null : id })
     resetVisible()
   }
@@ -446,7 +456,15 @@ export default function CompositionGrid({
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
               className={`group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 sm:hover:scale-110${item.highlight ? " ring-4 ring-red-500 ring-offset-2" : ""}`}
-              onClick={() => { window._catalogScrollY = window.scrollY; setModal(item) }}
+              onClick={() => {
+                window._catalogScrollY = window.scrollY
+                // На мобайле — открываем новую страницу
+                if (window.innerWidth < 640) {
+                  navigate("/composition", { state: { item, scrollY: window.scrollY, backPath: window.location.pathname + window.location.search } })
+                } else {
+                  setModal(item)
+                }
+              }}
             >
               <img src={item.image} alt={item.title} className="w-full object-cover sm:group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "3/4" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />

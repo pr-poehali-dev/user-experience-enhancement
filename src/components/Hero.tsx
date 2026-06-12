@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
 const BG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7fda3455-48ed-4479-b42c-5dac5056af85.png"
-const LOGO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/11bed93d-83b2-4394-b230-5a71a39a7427.png"
+const NEW_LOGO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/37df4707-c30f-49d5-8635-28ea77e2ea8c.png"
 
 // Конфетти — только для десктопа
 const CONFETTI = [
@@ -59,18 +59,23 @@ const CONFETTI = [
   { type: "emoji", x: 10, y: 97, emoji: "🎊", size: 24 },
 ]
 
-// Шарики для мобайла — летящие
+// Шарики для мобайла — летят сверху вниз
 const MOBILE_BALLOONS = [
-  { emoji: "🎈", x: 5,  y: 15, size: 36, delay: "0s",   dur: "6s" },
-  { emoji: "🎈", x: 88, y: 25, size: 30, delay: "1.2s", dur: "7s" },
-  { emoji: "🎀", x: 12, y: 55, size: 28, delay: "0.5s", dur: "8s" },
-  { emoji: "🎈", x: 78, y: 60, size: 34, delay: "2s",   dur: "6.5s" },
-  { emoji: "✨", x: 50, y: 5,  size: 22, delay: "0.8s", dur: "5.5s" },
-  { emoji: "🎊", x: 3,  y: 78, size: 26, delay: "1.5s", dur: "7.5s" },
-  { emoji: "🎈", x: 92, y: 80, size: 32, delay: "0.3s", dur: "6.8s" },
-  { emoji: "🌟", x: 30, y: 10, size: 24, delay: "2.5s", dur: "8s" },
-  { emoji: "🎈", x: 65, y: 8,  size: 28, delay: "1.8s", dur: "7s" },
-  { emoji: "🎁", x: 20, y: 88, size: 26, delay: "0.7s", dur: "6.2s" },
+  { emoji: "🎈", x: 5,   startY: -10, size: 38, delay: "0s",    dur: "4.5s" },
+  { emoji: "🎈", x: 88,  startY: -15, size: 32, delay: "0.7s",  dur: "5.2s" },
+  { emoji: "🎀", x: 20,  startY: -8,  size: 30, delay: "1.4s",  dur: "4.8s" },
+  { emoji: "🎈", x: 72,  startY: -12, size: 36, delay: "2.1s",  dur: "5.5s" },
+  { emoji: "🎊", x: 38,  startY: -10, size: 28, delay: "0.3s",  dur: "4.2s" },
+  { emoji: "🎈", x: 55,  startY: -14, size: 34, delay: "1.8s",  dur: "5.0s" },
+  { emoji: "✨", x: 15,  startY: -6,  size: 24, delay: "1.1s",  dur: "3.8s" },
+  { emoji: "🎈", x: 80,  startY: -10, size: 30, delay: "2.6s",  dur: "4.6s" },
+  { emoji: "🌟", x: 45,  startY: -8,  size: 26, delay: "0.9s",  dur: "4.3s" },
+  { emoji: "🎈", x: 62,  startY: -12, size: 32, delay: "1.5s",  dur: "5.1s" },
+  { emoji: "🎁", x: 30,  startY: -10, size: 28, delay: "2.3s",  dur: "4.7s" },
+  { emoji: "🎈", x: 92,  startY: -8,  size: 34, delay: "0.5s",  dur: "4.9s" },
+  { emoji: "🎊", x: 8,   startY: -14, size: 26, delay: "1.9s",  dur: "5.3s" },
+  { emoji: "🎈", x: 50,  startY: -10, size: 30, delay: "3.0s",  dur: "4.4s" },
+  { emoji: "🎀", x: 75,  startY: -6,  size: 28, delay: "2.7s",  dur: "5.6s" },
 ]
 
 function ConfettiLayer() {
@@ -118,29 +123,29 @@ function ConfettiLayer() {
   )
 }
 
-// Шарики на мобайле — анимированные, плавают
+// Шарики на мобайле — летят сверху вниз и исчезают
 function MobileBalloonsLayer() {
   return (
     <>
       <style>{`
-        @keyframes floatBalloon {
-          0%   { transform: translateY(0px) rotate(-5deg); }
-          33%  { transform: translateY(-14px) rotate(4deg); }
-          66%  { transform: translateY(-6px) rotate(-3deg); }
-          100% { transform: translateY(0px) rotate(-5deg); }
+        @keyframes fallBalloon {
+          0%   { transform: translateY(-60px) rotate(-8deg); opacity: 0; }
+          8%   { opacity: 0.9; }
+          85%  { opacity: 0.85; }
+          100% { transform: translateY(110vh) rotate(6deg); opacity: 0; }
         }
       `}</style>
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 1, overflow: "hidden" }}>
         {MOBILE_BALLOONS.map((b, i) => (
           <div key={i} style={{
             position: "absolute",
-            left: `${b.x}%`, top: `${b.y}%`,
+            left: `${b.x}%`,
+            top: `${b.startY}%`,
             fontSize: b.size,
             lineHeight: 1,
-            opacity: 0.85,
             userSelect: "none",
             filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.18))",
-            animation: `floatBalloon ${b.dur} ease-in-out ${b.delay} infinite`,
+            animation: `fallBalloon ${b.dur} ease-in ${b.delay} infinite`,
           }}>
             {b.emoji}
           </div>
@@ -154,7 +159,7 @@ export function Hero() {
   const navigate = useNavigate()
 
   return (
-    <section className="pb-[72px] sm:pb-0" style={{
+    <section className="sm:pb-0" style={{
       width: "100%", minHeight: "100vh",
       backgroundImage: `url(${BG})`,
       backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat",
@@ -165,22 +170,25 @@ export function Hero() {
       <div className="hidden sm:block">
         <ConfettiLayer />
       </div>
-      {/* Шарики — только мобайл */}
+      {/* Шарики летящие — только мобайл */}
       <div className="block sm:hidden">
         <MobileBalloonsLayer />
       </div>
 
-      {/* МОБАЙЛ: Логотип большой + отступ сверху */}
-      <div className="block sm:hidden" style={{ position: "relative", zIndex: 3, textAlign: "center", marginTop: "8vh", marginBottom: "4vh" }}>
+      {/* МОБАЙЛ: Новый большой логотип */}
+      <div className="block sm:hidden" style={{
+        position: "relative", zIndex: 3, textAlign: "center",
+        marginTop: "12vh", marginBottom: "2vh",
+      }}>
         <img
-          src={LOGO}
+          src={NEW_LOGO}
           alt="Шаровик Затейник"
-          style={{ height: 90, width: "auto", objectFit: "contain", display: "inline-block" }}
+          style={{ height: 130, width: "auto", objectFit: "contain", display: "inline-block" }}
         />
       </div>
 
-      {/* Заголовок */}
-      <div style={{ textAlign: "center", lineHeight: 1.05, position: "relative", zIndex: 3 }}>
+      {/* Заголовок — только десктоп */}
+      <div className="hidden sm:block" style={{ textAlign: "center", lineHeight: 1.05, position: "relative", zIndex: 3 }}>
         <div style={{
           fontSize: "clamp(44px, 6.5vw, 105px)", fontWeight: 800,
           fontFamily: "'Montserrat', sans-serif", color: "#3b0f9e",
@@ -197,8 +205,19 @@ export function Hero() {
         }}>шарики</div>
       </div>
 
-      {/* Подпись */}
-      <div style={{
+      {/* Подпись — мобайл (компактнее) */}
+      <div className="block sm:hidden" style={{
+        textAlign: "center", lineHeight: 1.3,
+        fontSize: "clamp(18px, 4.5vw, 26px)", fontWeight: 500,
+        fontFamily: "'Montserrat', sans-serif", color: "#3d2070",
+        position: "relative", zIndex: 3, marginBottom: "2vh",
+      }}>
+        <div>Стильные композиции</div>
+        <div>из шаров <span style={{ color: "#e63000", fontWeight: 700 }}>с доставкой</span></div>
+      </div>
+
+      {/* Подпись — десктоп */}
+      <div className="hidden sm:block" style={{
         textAlign: "center", marginTop: "clamp(24px, 4vh, 44px)", lineHeight: 1.35,
         fontSize: "clamp(20px, 2.2vw, 32px)", fontWeight: 500,
         fontFamily: "'Montserrat', sans-serif", color: "#3d2070",
@@ -212,11 +231,11 @@ export function Hero() {
       <button
         onClick={() => navigate("/catalog")}
         style={{
-          marginTop: "clamp(24px, 4vh, 52px)", display: "flex", alignItems: "center", gap: 14,
+          marginTop: "clamp(16px, 3vh, 52px)", display: "flex", alignItems: "center", gap: 14,
           background: "linear-gradient(160deg, #ff7a10 0%, #e63000 100%)", color: "#fff",
           border: "4px solid #c44a00", borderRadius: 999,
           padding: "clamp(10px, 1.4vh, 16px) clamp(28px, 3.5vw, 56px)",
-          fontSize: "clamp(20px, 2.4vw, 34px)", fontWeight: 700,
+          fontSize: "clamp(18px, 2.4vw, 34px)", fontWeight: 700,
           fontFamily: "'Nunito', sans-serif", cursor: "pointer",
           boxShadow: "0 8px 0 #a33a00, 0 10px 32px rgba(180,60,0,0.45)",
           transition: "transform 0.15s, box-shadow 0.15s", whiteSpace: "nowrap",
@@ -289,16 +308,17 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Нижняя полоса — МОБАЙЛ (убираем соцсети, только инфо) */}
+      {/* Нижняя полоса — МОБАЙЛ: сразу видна (не absolute, а внутри flex-column) */}
       <div className="sm:hidden" style={{
-        position: "absolute", bottom: 0, left: 0, right: 0,
+        position: "relative", zIndex: 10, width: "100%",
         background: "rgba(237,233,254,0.97)", backdropFilter: "blur(10px)",
         borderTop: "1px solid rgba(167,139,250,0.3)",
-        padding: "10px 16px", zIndex: 10,
+        padding: "10px 16px",
+        marginTop: "auto",
       }}>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 20 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 20 }}>🕐</span>
+            <span style={{ fontSize: 22 }}>🕐</span>
             <div>
               <div style={{ fontWeight: 800, fontSize: 13, color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
               <div style={{ fontSize: 11, color: "#6b7280" }}>без выходных</div>
@@ -306,7 +326,7 @@ export function Hero() {
           </div>
           <div style={{ width: 1, height: 36, background: "rgba(124,58,237,0.2)" }} />
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 20 }}>📍</span>
+            <span style={{ fontSize: 22 }}>📍</span>
             <div>
               <div style={{ fontWeight: 800, fontSize: 13, color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
               <div style={{ fontSize: 11, color: "#6b7280" }}>г. Краснодар</div>
