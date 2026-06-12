@@ -32,15 +32,23 @@ export type PopularPkg = typeof packages[0]
 
 const CARD_W = 240
 const CARD_GAP = 14
+const BASE_SPEED = 0.7 // px per 16ms frame
 
 export function PopularPackages() {
   const navigate = useNavigate()
   const [modal, setModal] = useState<Composition | null>(null)
   const { toggleFavorite, isFavorite } = useFavorites()
-  const [isPaused, setIsPaused] = useState(false)
+
   const trackRef = useRef<HTMLDivElement>(null)
   const posRef = useRef(0)
+  const speedRef = useRef(BASE_SPEED)
   const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Свайп
+  const touchStartXRef = useRef(0)
+  const touchStartPosRef = useRef(0)
+  const lastTouchXRef = useRef(0)
+  const touchVelRef = useRef(0)
 
   const startAuto = useCallback(() => {
     if (autoRef.current) clearInterval(autoRef.current)
@@ -48,23 +56,87 @@ export function PopularPackages() {
       const track = trackRef.current
       if (!track) return
       const halfW = track.scrollWidth / 2
-      posRef.current += 0.7
-      if (posRef.current >= halfW) posRef.current = 0
+      // Плавно возвращаем скорость к базовой
+      if (speedRef.current > BASE_SPEED) {
+        speedRef.current = Math.max(BASE_SPEED, speedRef.current * 0.97)
+      }
+      posRef.current += speedRef.current
+      if (posRef.current >= halfW) posRef.current -= halfW
       track.style.transform = `translateX(-${posRef.current}px)`
     }, 16)
   }, [])
 
-  const stopAuto = useCallback(() => {
-    if (autoRef.current) { clearInterval(autoRef.current); autoRef.current = null }
-  }, [])
-
   useEffect(() => {
-    if (!isPaused) startAuto()
-    else stopAuto()
-    return () => stopAuto()
-  }, [isPaused, startAuto, stopAuto])
+    startAuto()
+    return () => { if (autoRef.current) clearInterval(autoRef.current) }
+  }, [startAuto])
 
   const doubled = [...packages, ...packages]
+
+  // Обработчики свайпа (touch)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX
+    touchStartPosRef.current = posRef.current
+    lastTouchXRef.current = e.touches[0].clientX
+    touchVelRef.current = 0
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const dx = lastTouchXRef.current - e.touches[0].clientX
+    lastTouchXRef.current = e.touches[0].clientX
+    touchVelRef.current = dx
+
+    const track = trackRef.current
+    if (!track) return
+    const halfW = track.scrollWidth / 2
+    posRef.current += dx
+    if (posRef.current < 0) posRef.current += halfW
+    if (posRef.current >= halfW) posRef.current -= halfW
+    track.style.transform = `translateX(-${posRef.current}px)`
+  }
+
+  const handleTouchEnd = () => {
+    // Передаём скорость в авто-прокрутку (ускорение в направлении свайпа)
+    const vel = touchVelRef.current
+    if (Math.abs(vel) > 1) {
+      speedRef.current = Math.max(BASE_SPEED, Math.min(12, Math.abs(vel)))
+    }
+  }
+
+  // Обработчики мыши (для ускорения на десктопе)
+  const mouseStartXRef = useRef(0)
+  const mouseDownRef = useRef(false)
+  const lastMouseXRef = useRef(0)
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    mouseDownRef.current = true
+    mouseStartXRef.current = e.clientX
+    lastMouseXRef.current = e.clientX
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!mouseDownRef.current) return
+    const dx = lastMouseXRef.current - e.clientX
+    lastMouseXRef.current = e.clientX
+
+    const track = trackRef.current
+    if (!track) return
+    const halfW = track.scrollWidth / 2
+    posRef.current += dx
+    if (posRef.current < 0) posRef.current += halfW
+    if (posRef.current >= halfW) posRef.current -= halfW
+    track.style.transform = `translateX(-${posRef.current}px)`
+  }
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!mouseDownRef.current) return
+    mouseDownRef.current = false
+    const totalDx = mouseStartXRef.current - e.clientX
+    const vel = Math.abs(totalDx)
+    if (vel > 5) {
+      speedRef.current = Math.max(BASE_SPEED, Math.min(10, vel / 20))
+    }
+  }
 
   return (
     <section id="popular" className="py-10 sm:py-24 bg-background overflow-hidden">
@@ -91,12 +163,16 @@ export function PopularPackages() {
         </div>
       </div>
 
-      {/* Бесконечная лента */}
+      {/* Бесконечная лента — никогда не останавливается, ускоряется свайпом */}
       <div
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "grab", userSelect: "none" }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
       >
         <div
           ref={trackRef}
@@ -111,25 +187,22 @@ export function PopularPackages() {
               key={`${pkg.id}-${index}`}
               className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow"
               style={{ width: CARD_W, height: CARD_W }}
-              onClick={() => { setIsPaused(true); setModal(pkg) }}
+              onClick={() => setModal(pkg)}
             >
               <img
                 src={pkg.image}
                 alt={pkg.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                draggable={false}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              {/* Цена */}
               <div className="absolute bottom-0 left-0 right-0 pb-9 px-3">
                 <p className="text-white font-extrabold text-lg drop-shadow-lg">{pkg.price}</p>
               </div>
-              {/* Название при hover */}
               <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/55 to-transparent px-3 pt-2.5 pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-xs font-semibold leading-tight drop-shadow">{pkg.title}</p>
               </div>
-              {/* Нижние кнопки */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2">
-                {/* ♥ */}
                 <button
                   className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                   style={{ background: "rgba(255,255,255,0.92)" }}
@@ -144,7 +217,6 @@ export function PopularPackages() {
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
                 </button>
-                {/* Корзина (оформить) — иконка */}
                 <button
                   className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                   style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
@@ -167,7 +239,7 @@ export function PopularPackages() {
           modal={modal}
           allItems={packages}
           onNavigate={setModal}
-          onClose={() => { setModal(null); setIsPaused(false) }}
+          onClose={() => setModal(null)}
         />
       )}
     </section>

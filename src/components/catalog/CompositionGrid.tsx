@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef, useCallback } from "react"
+import { useState, useMemo, useEffect, useRef, useCallback, Fragment } from "react"
 import { useSearchParams, useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import {
@@ -53,6 +53,105 @@ function PriceInputs({
         className="w-0 flex-1 min-w-0 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
       />
     </div>
+  )
+}
+
+// Мобильный фильтр цветов — кнопка + попап
+function MobileColorFilter({
+  activeColors,
+  toggleColor,
+}: {
+  activeColors: string[]
+  toggleColor: (id: string) => void
+}) {
+  const [open, setOpen] = useState(false)
+  const hasActive = activeColors.length > 0
+
+  return (
+    <Fragment>
+      {/* Кнопка — только мобайл */}
+      <div className="flex sm:hidden items-center gap-2">
+        <button
+          onClick={() => setOpen(true)}
+          className="flex items-center gap-2 px-3 py-2 rounded-full text-sm font-bold border-2 transition-all"
+          style={{
+            background: hasActive ? "linear-gradient(135deg,#f97316,#e63000)" : "rgba(249,115,22,0.08)",
+            borderColor: hasActive ? "#e63000" : "rgba(249,115,22,0.3)",
+            color: hasActive ? "#fff" : "#f97316",
+          }}
+        >
+          <span>🎨</span>
+          <span>Выбрать цвет</span>
+          {hasActive && (
+            <span className="bg-white/30 text-white rounded-full px-1.5 text-xs font-bold">
+              {activeColors.length}
+            </span>
+          )}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        {/* Сброс активных цветов */}
+        {hasActive && (
+          <button
+            onClick={() => activeColors.forEach(c => toggleColor(c))}
+            className="text-xs text-muted-foreground underline"
+          >
+            Сбросить
+          </button>
+        )}
+      </div>
+
+      {/* Попап */}
+      {open && (
+        <div className="sm:hidden fixed inset-0 z-50 flex items-end" onClick={() => setOpen(false)}>
+          <div className="absolute inset-0 bg-black/40" />
+          <div
+            className="relative w-full bg-white rounded-t-3xl shadow-2xl p-5 pb-8"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Шапка попапа */}
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-base font-bold text-foreground">🎨 Выберите цвет</h3>
+              <button onClick={() => setOpen(false)} className="p-1.5 rounded-full bg-muted">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+            {/* Цвета */}
+            <div className="flex flex-wrap gap-2">
+              {COLOR_OPTIONS.map((color) => {
+                const isActive = activeColors.includes(color.id)
+                return (
+                  <button
+                    key={color.id}
+                    onClick={() => toggleColor(color.id)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium border-2 transition-all ${
+                      isActive ? "border-primary shadow-md scale-105" : "border-transparent bg-muted"
+                    }`}
+                  >
+                    <span
+                      className="w-4 h-4 rounded-full flex-shrink-0"
+                      style={{ background: color.hex, border: color.border ? "1px solid #d1d5db" : undefined }}
+                    />
+                    <span className="text-foreground/80">{color.label}</span>
+                  </button>
+                )
+              })}
+            </div>
+            {/* Кнопка применить */}
+            <button
+              onClick={() => setOpen(false)}
+              className="mt-5 w-full py-3 rounded-2xl text-white font-bold text-sm"
+              style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
+            >
+              Применить {hasActive ? `(${activeColors.length})` : ""}
+            </button>
+          </div>
+        </div>
+      )}
+    </Fragment>
   )
 }
 
@@ -277,8 +376,13 @@ export default function CompositionGrid({
           </div>
         )}
 
-        {/* Color filter */}
-        <div className="flex sm:flex-wrap items-center gap-1.5">
+        {/* Color filter — на мобайле: кнопка + попап; на десктопе: как раньше */}
+        <MobileColorFilter
+          activeColors={activeColors}
+          toggleColor={toggleColor}
+        />
+        {/* Десктоп цвета */}
+        <div className="hidden sm:flex flex-wrap items-center gap-1.5">
           <span
             className="text-xs font-bold px-2.5 py-1.5 rounded-full whitespace-nowrap flex-shrink-0"
             style={{
@@ -288,35 +392,25 @@ export default function CompositionGrid({
           >
             🎨 Цвет
           </span>
-          {/* Мобайл: горизонтальный скролл; Десктоп: перенос строк */}
-          <div className="flex-1 sm:contents overflow-x-auto scrollbar-none">
-            <div className="flex sm:flex-wrap sm:flex-1 items-center gap-1.5 w-max sm:w-auto">
-              {COLOR_OPTIONS.map((color) => {
-                const isActive = activeColors.includes(color.id)
-                return (
-                  <button
-                    key={color.id}
-                    onClick={() => toggleColor(color.id)}
-                    title={color.label}
-                    className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium border-2 transition-all whitespace-nowrap ${
-                      isActive
-                        ? "border-primary shadow-md scale-105"
-                        : "border-transparent bg-muted hover:border-border"
-                    }`}
-                  >
-                    <span
-                      className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
-                      style={{
-                        background: color.hex,
-                        border: color.border ? "1px solid #d1d5db" : undefined,
-                      }}
-                    />
-                    <span className="text-foreground/80">{color.label}</span>
-                  </button>
-                )
-              })}
-            </div>
-          </div>
+          {COLOR_OPTIONS.map((color) => {
+            const isActive = activeColors.includes(color.id)
+            return (
+              <button
+                key={color.id}
+                onClick={() => toggleColor(color.id)}
+                title={color.label}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border-2 transition-all whitespace-nowrap ${
+                  isActive ? "border-primary shadow-md scale-105" : "border-transparent bg-muted hover:border-border"
+                }`}
+              >
+                <span
+                  className="w-4 h-4 rounded-full flex-shrink-0"
+                  style={{ background: color.hex, border: color.border ? "1px solid #d1d5db" : undefined }}
+                />
+                <span className="text-foreground/80">{color.label}</span>
+              </button>
+            )
+          })}
         </div>
 
         {/* Price inputs */}

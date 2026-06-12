@@ -20,6 +20,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
 
   const goOrder = (mode: "order" | "details") => {
     onClose()
+    window.scrollTo({ top: 0, behavior: "instant" })
     navigate(`/order?mode=${mode}&title=${encodeURIComponent(modal.title)}`)
   }
 
