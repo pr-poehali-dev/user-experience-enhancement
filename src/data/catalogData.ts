@@ -38,7 +38,7 @@ export const COLOR_OPTIONS = [
   { id: "purple", label: "Фиолетовые", hex: "#a78bfa" },
   { id: "red", label: "Красные", hex: "#f87171" },
   { id: "orange", label: "Оранжевые", hex: "#fb923c" },
-  { id: "multicolor", label: "Разноцветные", hex: "#a855f7" },
+  { id: "multicolor", label: "Разноцветные", hex: "linear-gradient(135deg, #f43f5e, #f97316, #facc15, #4ade80, #60a5fa, #a855f7)" },
 ]
 
 export type ModalItem = Composition | null
