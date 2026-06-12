@@ -114,10 +114,10 @@ export default function CompositionGrid({
     if (!el) return
     const obs = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) loadMore()
-    }, { rootMargin: "200px" })
+    }, { rootMargin: "400px" })
     obs.observe(el)
     return () => obs.disconnect()
-  }, [loadMore])
+  }, [loadMore, visibleCount])
 
   const updateParams = (updates: Record<string, string | null>) => {
     setSearchParams(prev => {
@@ -392,8 +392,9 @@ export default function CompositionGrid({
           ))}
         </div>
       )}
+      <div ref={sentinelRef} className="h-4" />
       {filtered.length > visibleCount && (
-        <div ref={sentinelRef} className="h-16 flex items-center justify-center mt-4">
+        <div className="h-12 flex items-center justify-center">
           <div className="flex gap-1.5">
             <div className="w-2 h-2 rounded-full bg-primary/40 animate-bounce" style={{animationDelay:"0ms"}} />
             <div className="w-2 h-2 rounded-full bg-primary/40 animate-bounce" style={{animationDelay:"150ms"}} />
