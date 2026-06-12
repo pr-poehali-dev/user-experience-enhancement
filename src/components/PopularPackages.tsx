@@ -67,23 +67,23 @@ export function PopularPackages() {
   const doubled = [...packages, ...packages]
 
   return (
-    <section id="popular" className="py-16 sm:py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
-        <div className="flex items-center justify-between flex-wrap gap-4">
-          <div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-balance">
+    <section id="popular" className="py-10 sm:py-24 bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-12">
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h2 className="text-2xl sm:text-5xl md:text-6xl font-light tracking-tight">
               Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground mt-2">Самые любимые композиции наших покупателей</p>
+            <p className="text-sm sm:text-lg text-muted-foreground mt-1 sm:mt-2">Самые любимые композиции наших покупателей</p>
           </div>
           <button
             onClick={() => navigate("/popular")}
-            className="flex items-center gap-2 rounded-full font-bold text-white transition-transform hover:scale-105"
+            className="flex-shrink-0 flex items-center gap-2 rounded-full font-bold text-white transition-transform hover:scale-105"
             style={{
               background: "linear-gradient(135deg,#f97316,#e63000)",
               boxShadow: "0 4px 16px rgba(249,115,22,0.4)",
-              padding: "12px 28px",
-              fontSize: "clamp(15px,1.3vw,18px)",
+              padding: "10px 18px",
+              fontSize: "clamp(13px,1.3vw,18px)",
             }}
           >
             Смотреть все <Icon name="ArrowRight" size={18} />

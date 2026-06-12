@@ -27,9 +27,9 @@ function PriceInputs({
 }) {
   const hasValue = minPrice !== "" || maxPrice !== ""
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex items-center gap-2">
       <span
-        className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap min-w-[70px]"
+        className="text-xs font-bold px-2.5 py-1.5 rounded-full whitespace-nowrap flex-shrink-0"
         style={{
           background: hasValue ? "linear-gradient(135deg,#7c3aed,#a855f7)" : "rgba(124,58,237,0.1)",
           color: hasValue ? "#fff" : "#7c3aed",
@@ -42,15 +42,15 @@ function PriceInputs({
         value={minPrice}
         placeholder="от ₽"
         onChange={(e) => onMinChange(e.target.value === "" ? "" : Number(e.target.value))}
-        className="w-28 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-1.5 focus:outline-none focus:border-primary bg-white"
+        className="w-0 flex-1 min-w-0 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
       />
-      <span className="text-muted-foreground font-bold">—</span>
+      <span className="text-muted-foreground font-bold flex-shrink-0">—</span>
       <input
         type="number"
         value={maxPrice}
         placeholder="до ₽"
         onChange={(e) => onMaxChange(e.target.value === "" ? "" : Number(e.target.value))}
-        className="w-28 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-3 py-1.5 focus:outline-none focus:border-primary bg-white"
+        className="w-0 flex-1 min-w-0 text-center text-sm font-bold text-primary border-2 border-primary/30 rounded-xl px-2 py-1.5 focus:outline-none focus:border-primary bg-white"
       />
     </div>
   )
@@ -278,9 +278,9 @@ export default function CompositionGrid({
         )}
 
         {/* Color filter */}
-        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <div className="flex items-center gap-1.5">
           <span
-            className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
+            className="text-xs font-bold px-2.5 py-1.5 rounded-full whitespace-nowrap flex-shrink-0"
             style={{
               background: activeColors.length > 0 ? "linear-gradient(135deg,#f97316,#e63000)" : "rgba(249,115,22,0.1)",
               color: activeColors.length > 0 ? "#fff" : "#f97316",
@@ -288,30 +288,34 @@ export default function CompositionGrid({
           >
             🎨 Цвет
           </span>
-          {COLOR_OPTIONS.map((color) => {
-              const isActive = activeColors.includes(color.id)
-              return (
-                <button
-                  key={color.id}
-                  onClick={() => toggleColor(color.id)}
-                  title={color.label}
-                  className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium border-2 transition-all ${
-                    isActive
-                      ? "border-primary shadow-md scale-105"
-                      : "border-transparent bg-muted hover:border-border"
-                  }`}
-                >
-                  <span
-                    className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
-                    style={{
-                      background: color.hex,
-                      border: color.border ? "1px solid #d1d5db" : undefined,
-                    }}
-                  />
-                  <span className="text-foreground/80">{color.label}</span>
-                </button>
-              )
-            })}
+          <div className="flex-1 overflow-x-auto scrollbar-none">
+            <div className="flex items-center gap-1.5 w-max">
+              {COLOR_OPTIONS.map((color) => {
+                const isActive = activeColors.includes(color.id)
+                return (
+                  <button
+                    key={color.id}
+                    onClick={() => toggleColor(color.id)}
+                    title={color.label}
+                    className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium border-2 transition-all whitespace-nowrap ${
+                      isActive
+                        ? "border-primary shadow-md scale-105"
+                        : "border-transparent bg-muted hover:border-border"
+                    }`}
+                  >
+                    <span
+                      className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex-shrink-0"
+                      style={{
+                        background: color.hex,
+                        border: color.border ? "1px solid #d1d5db" : undefined,
+                      }}
+                    />
+                    <span className="text-foreground/80">{color.label}</span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Price inputs */}
@@ -346,23 +350,19 @@ export default function CompositionGrid({
           {filtered.slice(0, visibleCount).map((item, idx) => (
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
-              className={`group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-110${item.highlight ? " ring-4 ring-red-500 ring-offset-2" : ""}`}
+              className={`group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 sm:hover:scale-110${item.highlight ? " ring-4 ring-red-500 ring-offset-2" : ""}`}
               onClick={() => { window._catalogScrollY = window.scrollY; setModal(item) }}
             >
-              <img src={item.image} alt={item.title} className="w-full object-cover group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "1/1" }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <img src={item.image} alt={item.title} className="w-full object-cover sm:group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "3/4" }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
               {/* Price + title overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-8 pb-11 px-3">
-                <p
-                  className="text-white text-[11px] font-medium truncate mb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
-                >{item.title}</p>
-                <p className="text-white font-extrabold text-base drop-shadow-lg">{item.price}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent pt-6 pb-9 px-2">
+                <p className="text-white font-extrabold text-sm sm:text-base drop-shadow-lg leading-tight">{item.price}</p>
               </div>
               {/* Нижняя панель: ♥ + Оформить */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2 z-10">
                 <button
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90 flex-shrink-0"
+                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90 flex-shrink-0"
                   style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
                   onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
                   title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
@@ -376,7 +376,7 @@ export default function CompositionGrid({
                   </svg>
                 </button>
                 <button
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-90 flex-shrink-0"
+                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90 flex-shrink-0"
                   style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
                   onClick={e => { e.stopPropagation(); navigate(`/order?mode=order&title=${encodeURIComponent(item.title)}`) }}
                   title="Оформить заказ"

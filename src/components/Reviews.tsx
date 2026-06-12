@@ -51,10 +51,10 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section id="reviews" className="py-16 sm:py-28 bg-gradient-to-b from-violet-50 to-white">
+    <section id="reviews" className="py-10 sm:py-28 bg-gradient-to-b from-violet-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-balance">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-5xl md:text-6xl font-light tracking-tight mb-3 sm:mb-4">
             Отзывы <span className="font-semibold" style={{ color: "#7c3aed" }}>клиентов</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground">
@@ -73,16 +73,16 @@ export function Reviews() {
           {reviews.map((r, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col gap-3 border border-violet-100"
+              className="bg-white rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col gap-3 border border-violet-100"
             >
-              <div className="flex items-center gap-3">
-                <span style={{ fontSize: 36 }}>{r.avatar}</span>
+              <div className="flex items-center gap-3 flex-wrap">
+                <span style={{ fontSize: 32 }}>{r.avatar}</span>
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-base truncate">{r.name}</div>
+                  <div className="font-bold text-sm sm:text-base truncate">{r.name}</div>
                   <div className="text-xs text-muted-foreground">{r.date}</div>
                 </div>
                 <span
-                  className="text-xs font-semibold px-2.5 py-1 rounded-full text-white flex-shrink-0"
+                  className="text-[11px] font-semibold px-2 py-0.5 rounded-full text-white flex-shrink-0"
                   style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
                 >
                   {r.occasion}
