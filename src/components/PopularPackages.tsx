@@ -32,7 +32,7 @@ export type PopularPkg = typeof packages[0]
 
 const CARD_W = 240
 const CARD_GAP = 14
-const BASE_SPEED = 0.7
+const BASE_SPEED = 1.8
 
 export function PopularPackages() {
   const navigate = useNavigate()

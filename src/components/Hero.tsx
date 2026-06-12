@@ -160,7 +160,7 @@ export function Hero() {
 
   return (
     <section className="sm:pb-0" style={{
-      width: "100%", minHeight: "100vh",
+      width: "100%", height: "100svh", minHeight: "100svh",
       backgroundImage: `url(${BG})`,
       backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat",
       position: "relative", display: "flex", flexDirection: "column",
@@ -308,13 +308,12 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Нижняя полоса — МОБАЙЛ: сразу видна (не absolute, а внутри flex-column) */}
+      {/* Нижняя полоса — МОБАЙЛ: absolute снизу, сразу видна */}
       <div className="sm:hidden" style={{
-        position: "relative", zIndex: 10, width: "100%",
+        position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 10,
         background: "rgba(237,233,254,0.97)", backdropFilter: "blur(10px)",
         borderTop: "1px solid rgba(167,139,250,0.3)",
         padding: "10px 16px",
-        marginTop: "auto",
       }}>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 20 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
