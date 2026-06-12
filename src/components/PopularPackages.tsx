@@ -30,9 +30,110 @@ const packages: Composition[] = [
 
 export type PopularPkg = typeof packages[0]
 
-const CARD_W = 240
-const CARD_GAP = 14
+const CARD_W = 220
+const CARD_GAP = 12
 const BASE_SPEED = 1.8
+
+// Разбиваем 20 наборов на 3 ленты
+const row1 = packages.slice(0, 7)
+const row2 = packages.slice(7, 14)
+const row3 = packages.slice(14, 20)
+
+// Компонент одной бесконечной ленты для десктопа
+function InfiniteRow({
+  items,
+  reverse = false,
+  onCardClick,
+  toggleFav,
+  isFav,
+}: {
+  items: Composition[]
+  reverse?: boolean
+  onCardClick: (pkg: Composition, e: React.MouseEvent) => void
+  toggleFav: (id: number) => void
+  isFav: (id: number) => boolean
+}) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const posRef = useRef(0)
+  const rafRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    const doubled = [...items, ...items]
+    const speed = reverse ? -1.2 : 1.2
+
+    const tick = () => {
+      const track = trackRef.current
+      if (!track) { rafRef.current = requestAnimationFrame(tick); return }
+      const halfW = track.scrollWidth / 2
+      posRef.current += speed
+      if (posRef.current >= halfW) posRef.current -= halfW
+      if (posRef.current < 0) posRef.current += halfW
+      track.style.transform = `translateX(-${posRef.current}px)`
+      rafRef.current = requestAnimationFrame(tick)
+    }
+    rafRef.current = requestAnimationFrame(tick)
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }
+  }, [items, reverse])
+
+  const doubled = [...items, ...items]
+
+  return (
+    <div style={{ overflow: "hidden", width: "100%" }}>
+      <div
+        ref={trackRef}
+        style={{ display: "flex", gap: CARD_GAP, willChange: "transform" }}
+      >
+        {doubled.map((pkg, index) => (
+          <div
+            key={`${pkg.id}-row-${index}`}
+            className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer"
+            style={{ width: CARD_W, height: CARD_W, transition: "box-shadow 0.3s" }}
+            onClick={(e) => onCardClick(pkg, e)}
+          >
+            <img
+              src={pkg.image}
+              alt={pkg.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              draggable={false}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 pb-8 px-3">
+              <p className="text-white font-extrabold text-base drop-shadow-lg">{pkg.price}</p>
+            </div>
+            <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/55 to-transparent px-3 pt-2.5 pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-white text-xs font-semibold leading-tight drop-shadow">{pkg.title}</p>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2">
+              <button
+                className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                style={{ background: "rgba(255,255,255,0.92)" }}
+                onClick={e => { e.stopPropagation(); toggleFav(pkg.id) }}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24"
+                  fill={isFav(pkg.id) ? "#f43f5e" : "none"}
+                  stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                  style={{ transition: "transform 0.2s, fill 0.2s", transform: isFav(pkg.id) ? "scale(1.25)" : "scale(1)" }}
+                >
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+              <button
+                className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
+                onClick={e => { e.stopPropagation(); window.location.href = `/order?mode=order&title=${encodeURIComponent(pkg.title)}` }}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export function PopularPackages() {
   const navigate = useNavigate()
@@ -216,8 +317,9 @@ export function PopularPackages() {
         </div>
       </div>
 
-      {/* Лента: пауза при ручном листании, возобновление через 1.5с */}
+      {/* МОБАЙЛ: одна лента со свайпом */}
       <div
+        className="sm:hidden"
         style={{ cursor: "grab", userSelect: "none" }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -232,44 +334,27 @@ export function PopularPackages() {
             <div
               key={`${pkg.id}-${index}`}
               data-pkg-index={String(index)}
-              className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow"
+              className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md"
               style={{ width: CARD_W, height: CARD_W }}
               onClick={(e) => handleCardClick(pkg, e)}
             >
-              <img
-                src={pkg.image}
-                alt={pkg.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                draggable={false}
-              />
+              <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" draggable={false} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 pb-9 px-3">
                 <p className="text-white font-extrabold text-lg drop-shadow-lg">{pkg.price}</p>
               </div>
-              <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/55 to-transparent px-3 pt-2.5 pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-xs font-semibold leading-tight drop-shadow">{pkg.title}</p>
-              </div>
               <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2">
-                <button
-                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                <button className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                   style={{ background: "rgba(255,255,255,0.92)" }}
-                  onClick={e => { e.stopPropagation(); toggleFavorite(pkg.id) }}
-                  title="В избранное"
-                >
+                  onClick={e => { e.stopPropagation(); toggleFavorite(pkg.id) }}>
                   <svg width="13" height="13" viewBox="0 0 24 24"
-                    fill={isFavorite(pkg.id) ? "#f43f5e" : "none"}
-                    stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-                    style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(pkg.id) ? "scale(1.25)" : "scale(1)" }}
-                  >
+                    fill={isFavorite(pkg.id) ? "#f43f5e" : "none"} stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
                 </button>
-                <button
-                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+                <button className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                   style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
-                  onClick={e => { e.stopPropagation(); window.location.href = `/order?mode=order&title=${encodeURIComponent(pkg.title)}` }}
-                  title="Оформить заказ"
-                >
+                  onClick={e => { e.stopPropagation(); window.location.href = `/order?mode=order&title=${encodeURIComponent(pkg.title)}` }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -279,6 +364,13 @@ export function PopularPackages() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* ДЕСКТОП: 3 ленты — вперёд / назад / вперёд */}
+      <div className="hidden sm:flex flex-col gap-4">
+        <InfiniteRow items={row1} reverse={false} onCardClick={handleCardClick} toggleFav={toggleFavorite} isFav={isFavorite} />
+        <InfiniteRow items={row2} reverse={true}  onCardClick={handleCardClick} toggleFav={toggleFavorite} isFav={isFavorite} />
+        <InfiniteRow items={row3} reverse={false} onCardClick={handleCardClick} toggleFav={toggleFavorite} isFav={isFavorite} />
       </div>
 
       {modal && (

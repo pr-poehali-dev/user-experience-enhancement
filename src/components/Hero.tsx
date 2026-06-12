@@ -175,28 +175,32 @@ export function Hero() {
         <MobileBalloonsLayer />
       </div>
 
-      {/* МОБАЙЛ: Новый большой логотип — выше, крупнее */}
+      {/* МОБАЙЛ: Логотип — по центру, очень крупный, выше */}
       <div className="block sm:hidden" style={{
         position: "relative", zIndex: 3, textAlign: "center",
-        marginTop: "8vh", marginBottom: "3vh",
+        marginTop: "4vh", marginBottom: "4vh",
+        width: "100%", display: "flex", justifyContent: "center",
       }}>
         <img
           src={NEW_LOGO}
           alt="Шаровик Затейник"
-          style={{ height: 170, width: "auto", objectFit: "contain", display: "inline-block",
-            filter: "drop-shadow(0 4px 16px rgba(124,58,237,0.25))" }}
+          style={{
+            width: "85vw", maxWidth: 360, height: "auto",
+            objectFit: "contain", display: "inline-block",
+            filter: "drop-shadow(0 6px 24px rgba(124,58,237,0.3))"
+          }}
         />
       </div>
 
-      {/* МОБАЙЛ: Крупная подпись */}
+      {/* МОБАЙЛ: Подпись */}
       <div className="block sm:hidden" style={{
         textAlign: "center", lineHeight: 1.25, position: "relative", zIndex: 3,
         marginBottom: "3vh",
       }}>
-        <div style={{ fontSize: "clamp(22px, 5.5vw, 30px)", fontWeight: 700, color: "#3d2070", fontFamily: "'Montserrat', sans-serif" }}>
+        <div style={{ fontSize: "clamp(20px, 5vw, 26px)", fontWeight: 700, color: "#3d2070", fontFamily: "'Montserrat', sans-serif" }}>
           Стильные композиции
         </div>
-        <div style={{ fontSize: "clamp(22px, 5.5vw, 30px)", fontWeight: 700, color: "#3d2070", fontFamily: "'Montserrat', sans-serif" }}>
+        <div style={{ fontSize: "clamp(20px, 5vw, 26px)", fontWeight: 700, color: "#3d2070", fontFamily: "'Montserrat', sans-serif" }}>
           из шаров <span style={{ color: "#e63000", fontWeight: 800 }}>с доставкой</span>
         </div>
       </div>
@@ -315,27 +319,27 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Нижняя полоса — МОБАЙЛ: absolute снизу, сразу видна */}
+      {/* Нижняя полоса — МОБАЙЛ: absolute снизу, надписи крупнее */}
       <div className="sm:hidden" style={{
         position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 10,
         background: "rgba(237,233,254,0.97)", backdropFilter: "blur(10px)",
         borderTop: "1px solid rgba(167,139,250,0.3)",
-        padding: "10px 16px",
+        padding: "13px 16px",
       }}>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 20 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 22 }}>🕐</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 26 }}>🕐</span>
             <div>
-              <div style={{ fontWeight: 800, fontSize: 13, color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
-              <div style={{ fontSize: 11, color: "#6b7280" }}>без выходных</div>
+              <div style={{ fontWeight: 800, fontSize: 16, color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>Работаем 24/7</div>
+              <div style={{ fontSize: 13, color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>без выходных</div>
             </div>
           </div>
-          <div style={{ width: 1, height: 36, background: "rgba(124,58,237,0.2)" }} />
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 22 }}>📍</span>
+          <div style={{ width: 1, height: 42, background: "rgba(124,58,237,0.2)" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 26 }}>📍</span>
             <div>
-              <div style={{ fontWeight: 800, fontSize: 13, color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
-              <div style={{ fontSize: 11, color: "#6b7280" }}>г. Краснодар</div>
+              <div style={{ fontWeight: 800, fontSize: 16, color: "#1e1b4b", fontFamily: "'Montserrat',sans-serif" }}>ул. Героя Яцкова, 19к3</div>
+              <div style={{ fontSize: 13, color: "#6b7280", fontFamily: "'Montserrat',sans-serif" }}>г. Краснодар</div>
             </div>
           </div>
         </div>

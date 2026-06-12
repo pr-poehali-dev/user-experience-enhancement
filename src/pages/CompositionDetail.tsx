@@ -107,19 +107,21 @@ export default function CompositionDetail() {
       {/* ── Верхняя строка ── */}
       <div style={{
         position: "sticky", top: 0, zIndex: 50,
-        background: "rgba(255,255,255,0.96)", backdropFilter: "blur(10px)",
+        background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)",
         borderBottom: "1px solid #f0ebff",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "0 12px", height: 52,
+        padding: "0 12px", height: 56,
       }}>
+        {/* Кнопка Назад — заметная */}
         <button onClick={goBack} style={{
           display: "flex", alignItems: "center", gap: 6,
-          border: "none", background: "rgba(124,58,237,0.08)",
-          borderRadius: 10, padding: "8px 14px",
-          color: "#7c3aed", fontWeight: 700, fontSize: 14,
+          border: "none", background: "rgba(124,58,237,0.10)",
+          borderRadius: 12, padding: "10px 16px",
+          color: "#7c3aed", fontWeight: 800, fontSize: 15,
           fontFamily: "'Montserrat', sans-serif", cursor: "pointer",
+          boxShadow: "0 2px 8px rgba(124,58,237,0.15)",
         }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"/>
           </svg>
           Назад
@@ -129,17 +131,30 @@ export default function CompositionDetail() {
           {item.title}
         </p>
 
+        {/* Кнопка Избранное — большая и яркая */}
         <button onClick={() => toggleFavorite(item.id)} style={{
-          width: 38, height: 38, borderRadius: "50%", border: "none",
-          background: isFavorite(item.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(124,58,237,0.08)",
-          display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0,
+          display: "flex", alignItems: "center", gap: 6,
+          border: "none",
+          background: isFavorite(item.id)
+            ? "linear-gradient(135deg,#f43f5e,#e11d48)"
+            : "linear-gradient(135deg,#fff0f3,#ffe4ea)",
+          borderRadius: 12, padding: "10px 14px",
+          color: isFavorite(item.id) ? "#fff" : "#f43f5e",
+          fontWeight: 800, fontSize: 13,
+          fontFamily: "'Montserrat', sans-serif",
+          cursor: "pointer", flexShrink: 0,
+          boxShadow: isFavorite(item.id)
+            ? "0 3px 12px rgba(244,63,94,0.4)"
+            : "0 2px 8px rgba(244,63,94,0.15)",
+          transition: "all 0.2s",
         }}>
-          <svg width="17" height="17" viewBox="0 0 24 24"
-            fill={isFavorite(item.id) ? "#fff" : "none"}
+          <svg width="18" height="18" viewBox="0 0 24 24"
+            fill={isFavorite(item.id) ? "#fff" : "#f43f5e"}
             stroke={isFavorite(item.id) ? "#fff" : "#f43f5e"}
-            strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
+          {isFavorite(item.id) ? "В избранном" : "В избранное"}
         </button>
       </div>
 
