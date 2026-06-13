@@ -26,6 +26,11 @@ const WHY = [
     title: "Большой и удобный каталог",
     text: "Свыше 2000 композиций — собрали каталог так, чтобы вы точно нашли то, что искали для любого праздника.",
   },
+  {
+    emoji: "🏆",
+    title: "Качественный латекс",
+    text: "Мы используем только проверенные годами фирмы производители шаров: Sempertex, BelBal, 512, QUALATEX.",
+  },
 ]
 
 export function AboutUs() {
@@ -38,7 +43,7 @@ export function AboutUs() {
           <img
             src={LOGO}
             alt="Шаровик Затейник"
-            className="w-48 sm:w-64 drop-shadow-xl"
+            className="w-72 sm:w-96 drop-shadow-xl"
           />
         </div>
 

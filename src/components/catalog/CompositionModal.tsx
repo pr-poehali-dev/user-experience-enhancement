@@ -210,7 +210,7 @@ export default function CompositionModal({ modal, allItems, onNavigate, onClose 
                 className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-[13px] border-2 transition-transform hover:scale-[1.02]"
                 style={{ borderColor: "#7c3aed", color: "#7c3aed", background: "#faf5ff" }}
               >
-                💬 Уточнить детали
+                💬 Уточнить детали / Изменить набор
               </button>
             </div>
             <div className="flex flex-wrap gap-1.5">

@@ -470,10 +470,11 @@ export default function CompositionGrid({
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
               {/* Price + title overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent pt-6 pb-9 px-2">
+                <p className="text-white font-bold text-xs drop-shadow-lg leading-tight mb-0.5 truncate">{item.title}</p>
                 <p className="text-white font-extrabold text-sm sm:text-base drop-shadow-lg leading-tight">{item.price}</p>
               </div>
-              {/* Нижняя панель: ♥ + Оформить */}
-              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-1.5 px-2 pb-2 z-10">
+              {/* Нижняя панель: только ♥ */}
+              <div className="absolute bottom-0 left-0 right-0 flex items-center px-2 pb-2 z-10">
                 <button
                   className="w-7 h-7 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90 flex-shrink-0"
                   style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
@@ -486,17 +487,6 @@ export default function CompositionGrid({
                     style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(item.id) ? "scale(1.25)" : "scale(1)" }}
                   >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                  </svg>
-                </button>
-                <button
-                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90 flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
-                  onClick={e => { e.stopPropagation(); navigate(`/order?mode=order&title=${encodeURIComponent(item.title)}`) }}
-                  title="Оформить заказ"
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
                   </svg>
                 </button>
               </div>

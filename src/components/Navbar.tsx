@@ -78,7 +78,10 @@ export function Navbar() {
             )}
 
             {/* Правая сторона: телефон + избранное */}
-            <div className="flex items-center gap-1">
+            <div
+              className="flex items-center gap-1"
+              style={{ transform: isHome ? "translate(-2px, -3px)" : "translate(-2px, 3px)", transition: "transform 0.3s" }}
+            >
               <a
                 href="tel:+79880653700"
                 className="flex items-center gap-1.5 text-white font-bold rounded-full px-3 py-1.5 text-sm whitespace-nowrap"

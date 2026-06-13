@@ -282,7 +282,7 @@ export default function CompositionDetail() {
             fontFamily: "'Montserrat', sans-serif",
           }}
         >
-          💬 Уточнить детали
+          💬 Уточнить детали / Изменить набор
         </button>
       </div>
 
