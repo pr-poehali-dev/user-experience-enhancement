@@ -1,76 +1,25 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { Composition } from "@/data/catalogData"
 import { useFavorites } from "@/context/FavoritesContext"
+import { FloatingSocials } from "@/components/FloatingSocials"
 
 export default function CompositionDetail() {
   const navigate = useNavigate()
   const location = useLocation()
   const { toggleFavorite, isFavorite } = useFavorites()
 
-  // Текущий набор и список всех (для свайпа между ними)
-  const initialItem: Composition | undefined = location.state?.item
-  const allItems: Composition[] = location.state?.allItems ?? (initialItem ? [initialItem] : [])
+  const item: Composition | undefined = location.state?.item
   const backScrollY: number = location.state?.scrollY ?? 0
   const backPath: string = location.state?.backPath ?? "/"
-
-  const initialIdx = allItems.findIndex(i => i.id === initialItem?.id && i.title === initialItem?.title)
-  const [currentIdx, setCurrentIdx] = useState(initialIdx >= 0 ? initialIdx : 0)
-  const item = allItems[currentIdx]
 
   const [showFill, setShowFill] = useState(false)
   const [showDelivery, setShowDelivery] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
 
-  // Свайп по фото
-  const touchStartX = useRef(0)
-  const touchStartY = useRef(0)
-  const swipeActive = useRef(false)
-  const [swipeOffset, setSwipeOffset] = useState(0)
-  const [slideDir, setSlideDir] = useState<"left" | "right" | null>(null)
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })
-    setShowFill(false)
-    setShowDelivery(false)
-    setImgLoaded(false)
-    setSwipeOffset(0)
-    setSlideDir(null)
-  }, [currentIdx])
-
-  const goTo = (idx: number) => {
-    if (idx >= 0 && idx < allItems.length) setCurrentIdx(idx)
-  }
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX
-    touchStartY.current = e.touches[0].clientY
-    swipeActive.current = true
-  }
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!swipeActive.current) return
-    const dx = e.touches[0].clientX - touchStartX.current
-    const dy = e.touches[0].clientY - touchStartY.current
-    // Горизонтальный свайп (не вертикальный скролл)
-    if (Math.abs(dx) > Math.abs(dy)) {
-      e.preventDefault()
-      setSwipeOffset(dx)
-    }
-  }
-
-  const handleTouchEnd = () => {
-    if (!swipeActive.current) return
-    swipeActive.current = false
-    if (swipeOffset < -60 && currentIdx < allItems.length - 1) {
-      setSlideDir("left")
-      setTimeout(() => { goTo(currentIdx + 1); setSlideDir(null) }, 180)
-    } else if (swipeOffset > 60 && currentIdx > 0) {
-      setSlideDir("right")
-      setTimeout(() => { goTo(currentIdx - 1); setSlideDir(null) }, 180)
-    }
-    setSwipeOffset(0)
-  }
+  }, [])
 
   if (!item) {
     return (
@@ -95,135 +44,75 @@ export default function CompositionDetail() {
     ? item.description.split(",").map(s => s.trim()).filter(Boolean)
     : []
 
-  const imgTransform = slideDir === "left"
-    ? "translateX(-100%)"
-    : slideDir === "right"
-    ? "translateX(100%)"
-    : `translateX(${swipeOffset}px)`
-
   return (
     <div style={{ minHeight: "100svh", background: "#fff", display: "flex", flexDirection: "column" }}>
 
-      {/* ── Верхняя строка ── */}
+      {/* ── Верхняя строка: Назад + Избранное ── */}
       <div style={{
         position: "sticky", top: 0, zIndex: 50,
-        background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)",
+        background: "rgba(255,255,255,0.96)",
+        backdropFilter: "blur(10px)",
         borderBottom: "1px solid #f0ebff",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "0 12px", height: 56,
+        padding: "0 12px", height: 52,
       }}>
-        {/* Кнопка Назад — заметная */}
-        <button onClick={goBack} style={{
-          display: "flex", alignItems: "center", gap: 6,
-          border: "none", background: "rgba(124,58,237,0.10)",
-          borderRadius: 12, padding: "10px 16px",
-          color: "#7c3aed", fontWeight: 800, fontSize: 15,
-          fontFamily: "'Montserrat', sans-serif", cursor: "pointer",
-          boxShadow: "0 2px 8px rgba(124,58,237,0.15)",
-        }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <button
+          onClick={goBack}
+          style={{
+            display: "flex", alignItems: "center", gap: 6,
+            border: "none", background: "rgba(124,58,237,0.08)",
+            borderRadius: 10, padding: "8px 14px",
+            color: "#7c3aed", fontWeight: 700, fontSize: 14,
+            fontFamily: "'Montserrat', sans-serif", cursor: "pointer",
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"/>
           </svg>
           Назад
         </button>
 
-        <p style={{ flex: 1, textAlign: "center", fontWeight: 700, fontSize: 12, color: "#1a1a1a", margin: "0 8px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: "'Montserrat', sans-serif" }}>
+        <p style={{ flex: 1, textAlign: "center", fontWeight: 700, fontSize: 13, color: "#1a1a1a", margin: "0 8px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: "'Montserrat', sans-serif" }}>
           {item.title}
         </p>
 
-        {/* Кнопка Избранное — большая и яркая */}
-        <button onClick={() => toggleFavorite(item.id)} style={{
-          display: "flex", alignItems: "center", gap: 6,
-          border: "none",
-          background: isFavorite(item.id)
-            ? "linear-gradient(135deg,#f43f5e,#e11d48)"
-            : "linear-gradient(135deg,#fff0f3,#ffe4ea)",
-          borderRadius: 12, padding: "10px 14px",
-          color: isFavorite(item.id) ? "#fff" : "#f43f5e",
-          fontWeight: 800, fontSize: 13,
-          fontFamily: "'Montserrat', sans-serif",
-          cursor: "pointer", flexShrink: 0,
-          boxShadow: isFavorite(item.id)
-            ? "0 3px 12px rgba(244,63,94,0.4)"
-            : "0 2px 8px rgba(244,63,94,0.15)",
-          transition: "all 0.2s",
-        }}>
-          <svg width="18" height="18" viewBox="0 0 24 24"
-            fill={isFavorite(item.id) ? "#fff" : "#f43f5e"}
+        <button
+          onClick={() => toggleFavorite(item.id)}
+          style={{
+            width: 38, height: 38, borderRadius: "50%", border: "none",
+            background: isFavorite(item.id) ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "rgba(124,58,237,0.08)",
+            display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer",
+            flexShrink: 0,
+          }}
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24"
+            fill={isFavorite(item.id) ? "#fff" : "none"}
             stroke={isFavorite(item.id) ? "#fff" : "#f43f5e"}
-            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+          >
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
-          {isFavorite(item.id) ? "В избранном" : "В избранное"}
         </button>
       </div>
 
-      {/* ── Фото со свайпом ── */}
-      <div
-        style={{ width: "100%", background: "#f8f5ff", overflow: "hidden", position: "relative" }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+      {/* ── Фото — натуральный размер (contain) ── */}
+      <div style={{
+        width: "100%", background: "#f8f5ff",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        overflow: "hidden",
+      }}>
         <img
-          key={item.id + "-" + item.title}
           src={item.image}
           alt={item.title}
           onLoad={() => setImgLoaded(true)}
           style={{
-            width: "100%", objectFit: "contain", display: "block",
+            width: "100%",
+            objectFit: "contain",
+            display: "block",
             opacity: imgLoaded ? 1 : 0,
-            transition: slideDir ? "transform 0.18s ease-out, opacity 0.15s" : "opacity 0.3s",
-            transform: imgTransform,
-            willChange: "transform",
+            transition: "opacity 0.3s",
           }}
         />
-
-        {/* Стрелки навигации */}
-        {currentIdx > 0 && (
-          <button onClick={() => goTo(currentIdx - 1)} style={{
-            position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)",
-            width: 36, height: 36, borderRadius: "50%",
-            background: "rgba(255,255,255,0.85)", border: "none",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)", zIndex: 5,
-          }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-        )}
-        {currentIdx < allItems.length - 1 && (
-          <button onClick={() => goTo(currentIdx + 1)} style={{
-            position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)",
-            width: 36, height: 36, borderRadius: "50%",
-            background: "rgba(255,255,255,0.85)", border: "none",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)", zIndex: 5,
-          }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        )}
-
-        {/* Счётчик */}
-        {allItems.length > 1 && (
-          <div style={{
-            position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)",
-            background: "rgba(0,0,0,0.45)", color: "#fff", borderRadius: 999,
-            padding: "3px 12px", fontSize: 12, fontWeight: 700, zIndex: 5,
-          }}>
-            {currentIdx + 1} / {allItems.length}
-          </div>
-        )}
-
-        {/* Подсказка свайпа */}
-        {allItems.length > 1 && (
-          <div style={{
-            position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)",
-            color: "rgba(255,255,255,0.8)", fontSize: 11, whiteSpace: "nowrap", zIndex: 5,
-            textShadow: "0 1px 3px rgba(0,0,0,0.5)",
-          }}>
-            ← листай для следующего →
-          </div>
-        )}
       </div>
 
       {/* Радужная полоска */}
@@ -234,7 +123,10 @@ export default function CompositionDetail() {
 
         {/* Название + цена */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, marginBottom: 16 }}>
-          <h2 style={{ flex: 1, fontSize: 18, fontWeight: 800, lineHeight: 1.3, color: "#1a1a1a", fontFamily: "'Montserrat', sans-serif", margin: 0 }}>
+          <h2 style={{
+            flex: 1, fontSize: 18, fontWeight: 800, lineHeight: 1.3, color: "#1a1a1a",
+            fontFamily: "'Montserrat', sans-serif", margin: 0,
+          }}>
             {item.title}
           </h2>
           <div style={{
@@ -246,17 +138,21 @@ export default function CompositionDetail() {
           </div>
         </div>
 
-        {/* ── Аккордеон: Наполнение ── */}
-        <button onClick={() => setShowFill(v => !v)} style={{
-          width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: "14px 16px", marginBottom: showFill ? 0 : 8,
-          borderRadius: showFill ? "14px 14px 0 0" : 14,
-          border: "2px solid", borderColor: showFill ? "#7c3aed" : "#e9e3ff",
-          background: showFill ? "#f5f0ff" : "#faf8ff",
-          cursor: "pointer", transition: "all 0.2s",
-        }}>
+        {/* ── Кнопка Наполнение ── */}
+        <button
+          onClick={() => setShowFill(v => !v)}
+          style={{
+            width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "14px 16px", marginBottom: showFill ? 0 : 8,
+            borderRadius: showFill ? "14px 14px 0 0" : 14,
+            border: "2px solid", borderColor: showFill ? "#7c3aed" : "#e9e3ff",
+            background: showFill ? "#f5f0ff" : "#faf8ff",
+            cursor: "pointer", transition: "all 0.2s",
+          }}
+        >
           <span style={{ display: "flex", alignItems: "center", gap: 10, fontWeight: 700, fontSize: 15, color: "#7c3aed", fontFamily: "'Montserrat', sans-serif" }}>
-            <span style={{ fontSize: 18 }}>✨</span> Наполнение
+            <span style={{ fontSize: 18 }}>✨</span>
+            Наполнение
           </span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round"
             style={{ transform: showFill ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>
@@ -284,20 +180,27 @@ export default function CompositionDetail() {
                 </li>
               ))}
             </ul>
+            <p style={{ margin: "10px 0 0", fontSize: 11, color: "#a855f7", fontWeight: 600 }}>
+              🎨 Можно изменить под ваш бюджет и пожелания
+            </p>
           </div>
         )}
 
-        {/* ── Аккордеон: Доставка ── */}
-        <button onClick={() => setShowDelivery(v => !v)} style={{
-          width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: "14px 16px", marginBottom: showDelivery ? 0 : 8,
-          borderRadius: showDelivery ? "14px 14px 0 0" : 14,
-          border: "2px solid", borderColor: showDelivery ? "#16a34a" : "#d1fae5",
-          background: showDelivery ? "#f0fdf4" : "#f9fffe",
-          cursor: "pointer", transition: "all 0.2s",
-        }}>
+        {/* ── Кнопка Доставка ── */}
+        <button
+          onClick={() => setShowDelivery(v => !v)}
+          style={{
+            width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "14px 16px", marginBottom: showDelivery ? 0 : 8,
+            borderRadius: showDelivery ? "14px 14px 0 0" : 14,
+            border: "2px solid", borderColor: showDelivery ? "#16a34a" : "#d1fae5",
+            background: showDelivery ? "#f0fdf4" : "#f9fffe",
+            cursor: "pointer", transition: "all 0.2s",
+          }}
+        >
           <span style={{ display: "flex", alignItems: "center", gap: 10, fontWeight: 700, fontSize: 15, color: "#16a34a", fontFamily: "'Montserrat', sans-serif" }}>
-            <span style={{ fontSize: 18 }}>🚚</span> Доставка по г. Краснодар
+            <span style={{ fontSize: 18 }}>🚚</span>
+            Доставка по г. Краснодар
           </span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round"
             style={{ transform: showDelivery ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>
@@ -326,17 +229,26 @@ export default function CompositionDetail() {
           </div>
         )}
 
-        {/* ── Подсказка про изменение наполнения ── */}
-        <div style={{
-          marginTop: 12, padding: "12px 16px",
-          background: "linear-gradient(135deg, #fdf4ff, #f5f0ff)",
-          borderRadius: 14, border: "1.5px solid #e9d5ff",
-          display: "flex", alignItems: "flex-start", gap: 10,
-        }}>
-          <span style={{ fontSize: 20, flexShrink: 0 }}>🎨</span>
-          <p style={{ margin: 0, fontSize: 13, color: "#6b21a8", lineHeight: 1.5, fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-            Наполнение любой композиции можно изменить под ваши пожелания — цвет, состав и бюджет
-          </p>
+        {/* Соцсети */}
+        <div style={{ marginTop: 20 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#888", marginBottom: 10 }}>Написать нам</p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {[
+              { label: "WhatsApp", href: "https://wa.me/79885973303", bg: "#25D366" },
+              { label: "Telegram", href: "https://t.me/sharovik_krd", bg: "#229ED9" },
+              { label: "ВКонтакте", href: "https://vk.com/sharovik_krd", bg: "#0077FF" },
+              { label: "Instagram", href: "https://instagram.com/sharovik_krd", bg: "linear-gradient(45deg,#f09433,#dc2743,#bc1888)" },
+            ].map(s => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-flex", alignItems: "center", padding: "8px 16px",
+                borderRadius: 999, background: s.bg, color: "#fff",
+                fontSize: 13, fontWeight: 700, textDecoration: "none",
+                fontFamily: "'Montserrat', sans-serif",
+              }}>
+                {s.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -349,24 +261,32 @@ export default function CompositionDetail() {
         paddingBottom: "max(10px, env(safe-area-inset-bottom, 10px))",
         display: "flex", gap: 10,
       }}>
-        <button onClick={() => goOrder("order")} style={{
-          flex: 1, padding: "14px", borderRadius: 16, border: "none",
-          background: "linear-gradient(135deg,#f97316,#e63000)", color: "#fff",
-          fontWeight: 800, fontSize: 14, cursor: "pointer",
-          fontFamily: "'Montserrat', sans-serif",
-          boxShadow: "0 4px 16px rgba(249,115,22,0.4)",
-        }}>
+        <button
+          onClick={() => goOrder("order")}
+          style={{
+            flex: 1, padding: "14px", borderRadius: 16, border: "none",
+            background: "linear-gradient(135deg,#f97316,#e63000)", color: "#fff",
+            fontWeight: 800, fontSize: 14, cursor: "pointer",
+            fontFamily: "'Montserrat', sans-serif",
+            boxShadow: "0 4px 16px rgba(249,115,22,0.4)",
+          }}
+        >
           🎈 Оформить заказ
         </button>
-        <button onClick={() => goOrder("details")} style={{
-          flex: 1, padding: "14px", borderRadius: 16,
-          border: "2px solid #7c3aed", background: "#faf5ff",
-          color: "#7c3aed", fontWeight: 800, fontSize: 14, cursor: "pointer",
-          fontFamily: "'Montserrat', sans-serif",
-        }}>
+        <button
+          onClick={() => goOrder("details")}
+          style={{
+            flex: 1, padding: "14px", borderRadius: 16,
+            border: "2px solid #7c3aed", background: "#faf5ff",
+            color: "#7c3aed", fontWeight: 800, fontSize: 14, cursor: "pointer",
+            fontFamily: "'Montserrat', sans-serif",
+          }}
+        >
           💬 Уточнить детали
         </button>
       </div>
+
+      <FloatingSocials />
     </div>
   )
 }
