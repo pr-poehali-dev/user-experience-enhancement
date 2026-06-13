@@ -133,7 +133,7 @@ export function Navbar() {
             {/* Desktop nav links — по центру */}
             <div className="flex items-center gap-5 lg:gap-9 absolute left-1/2 -translate-x-1/2">
               {[
-                { label: "О нас",    icon: "Star",          action: () => navigate("/about") },
+                { label: "О нас",    icon: "Star",          action: () => { navigate("/about"); setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 0) } },
                 { label: "Доставка", icon: "Truck",         action: () => navigate("/delivery") },
                 { label: "Каталог",  icon: "Balloon",       action: () => navigate("/catalog") },
                 { label: "Отзывы",   icon: "MessageCircle", action: handlePopular },
@@ -217,7 +217,7 @@ export function Navbar() {
             {/* Пункты меню */}
             <nav className="flex-1 px-4 py-4 space-y-1">
               {[
-                { label: "О нас",    icon: "Star",          action: () => navigate("/about") },
+                { label: "О нас",    icon: "Star",          action: () => { navigate("/about"); setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 0) } },
                 { label: "Прайс",    icon: "Tag",           action: () => navigate("/contacts") },
                 { label: "Каталог",  icon: "Balloon",       action: () => navigate("/catalog") },
                 { label: "Отзывы",   icon: "MessageCircle", action: handlePopular },

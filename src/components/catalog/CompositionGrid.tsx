@@ -455,10 +455,9 @@ export default function CompositionGrid({
           {filtered.slice(0, visibleCount).map((item, idx) => (
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
-              className={`group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 sm:hover:scale-110${item.highlight ? " ring-4 ring-red-500 ring-offset-2" : ""}`}
+              className={`group flex flex-col rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 sm:hover:scale-[1.03] bg-white${item.highlight ? " ring-4 ring-red-500 ring-offset-2" : ""}`}
               onClick={() => {
                 window._catalogScrollY = window.scrollY
-                // На мобайле — открываем новую страницу
                 if (window.innerWidth < 640) {
                   navigate("/composition", { state: { item, scrollY: window.scrollY, backPath: window.location.pathname + window.location.search } })
                 } else {
@@ -466,25 +465,27 @@ export default function CompositionGrid({
                 }
               }}
             >
-              <img src={item.image} alt={item.title} className="w-full object-cover sm:group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "3/4" }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Price + title overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent pt-6 pb-9 px-2">
-                <p className="text-white font-bold text-xs drop-shadow-lg leading-tight mb-0.5 truncate">{item.title}</p>
-                <p className="text-white font-extrabold text-sm sm:text-base drop-shadow-lg leading-tight">{item.price}</p>
+              {/* Картинка */}
+              <div className="relative overflow-hidden">
+                <img src={item.image} alt={item.title} className="w-full object-cover sm:group-hover:scale-110 transition-transform duration-500" style={{ aspectRatio: "3/4" }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              {/* Нижняя панель: только ♥ */}
-              <div className="absolute bottom-0 left-0 right-0 flex items-center px-2 pb-2 z-10">
+              {/* Инфо ниже картинки */}
+              <div className="flex items-center justify-between gap-1 px-2 pt-1.5 pb-2">
+                <div className="flex-1 min-w-0">
+                  <p className="text-foreground font-semibold text-xs leading-tight truncate">{item.title}</p>
+                  <p className="text-primary font-extrabold text-sm sm:text-base leading-tight mt-0.5">{item.price}</p>
+                </div>
                 <button
-                  className="w-7 h-7 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90 flex-shrink-0"
-                  style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(4px)" }}
+                  className="w-8 h-8 rounded-full flex items-center justify-center shadow-sm transition-all active:scale-90 flex-shrink-0"
+                  style={{ background: isFavorite(item.id) ? "#fff0f3" : "rgba(124,58,237,0.08)" }}
                   onClick={e => { e.stopPropagation(); toggleFavorite(item.id) }}
                   title={isFavorite(item.id) ? "Убрать из избранного" : "В избранное"}
                 >
-                  <svg width="13" height="13" viewBox="0 0 24 24"
+                  <svg width="15" height="15" viewBox="0 0 24 24"
                     fill={isFavorite(item.id) ? "#f43f5e" : "none"}
-                    stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-                    style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(item.id) ? "scale(1.25)" : "scale(1)" }}
+                    stroke={isFavorite(item.id) ? "#f43f5e" : "#7c3aed"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ transition: "transform 0.2s, fill 0.2s", transform: isFavorite(item.id) ? "scale(1.2)" : "scale(1)" }}
                   >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
