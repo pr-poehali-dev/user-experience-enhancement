@@ -85,28 +85,28 @@ export default function CatalogSub() {
   return (
     <div className="min-h-screen bg-background">
       {/* Компактный заголовок */}
-      <div className="pt-[clamp(72px,10vw,120px)] border-b border-border/50 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+      <div className="pt-[clamp(58px,7.5vw,86px)] bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-1">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors text-xs mb-2"
+            className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors text-xs mb-1.5"
           >
             <Icon name="ArrowLeft" size={13} /> Назад
           </button>
-          <div className="flex items-center gap-2.5">
-            <span className="text-2xl sm:text-3xl">{info.emoji}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-xl sm:text-2xl">{info.emoji}</span>
             <div>
-              <h1 className="text-base sm:text-xl font-bold text-foreground leading-tight">
+              <h1 className="text-sm sm:text-lg font-bold text-foreground leading-tight">
                 {info.label}
               </h1>
-              <p className="text-xs text-muted-foreground">{items.length} композиций</p>
+              <p className="text-[11px] text-muted-foreground">{items.length} композиций</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Сетка */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 pb-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-20">
         <CompositionGrid items={items} />
       </div>
 

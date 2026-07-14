@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Hero } from "@/components/Hero"
 import { PopularPackages } from "@/components/PopularPackages"
-import { DeliverySection } from "@/components/DeliverySection"
 import { Reviews } from "@/components/Reviews"
 import { Footer } from "@/components/Footer"
 import { FloatingSocials } from "@/components/FloatingSocials"
@@ -121,7 +120,6 @@ export default function Index() {
     <main className="min-h-screen">
       <Hero />
       <PopularPackages />
-      <DeliverySection />
       <Reviews />
       <CatalogCTA />
       <Footer />
