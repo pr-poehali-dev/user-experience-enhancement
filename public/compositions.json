@@ -1,0 +1,4178 @@
+[
+  {
+    "id": 1,
+    "subcategory": "bubbles-box",
+    "title": "Баблс-бокс 1",
+    "price_num": 1990
+  },
+  {
+    "id": 1,
+    "subcategory": "surprise-box",
+    "title": "Коробка-сюрприз 1",
+    "price_num": 1890
+  },
+  {
+    "id": 1,
+    "subcategory": "first-year",
+    "title": "Набор «1 годик» 1",
+    "price_num": 1490
+  },
+  {
+    "id": 1,
+    "subcategory": "ceiling",
+    "title": "Шарики под потолок 1",
+    "price_num": 1200
+  },
+  {
+    "id": 1,
+    "subcategory": "numbers",
+    "title": "Цифра 1",
+    "price_num": 890
+  },
+  {
+    "id": 1,
+    "subcategory": "cartoon",
+    "title": "Фигурка 1",
+    "price_num": 1390
+  },
+  {
+    "id": 2,
+    "subcategory": "bubbles-box",
+    "title": "Баблс-бокс 2",
+    "price_num": 1990
+  },
+  {
+    "id": 2,
+    "subcategory": "surprise-box",
+    "title": "Коробка-сюрприз 2",
+    "price_num": 1890
+  },
+  {
+    "id": 2,
+    "subcategory": "first-year",
+    "title": "Набор «1 годик» 2",
+    "price_num": 1490
+  },
+  {
+    "id": 2,
+    "subcategory": "ceiling",
+    "title": "Шарики под потолок 2",
+    "price_num": 1200
+  },
+  {
+    "id": 2,
+    "subcategory": "numbers",
+    "title": "Цифра 2",
+    "price_num": 890
+  },
+  {
+    "id": 2,
+    "subcategory": "cartoon",
+    "title": "Фигурка 2",
+    "price_num": 1390
+  },
+  {
+    "id": 3,
+    "subcategory": "numbers",
+    "title": "Цифра 3",
+    "price_num": 890
+  },
+  {
+    "id": 3,
+    "subcategory": "cartoon",
+    "title": "Фигурка 3",
+    "price_num": 1390
+  },
+  {
+    "id": 5,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 5",
+    "price_num": 3200
+  },
+  {
+    "id": 5,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 5",
+    "price_num": 3510
+  },
+  {
+    "id": 6,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 6",
+    "price_num": 2500
+  },
+  {
+    "id": 7,
+    "subcategory": "girl",
+    "title": "Набор для девушки 7",
+    "price_num": 4180
+  },
+  {
+    "id": 7,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 7",
+    "price_num": 8800
+  },
+  {
+    "id": 8,
+    "subcategory": "girl",
+    "title": "Набор для девушки 8",
+    "price_num": 4530
+  },
+  {
+    "id": 8,
+    "subcategory": "man",
+    "title": "Набор для мужчины 8",
+    "price_num": 5000
+  },
+  {
+    "id": 8,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 8",
+    "price_num": 3900
+  },
+  {
+    "id": 9,
+    "subcategory": "man",
+    "title": "Набор для мужчины 9",
+    "price_num": 2950
+  },
+  {
+    "id": 10,
+    "subcategory": "girl",
+    "title": "Набор для девушки 10",
+    "price_num": 3320
+  },
+  {
+    "id": 10,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 7",
+    "price_num": 3910
+  },
+  {
+    "id": 11,
+    "subcategory": "girl",
+    "title": "Набор для девушки 11",
+    "price_num": 2640
+  },
+  {
+    "id": 11,
+    "subcategory": "man",
+    "title": "Набор для мужчины 11",
+    "price_num": 4000
+  },
+  {
+    "id": 11,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 8",
+    "price_num": 4340
+  },
+  {
+    "id": 12,
+    "subcategory": "girl",
+    "title": "Набор для девушки 12",
+    "price_num": 3530
+  },
+  {
+    "id": 12,
+    "subcategory": "man",
+    "title": "Набор для мужчины 12",
+    "price_num": 3050
+  },
+  {
+    "id": 12,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 12",
+    "price_num": 6000
+  },
+  {
+    "id": 13,
+    "subcategory": "man",
+    "title": "Набор для мужчины 13",
+    "price_num": 3300
+  },
+  {
+    "id": 13,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 10",
+    "price_num": 4200
+  },
+  {
+    "id": 14,
+    "subcategory": "man",
+    "title": "Набор для мужчины 14",
+    "price_num": 5300
+  },
+  {
+    "id": 14,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 14",
+    "price_num": 2870
+  },
+  {
+    "id": 15,
+    "subcategory": "girl",
+    "title": "Набор для девушки 15",
+    "price_num": 3740
+  },
+  {
+    "id": 15,
+    "subcategory": "man",
+    "title": "Набор для мужчины 15",
+    "price_num": 3690
+  },
+  {
+    "id": 15,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 15",
+    "price_num": 2550
+  },
+  {
+    "id": 16,
+    "subcategory": "girl",
+    "title": "Набор для девушки 16",
+    "price_num": 3480
+  },
+  {
+    "id": 16,
+    "subcategory": "man",
+    "title": "Набор для мужчины 16",
+    "price_num": 2950
+  },
+  {
+    "id": 16,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 13",
+    "price_num": 4870
+  },
+  {
+    "id": 19,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 19",
+    "price_num": 3550
+  },
+  {
+    "id": 20,
+    "subcategory": "girl",
+    "title": "Набор для девушки 20",
+    "price_num": 4000
+  },
+  {
+    "id": 20,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 20",
+    "price_num": 1680
+  },
+  {
+    "id": 21,
+    "subcategory": "girl",
+    "title": "Набор для девушки 21",
+    "price_num": 3290
+  },
+  {
+    "id": 21,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 21",
+    "price_num": 1550
+  },
+  {
+    "id": 22,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 22",
+    "price_num": 2870
+  },
+  {
+    "id": 23,
+    "subcategory": "man",
+    "title": "Набор для мужчины 23",
+    "price_num": 6500
+  },
+  {
+    "id": 23,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 23",
+    "price_num": 5600
+  },
+  {
+    "id": 24,
+    "subcategory": "man",
+    "title": "Набор для мужчины 24",
+    "price_num": 6680
+  },
+  {
+    "id": 24,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 24",
+    "price_num": 2600
+  },
+  {
+    "id": 25,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 25",
+    "price_num": 6500
+  },
+  {
+    "id": 25,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 25",
+    "price_num": 3420
+  },
+  {
+    "id": 26,
+    "subcategory": "man",
+    "title": "Набор для мужчины 26",
+    "price_num": 3420
+  },
+  {
+    "id": 27,
+    "subcategory": "girl",
+    "title": "Набор для девушки 27",
+    "price_num": 3570
+  },
+  {
+    "id": 27,
+    "subcategory": "man",
+    "title": "Набор для мужчины 27",
+    "price_num": 5450
+  },
+  {
+    "id": 27,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 27",
+    "price_num": 3700
+  },
+  {
+    "id": 28,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 28",
+    "price_num": 3000
+  },
+  {
+    "id": 29,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 29",
+    "price_num": 6150
+  },
+  {
+    "id": 29,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 29",
+    "price_num": 2550
+  },
+  {
+    "id": 30,
+    "subcategory": "girl",
+    "title": "Набор для девушки 30",
+    "price_num": 3400
+  },
+  {
+    "id": 30,
+    "subcategory": "man",
+    "title": "Набор для мужчины 30",
+    "price_num": 3800
+  },
+  {
+    "id": 31,
+    "subcategory": "man",
+    "title": "Набор для мужчины 31",
+    "price_num": 3500
+  },
+  {
+    "id": 31,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 31",
+    "price_num": 2900
+  },
+  {
+    "id": 31,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 31",
+    "price_num": 3400
+  },
+  {
+    "id": 33,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 33",
+    "price_num": 2300
+  },
+  {
+    "id": 34,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 31",
+    "price_num": 4900
+  },
+  {
+    "id": 37,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 37",
+    "price_num": 3500
+  },
+  {
+    "id": 38,
+    "subcategory": "girl",
+    "title": "Набор для девушки 38",
+    "price_num": 4220
+  },
+  {
+    "id": 38,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 38",
+    "price_num": 3100
+  },
+  {
+    "id": 38,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 38",
+    "price_num": 3350
+  },
+  {
+    "id": 39,
+    "subcategory": "girl",
+    "title": "Набор для девушки 39",
+    "price_num": 3100
+  },
+  {
+    "id": 39,
+    "subcategory": "man",
+    "title": "Набор для мужчины 39",
+    "price_num": 5000
+  },
+  {
+    "id": 41,
+    "subcategory": "man",
+    "title": "Набор для мужчины 41",
+    "price_num": 3840
+  },
+  {
+    "id": 41,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 41",
+    "price_num": 0
+  },
+  {
+    "id": 44,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 44",
+    "price_num": 4900
+  },
+  {
+    "id": 45,
+    "subcategory": "man",
+    "title": "Набор для мужчины 45",
+    "price_num": 5280
+  },
+  {
+    "id": 45,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 42",
+    "price_num": 3150
+  },
+  {
+    "id": 46,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 43",
+    "price_num": 3250
+  },
+  {
+    "id": 47,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 44",
+    "price_num": 4060
+  },
+  {
+    "id": 48,
+    "subcategory": "man",
+    "title": "Набор для мужчины 48",
+    "price_num": 3100
+  },
+  {
+    "id": 48,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 48",
+    "price_num": 4100
+  },
+  {
+    "id": 50,
+    "subcategory": "girl",
+    "title": "Набор для девушки 50",
+    "price_num": 4200
+  },
+  {
+    "id": 50,
+    "subcategory": "man",
+    "title": "Набор для мужчины 50",
+    "price_num": 5000
+  },
+  {
+    "id": 50,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 50",
+    "price_num": 3700
+  },
+  {
+    "id": 51,
+    "subcategory": "girl",
+    "title": "Набор для девушки 51",
+    "price_num": 6650
+  },
+  {
+    "id": 51,
+    "subcategory": "man",
+    "title": "Набор для мужчины 51",
+    "price_num": 4900
+  },
+  {
+    "id": 51,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 48",
+    "price_num": 3000
+  },
+  {
+    "id": 52,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 52",
+    "price_num": 4300
+  },
+  {
+    "id": 53,
+    "subcategory": "man",
+    "title": "Набор для мужчины 53",
+    "price_num": 5200
+  },
+  {
+    "id": 54,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 54",
+    "price_num": 2850
+  },
+  {
+    "id": 54,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 54",
+    "price_num": 6550
+  },
+  {
+    "id": 55,
+    "subcategory": "girl",
+    "title": "Набор для девушки 55",
+    "price_num": 8820
+  },
+  {
+    "id": 55,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 55",
+    "price_num": 2400
+  },
+  {
+    "id": 55,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 55",
+    "price_num": 2740
+  },
+  {
+    "id": 56,
+    "subcategory": "girl",
+    "title": "Набор для девушки 56",
+    "price_num": 3510
+  },
+  {
+    "id": 56,
+    "subcategory": "man",
+    "title": "Набор для мужчины 56",
+    "price_num": 5150
+  },
+  {
+    "id": 56,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 56",
+    "price_num": 2780
+  },
+  {
+    "id": 57,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 57",
+    "price_num": 3200
+  },
+  {
+    "id": 59,
+    "subcategory": "man",
+    "title": "Набор для мужчины 59",
+    "price_num": 4900
+  },
+  {
+    "id": 59,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 59",
+    "price_num": 2900
+  },
+  {
+    "id": 60,
+    "subcategory": "girl",
+    "title": "Набор для девушки 60",
+    "price_num": 3620
+  },
+  {
+    "id": 60,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 60",
+    "price_num": 3500
+  },
+  {
+    "id": 61,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 61",
+    "price_num": 4520
+  },
+  {
+    "id": 62,
+    "subcategory": "man",
+    "title": "Набор для мужчины 62",
+    "price_num": 4220
+  },
+  {
+    "id": 65,
+    "subcategory": "girl",
+    "title": "Набор для девушки 65",
+    "price_num": 6830
+  },
+  {
+    "id": 65,
+    "subcategory": "man",
+    "title": "Набор для мужчины 65",
+    "price_num": 4920
+  },
+  {
+    "id": 66,
+    "subcategory": "girl",
+    "title": "Набор для девушки 66",
+    "price_num": 4320
+  },
+  {
+    "id": 66,
+    "subcategory": "man",
+    "title": "Набор для мужчины 66",
+    "price_num": 5140
+  },
+  {
+    "id": 66,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 66",
+    "price_num": 3100
+  },
+  {
+    "id": 67,
+    "subcategory": "girl",
+    "title": "Набор для девушки 67",
+    "price_num": 3460
+  },
+  {
+    "id": 68,
+    "subcategory": "man",
+    "title": "Набор для мужчины 68",
+    "price_num": 4200
+  },
+  {
+    "id": 69,
+    "subcategory": "man",
+    "title": "Набор для мужчины 69",
+    "price_num": 5900
+  },
+  {
+    "id": 70,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 67",
+    "price_num": 4100
+  },
+  {
+    "id": 71,
+    "subcategory": "man",
+    "title": "Набор для мужчины 71",
+    "price_num": 6440
+  },
+  {
+    "id": 72,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 72",
+    "price_num": 2700
+  },
+  {
+    "id": 72,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 72",
+    "price_num": 4500
+  },
+  {
+    "id": 73,
+    "subcategory": "girl",
+    "title": "Набор для девушки 73",
+    "price_num": 5000
+  },
+  {
+    "id": 73,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 73",
+    "price_num": 3000
+  },
+  {
+    "id": 74,
+    "subcategory": "man",
+    "title": "Набор для мужчины 74",
+    "price_num": 3990
+  },
+  {
+    "id": 74,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 74",
+    "price_num": 3000
+  },
+  {
+    "id": 75,
+    "subcategory": "girl",
+    "title": "Набор для девушки 75",
+    "price_num": 4700
+  },
+  {
+    "id": 75,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 75",
+    "price_num": 2400
+  },
+  {
+    "id": 76,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 76",
+    "price_num": 3250
+  },
+  {
+    "id": 77,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 77",
+    "price_num": 4200
+  },
+  {
+    "id": 79,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 79",
+    "price_num": 3000
+  },
+  {
+    "id": 79,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 76",
+    "price_num": 5800
+  },
+  {
+    "id": 81,
+    "subcategory": "man",
+    "title": "Набор для мужчины 81",
+    "price_num": 2950
+  },
+  {
+    "id": 81,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 81",
+    "price_num": 3800
+  },
+  {
+    "id": 82,
+    "subcategory": "girl",
+    "title": "Набор для девушки 82",
+    "price_num": 5200
+  },
+  {
+    "id": 82,
+    "subcategory": "man",
+    "title": "Набор для мужчины 82",
+    "price_num": 5440
+  },
+  {
+    "id": 82,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 82",
+    "price_num": 3500
+  },
+  {
+    "id": 83,
+    "subcategory": "girl",
+    "title": "Набор для девушки 83",
+    "price_num": 10900
+  },
+  {
+    "id": 83,
+    "subcategory": "man",
+    "title": "Набор для мужчины 83",
+    "price_num": 6000
+  },
+  {
+    "id": 83,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 83",
+    "price_num": 5950
+  },
+  {
+    "id": 84,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 84",
+    "price_num": 2100
+  },
+  {
+    "id": 85,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 85",
+    "price_num": 2220
+  },
+  {
+    "id": 85,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 85",
+    "price_num": 3340
+  },
+  {
+    "id": 87,
+    "subcategory": "man",
+    "title": "Набор для мужчины 87",
+    "price_num": 4160
+  },
+  {
+    "id": 88,
+    "subcategory": "man",
+    "title": "Набор для мужчины 88",
+    "price_num": 5050
+  },
+  {
+    "id": 88,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 88",
+    "price_num": 4320
+  },
+  {
+    "id": 89,
+    "subcategory": "girl",
+    "title": "Набор для девушки 89",
+    "price_num": 4370
+  },
+  {
+    "id": 90,
+    "subcategory": "girl",
+    "title": "Набор для девушки 90",
+    "price_num": 4120
+  },
+  {
+    "id": 90,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 90",
+    "price_num": 3550
+  },
+  {
+    "id": 90,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 90",
+    "price_num": 4430
+  },
+  {
+    "id": 91,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 91",
+    "price_num": 6200
+  },
+  {
+    "id": 91,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 91",
+    "price_num": 3430
+  },
+  {
+    "id": 94,
+    "subcategory": "man",
+    "title": "Набор для мужчины 94",
+    "price_num": 2950
+  },
+  {
+    "id": 94,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 94",
+    "price_num": 2500
+  },
+  {
+    "id": 95,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 95",
+    "price_num": 2750
+  },
+  {
+    "id": 96,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 96",
+    "price_num": 5000
+  },
+  {
+    "id": 96,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 96",
+    "price_num": 3300
+  },
+  {
+    "id": 97,
+    "subcategory": "girl",
+    "title": "Набор для девушки 97",
+    "price_num": 6400
+  },
+  {
+    "id": 97,
+    "subcategory": "man",
+    "title": "Набор для мужчины 97",
+    "price_num": 2500
+  },
+  {
+    "id": 97,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 97",
+    "price_num": 2750
+  },
+  {
+    "id": 98,
+    "subcategory": "girl",
+    "title": "Набор для девушки 98",
+    "price_num": 6000
+  },
+  {
+    "id": 98,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 98",
+    "price_num": 2100
+  },
+  {
+    "id": 99,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 6",
+    "price_num": 3320
+  },
+  {
+    "id": 99,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 96",
+    "price_num": 3940
+  },
+  {
+    "id": 100,
+    "subcategory": "girl",
+    "title": "Набор для девушки 100",
+    "price_num": 3040
+  },
+  {
+    "id": 100,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 100",
+    "price_num": 2400
+  },
+  {
+    "id": 101,
+    "subcategory": "girl",
+    "title": "Набор для девушки 101",
+    "price_num": 3480
+  },
+  {
+    "id": 101,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 8",
+    "price_num": 8190
+  },
+  {
+    "id": 102,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 102",
+    "price_num": 4600
+  },
+  {
+    "id": 102,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 9",
+    "price_num": 3680
+  },
+  {
+    "id": 103,
+    "subcategory": "man",
+    "title": "Набор для мужчины 103",
+    "price_num": 4900
+  },
+  {
+    "id": 104,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 104",
+    "price_num": 2950
+  },
+  {
+    "id": 104,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 101",
+    "price_num": 3510
+  },
+  {
+    "id": 105,
+    "subcategory": "girl",
+    "title": "Набор для девушки 105",
+    "price_num": 2860
+  },
+  {
+    "id": 105,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 105",
+    "price_num": 5500
+  },
+  {
+    "id": 105,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 105",
+    "price_num": 2470
+  },
+  {
+    "id": 106,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 106",
+    "price_num": 2100
+  },
+  {
+    "id": 107,
+    "subcategory": "man",
+    "title": "Набор для мужчины 107",
+    "price_num": 3880
+  },
+  {
+    "id": 108,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 108",
+    "price_num": 3500
+  },
+  {
+    "id": 109,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 16",
+    "price_num": 5140
+  },
+  {
+    "id": 109,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 106",
+    "price_num": 2800
+  },
+  {
+    "id": 110,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 110",
+    "price_num": 7000
+  },
+  {
+    "id": 110,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 110",
+    "price_num": 3400
+  },
+  {
+    "id": 110,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 17",
+    "price_num": 6380
+  },
+  {
+    "id": 111,
+    "subcategory": "girl",
+    "title": "Набор для девушки 111",
+    "price_num": 4310
+  },
+  {
+    "id": 111,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 111",
+    "price_num": 3050
+  },
+  {
+    "id": 111,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 108",
+    "price_num": 4230
+  },
+  {
+    "id": 112,
+    "subcategory": "man",
+    "title": "Набор для мужчины 112",
+    "price_num": 4780
+  },
+  {
+    "id": 113,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 110",
+    "price_num": 5690
+  },
+  {
+    "id": 114,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 114",
+    "price_num": 2650
+  },
+  {
+    "id": 114,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 21",
+    "price_num": 5140
+  },
+  {
+    "id": 114,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 111",
+    "price_num": 3630
+  },
+  {
+    "id": 115,
+    "subcategory": "girl",
+    "title": "Набор для девушки 115",
+    "price_num": 10000
+  },
+  {
+    "id": 115,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 112",
+    "price_num": 4400
+  },
+  {
+    "id": 116,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 116",
+    "price_num": 4100
+  },
+  {
+    "id": 116,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 116",
+    "price_num": 3700
+  },
+  {
+    "id": 116,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 113",
+    "price_num": 6850
+  },
+  {
+    "id": 117,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 117",
+    "price_num": 3500
+  },
+  {
+    "id": 118,
+    "subcategory": "man",
+    "title": "Набор для мужчины 118",
+    "price_num": 2300
+  },
+  {
+    "id": 118,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 25",
+    "price_num": 6480
+  },
+  {
+    "id": 118,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 115",
+    "price_num": 4500
+  },
+  {
+    "id": 119,
+    "subcategory": "girl",
+    "title": "Набор для девушки 119",
+    "price_num": 2650
+  },
+  {
+    "id": 119,
+    "subcategory": "man",
+    "title": "Набор для мужчины 119",
+    "price_num": 2770
+  },
+  {
+    "id": 119,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 119",
+    "price_num": 5000
+  },
+  {
+    "id": 119,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 119",
+    "price_num": 3050
+  },
+  {
+    "id": 120,
+    "subcategory": "girl",
+    "title": "Набор для девушки 120",
+    "price_num": 3230
+  },
+  {
+    "id": 120,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 117",
+    "price_num": 4050
+  },
+  {
+    "id": 121,
+    "subcategory": "girl",
+    "title": "Набор для девушки 121",
+    "price_num": 3870
+  },
+  {
+    "id": 121,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 118",
+    "price_num": 4910
+  },
+  {
+    "id": 122,
+    "subcategory": "man",
+    "title": "Набор для мужчины 122",
+    "price_num": 3620
+  },
+  {
+    "id": 122,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 122",
+    "price_num": 3950
+  },
+  {
+    "id": 122,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 119",
+    "price_num": 4500
+  },
+  {
+    "id": 123,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 123",
+    "price_num": 3400
+  },
+  {
+    "id": 123,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 30",
+    "price_num": 4180
+  },
+  {
+    "id": 123,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 120",
+    "price_num": 4500
+  },
+  {
+    "id": 124,
+    "subcategory": "girl",
+    "title": "Набор для девушки 124",
+    "price_num": 4560
+  },
+  {
+    "id": 124,
+    "subcategory": "man",
+    "title": "Набор для мужчины 124",
+    "price_num": 3270
+  },
+  {
+    "id": 124,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 121",
+    "price_num": 4450
+  },
+  {
+    "id": 125,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 122",
+    "price_num": 5180
+  },
+  {
+    "id": 127,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 127",
+    "price_num": 3170
+  },
+  {
+    "id": 127,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 124",
+    "price_num": 5470
+  },
+  {
+    "id": 128,
+    "subcategory": "girl",
+    "title": "Набор для девушки 128",
+    "price_num": 5240
+  },
+  {
+    "id": 128,
+    "subcategory": "man",
+    "title": "Набор для мужчины 128",
+    "price_num": 2720
+  },
+  {
+    "id": 128,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 128",
+    "price_num": 3720
+  },
+  {
+    "id": 128,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 125",
+    "price_num": 5230
+  },
+  {
+    "id": 129,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 129",
+    "price_num": 3380
+  },
+  {
+    "id": 129,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 126",
+    "price_num": 4450
+  },
+  {
+    "id": 130,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 127",
+    "price_num": 6270
+  },
+  {
+    "id": 131,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 131",
+    "price_num": 3200
+  },
+  {
+    "id": 131,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 128",
+    "price_num": 3640
+  },
+  {
+    "id": 132,
+    "subcategory": "man",
+    "title": "Набор для мужчины 132",
+    "price_num": 5300
+  },
+  {
+    "id": 132,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 39",
+    "price_num": 6650
+  },
+  {
+    "id": 132,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 129",
+    "price_num": 5000
+  },
+  {
+    "id": 133,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 40",
+    "price_num": 5250
+  },
+  {
+    "id": 133,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 130",
+    "price_num": 4330
+  },
+  {
+    "id": 134,
+    "subcategory": "man",
+    "title": "Набор для мужчины 134",
+    "price_num": 3850
+  },
+  {
+    "id": 134,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 134",
+    "price_num": 2600
+  },
+  {
+    "id": 134,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 41",
+    "price_num": 4880
+  },
+  {
+    "id": 134,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 131",
+    "price_num": 4200
+  },
+  {
+    "id": 135,
+    "subcategory": "man",
+    "title": "Набор для мужчины 135",
+    "price_num": 3430
+  },
+  {
+    "id": 135,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 135",
+    "price_num": 4000
+  },
+  {
+    "id": 135,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 132",
+    "price_num": 4600
+  },
+  {
+    "id": 136,
+    "subcategory": "girl",
+    "title": "Набор для девушки 136",
+    "price_num": 7500
+  },
+  {
+    "id": 136,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 136",
+    "price_num": 3580
+  },
+  {
+    "id": 136,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 136",
+    "price_num": 3900
+  },
+  {
+    "id": 136,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 43",
+    "price_num": 3950
+  },
+  {
+    "id": 137,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 137",
+    "price_num": 3100
+  },
+  {
+    "id": 137,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 44",
+    "price_num": 4470
+  },
+  {
+    "id": 138,
+    "subcategory": "girl",
+    "title": "Набор для девушки 138",
+    "price_num": 3570
+  },
+  {
+    "id": 138,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 138",
+    "price_num": 2360
+  },
+  {
+    "id": 138,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 138",
+    "price_num": 3000
+  },
+  {
+    "id": 139,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 139",
+    "price_num": 9000
+  },
+  {
+    "id": 140,
+    "subcategory": "man",
+    "title": "Набор для мужчины 140",
+    "price_num": 3200
+  },
+  {
+    "id": 140,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 140",
+    "price_num": 2950
+  },
+  {
+    "id": 141,
+    "subcategory": "man",
+    "title": "Набор для мужчины 141",
+    "price_num": 4500
+  },
+  {
+    "id": 142,
+    "subcategory": "girl",
+    "title": "Набор для девушки 142",
+    "price_num": 1800
+  },
+  {
+    "id": 142,
+    "subcategory": "man",
+    "title": "Набор для мужчины 142",
+    "price_num": 5580
+  },
+  {
+    "id": 143,
+    "subcategory": "girl",
+    "title": "Набор для девушки 143",
+    "price_num": 2960
+  },
+  {
+    "id": 145,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 145",
+    "price_num": 4300
+  },
+  {
+    "id": 145,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 52",
+    "price_num": 5680
+  },
+  {
+    "id": 146,
+    "subcategory": "girl",
+    "title": "Набор для девушки 146",
+    "price_num": 8000
+  },
+  {
+    "id": 147,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 54",
+    "price_num": 5140
+  },
+  {
+    "id": 148,
+    "subcategory": "girl",
+    "title": "Набор для девушки 148",
+    "price_num": 4250
+  },
+  {
+    "id": 148,
+    "subcategory": "man",
+    "title": "Набор для мужчины 148",
+    "price_num": 5630
+  },
+  {
+    "id": 150,
+    "subcategory": "man",
+    "title": "Набор для мужчины 150",
+    "price_num": 5240
+  },
+  {
+    "id": 150,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 150",
+    "price_num": 2750
+  },
+  {
+    "id": 152,
+    "subcategory": "girl",
+    "title": "Набор для девушки 152",
+    "price_num": 3630
+  },
+  {
+    "id": 152,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 152",
+    "price_num": 6400
+  },
+  {
+    "id": 153,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 153",
+    "price_num": 4700
+  },
+  {
+    "id": 154,
+    "subcategory": "man",
+    "title": "Набор для мужчины 154",
+    "price_num": 3280
+  },
+  {
+    "id": 154,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 154",
+    "price_num": 4680
+  },
+  {
+    "id": 155,
+    "subcategory": "girl",
+    "title": "Набор для девушки 155",
+    "price_num": 3280
+  },
+  {
+    "id": 157,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 157",
+    "price_num": 2700
+  },
+  {
+    "id": 158,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 158",
+    "price_num": 4260
+  },
+  {
+    "id": 159,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 159",
+    "price_num": 4070
+  },
+  {
+    "id": 160,
+    "subcategory": "man",
+    "title": "Набор для мужчины 160",
+    "price_num": 4740
+  },
+  {
+    "id": 161,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 161",
+    "price_num": 2570
+  },
+  {
+    "id": 161,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 161",
+    "price_num": 3250
+  },
+  {
+    "id": 162,
+    "subcategory": "girl",
+    "title": "Набор для девушки 162",
+    "price_num": 1840
+  },
+  {
+    "id": 162,
+    "subcategory": "man",
+    "title": "Набор для мужчины 162",
+    "price_num": 4800
+  },
+  {
+    "id": 163,
+    "subcategory": "girl",
+    "title": "Набор для девушки 163",
+    "price_num": 3250
+  },
+  {
+    "id": 163,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 163",
+    "price_num": 3320
+  },
+  {
+    "id": 167,
+    "subcategory": "man",
+    "title": "Набор для мужчины 167",
+    "price_num": 4700
+  },
+  {
+    "id": 168,
+    "subcategory": "girl",
+    "title": "Набор для девушки 168",
+    "price_num": 3840
+  },
+  {
+    "id": 168,
+    "subcategory": "man",
+    "title": "Набор для мужчины 168",
+    "price_num": 3400
+  },
+  {
+    "id": 169,
+    "subcategory": "girl",
+    "title": "Набор для девушки 169",
+    "price_num": 3740
+  },
+  {
+    "id": 171,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 171",
+    "price_num": 2400
+  },
+  {
+    "id": 172,
+    "subcategory": "man",
+    "title": "Набор для мужчины 172",
+    "price_num": 2580
+  },
+  {
+    "id": 173,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 80",
+    "price_num": 4720
+  },
+  {
+    "id": 174,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 81",
+    "price_num": 4860
+  },
+  {
+    "id": 176,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 176",
+    "price_num": 2200
+  },
+  {
+    "id": 177,
+    "subcategory": "girl",
+    "title": "Набор для девушки 177",
+    "price_num": 3470
+  },
+  {
+    "id": 178,
+    "subcategory": "man",
+    "title": "Набор для мужчины 178",
+    "price_num": 3000
+  },
+  {
+    "id": 179,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 179",
+    "price_num": 2500
+  },
+  {
+    "id": 181,
+    "subcategory": "girl",
+    "title": "Набор для девушки 181",
+    "price_num": 4120
+  },
+  {
+    "id": 182,
+    "subcategory": "girl",
+    "title": "Набор для девушки 182",
+    "price_num": 3800
+  },
+  {
+    "id": 182,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 89",
+    "price_num": 5560
+  },
+  {
+    "id": 183,
+    "subcategory": "man",
+    "title": "Набор для мужчины 183",
+    "price_num": 6100
+  },
+  {
+    "id": 183,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 90",
+    "price_num": 10000
+  },
+  {
+    "id": 184,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 184",
+    "price_num": 2650
+  },
+  {
+    "id": 185,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 185",
+    "price_num": 5600
+  },
+  {
+    "id": 187,
+    "subcategory": "girl",
+    "title": "Набор для девушки 187",
+    "price_num": 6500
+  },
+  {
+    "id": 187,
+    "subcategory": "man",
+    "title": "Набор для мужчины 187",
+    "price_num": 7000
+  },
+  {
+    "id": 187,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 187",
+    "price_num": 4980
+  },
+  {
+    "id": 187,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 187",
+    "price_num": 2900
+  },
+  {
+    "id": 188,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 188",
+    "price_num": 2950
+  },
+  {
+    "id": 189,
+    "subcategory": "girl",
+    "title": "Набор для девушки 189",
+    "price_num": 3900
+  },
+  {
+    "id": 189,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 189",
+    "price_num": 5900
+  },
+  {
+    "id": 190,
+    "subcategory": "girl",
+    "title": "Набор для девушки 190",
+    "price_num": 2450
+  },
+  {
+    "id": 191,
+    "subcategory": "girl",
+    "title": "Набор для девушки 191",
+    "price_num": 2910
+  },
+  {
+    "id": 193,
+    "subcategory": "man",
+    "title": "Набор для мужчины 193",
+    "price_num": 4000
+  },
+  {
+    "id": 193,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 193",
+    "price_num": 3000
+  },
+  {
+    "id": 194,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 194",
+    "price_num": 3120
+  },
+  {
+    "id": 194,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 194",
+    "price_num": 4200
+  },
+  {
+    "id": 195,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 195",
+    "price_num": 3600
+  },
+  {
+    "id": 195,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 102",
+    "price_num": 3300
+  },
+  {
+    "id": 196,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 196",
+    "price_num": 4400
+  },
+  {
+    "id": 196,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 103",
+    "price_num": 4500
+  },
+  {
+    "id": 197,
+    "subcategory": "girl",
+    "title": "Набор для девушки 197",
+    "price_num": 3000
+  },
+  {
+    "id": 199,
+    "subcategory": "girl",
+    "title": "Набор для девушки 199",
+    "price_num": 3230
+  },
+  {
+    "id": 199,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 106",
+    "price_num": 7420
+  },
+  {
+    "id": 200,
+    "subcategory": "girl",
+    "title": "Набор для девушки 200",
+    "price_num": 4060
+  },
+  {
+    "id": 200,
+    "subcategory": "man",
+    "title": "Набор для мужчины 200",
+    "price_num": 3540
+  },
+  {
+    "id": 200,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 107",
+    "price_num": 4180
+  },
+  {
+    "id": 201,
+    "subcategory": "man",
+    "title": "Набор для мужчины 201",
+    "price_num": 4000
+  },
+  {
+    "id": 201,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 108",
+    "price_num": 4810
+  },
+  {
+    "id": 202,
+    "subcategory": "girl",
+    "title": "Набор для девушки 202",
+    "price_num": 2760
+  },
+  {
+    "id": 202,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 109",
+    "price_num": 5520
+  },
+  {
+    "id": 203,
+    "subcategory": "girl",
+    "title": "Набор для девушки 203",
+    "price_num": 3800
+  },
+  {
+    "id": 203,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 110",
+    "price_num": 5720
+  },
+  {
+    "id": 204,
+    "subcategory": "man",
+    "title": "Набор для мужчины 204",
+    "price_num": 5300
+  },
+  {
+    "id": 205,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 112",
+    "price_num": 3940
+  },
+  {
+    "id": 206,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 113",
+    "price_num": 5900
+  },
+  {
+    "id": 207,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 114",
+    "price_num": 5480
+  },
+  {
+    "id": 208,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 115",
+    "price_num": 5320
+  },
+  {
+    "id": 209,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 116",
+    "price_num": 5040
+  },
+  {
+    "id": 210,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 117",
+    "price_num": 6610
+  },
+  {
+    "id": 211,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 118",
+    "price_num": 6520
+  },
+  {
+    "id": 212,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 212",
+    "price_num": 3900
+  },
+  {
+    "id": 213,
+    "subcategory": "man",
+    "title": "Набор для мужчины 213",
+    "price_num": 3570
+  },
+  {
+    "id": 213,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 120",
+    "price_num": 5820
+  },
+  {
+    "id": 215,
+    "subcategory": "man",
+    "title": "Набор для мужчины 215",
+    "price_num": 3600
+  },
+  {
+    "id": 215,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 122",
+    "price_num": 5820
+  },
+  {
+    "id": 216,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 123",
+    "price_num": 4900
+  },
+  {
+    "id": 217,
+    "subcategory": "man",
+    "title": "Набор для мужчины 217",
+    "price_num": 3200
+  },
+  {
+    "id": 217,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 217",
+    "price_num": 3140
+  },
+  {
+    "id": 218,
+    "subcategory": "girl",
+    "title": "Набор для девушки 218",
+    "price_num": 3000
+  },
+  {
+    "id": 218,
+    "subcategory": "man",
+    "title": "Набор для мужчины 218",
+    "price_num": 3230
+  },
+  {
+    "id": 218,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 125",
+    "price_num": 5300
+  },
+  {
+    "id": 219,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 126",
+    "price_num": 6120
+  },
+  {
+    "id": 220,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 127",
+    "price_num": 6950
+  },
+  {
+    "id": 221,
+    "subcategory": "man",
+    "title": "Набор для мужчины 221",
+    "price_num": 4400
+  },
+  {
+    "id": 221,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 128",
+    "price_num": 0
+  },
+  {
+    "id": 222,
+    "subcategory": "man",
+    "title": "Набор для мужчины 222",
+    "price_num": 5340
+  },
+  {
+    "id": 222,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 129",
+    "price_num": 4350
+  },
+  {
+    "id": 223,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 130",
+    "price_num": 3970
+  },
+  {
+    "id": 224,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 131",
+    "price_num": 2980
+  },
+  {
+    "id": 225,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 225",
+    "price_num": 2300
+  },
+  {
+    "id": 225,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 132",
+    "price_num": 6100
+  },
+  {
+    "id": 226,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 133",
+    "price_num": 4320
+  },
+  {
+    "id": 227,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 134",
+    "price_num": 3570
+  },
+  {
+    "id": 228,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 267",
+    "price_num": 0
+  },
+  {
+    "id": 229,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 136",
+    "price_num": 5000
+  },
+  {
+    "id": 230,
+    "subcategory": "girl",
+    "title": "Набор для девушки 230",
+    "price_num": 3780
+  },
+  {
+    "id": 230,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 137",
+    "price_num": 4500
+  },
+  {
+    "id": 231,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 138",
+    "price_num": 3800
+  },
+  {
+    "id": 232,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 139",
+    "price_num": 2900
+  },
+  {
+    "id": 233,
+    "subcategory": "girl",
+    "title": "Набор для девушки 233",
+    "price_num": 3880
+  },
+  {
+    "id": 233,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 140",
+    "price_num": 5680
+  },
+  {
+    "id": 234,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 141",
+    "price_num": 4950
+  },
+  {
+    "id": 235,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 142",
+    "price_num": 3200
+  },
+  {
+    "id": 236,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 236",
+    "price_num": 4300
+  },
+  {
+    "id": 236,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 143",
+    "price_num": 3450
+  },
+  {
+    "id": 237,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 237",
+    "price_num": 5440
+  },
+  {
+    "id": 237,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 144",
+    "price_num": 3800
+  },
+  {
+    "id": 238,
+    "subcategory": "girl",
+    "title": "Набор для девушки 238",
+    "price_num": 3690
+  },
+  {
+    "id": 238,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 238",
+    "price_num": 3200
+  },
+  {
+    "id": 238,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 145",
+    "price_num": 4470
+  },
+  {
+    "id": 239,
+    "subcategory": "girl",
+    "title": "Набор для девушки 239",
+    "price_num": 3560
+  },
+  {
+    "id": 239,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 146",
+    "price_num": 4800
+  },
+  {
+    "id": 240,
+    "subcategory": "girl",
+    "title": "Набор для девушки 240",
+    "price_num": 5680
+  },
+  {
+    "id": 240,
+    "subcategory": "boy-discharge",
+    "title": "Набор на выписку мальчика 147",
+    "price_num": 5540
+  },
+  {
+    "id": 242,
+    "subcategory": "girl",
+    "title": "Набор для девушки 242",
+    "price_num": 4200
+  },
+  {
+    "id": 246,
+    "subcategory": "girl",
+    "title": "Набор для девушки 246",
+    "price_num": 3900
+  },
+  {
+    "id": 246,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 246",
+    "price_num": 3700
+  },
+  {
+    "id": 251,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 251",
+    "price_num": 3800
+  },
+  {
+    "id": 252,
+    "subcategory": "girl",
+    "title": "Набор для девушки 252",
+    "price_num": 3760
+  },
+  {
+    "id": 255,
+    "subcategory": "girl",
+    "title": "Набор для девушки 255",
+    "price_num": 3670
+  },
+  {
+    "id": 256,
+    "subcategory": "girl",
+    "title": "Набор для девушки 256",
+    "price_num": 3610
+  },
+  {
+    "id": 258,
+    "subcategory": "girl",
+    "title": "Набор для девушки 258",
+    "price_num": 3950
+  },
+  {
+    "id": 259,
+    "subcategory": "girl",
+    "title": "Набор для девушки 259",
+    "price_num": 3860
+  },
+  {
+    "id": 262,
+    "subcategory": "girl",
+    "title": "Набор для девушки 262",
+    "price_num": 3150
+  },
+  {
+    "id": 264,
+    "subcategory": "girl",
+    "title": "Набор для девушки 264",
+    "price_num": 3200
+  },
+  {
+    "id": 264,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 264",
+    "price_num": 4550
+  },
+  {
+    "id": 265,
+    "subcategory": "girl",
+    "title": "Набор для девушки 265",
+    "price_num": 3320
+  },
+  {
+    "id": 268,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 268",
+    "price_num": 3600
+  },
+  {
+    "id": 270,
+    "subcategory": "girl",
+    "title": "Набор для девушки 270",
+    "price_num": 3960
+  },
+  {
+    "id": 270,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 270",
+    "price_num": 5200
+  },
+  {
+    "id": 271,
+    "subcategory": "girl",
+    "title": "Набор для девушки 271",
+    "price_num": 4410
+  },
+  {
+    "id": 272,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 272",
+    "price_num": 3860
+  },
+  {
+    "id": 274,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 274",
+    "price_num": 3650
+  },
+  {
+    "id": 275,
+    "subcategory": "girl",
+    "title": "Набор для девушки 275",
+    "price_num": 4100
+  },
+  {
+    "id": 275,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 275",
+    "price_num": 4120
+  },
+  {
+    "id": 276,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 276",
+    "price_num": 4000
+  },
+  {
+    "id": 277,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 277",
+    "price_num": 1800
+  },
+  {
+    "id": 278,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 278",
+    "price_num": 3430
+  },
+  {
+    "id": 279,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 279",
+    "price_num": 2570
+  },
+  {
+    "id": 280,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 280",
+    "price_num": 3000
+  },
+  {
+    "id": 281,
+    "subcategory": "girl",
+    "title": "Набор для девушки 281",
+    "price_num": 3760
+  },
+  {
+    "id": 281,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 281",
+    "price_num": 3720
+  },
+  {
+    "id": 282,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 282",
+    "price_num": 3840
+  },
+  {
+    "id": 283,
+    "subcategory": "girl",
+    "title": "Набор для девушки 283",
+    "price_num": 5440
+  },
+  {
+    "id": 283,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 283",
+    "price_num": 2520
+  },
+  {
+    "id": 284,
+    "subcategory": "girl",
+    "title": "Набор для девушки 284",
+    "price_num": 4390
+  },
+  {
+    "id": 285,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 285",
+    "price_num": 3900
+  },
+  {
+    "id": 286,
+    "subcategory": "girl",
+    "title": "Набор для девушки 286",
+    "price_num": 3870
+  },
+  {
+    "id": 286,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 286",
+    "price_num": 3160
+  },
+  {
+    "id": 287,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 287",
+    "price_num": 3530
+  },
+  {
+    "id": 288,
+    "subcategory": "girl",
+    "title": "Набор для девушки 288",
+    "price_num": 2600
+  },
+  {
+    "id": 288,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 288",
+    "price_num": 2570
+  },
+  {
+    "id": 289,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 289",
+    "price_num": 4160
+  },
+  {
+    "id": 290,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 290",
+    "price_num": 4540
+  },
+  {
+    "id": 291,
+    "subcategory": "girl",
+    "title": "Набор для девушки 291",
+    "price_num": 3160
+  },
+  {
+    "id": 291,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 291",
+    "price_num": 3860
+  },
+  {
+    "id": 292,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 292",
+    "price_num": 2900
+  },
+  {
+    "id": 293,
+    "subcategory": "girl",
+    "title": "Набор для девушки 293",
+    "price_num": 3900
+  },
+  {
+    "id": 293,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 293",
+    "price_num": 6240
+  },
+  {
+    "id": 294,
+    "subcategory": "girl",
+    "title": "Набор для девушки 294",
+    "price_num": 3690
+  },
+  {
+    "id": 294,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 294",
+    "price_num": 3310
+  },
+  {
+    "id": 295,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 295",
+    "price_num": 2310
+  },
+  {
+    "id": 296,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 296",
+    "price_num": 2070
+  },
+  {
+    "id": 297,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 297",
+    "price_num": 6700
+  },
+  {
+    "id": 298,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 298",
+    "price_num": 4950
+  },
+  {
+    "id": 299,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 299",
+    "price_num": 4770
+  },
+  {
+    "id": 300,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 300",
+    "price_num": 3650
+  },
+  {
+    "id": 301,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 301",
+    "price_num": 4670
+  },
+  {
+    "id": 302,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 302",
+    "price_num": 3590
+  },
+  {
+    "id": 303,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 303",
+    "price_num": 3360
+  },
+  {
+    "id": 304,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 304",
+    "price_num": 3730
+  },
+  {
+    "id": 305,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 305",
+    "price_num": 2310
+  },
+  {
+    "id": 306,
+    "subcategory": "girl",
+    "title": "Набор для девушки 306",
+    "price_num": 4190
+  },
+  {
+    "id": 307,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 307",
+    "price_num": 3220
+  },
+  {
+    "id": 308,
+    "subcategory": "girl",
+    "title": "Набор для девушки 308",
+    "price_num": 4560
+  },
+  {
+    "id": 308,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 308",
+    "price_num": 8000
+  },
+  {
+    "id": 309,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 309",
+    "price_num": 3420
+  },
+  {
+    "id": 310,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 310",
+    "price_num": 2100
+  },
+  {
+    "id": 311,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 311",
+    "price_num": 6220
+  },
+  {
+    "id": 312,
+    "subcategory": "girl",
+    "title": "Набор для девушки 312",
+    "price_num": 3900
+  },
+  {
+    "id": 312,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 312",
+    "price_num": 5780
+  },
+  {
+    "id": 313,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 313",
+    "price_num": 3000
+  },
+  {
+    "id": 314,
+    "subcategory": "girl",
+    "title": "Набор для девушки 314",
+    "price_num": 3760
+  },
+  {
+    "id": 314,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 314",
+    "price_num": 3800
+  },
+  {
+    "id": 315,
+    "subcategory": "girl",
+    "title": "Набор для девушки 315",
+    "price_num": 4410
+  },
+  {
+    "id": 315,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 315",
+    "price_num": 9480
+  },
+  {
+    "id": 316,
+    "subcategory": "girl",
+    "title": "Набор для девушки 316",
+    "price_num": 3700
+  },
+  {
+    "id": 316,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 316",
+    "price_num": 3900
+  },
+  {
+    "id": 317,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 317",
+    "price_num": 5200
+  },
+  {
+    "id": 318,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 318",
+    "price_num": 4700
+  },
+  {
+    "id": 319,
+    "subcategory": "girl",
+    "title": "Набор для девушки 319",
+    "price_num": 3410
+  },
+  {
+    "id": 319,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 319",
+    "price_num": 3560
+  },
+  {
+    "id": 320,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 320",
+    "price_num": 2620
+  },
+  {
+    "id": 321,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 321",
+    "price_num": 3420
+  },
+  {
+    "id": 322,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 322",
+    "price_num": 3160
+  },
+  {
+    "id": 323,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 323",
+    "price_num": 4620
+  },
+  {
+    "id": 324,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 324",
+    "price_num": 6000
+  },
+  {
+    "id": 325,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 325",
+    "price_num": 2100
+  },
+  {
+    "id": 326,
+    "subcategory": "girl",
+    "title": "Набор для девушки 326",
+    "price_num": 3620
+  },
+  {
+    "id": 326,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 326",
+    "price_num": 4270
+  },
+  {
+    "id": 327,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 327",
+    "price_num": 2720
+  },
+  {
+    "id": 328,
+    "subcategory": "girl",
+    "title": "Набор для девушки 328",
+    "price_num": 4340
+  },
+  {
+    "id": 328,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 328",
+    "price_num": 2500
+  },
+  {
+    "id": 329,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 329",
+    "price_num": 4400
+  },
+  {
+    "id": 330,
+    "subcategory": "girl",
+    "title": "Набор для девушки 330",
+    "price_num": 4850
+  },
+  {
+    "id": 330,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 330",
+    "price_num": 4120
+  },
+  {
+    "id": 331,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 331",
+    "price_num": 2560
+  },
+  {
+    "id": 332,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 332",
+    "price_num": 3270
+  },
+  {
+    "id": 333,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 333",
+    "price_num": 4190
+  },
+  {
+    "id": 334,
+    "subcategory": "girl",
+    "title": "Набор для девушки 334",
+    "price_num": 2930
+  },
+  {
+    "id": 334,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 334",
+    "price_num": 4000
+  },
+  {
+    "id": 335,
+    "subcategory": "girl",
+    "title": "Набор для девушки 335",
+    "price_num": 2950
+  },
+  {
+    "id": 335,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 335",
+    "price_num": 3950
+  },
+  {
+    "id": 336,
+    "subcategory": "girl",
+    "title": "Набор для девушки 336",
+    "price_num": 3830
+  },
+  {
+    "id": 336,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 336",
+    "price_num": 3220
+  },
+  {
+    "id": 337,
+    "subcategory": "girl",
+    "title": "Набор для девушки 337",
+    "price_num": 3190
+  },
+  {
+    "id": 337,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 337",
+    "price_num": 2670
+  },
+  {
+    "id": 338,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 338",
+    "price_num": 4070
+  },
+  {
+    "id": 340,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 340",
+    "price_num": 2620
+  },
+  {
+    "id": 341,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 341",
+    "price_num": 3950
+  },
+  {
+    "id": 342,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 342",
+    "price_num": 2250
+  },
+  {
+    "id": 343,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 343",
+    "price_num": 4700
+  },
+  {
+    "id": 344,
+    "subcategory": "girl",
+    "title": "Набор для девушки 344",
+    "price_num": 4000
+  },
+  {
+    "id": 344,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 344",
+    "price_num": 5300
+  },
+  {
+    "id": 345,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 345",
+    "price_num": 3720
+  },
+  {
+    "id": 346,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 346",
+    "price_num": 2500
+  },
+  {
+    "id": 347,
+    "subcategory": "girl",
+    "title": "Набор для девушки 347",
+    "price_num": 3460
+  },
+  {
+    "id": 347,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 347",
+    "price_num": 3870
+  },
+  {
+    "id": 349,
+    "subcategory": "girl",
+    "title": "Набор для девушки 349",
+    "price_num": 3000
+  },
+  {
+    "id": 349,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 349",
+    "price_num": 3420
+  },
+  {
+    "id": 350,
+    "subcategory": "girl",
+    "title": "Набор для девушки 350",
+    "price_num": 6790
+  },
+  {
+    "id": 350,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 350",
+    "price_num": 3470
+  },
+  {
+    "id": 351,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 351",
+    "price_num": 2840
+  },
+  {
+    "id": 354,
+    "subcategory": "girl",
+    "title": "Набор для девушки 354",
+    "price_num": 3550
+  },
+  {
+    "id": 354,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 354",
+    "price_num": 2000
+  },
+  {
+    "id": 355,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 355",
+    "price_num": 2860
+  },
+  {
+    "id": 356,
+    "subcategory": "girl",
+    "title": "Набор для девушки 356",
+    "price_num": 5560
+  },
+  {
+    "id": 356,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 356",
+    "price_num": 4000
+  },
+  {
+    "id": 357,
+    "subcategory": "girl",
+    "title": "Набор для девушки 357",
+    "price_num": 3860
+  },
+  {
+    "id": 357,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 357",
+    "price_num": 4160
+  },
+  {
+    "id": 358,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 358",
+    "price_num": 2750
+  },
+  {
+    "id": 359,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 359",
+    "price_num": 2980
+  },
+  {
+    "id": 360,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 360",
+    "price_num": 3440
+  },
+  {
+    "id": 361,
+    "subcategory": "girl",
+    "title": "Набор для девушки 361",
+    "price_num": 4140
+  },
+  {
+    "id": 361,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 361",
+    "price_num": 3720
+  },
+  {
+    "id": 362,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 362",
+    "price_num": 2440
+  },
+  {
+    "id": 363,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 363",
+    "price_num": 2150
+  },
+  {
+    "id": 419,
+    "subcategory": "girl",
+    "title": "Набор для девушки 362",
+    "price_num": 4220
+  },
+  {
+    "id": 420,
+    "subcategory": "girl",
+    "title": "Набор для девушки 363",
+    "price_num": 3000
+  },
+  {
+    "id": 421,
+    "subcategory": "girl",
+    "title": "Набор для девушки 364",
+    "price_num": 3550
+  },
+  {
+    "id": 422,
+    "subcategory": "girl",
+    "title": "Набор для девушки 365",
+    "price_num": 3430
+  },
+  {
+    "id": 423,
+    "subcategory": "girl",
+    "title": "Набор для девушки 366",
+    "price_num": 3570
+  },
+  {
+    "id": 425,
+    "subcategory": "girl",
+    "title": "Набор для девушки 368",
+    "price_num": 5800
+  },
+  {
+    "id": 426,
+    "subcategory": "girl",
+    "title": "Набор для девушки 369",
+    "price_num": 3720
+  },
+  {
+    "id": 427,
+    "subcategory": "girl",
+    "title": "Набор для девушки 370",
+    "price_num": 2610
+  },
+  {
+    "id": 428,
+    "subcategory": "girl",
+    "title": "Набор для девушки 371",
+    "price_num": 6240
+  },
+  {
+    "id": 429,
+    "subcategory": "girl",
+    "title": "Набор для девушки 372",
+    "price_num": 4100
+  },
+  {
+    "id": 430,
+    "subcategory": "girl",
+    "title": "Набор для девушки 373",
+    "price_num": 7760
+  },
+  {
+    "id": 431,
+    "subcategory": "girl",
+    "title": "Набор для девушки 374",
+    "price_num": 4500
+  },
+  {
+    "id": 432,
+    "subcategory": "girl",
+    "title": "Набор для девушки 375",
+    "price_num": 3030
+  },
+  {
+    "id": 433,
+    "subcategory": "girl",
+    "title": "Набор для девушки 376",
+    "price_num": 3080
+  },
+  {
+    "id": 434,
+    "subcategory": "girl",
+    "title": "Набор для девушки 377",
+    "price_num": 4770
+  },
+  {
+    "id": 435,
+    "subcategory": "girl",
+    "title": "Набор для девушки 378",
+    "price_num": 4500
+  },
+  {
+    "id": 439,
+    "subcategory": "girl",
+    "title": "Набор для девушки 382",
+    "price_num": 3480
+  },
+  {
+    "id": 440,
+    "subcategory": "girl",
+    "title": "Набор для девушки 383",
+    "price_num": 3150
+  },
+  {
+    "id": 441,
+    "subcategory": "girl",
+    "title": "Набор для девушки 384",
+    "price_num": 7140
+  },
+  {
+    "id": 442,
+    "subcategory": "girl",
+    "title": "Набор для девушки 385",
+    "price_num": 4030
+  },
+  {
+    "id": 443,
+    "subcategory": "girl",
+    "title": "Набор для девушки 386",
+    "price_num": 3350
+  },
+  {
+    "id": 444,
+    "subcategory": "girl",
+    "title": "Набор для девушки 387",
+    "price_num": 7490
+  },
+  {
+    "id": 445,
+    "subcategory": "girl",
+    "title": "Набор для девушки 388",
+    "price_num": 4100
+  },
+  {
+    "id": 446,
+    "subcategory": "girl",
+    "title": "Набор для девушки 389",
+    "price_num": 5500
+  },
+  {
+    "id": 447,
+    "subcategory": "girl",
+    "title": "Набор для девушки 390",
+    "price_num": 3700
+  },
+  {
+    "id": 448,
+    "subcategory": "girl",
+    "title": "Набор для девушки 391",
+    "price_num": 4300
+  },
+  {
+    "id": 449,
+    "subcategory": "girl",
+    "title": "Набор для девушки 392",
+    "price_num": 4840
+  },
+  {
+    "id": 450,
+    "subcategory": "girl",
+    "title": "Набор для девушки 393",
+    "price_num": 3460
+  },
+  {
+    "id": 451,
+    "subcategory": "girl",
+    "title": "Набор для девушки 394",
+    "price_num": 3200
+  },
+  {
+    "id": 452,
+    "subcategory": "girl",
+    "title": "Набор для девушки 395",
+    "price_num": 3220
+  },
+  {
+    "id": 453,
+    "subcategory": "girl",
+    "title": "Набор для девушки 396",
+    "price_num": 5210
+  },
+  {
+    "id": 454,
+    "subcategory": "girl",
+    "title": "Набор для девушки 397",
+    "price_num": 3200
+  },
+  {
+    "id": 455,
+    "subcategory": "girl",
+    "title": "Набор для девушки 398",
+    "price_num": 3870
+  },
+  {
+    "id": 456,
+    "subcategory": "girl",
+    "title": "Набор для девушки 399",
+    "price_num": 4710
+  },
+  {
+    "id": 457,
+    "subcategory": "girl",
+    "title": "Набор для девушки 400",
+    "price_num": 4200
+  },
+  {
+    "id": 459,
+    "subcategory": "girl",
+    "title": "Набор для девушки 402",
+    "price_num": 3860
+  },
+  {
+    "id": 461,
+    "subcategory": "girl",
+    "title": "Набор для девушки 404",
+    "price_num": 5170
+  },
+  {
+    "id": 462,
+    "subcategory": "girl",
+    "title": "Набор для девушки 405",
+    "price_num": 4070
+  },
+  {
+    "id": 463,
+    "subcategory": "girl",
+    "title": "Набор для девушки 406",
+    "price_num": 3810
+  },
+  {
+    "id": 464,
+    "subcategory": "girl",
+    "title": "Набор для девушки 407",
+    "price_num": 4730
+  },
+  {
+    "id": 465,
+    "subcategory": "girl",
+    "title": "Набор для девушки 408",
+    "price_num": 3710
+  },
+  {
+    "id": 466,
+    "subcategory": "girl",
+    "title": "Набор для девушки 409",
+    "price_num": 5160
+  },
+  {
+    "id": 467,
+    "subcategory": "girl",
+    "title": "Набор для девушки 410",
+    "price_num": 4570
+  },
+  {
+    "id": 468,
+    "subcategory": "girl",
+    "title": "Набор для девушки 411",
+    "price_num": 5560
+  },
+  {
+    "id": 470,
+    "subcategory": "girl",
+    "title": "Набор для девушки 413",
+    "price_num": 4560
+  },
+  {
+    "id": 474,
+    "subcategory": "girl",
+    "title": "Набор для девушки 417",
+    "price_num": 3760
+  },
+  {
+    "id": 477,
+    "subcategory": "girl",
+    "title": "Набор для девушки 420",
+    "price_num": 3900
+  },
+  {
+    "id": 478,
+    "subcategory": "girl",
+    "title": "Набор для девушки 421",
+    "price_num": 3860
+  },
+  {
+    "id": 479,
+    "subcategory": "girl",
+    "title": "Набор для девушки 422",
+    "price_num": 3110
+  },
+  {
+    "id": 481,
+    "subcategory": "girl",
+    "title": "Набор для девушки 424",
+    "price_num": 3000
+  },
+  {
+    "id": 482,
+    "subcategory": "girl",
+    "title": "Набор для девушки 425",
+    "price_num": 3080
+  },
+  {
+    "id": 483,
+    "subcategory": "girl",
+    "title": "Набор для девушки 426",
+    "price_num": 4440
+  },
+  {
+    "id": 484,
+    "subcategory": "girl",
+    "title": "Набор для девушки 427",
+    "price_num": 4260
+  },
+  {
+    "id": 485,
+    "subcategory": "girl",
+    "title": "Набор для девушки 428",
+    "price_num": 3240
+  },
+  {
+    "id": 488,
+    "subcategory": "girl",
+    "title": "Набор для девушки 431",
+    "price_num": 3200
+  },
+  {
+    "id": 489,
+    "subcategory": "girl",
+    "title": "Набор для девушки 432",
+    "price_num": 4200
+  },
+  {
+    "id": 490,
+    "subcategory": "girl",
+    "title": "Набор для девушки 433",
+    "price_num": 3330
+  },
+  {
+    "id": 492,
+    "subcategory": "girl",
+    "title": "Набор для девушки 435",
+    "price_num": 4150
+  },
+  {
+    "id": 494,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 197",
+    "price_num": 3060
+  },
+  {
+    "id": 495,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 198",
+    "price_num": 2340
+  },
+  {
+    "id": 496,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 199",
+    "price_num": 2900
+  },
+  {
+    "id": 497,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 200",
+    "price_num": 2570
+  },
+  {
+    "id": 498,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 201",
+    "price_num": 2600
+  },
+  {
+    "id": 501,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 204",
+    "price_num": 3680
+  },
+  {
+    "id": 502,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 205",
+    "price_num": 3280
+  },
+  {
+    "id": 503,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 206",
+    "price_num": 4110
+  },
+  {
+    "id": 504,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 207",
+    "price_num": 2700
+  },
+  {
+    "id": 505,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 208",
+    "price_num": 3000
+  },
+  {
+    "id": 506,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 209",
+    "price_num": 4800
+  },
+  {
+    "id": 507,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 210",
+    "price_num": 4950
+  },
+  {
+    "id": 509,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 212",
+    "price_num": 4720
+  },
+  {
+    "id": 510,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 213",
+    "price_num": 3540
+  },
+  {
+    "id": 511,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 214",
+    "price_num": 3700
+  },
+  {
+    "id": 512,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 215",
+    "price_num": 2900
+  },
+  {
+    "id": 513,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 216",
+    "price_num": 2340
+  },
+  {
+    "id": 514,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 217",
+    "price_num": 4620
+  },
+  {
+    "id": 515,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 218",
+    "price_num": 5400
+  },
+  {
+    "id": 516,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 219",
+    "price_num": 4610
+  },
+  {
+    "id": 517,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 220",
+    "price_num": 5420
+  },
+  {
+    "id": 518,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 221",
+    "price_num": 3040
+  },
+  {
+    "id": 519,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 222",
+    "price_num": 0
+  },
+  {
+    "id": 520,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 223",
+    "price_num": 4110
+  },
+  {
+    "id": 521,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 224",
+    "price_num": 5550
+  },
+  {
+    "id": 523,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 226",
+    "price_num": 6550
+  },
+  {
+    "id": 524,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 227",
+    "price_num": 3600
+  },
+  {
+    "id": 525,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 228",
+    "price_num": 2880
+  },
+  {
+    "id": 526,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 229",
+    "price_num": 5300
+  },
+  {
+    "id": 527,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 230",
+    "price_num": 5760
+  },
+  {
+    "id": 528,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 231",
+    "price_num": 8900
+  },
+  {
+    "id": 531,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 234",
+    "price_num": 3720
+  },
+  {
+    "id": 532,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 235",
+    "price_num": 6380
+  },
+  {
+    "id": 534,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 237",
+    "price_num": 4500
+  },
+  {
+    "id": 536,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 239",
+    "price_num": 4000
+  },
+  {
+    "id": 537,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 240",
+    "price_num": 2900
+  },
+  {
+    "id": 538,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 241",
+    "price_num": 4800
+  },
+  {
+    "id": 540,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 243",
+    "price_num": 3360
+  },
+  {
+    "id": 541,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 244",
+    "price_num": 3120
+  },
+  {
+    "id": 542,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 245",
+    "price_num": 5260
+  },
+  {
+    "id": 543,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 246",
+    "price_num": 2910
+  },
+  {
+    "id": 544,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 247",
+    "price_num": 4550
+  },
+  {
+    "id": 546,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 249",
+    "price_num": 2650
+  },
+  {
+    "id": 547,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 250",
+    "price_num": 8000
+  },
+  {
+    "id": 548,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 251",
+    "price_num": 2740
+  },
+  {
+    "id": 549,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 252",
+    "price_num": 5500
+  },
+  {
+    "id": 550,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 253",
+    "price_num": 2900
+  },
+  {
+    "id": 552,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 255",
+    "price_num": 2990
+  },
+  {
+    "id": 553,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 256",
+    "price_num": 1950
+  },
+  {
+    "id": 554,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 257",
+    "price_num": 2410
+  },
+  {
+    "id": 555,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 258",
+    "price_num": 2770
+  },
+  {
+    "id": 556,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 259",
+    "price_num": 3500
+  },
+  {
+    "id": 557,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 260",
+    "price_num": 2760
+  },
+  {
+    "id": 558,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 261",
+    "price_num": 4760
+  },
+  {
+    "id": 561,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 264",
+    "price_num": 3160
+  },
+  {
+    "id": 562,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 265",
+    "price_num": 3400
+  },
+  {
+    "id": 563,
+    "subcategory": "boy",
+    "title": "Набор для мальчика 266",
+    "price_num": 8750
+  },
+  {
+    "id": 565,
+    "subcategory": "man",
+    "title": "Набор для мужчины 223",
+    "price_num": 4340
+  },
+  {
+    "id": 566,
+    "subcategory": "man",
+    "title": "Набор для мужчины 224",
+    "price_num": 5440
+  },
+  {
+    "id": 567,
+    "subcategory": "man",
+    "title": "Набор для мужчины 225",
+    "price_num": 5380
+  },
+  {
+    "id": 568,
+    "subcategory": "man",
+    "title": "Набор для мужчины 226",
+    "price_num": 2720
+  },
+  {
+    "id": 569,
+    "subcategory": "man",
+    "title": "Набор для мужчины 227",
+    "price_num": 3470
+  },
+  {
+    "id": 570,
+    "subcategory": "man",
+    "title": "Набор для мужчины 228",
+    "price_num": 3820
+  },
+  {
+    "id": 571,
+    "subcategory": "man",
+    "title": "Набор для мужчины 229",
+    "price_num": 3550
+  },
+  {
+    "id": 573,
+    "subcategory": "man",
+    "title": "Набор для мужчины 231",
+    "price_num": 5220
+  },
+  {
+    "id": 574,
+    "subcategory": "man",
+    "title": "Набор для мужчины 232",
+    "price_num": 3160
+  },
+  {
+    "id": 575,
+    "subcategory": "man",
+    "title": "Набор для мужчины 233",
+    "price_num": 4830
+  },
+  {
+    "id": 576,
+    "subcategory": "man",
+    "title": "Набор для мужчины 234",
+    "price_num": 2890
+  },
+  {
+    "id": 577,
+    "subcategory": "man",
+    "title": "Набор для мужчины 235",
+    "price_num": 3320
+  },
+  {
+    "id": 578,
+    "subcategory": "man",
+    "title": "Набор для мужчины 236",
+    "price_num": 4390
+  },
+  {
+    "id": 579,
+    "subcategory": "man",
+    "title": "Набор для мужчины 237",
+    "price_num": 3060
+  },
+  {
+    "id": 580,
+    "subcategory": "man",
+    "title": "Набор для мужчины 238",
+    "price_num": 2830
+  },
+  {
+    "id": 581,
+    "subcategory": "man",
+    "title": "Набор для мужчины 239",
+    "price_num": 2340
+  },
+  {
+    "id": 582,
+    "subcategory": "man",
+    "title": "Набор для мужчины 240",
+    "price_num": 3800
+  },
+  {
+    "id": 583,
+    "subcategory": "man",
+    "title": "Набор для мужчины 241",
+    "price_num": 3110
+  },
+  {
+    "id": 584,
+    "subcategory": "man",
+    "title": "Набор для мужчины 242",
+    "price_num": 2500
+  },
+  {
+    "id": 585,
+    "subcategory": "man",
+    "title": "Набор для мужчины 243",
+    "price_num": 2810
+  },
+  {
+    "id": 586,
+    "subcategory": "man",
+    "title": "Набор для мужчины 244",
+    "price_num": 4400
+  },
+  {
+    "id": 587,
+    "subcategory": "man",
+    "title": "Набор для мужчины 245",
+    "price_num": 2940
+  },
+  {
+    "id": 588,
+    "subcategory": "man",
+    "title": "Набор для мужчины 246",
+    "price_num": 2670
+  },
+  {
+    "id": 589,
+    "subcategory": "man",
+    "title": "Набор для мужчины 247",
+    "price_num": 4890
+  },
+  {
+    "id": 590,
+    "subcategory": "man",
+    "title": "Набор для мужчины 248",
+    "price_num": 3600
+  },
+  {
+    "id": 591,
+    "subcategory": "man",
+    "title": "Набор для мужчины 249",
+    "price_num": 4120
+  },
+  {
+    "id": 592,
+    "subcategory": "man",
+    "title": "Набор для мужчины 250",
+    "price_num": 4000
+  },
+  {
+    "id": 593,
+    "subcategory": "man",
+    "title": "Набор для мужчины 251",
+    "price_num": 3150
+  },
+  {
+    "id": 595,
+    "subcategory": "man",
+    "title": "Набор для мужчины 253",
+    "price_num": 3220
+  },
+  {
+    "id": 596,
+    "subcategory": "man",
+    "title": "Набор для мужчины 254",
+    "price_num": 3200
+  },
+  {
+    "id": 597,
+    "subcategory": "man",
+    "title": "Набор для мужчины 255",
+    "price_num": 4320
+  },
+  {
+    "id": 598,
+    "subcategory": "man",
+    "title": "Набор для мужчины 256",
+    "price_num": 5170
+  },
+  {
+    "id": 599,
+    "subcategory": "man",
+    "title": "Набор для мужчины 257",
+    "price_num": 2920
+  },
+  {
+    "id": 600,
+    "subcategory": "man",
+    "title": "Набор для мужчины 258",
+    "price_num": 7090
+  },
+  {
+    "id": 601,
+    "subcategory": "man",
+    "title": "Набор для мужчины 259",
+    "price_num": 4510
+  },
+  {
+    "id": 602,
+    "subcategory": "man",
+    "title": "Набор для мужчины 260",
+    "price_num": 3570
+  },
+  {
+    "id": 603,
+    "subcategory": "man",
+    "title": "Набор для мужчины 261",
+    "price_num": 2210
+  },
+  {
+    "id": 604,
+    "subcategory": "man",
+    "title": "Набор для мужчины 262",
+    "price_num": 3000
+  },
+  {
+    "id": 605,
+    "subcategory": "man",
+    "title": "Набор для мужчины 263",
+    "price_num": 3580
+  },
+  {
+    "id": 606,
+    "subcategory": "man",
+    "title": "Набор для мужчины 264",
+    "price_num": 5300
+  },
+  {
+    "id": 607,
+    "subcategory": "man",
+    "title": "Набор для мужчины 265",
+    "price_num": 5700
+  },
+  {
+    "id": 608,
+    "subcategory": "man",
+    "title": "Набор для мужчины 266",
+    "price_num": 4080
+  },
+  {
+    "id": 609,
+    "subcategory": "man",
+    "title": "Набор для мужчины 267",
+    "price_num": 3060
+  },
+  {
+    "id": 610,
+    "subcategory": "man",
+    "title": "Набор для мужчины 268",
+    "price_num": 3470
+  },
+  {
+    "id": 611,
+    "subcategory": "man",
+    "title": "Набор для мужчины 269",
+    "price_num": 2810
+  },
+  {
+    "id": 612,
+    "subcategory": "man",
+    "title": "Набор для мужчины 270",
+    "price_num": 5440
+  },
+  {
+    "id": 613,
+    "subcategory": "man",
+    "title": "Набор для мужчины 271",
+    "price_num": 4900
+  },
+  {
+    "id": 614,
+    "subcategory": "man",
+    "title": "Набор для мужчины 272",
+    "price_num": 5840
+  },
+  {
+    "id": 615,
+    "subcategory": "man",
+    "title": "Набор для мужчины 273",
+    "price_num": 3930
+  },
+  {
+    "id": 616,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 133",
+    "price_num": 3630
+  },
+  {
+    "id": 617,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 134",
+    "price_num": 4330
+  },
+  {
+    "id": 618,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 135",
+    "price_num": 6500
+  },
+  {
+    "id": 620,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 137",
+    "price_num": 4580
+  },
+  {
+    "id": 622,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 139",
+    "price_num": 4000
+  },
+  {
+    "id": 623,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 140",
+    "price_num": 6750
+  },
+  {
+    "id": 624,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 141",
+    "price_num": 4360
+  },
+  {
+    "id": 625,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 142",
+    "price_num": 4500
+  },
+  {
+    "id": 626,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 143",
+    "price_num": 4600
+  },
+  {
+    "id": 627,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 144",
+    "price_num": 5280
+  },
+  {
+    "id": 629,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 146",
+    "price_num": 4850
+  },
+  {
+    "id": 630,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 147",
+    "price_num": 5230
+  },
+  {
+    "id": 631,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 148",
+    "price_num": 4350
+  },
+  {
+    "id": 632,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 149",
+    "price_num": 4570
+  },
+  {
+    "id": 633,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 150",
+    "price_num": 3860
+  },
+  {
+    "id": 634,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 151",
+    "price_num": 5000
+  },
+  {
+    "id": 635,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 152",
+    "price_num": 4530
+  },
+  {
+    "id": 636,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 153",
+    "price_num": 4170
+  },
+  {
+    "id": 637,
+    "subcategory": "girl-discharge",
+    "title": "Набор на выписку девочки 154",
+    "price_num": 4650
+  },
+  {
+    "id": 701,
+    "subcategory": "kid-girl",
+    "title": "Набор для девочки 364",
+    "price_num": 2980
+  },
+  {
+    "id": 704,
+    "subcategory": "girl",
+    "title": "Набор для девушки 248а",
+    "price_num": 3600
+  },
+  {
+    "id": 705,
+    "subcategory": "girl",
+    "title": "Набор для девушки 435",
+    "price_num": 2980
+  }
+]

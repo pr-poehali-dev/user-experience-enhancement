@@ -15,6 +15,7 @@ import PopularAll from "./pages/PopularAll";
 import Order from "./pages/Order";
 import CatalogSub from "./pages/CatalogSub";
 import CompositionDetail from "./pages/CompositionDetail";
+import AdminPrices from "./pages/AdminPrices";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/order" element={<Order />} />
           <Route path="/catalog/:sub" element={<CatalogSub />} />
           <Route path="/composition" element={<CompositionDetail />} />
+          <Route path="/admin-prices" element={<AdminPrices />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
