@@ -4,15 +4,17 @@ import Icon from "@/components/ui/icon"
 import { useFavorites } from "@/context/FavoritesContext"
 
 const NAV_LINKS = [
-  { label: "Каталог",  target: "catalog-cta" },
-  { label: "Доставка", target: "delivery-section" },
-  { label: "Контакты", path: "/contacts" },
+  { label: "Каталог",   target: "catalog-cta" },
+  { label: "Популярное", path: "/popular" },
+  { label: "Доставка",  target: "delivery-section" },
+  { label: "Контакты",  path: "/contacts" },
 ]
 
 const NAV_MOBILE = [
-  { label: "Каталог",  target: "catalog-cta",     icon: "Balloon" },
-  { label: "Доставка", target: "delivery-section", icon: "Truck" },
-  { label: "Контакты", path: "/contacts", icon: "Phone" },
+  { label: "Каталог",   target: "catalog-cta",      icon: "Balloon" },
+  { label: "Популярное", path: "/popular",           icon: "Sparkles" },
+  { label: "Доставка",  target: "delivery-section", icon: "Truck" },
+  { label: "Контакты",  path: "/contacts", icon: "Phone" },
 ]
 
 export function SiteHeader() {
@@ -92,7 +94,7 @@ export function SiteHeader() {
         {/* Логотип текстовый */}
         <div
           onClick={goHome}
-          style={{ cursor: "pointer", lineHeight: 1.05, userSelect: "none", display: "flex", alignItems: "center", gap: 8, marginLeft: "clamp(20px,3vw,64px)" }}
+          style={{ cursor: "pointer", lineHeight: 1.05, userSelect: "none", display: "flex", alignItems: "center", gap: 8, marginLeft: "clamp(20px,6vw,140px)" }}
         >
           <div style={{
             fontFamily: "'Playfair Display', serif", fontWeight: 600,
@@ -131,18 +133,38 @@ export function SiteHeader() {
         </nav>
 
         {/* Правая часть: телефон + избранное */}
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(14px,1.6vw,26px)", marginRight: "clamp(20px,3vw,64px)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(14px,1.6vw,26px)", marginRight: "clamp(20px,6vw,140px)" }}>
           <a
             href="tel:+79885973303"
+            className="phone-pulse-header"
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 600,
-              fontSize: "clamp(19px,1.6vw,25px)", whiteSpace: "nowrap",
-              color: "#1a1024", letterSpacing: "0.3px",
-              transition: "color 0.2s",
+              display: "flex", alignItems: "center", gap: 8,
+              padding: "8px 16px 8px 12px",
+              borderRadius: 999,
+              background: "linear-gradient(135deg, rgba(124,58,237,0.09), rgba(168,85,247,0.09))",
+              border: "1px solid rgba(124,58,237,0.18)",
+              fontFamily: "'Montserrat', sans-serif", fontWeight: 700,
+              fontSize: "clamp(14px,1.05vw,16px)", whiteSpace: "nowrap",
+              color: "#5b21b6", letterSpacing: "0.2px",
+              transition: "background 0.2s, border-color 0.2s",
             }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#1a1024"}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg, rgba(124,58,237,0.16), rgba(168,85,247,0.16))"
+              ;(e.currentTarget as HTMLElement).style.borderColor = "rgba(124,58,237,0.32)"
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg, rgba(124,58,237,0.09), rgba(168,85,247,0.09))"
+              ;(e.currentTarget as HTMLElement).style.borderColor = "rgba(124,58,237,0.18)"
+            }}
           >
+            <span style={{
+              width: 26, height: 26, borderRadius: "50%", flexShrink: 0,
+              background: "#7c3aed", color: "#fff",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              animation: "phoneRing 2.4s ease-in-out infinite",
+            }}>
+              <Icon name="Phone" size={13} />
+            </span>
             8 988 597 33 03
           </a>
           <button

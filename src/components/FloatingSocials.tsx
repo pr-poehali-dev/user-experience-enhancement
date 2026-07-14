@@ -80,26 +80,42 @@ export function FloatingSocials() {
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-18 h-18 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95"
+        className="flex items-center gap-2.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95"
         style={{
-          width: 64, height: 64,
+          padding: open ? "0" : "10px 10px 10px 20px",
+          width: open ? 64 : "auto",
+          height: 64,
+          justifyContent: "center",
           background: open ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "linear-gradient(135deg,#7c3aed,#a855f7)",
           boxShadow: "0 6px 28px rgba(124,58,237,0.45)",
-          transition: "all 0.2s",
+          transition: "all 0.25s ease",
           animation: open ? "none" : "phonePulse 2.5s ease-in-out infinite",
         }}
-        aria-label={open ? "Закрыть" : "Написать нам"}
+        aria-label={open ? "Закрыть" : "Наши соцсети"}
       >
-        {open ? (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        ) : (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM4 4h16v12H5.17L4 17.17V4zm2 5h12v2H6zm0-3h12v2H6zm0 6h8v2H6z" />
-          </svg>
+        {!open && (
+          <span style={{
+            color: "#fff", fontFamily: "'Montserrat', sans-serif", fontWeight: 700,
+            fontSize: 14, whiteSpace: "nowrap",
+          }}>
+            Наши соцсети
+          </span>
         )}
+        <span
+          className="rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ width: 44, height: 44, background: "rgba(255,255,255,0.16)" }}
+        >
+          {open ? (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          ) : (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM4 4h16v12H5.17L4 17.17V4zm2 5h12v2H6zm0-3h12v2H6zm0 6h8v2H6z" />
+            </svg>
+          )}
+        </span>
       </button>
     </div>
   )
