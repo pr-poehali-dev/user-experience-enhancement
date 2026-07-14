@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;500;600;800;900&family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;500;600;800;900&family=Russo+One&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Marck+Script&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -79,24 +79,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 265 75% 52%;
+    --primary: 267 60% 46%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 28 95% 55%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 270 45% 92%;
+    --secondary-foreground: 267 60% 30%;
 
-    --muted: 265 30% 96%;
-    --muted-foreground: 265 12% 48%;
+    --muted: 270 40% 97%;
+    --muted-foreground: 267 15% 45%;
 
-    --accent: 28 90% 94%;
-    --accent-foreground: 28 90% 40%;
+    --accent: 270 45% 94%;
+    --accent-foreground: 267 60% 32%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 270 30% 90%;
+    --input: 270 30% 90%;
+    --ring: 267 60% 46%;
 
     --radius: 0.625rem;
 
