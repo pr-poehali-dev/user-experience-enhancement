@@ -1,9 +1,10 @@
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Hero } from "@/components/Hero"
 import { PopularPackages } from "@/components/PopularPackages"
+import { DeliverySection } from "@/components/DeliverySection"
 import { Reviews } from "@/components/Reviews"
 import { Footer } from "@/components/Footer"
-import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
 const BIRTHDAY_CATS = [
@@ -21,11 +22,17 @@ const DISCHARGE_CATS = [
 function CatalogCTA() {
   const navigate = useNavigate()
   return (
-    <section className="py-12 sm:py-20 bg-background border-t border-border/40 px-4">
+    <section
+      id="catalog-cta"
+      className="py-14 sm:py-24 px-4"
+      style={{
+        background: "radial-gradient(ellipse 80% 60% at 85% 10%, #f3ebff 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
+      }}
+    >
       <div className="max-w-3xl mx-auto">
 
         {/* Заголовок */}
-        <div className="text-center mb-6 sm:mb-12">
+        <div className="text-center mb-8 sm:mb-14">
           <p style={{
             fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
             letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 8,
@@ -42,85 +49,72 @@ function CatalogCTA() {
         </div>
 
         {/* День рождения */}
-        <div className="mb-4 sm:mb-5">
-          <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 sm:mb-3 flex items-center gap-2">
+        <div className="mb-5 sm:mb-7">
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 11,
+            letterSpacing: "1.5px", textTransform: "uppercase", color: "#8a7d9c",
+            marginBottom: 12, display: "flex", alignItems: "center", gap: 8,
+          }}>
             <span>🎂</span> На День Рождения
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {BIRTHDAY_CATS.map(cat => (
               <button
                 key={cat.path}
                 onClick={() => navigate(cat.path)}
-                className="group relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.03] transition-all duration-200 p-3 sm:p-6 flex flex-col items-center gap-2 sm:gap-3 text-center"
-                style={{
-                  background: `linear-gradient(145deg, ${cat.color}18 0%, ${cat.color}0a 100%)`,
-                  border: `1.5px solid ${cat.color}30`,
-                }}
+                className="group relative rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 p-3 sm:p-6 flex flex-col items-center gap-2 sm:gap-3 text-center bg-white"
+                style={{ border: "1px solid #ece4fb" }}
               >
                 <div
-                  className="w-11 h-11 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-4xl shadow-sm"
-                  style={{ background: `${cat.color}15` }}
+                  className="w-11 h-11 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-4xl"
+                  style={{ background: "rgba(124,58,237,0.06)" }}
                 >
                   {cat.emoji}
                 </div>
                 <div>
-                  <p className="text-xs sm:text-base font-bold text-foreground leading-tight">{cat.label}</p>
-                  <p className="text-[9px] sm:text-xs font-medium mt-0.5" style={{color: cat.color}}>на День Рождения</p>
+                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024" }} className="text-xs sm:text-base leading-tight">{cat.label}</p>
+                  <p className="text-[9px] sm:text-xs font-medium mt-0.5" style={{color: "#8b5cf6"}}>на День Рождения</p>
                 </div>
-                <span className="text-[10px] sm:text-[11px] font-semibold flex items-center gap-0.5" style={{color: cat.color}}>
+                <span className="text-[10px] sm:text-[11px] font-semibold flex items-center gap-0.5" style={{color: "#7c3aed"}}>
                   Смотреть <Icon name="ArrowRight" size={10} />
                 </span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" style={{boxShadow: `inset 0 0 0 2px ${cat.color}60`}} />
               </button>
             ))}
           </div>
         </div>
 
         {/* Выписка */}
-        <div className="mb-6 sm:mb-8">
-          <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 sm:mb-3 flex items-center gap-2">
+        <div className="mb-8 sm:mb-10">
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 11,
+            letterSpacing: "1.5px", textTransform: "uppercase", color: "#8a7d9c",
+            marginBottom: 12, display: "flex", alignItems: "center", gap: 8,
+          }}>
             <span>👶</span> На выписку
           </p>
-          <div className="grid grid-cols-2 gap-2 sm:gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {DISCHARGE_CATS.map(cat => (
               <button
                 key={cat.path}
                 onClick={() => navigate(cat.path)}
-                className="group relative rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.03] transition-all duration-200 p-3 sm:p-6 flex flex-col items-center gap-2 sm:gap-3 text-center"
-                style={{
-                  background: `linear-gradient(145deg, ${cat.color}18 0%, ${cat.color}0a 100%)`,
-                  border: `1.5px solid ${cat.color}30`,
-                }}
+                className="group relative rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 p-3 sm:p-6 flex flex-col items-center gap-2 sm:gap-3 text-center bg-white"
+                style={{ border: "1px solid #ece4fb" }}
               >
                 <div
-                  className="w-11 h-11 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-4xl shadow-sm"
-                  style={{ background: `${cat.color}15` }}
+                  className="w-11 h-11 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-4xl"
+                  style={{ background: "rgba(124,58,237,0.06)" }}
                 >
                   {cat.emoji}
                 </div>
                 <div>
-                  <p className="text-xs sm:text-base font-bold text-foreground leading-tight">{cat.label}</p>
+                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024" }} className="text-xs sm:text-base leading-tight">{cat.label}</p>
                 </div>
-                <span className="text-[10px] sm:text-[11px] font-semibold flex items-center gap-0.5" style={{color: cat.color}}>
+                <span className="text-[10px] sm:text-[11px] font-semibold flex items-center gap-0.5" style={{color: "#7c3aed"}}>
                   Смотреть <Icon name="ArrowRight" size={10} />
                 </span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" style={{boxShadow: `inset 0 0 0 2px ${cat.color}60`}} />
               </button>
             ))}
           </div>
-        </div>
-
-        {/* Весь каталог */}
-        <div className="text-center">
-          <Button
-            size="lg"
-            onClick={() => navigate("/catalog")}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 sm:px-16 shadow-lg"
-            style={{ height: "3.25rem", fontSize: "1rem", fontWeight: 700 }}
-          >
-            Весь каталог
-            <Icon name="ArrowRight" className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </div>
     </section>
@@ -128,10 +122,21 @@ function CatalogCTA() {
 }
 
 export default function Index() {
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "")
+      setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: "smooth" })
+      }, 100)
+    }
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Hero />
       <PopularPackages />
+      <DeliverySection />
       <Reviews />
       <CatalogCTA />
       <Footer />

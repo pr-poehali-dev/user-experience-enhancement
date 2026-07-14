@@ -1,9 +1,19 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/9ecc8e75-28a6-4bac-810d-ccb38dfebf6b.jpg"
 
 export function Hero() {
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const goToCatalogCta = () => {
+    if (location.pathname === "/") {
+      const el = document.getElementById("catalog-cta")
+      if (el) el.scrollIntoView({ behavior: "smooth" })
+    } else {
+      navigate("/#catalog-cta")
+    }
+  }
 
   return (
     <section
@@ -69,7 +79,7 @@ export function Hero() {
           </p>
 
           <button
-            onClick={() => navigate("/catalog")}
+            onClick={goToCatalogCta}
             style={{
               marginTop: "clamp(18px, 2.4vw, 28px)",
               alignSelf: "flex-start",

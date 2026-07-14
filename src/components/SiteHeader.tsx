@@ -4,16 +4,14 @@ import Icon from "@/components/ui/icon"
 import { useFavorites } from "@/context/FavoritesContext"
 
 const NAV_LINKS = [
-  { label: "Каталог",  path: "/catalog" },
-  { label: "О нас",    path: "/about" },
-  { label: "Доставка и оплата", path: "/delivery" },
+  { label: "Каталог",  target: "catalog-cta" },
+  { label: "Доставка", target: "delivery-section" },
   { label: "Контакты", path: "/contacts" },
 ]
 
 const NAV_MOBILE = [
-  { label: "Каталог",  path: "/catalog",  icon: "Balloon" },
-  { label: "О нас",    path: "/about",    icon: "Info" },
-  { label: "Доставка и оплата", path: "/delivery", icon: "Truck" },
+  { label: "Каталог",  target: "catalog-cta",     icon: "Balloon" },
+  { label: "Доставка", target: "delivery-section", icon: "Truck" },
   { label: "Контакты", path: "/contacts", icon: "Phone" },
 ]
 
@@ -49,6 +47,16 @@ export function SiteHeader() {
     setMobileMenuOpen(false)
     navigate(path)
     setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 0)
+  }
+
+  const goToSection = (id: string) => {
+    setMobileMenuOpen(false)
+    if (location.pathname === "/") {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: "smooth" })
+    } else {
+      navigate(`/#${id}`)
+    }
   }
 
   const goHome = () => {
@@ -104,18 +112,18 @@ export function SiteHeader() {
           {NAV_LINKS.map(item => (
             <button
               key={item.label}
-              onClick={() => go(item.path)}
+              onClick={() => item.target ? goToSection(item.target) : go(item.path!)}
               style={{
                 background: "transparent", border: "none", cursor: "pointer",
                 display: "flex", alignItems: "center", gap: 4,
                 fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
                 fontSize: "clamp(14px,0.95vw,16px)",
-                color: location.pathname === item.path ? "#7c3aed" : "#3a2d4d",
+                color: item.path && location.pathname === item.path ? "#7c3aed" : "#3a2d4d",
                 transition: "color 0.2s", whiteSpace: "nowrap",
                 padding: "6px 2px",
               }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = location.pathname === item.path ? "#7c3aed" : "#3a2d4d"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = item.path && location.pathname === item.path ? "#7c3aed" : "#3a2d4d"}
             >
               {item.label}
             </button>
@@ -127,26 +135,15 @@ export function SiteHeader() {
           <a
             href="tel:+79885973303"
             style={{
-              display: "flex", alignItems: "center", gap: 10,
-              color: "#3a2d4d",
+              fontFamily: "'Playfair Display', serif", fontWeight: 600,
+              fontSize: "clamp(19px,1.6vw,25px)", whiteSpace: "nowrap",
+              color: "#1a1024", letterSpacing: "0.3px",
               transition: "color 0.2s",
             }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#3a2d4d"}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#1a1024"}
           >
-            <span style={{
-              width: 40, height: 40, borderRadius: "50%",
-              background: "rgba(124,58,237,0.07)", color: "#7c3aed",
-              display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-            }}>
-              <Icon name="Phone" size={18} />
-            </span>
-            <span style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
-              fontSize: "clamp(18px,1.5vw,24px)", whiteSpace: "nowrap",
-            }}>
-              8 988 597 33 03
-            </span>
+            8 988 597 33 03
           </a>
           <button
             onClick={() => navigate("/favorites")}
@@ -269,7 +266,7 @@ export function SiteHeader() {
               {NAV_MOBILE.map(item => (
                 <button
                   key={item.label}
-                  onClick={() => go(item.path)}
+                  onClick={() => item.target ? goToSection(item.target) : go(item.path!)}
                   style={{
                     width: "100%", display: "flex", alignItems: "center", gap: 14,
                     padding: "14px 16px", borderRadius: 14, border: "none",
