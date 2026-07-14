@@ -8,8 +8,15 @@ export function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden mt-[58px] md:mt-[84px]"
-      style={{ background: "#fff" }}
+      style={{
+        background: "radial-gradient(ellipse 90% 70% at 15% 15%, #f3ebff 0%, transparent 55%), radial-gradient(ellipse 80% 80% at 90% 85%, #fbeafd 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
+      }}
     >
+      {/* Декоративные звёзды-конфетти */}
+      <span className="hidden lg:block absolute" style={{ top: "8%", left: "6%", fontSize: 20, color: "#c4a3f7" }}>✦</span>
+      <span className="hidden lg:block absolute" style={{ top: "18%", left: "38%", fontSize: 14, color: "#e3b8ea" }}>✦</span>
+      <span className="hidden lg:block absolute" style={{ bottom: "12%", left: "10%", fontSize: 16, color: "#c4a3f7" }}>✦</span>
+      <span className="hidden lg:block absolute" style={{ top: "10%", left: "48%", fontSize: 12, color: "#e3b8ea" }}>✦</span>
       <div className="max-w-[1700px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-stretch">
         {/* Левая часть — текст */}
         <div

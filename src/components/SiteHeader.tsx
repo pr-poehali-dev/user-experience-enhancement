@@ -84,7 +84,7 @@ export function SiteHeader() {
         {/* Логотип текстовый */}
         <div
           onClick={goHome}
-          style={{ cursor: "pointer", lineHeight: 1.05, userSelect: "none", display: "flex", alignItems: "center", gap: 8 }}
+          style={{ cursor: "pointer", lineHeight: 1.05, userSelect: "none", display: "flex", alignItems: "center", gap: 8, marginLeft: "clamp(20px,3vw,64px)" }}
         >
           <div style={{
             fontFamily: "'Playfair Display', serif", fontWeight: 600,
@@ -123,11 +123,11 @@ export function SiteHeader() {
         </nav>
 
         {/* Правая часть: телефон + избранное */}
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(14px,1.6vw,26px)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(14px,1.6vw,26px)", marginRight: "clamp(20px,3vw,64px)" }}>
           <a
             href="tel:+79885973303"
             style={{
-              display: "flex", alignItems: "center", gap: 8,
+              display: "flex", alignItems: "center", gap: 10,
               color: "#3a2d4d",
               transition: "color 0.2s",
             }}
@@ -135,15 +135,15 @@ export function SiteHeader() {
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#3a2d4d"}
           >
             <span style={{
-              width: 34, height: 34, borderRadius: "50%",
+              width: 40, height: 40, borderRadius: "50%",
               background: "rgba(124,58,237,0.07)", color: "#7c3aed",
               display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
             }}>
-              <Icon name="Phone" size={15} />
+              <Icon name="Phone" size={18} />
             </span>
             <span style={{
               fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
-              fontSize: "clamp(13px,0.95vw,15px)", whiteSpace: "nowrap",
+              fontSize: "clamp(18px,1.5vw,24px)", whiteSpace: "nowrap",
             }}>
               8 988 597 33 03
             </span>
