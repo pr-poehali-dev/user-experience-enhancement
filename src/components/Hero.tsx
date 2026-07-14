@@ -25,7 +25,7 @@ export function Hero() {
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 500,
-                fontSize: "clamp(42px, 6vw, 78px)",
+                fontSize: "clamp(48px, 6.8vw, 88px)",
                 lineHeight: 1.05,
                 color: "#1a1024",
                 letterSpacing: "-0.5px",
@@ -36,29 +36,25 @@ export function Hero() {
             <div
               style={{
                 fontFamily: "'Marck Script', cursive",
-                fontSize: "clamp(30px, 4.2vw, 54px)",
+                fontSize: "clamp(34px, 4.8vw, 62px)",
                 color: "#8b5cf6",
                 lineHeight: 1.15,
-                marginTop: "clamp(2px, 0.5vw, 8px)",
+                marginTop: "clamp(4px, 0.8vw, 10px)",
               }}
             >
               для особенных<br />моментов
             </div>
-            <span
-              className="inline-block text-xl sm:text-2xl mt-1"
-              style={{ color: "#a855f7" }}
-            >✦</span>
           </div>
 
           <p
             style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 400,
-              fontSize: "clamp(15px, 1.15vw, 18px)",
+              fontSize: "clamp(17px, 1.35vw, 21px)",
               color: "#5c5468",
               lineHeight: 1.6,
-              marginTop: "clamp(20px, 3vw, 32px)",
-              maxWidth: 380,
+              marginTop: "clamp(10px, 1.4vw, 18px)",
+              maxWidth: 400,
             }}
           >
             Стильные композиции из шаров<br />
@@ -68,17 +64,17 @@ export function Hero() {
           <button
             onClick={() => navigate("/catalog")}
             style={{
-              marginTop: "clamp(24px, 3.5vw, 40px)",
+              marginTop: "clamp(18px, 2.4vw, 28px)",
               alignSelf: "flex-start",
               background: "#6d28d9",
               color: "#fff",
               border: "none",
               borderRadius: 999,
-              padding: "clamp(14px,1.6vw,18px) clamp(32px,3.2vw,48px)",
+              padding: "clamp(18px,2vw,22px) clamp(40px,4vw,60px)",
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(13px, 1vw, 15px)",
-              letterSpacing: "1px",
+              fontSize: "clamp(15px, 1.2vw, 18px)",
+              letterSpacing: "1.2px",
               cursor: "pointer",
               boxShadow: "0 10px 30px rgba(109,40,217,0.28)",
               transition: "transform 0.2s, box-shadow 0.2s",
@@ -92,7 +88,7 @@ export function Hero() {
               ;(e.currentTarget as HTMLElement).style.boxShadow = "0 10px 30px rgba(109,40,217,0.28)"
             }}
           >
-            В КАТАЛОГ
+            ПЕРЕЙТИ В КАТАЛОГ
           </button>
         </div>
 
