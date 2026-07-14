@@ -89,8 +89,9 @@ export function SiteHeader() {
           <div style={{
             fontFamily: "'Playfair Display', serif", fontWeight: 600,
             fontSize: "clamp(20px,1.7vw,26px)", color: "#1a1024",
+            whiteSpace: "nowrap",
           }}>
-            Шаровик<br />Затейник
+            Victoria Balloons
           </div>
           <span style={{ fontSize: 18, color: "#a855f7", marginTop: -18 }}>✦</span>
         </div>
@@ -121,21 +122,31 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* Правая часть: телефон-иконка + избранное */}
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        {/* Правая часть: телефон + избранное */}
+        <div style={{ display: "flex", alignItems: "center", gap: "clamp(14px,1.6vw,26px)" }}>
           <a
-            href="tel:+79880653700"
-            title="+7 988 065 37 00"
+            href="tel:+79885973303"
             style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              width: 38, height: 38, borderRadius: "50%",
-              background: "rgba(124,58,237,0.07)", color: "#7c3aed",
-              transition: "background 0.2s",
+              display: "flex", alignItems: "center", gap: 8,
+              color: "#3a2d4d",
+              transition: "color 0.2s",
             }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.14)"}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.07)"}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#3a2d4d"}
           >
-            <Icon name="Phone" size={17} />
+            <span style={{
+              width: 34, height: 34, borderRadius: "50%",
+              background: "rgba(124,58,237,0.07)", color: "#7c3aed",
+              display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+            }}>
+              <Icon name="Phone" size={15} />
+            </span>
+            <span style={{
+              fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
+              fontSize: "clamp(13px,0.95vw,15px)", whiteSpace: "nowrap",
+            }}>
+              8 988 597 33 03
+            </span>
           </a>
           <button
             onClick={() => navigate("/favorites")}
@@ -146,14 +157,12 @@ export function SiteHeader() {
             title="Избранное"
           >
             <Icon name="Heart" size={22} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
-            {count > 0 && (
-              <span style={{
-                position: "absolute", top: -2, right: -2,
-                background: "#a855f7", color: "#fff", fontSize: 10, fontWeight: 700,
-                borderRadius: "50%", minWidth: 17, height: 17,
-                display: "flex", alignItems: "center", justifyContent: "center", padding: "0 3px",
-              }}>{count}</span>
-            )}
+            <span style={{
+              position: "absolute", top: -2, right: -2,
+              background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 10, fontWeight: 700,
+              borderRadius: "50%", minWidth: 17, height: 17,
+              display: "flex", alignItems: "center", justifyContent: "center", padding: "0 3px",
+            }}>{count}</span>
           </button>
         </div>
       </header>
@@ -196,14 +205,14 @@ export function SiteHeader() {
         </button>
 
         <div onClick={goHome} style={{ cursor: "pointer", textAlign: "center", lineHeight: 1.05 }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 15, color: "#1a1024" }}>
-            Шаровик Затейник
+          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 14, color: "#1a1024", whiteSpace: "nowrap" }}>
+            Victoria Balloons
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0 }}>
           <a
-            href="tel:+79880653700"
+            href="tel:+79885973303"
             style={{
               width: 34, height: 34, borderRadius: "50%",
               background: "rgba(124,58,237,0.08)", color: "#7c3aed",
@@ -222,14 +231,12 @@ export function SiteHeader() {
             title="Избранное"
           >
             <Icon name="Heart" size={19} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
-            {count > 0 && (
-              <span style={{
-                position: "absolute", top: 1, right: 1,
-                background: "#a855f7", color: "#fff", fontSize: 9, fontWeight: 700,
-                borderRadius: "50%", minWidth: 15, height: 15,
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}>{count}</span>
-            )}
+            <span style={{
+              position: "absolute", top: 1, right: 1,
+              background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 9, fontWeight: 700,
+              borderRadius: "50%", minWidth: 15, height: 15,
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>{count}</span>
           </button>
         </div>
       </header>
@@ -255,7 +262,7 @@ export function SiteHeader() {
                 onClick={() => { navigate("/"); setMobileMenuOpen(false) }}
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 20, color: "#1a1024", cursor: "pointer", lineHeight: 1.1 }}
               >
-                Шаровик<br />Затейник
+                Victoria Balloons
               </div>
             </div>
             <nav style={{ flex: 1, padding: "12px 8px" }}>
@@ -286,9 +293,9 @@ export function SiteHeader() {
               ))}
             </nav>
             <div style={{ padding: "16px 20px", borderTop: "1px solid #ece4fb" }}>
-              <a href="tel:+79880653700" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", marginBottom: 6, fontWeight: 600 }}>
+              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", marginBottom: 6, fontWeight: 600 }}>
                 <Icon name="Phone" size={14} className="text-primary" />
-                +7 988 065 37 00
+                8 988 597 33 03
               </a>
             </div>
           </div>

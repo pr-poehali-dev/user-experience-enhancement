@@ -194,19 +194,28 @@ export function PopularPackages() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-12">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <h2 className="text-2xl sm:text-5xl md:text-6xl font-light tracking-tight">
-              Популярные <span className="font-semibold" style={{ color: "#f97316" }}>наборы</span>
+            <h2 style={{
+              fontFamily: "'Playfair Display', serif", fontWeight: 500,
+              fontSize: "clamp(30px, 4.2vw, 54px)", color: "#1a1024", lineHeight: 1.1,
+            }}>
+              Популярные{" "}
+              <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
+                наборы
+              </span>
             </h2>
-            <p className="text-sm sm:text-lg text-muted-foreground mt-1 sm:mt-2">Самые любимые композиции наших покупателей</p>
+            <p className="text-sm sm:text-lg mt-1 sm:mt-2" style={{ color: "#5c5468", fontFamily: "'Montserrat', sans-serif" }}>
+              Самые любимые композиции наших покупателей
+            </p>
           </div>
           <button
             onClick={() => navigate("/popular")}
             className="flex-shrink-0 flex items-center gap-2 rounded-full font-bold text-white transition-transform hover:scale-105"
             style={{
-              background: "linear-gradient(135deg,#f97316,#e63000)",
-              boxShadow: "0 4px 16px rgba(249,115,22,0.4)",
-              padding: "10px 18px",
-              fontSize: "clamp(13px,1.3vw,18px)",
+              background: "#6d28d9",
+              boxShadow: "0 6px 20px rgba(109,40,217,0.28)",
+              padding: "10px 20px",
+              fontSize: "clamp(13px,1.3vw,16px)",
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
             Смотреть все <Icon name="ArrowRight" size={18} />
@@ -264,7 +273,7 @@ export function PopularPackages() {
                 </button>
                 <button
                   className="w-7 h-7 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg,#f97316,#e63000)" }}
+                  style={{ background: "#6d28d9" }}
                   onClick={e => { e.stopPropagation(); window.location.href = `/order?mode=order&title=${encodeURIComponent(pkg.title)}` }}
                   title="Оформить заказ"
                 >

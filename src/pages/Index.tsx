@@ -26,10 +26,18 @@ function CatalogCTA() {
 
         {/* Заголовок */}
         <div className="text-center mb-6 sm:mb-12">
-          <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-2">Выберите категорию</p>
-          <h2 className="text-2xl sm:text-5xl font-light tracking-tight">
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
+            letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 8,
+          }}>Выберите категорию</p>
+          <h2 style={{
+            fontFamily: "'Playfair Display', serif", fontWeight: 500,
+            fontSize: "clamp(28px, 4.2vw, 54px)", color: "#1a1024", lineHeight: 1.1,
+          }}>
             Готовы выбрать{" "}
-            <span className="font-semibold" style={{color:"#f97316"}}>шарики?</span>
+            <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
+              шарики?
+            </span>
           </h2>
         </div>
 
