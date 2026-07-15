@@ -46,16 +46,16 @@ function CatalogCTA() {
           </p>
         </div>
 
-        {/* Категории: карточки с круглым фото-бейджем */}
+        {/* Категории: крупное фото + фиолетовая плашка снизу */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.path}
               onClick={() => navigate(cat.path)}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-center transition-all duration-300 flex flex-col items-center bg-white px-3 py-5 sm:px-4 sm:py-7"
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col bg-white"
               style={{ border: "1px solid #ece4fb" }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 34px rgba(124,58,237,0.16)"
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 34px rgba(124,58,237,0.18)"
                 ;(e.currentTarget as HTMLElement).style.borderColor = "#c9b3f5"
                 ;(e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"
               }}
@@ -66,36 +66,35 @@ function CatalogCTA() {
               }}
             >
               <div
-                className="relative rounded-full overflow-hidden flex items-center justify-center flex-shrink-0"
-                style={{
-                  width: "clamp(72px,13vw,108px)", height: "clamp(72px,13vw,108px)",
-                  background: "linear-gradient(160deg,#f5f0ff 0%,#ece4fb 100%)",
-                }}
+                className="relative w-full overflow-hidden flex items-center justify-center"
+                style={{ aspectRatio: "1/1", background: "linear-gradient(160deg,#f5f0ff 0%,#ece4fb 100%)" }}
               >
                 <img
                   src={cat.image}
                   alt={cat.label}
-                  className="w-[80%] h-[80%] object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <p style={{
-                fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#a99bc0",
-                fontSize: "clamp(10px,0.85vw,12px)", marginTop: 12,
-              }}>
-                {cat.sub}
-              </p>
-              <p style={{
-                fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
-                fontSize: "clamp(14px,1.4vw,17px)", lineHeight: 1.2, marginTop: 2,
-              }}>
-                {cat.label}
-              </p>
-              <span
-                className="inline-flex items-center gap-1 mt-2 transition-colors"
-                style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12, color: "#a855f7" }}
+              <div
+                className="relative flex items-center justify-between gap-1 px-3 py-3 sm:px-4 sm:py-4"
+                style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
               >
-                Смотреть <Icon name="ArrowRight" size={13} className="transition-transform group-hover:translate-x-1" />
-              </span>
+                <div className="min-w-0">
+                  <p style={{
+                    fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "rgba(255,255,255,0.75)",
+                    fontSize: "clamp(10px,0.85vw,12px)",
+                  }}>
+                    {cat.sub}
+                  </p>
+                  <p style={{
+                    fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#fff",
+                    fontSize: "clamp(15px,1.5vw,18px)", lineHeight: 1.2,
+                  }} className="truncate">
+                    {cat.label}
+                  </p>
+                </div>
+                <Icon name="ArrowRight" size={16} className="flex-shrink-0 text-white/85 transition-transform group-hover:translate-x-1" />
+              </div>
             </button>
           ))}
         </div>
