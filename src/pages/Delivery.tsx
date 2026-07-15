@@ -16,7 +16,7 @@ const SOCIALS = [
 ]
 
 const PRICE_ROWS = [
-  { icon: "Gift", title: "Бесплатно", desc: "при заказе от 3 500 ₽", bg: "#f0fdf4", iconBg: "#16a34a", color: "#15803d" },
+  { icon: "Gift", title: "Бесплатно", desc: "при заказе от 3 500 ₽", bg: "#f0fdf4", iconBg: "#16a34a", color: "#1a1024" },
   { icon: "Truck", title: "150 — 500 ₽", desc: "при заказе менее 3 500 ₽", bg: "#fff7ed", iconBg: "#f97316", color: "#1a1024" },
 ]
 
@@ -79,7 +79,7 @@ export default function Delivery() {
                   <Icon name={row.icon} size={19} className="text-white" />
                 </div>
                 <div className="flex-1">
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 16, color: row.color }}>{row.title}</p>
+                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 16, color: row.color }}>{row.title}</p>
                   <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 13, color: "#8a7d9c" }}>{row.desc}</p>
                 </div>
               </div>

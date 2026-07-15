@@ -11,12 +11,10 @@ const CATEGORIES = [
   {
     path: "/catalog/girl", label: "Для неё", sub: "День рождения",
     image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d0cdaf71-1d44-42ee-bd91-49d0fc2e8d31.png",
-    big: true,
   },
   {
     path: "/catalog/man", label: "Для него", sub: "День рождения",
     image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b2179bc5-243d-4aa8-a18e-f5e969b876b7.png",
-    big: true,
   },
   {
     path: "/catalog/boy", label: "Мальчику", sub: "День рождения",
@@ -71,16 +69,14 @@ function CatalogCTA() {
           </p>
         </div>
 
-        {/* Категории: асимметричная сетка с фото */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        {/* Категории: равные карточки с фото */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.path}
               onClick={() => navigate(cat.path)}
-              className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 ${
-                cat.big ? "col-span-2 sm:col-span-2" : "col-span-1 sm:col-span-1"
-              }`}
-              style={{ aspectRatio: cat.big ? "16/11" : "3/4" }}
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300"
+              style={{ aspectRatio: "3/2" }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(124,58,237,0.22)"
               }}
@@ -103,7 +99,7 @@ function CatalogCTA() {
                 </p>
                 <p style={{
                   fontFamily: "'Playfair Display', serif", fontWeight: 600, color: "#fff",
-                  fontSize: cat.big ? "clamp(20px,2.2vw,30px)" : "clamp(15px,1.5vw,20px)", lineHeight: 1.15,
+                  fontSize: "clamp(16px,1.7vw,22px)", lineHeight: 1.15,
                 }}>
                   {cat.label}
                 </p>
