@@ -45,11 +45,11 @@ export default function CompositionDetail() {
     : []
 
   return (
-    <div style={{ minHeight: "100svh", background: "#fff", display: "flex", flexDirection: "column" }}>
+    <div className="min-h-[100svh] md:min-h-0 mt-[58px] md:mt-[84px] max-w-2xl mx-auto md:my-8 md:rounded-3xl md:overflow-hidden md:shadow-xl md:border md:border-[#f0ebff]" style={{ background: "#fff", display: "flex", flexDirection: "column" }}>
 
       {/* ── Верхняя строка: Назад + Избранное ── */}
-      <div style={{
-        position: "sticky", top: 0, zIndex: 50,
+      <div className="sticky md:static" style={{
+        top: "clamp(58px,7.5vw,84px)", zIndex: 50,
         background: "rgba(255,255,255,0.96)",
         backdropFilter: "blur(10px)",
         borderBottom: "1px solid #f0ebff",
@@ -122,7 +122,7 @@ export default function CompositionDetail() {
       <div style={{ height: 3, background: "linear-gradient(90deg,#7c3aed,#f97316,#f43f5e,#7c3aed)", flexShrink: 0 }} />
 
       {/* ── Контент ── */}
-      <div style={{ flex: 1, padding: "16px 16px 130px" }}>
+      <div className="pb-[130px] md:pb-4" style={{ flex: 1, padding: "16px" }}>
 
         {/* Название + цена */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, marginBottom: 16 }}>
@@ -255,9 +255,9 @@ export default function CompositionDetail() {
         </div>
       </div>
 
-      {/* ── Фиксированные кнопки снизу ── */}
-      <div style={{
-        position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 50,
+      {/* ── Кнопки снизу: fixed на мобиле, обычные в карточке на десктопе ── */}
+      <div className="fixed md:static bottom-0 left-0 right-0" style={{
+        zIndex: 50,
         background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)",
         borderTop: "1px solid #f0ebff",
         padding: "10px 16px",
