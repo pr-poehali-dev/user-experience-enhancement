@@ -21,38 +21,38 @@ function CatalogCTA() {
   return (
     <section
       id="catalog-cta"
-      className="py-14 sm:py-24 px-4"
+      className="py-6 sm:py-10 px-4 min-h-screen flex flex-col justify-center"
       style={{ background: "linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)" }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto w-full">
 
         {/* Заголовок */}
-        <div className="text-center mb-8 sm:mb-12">
+        <div className="text-center mb-4 sm:mb-8">
           <p style={{
-            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
-            letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 10,
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 11,
+            letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 6,
           }}>Выберите повод</p>
           <h2 style={{
             fontFamily: "'Montserrat', sans-serif", fontWeight: 700,
-            fontSize: "clamp(26px, 3.6vw, 42px)", color: "#1a1024", lineHeight: 1.2,
+            fontSize: "clamp(22px, 3vw, 38px)", color: "#1a1024", lineHeight: 1.2,
           }}>
             Для кого нужны шарики?
           </h2>
-          <p style={{
+          <p className="hidden sm:block" style={{
             fontFamily: "'Montserrat', sans-serif", fontWeight: 400, color: "#5c5468",
-            fontSize: "clamp(14px,1.1vw,16px)", marginTop: 10,
+            fontSize: "clamp(13px,1vw,15px)", marginTop: 6,
           }}>
             Подберите готовый набор под повод — доставим уже сегодня
           </p>
         </div>
 
         {/* Категории: крупное фото + фиолетовая плашка снизу */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
+        <div className="grid grid-cols-3 gap-2 sm:gap-5">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.path}
               onClick={() => navigate(cat.path)}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col bg-white"
+              className="group relative rounded-xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col bg-white"
               style={{ border: "1px solid #ece4fb" }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 34px rgba(124,58,237,0.18)"
@@ -76,11 +76,11 @@ function CatalogCTA() {
                 />
               </div>
               <div
-                className="relative flex items-center justify-between gap-1 px-3 py-3 sm:px-4 sm:py-4"
+                className="relative flex items-center justify-between gap-1 px-2 py-1.5 sm:px-4 sm:py-4"
                 style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
               >
                 <div className="min-w-0">
-                  <p style={{
+                  <p className="hidden sm:block" style={{
                     fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "rgba(255,255,255,0.75)",
                     fontSize: "clamp(10px,0.85vw,12px)",
                   }}>
@@ -88,12 +88,12 @@ function CatalogCTA() {
                   </p>
                   <p style={{
                     fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#fff",
-                    fontSize: "clamp(15px,1.5vw,18px)", lineHeight: 1.2,
+                    fontSize: "clamp(11px,1.5vw,18px)", lineHeight: 1.2,
                   }} className="truncate">
                     {cat.label}
                   </p>
                 </div>
-                <Icon name="ArrowRight" size={16} className="flex-shrink-0 text-white/85 transition-transform group-hover:translate-x-1" />
+                <Icon name="ArrowRight" size={14} className="hidden sm:block flex-shrink-0 text-white/85 transition-transform group-hover:translate-x-1" />
               </div>
             </button>
           ))}
