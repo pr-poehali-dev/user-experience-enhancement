@@ -21,32 +21,27 @@ function CatalogCTA() {
   return (
     <section
       id="catalog-cta"
-      className="py-4 sm:py-6 px-4 min-h-screen flex flex-col justify-center"
+      className="px-4 min-h-screen flex flex-col justify-center"
       style={{
         background: "linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
         scrollMarginTop: "clamp(58px,7.5vw,84px)",
+        paddingTop: "clamp(70px,9vw,100px)",
+        paddingBottom: "clamp(24px,4vw,48px)",
       }}
     >
       <div className="max-w-5xl mx-auto w-full">
 
         {/* Заголовок */}
-        <div className="text-center mb-3 sm:mb-6">
-          <p style={{
-            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 11,
-            letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 4,
-          }}>Выберите повод</p>
+        <div className="text-center mb-4 sm:mb-8">
           <h2 style={{
-            fontFamily: "'Montserrat', sans-serif", fontWeight: 700,
-            fontSize: "clamp(20px, 2.6vw, 32px)", color: "#1a1024", lineHeight: 1.2,
+            fontFamily: "'Playfair Display', serif", fontWeight: 500,
+            fontSize: "clamp(28px, 4vw, 48px)", color: "#1a1024", lineHeight: 1.1,
           }}>
-            Для кого нужны шарики?
+            Для кого нужны{" "}
+            <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
+              шарики?
+            </span>
           </h2>
-          <p className="hidden sm:block" style={{
-            fontFamily: "'Montserrat', sans-serif", fontWeight: 400, color: "#5c5468",
-            fontSize: "clamp(12px,0.9vw,14px)", marginTop: 4,
-          }}>
-            Подберите готовый набор под повод — доставим уже сегодня
-          </p>
         </div>
 
         {/* Категории: фото + фиолетовая плашка снизу */}
