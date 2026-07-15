@@ -37,7 +37,7 @@ function CatalogCTA() {
               fontFamily: "'Playfair Display', serif", fontWeight: 500,
               fontSize: "clamp(30px, 4.5vw, 54px)", color: "#1a1024", lineHeight: 1.1,
             }}>
-              Готовы выбрать{" "}
+              Для кого нужны{" "}
               <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
                 шарики?
               </span>
@@ -51,22 +51,27 @@ function CatalogCTA() {
           </p>
         </div>
 
-        {/* Категории: равные карточки с фото на фиолетовом фоне */}
+        {/* Категории: белые карточки с фиолетовым акцентом */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.path}
               onClick={() => navigate(cat.path)}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col"
-              style={{ aspectRatio: "3/2", background: "linear-gradient(160deg,#8b5cf6 0%,#7c3aed 100%)" }}
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col bg-white"
+              style={{ aspectRatio: "3/2", border: "1px solid #ece4fb" }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(124,58,237,0.32)"
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(124,58,237,0.22)"
+                ;(e.currentTarget as HTMLElement).style.borderColor = "#c9b3f5"
               }}
               onMouseLeave={e => {
                 (e.currentTarget as HTMLElement).style.boxShadow = "none"
+                ;(e.currentTarget as HTMLElement).style.borderColor = "#ece4fb"
               }}
             >
-              <div className="relative flex-1 flex items-center justify-center overflow-hidden px-2 pt-2">
+              <div
+                className="relative flex-1 flex items-center justify-center overflow-hidden px-2 pt-2"
+                style={{ background: "linear-gradient(160deg,#f5f0ff 0%,#faf5ff 100%)" }}
+              >
                 <img
                   src={cat.image}
                   alt={cat.label}
@@ -75,7 +80,7 @@ function CatalogCTA() {
               </div>
               <div
                 className="relative flex items-center justify-between gap-1 px-3 py-2.5 sm:px-4 sm:py-3"
-                style={{ background: "rgba(26,16,36,0.32)" }}
+                style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
               >
                 <div className="min-w-0">
                   <p style={{
@@ -91,7 +96,7 @@ function CatalogCTA() {
                     {cat.label}
                   </p>
                 </div>
-                <Icon name="ArrowRight" size={16} className="flex-shrink-0 text-white/80 transition-transform group-hover:translate-x-1" />
+                <Icon name="ArrowRight" size={16} className="flex-shrink-0 text-white/85 transition-transform group-hover:translate-x-1" />
               </div>
             </button>
           ))}
