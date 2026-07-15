@@ -52,3 +52,7 @@ export function registerAllCompositions(items: Composition[]) {
 export function getAllCompositions(): Composition[] {
   return _allCompositions
 }
+
+export function getPopularCompositions(): Composition[] {
+  return _allCompositions.filter((c) => c.highlight)
+}

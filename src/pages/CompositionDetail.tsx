@@ -271,10 +271,10 @@ export default function CompositionDetail() {
                   className="flex-1 transition-transform hover:scale-[1.02]"
                   style={{
                     padding: "15px", borderRadius: 16, border: "none",
-                    background: "linear-gradient(135deg,#f97316,#e63000)", color: "#fff",
+                    background: "linear-gradient(135deg,#7c3aed,#a855f7)", color: "#fff",
                     fontWeight: 800, fontSize: 14.5, cursor: "pointer",
                     fontFamily: "'Montserrat', sans-serif",
-                    boxShadow: "0 6px 20px rgba(249,115,22,0.35)",
+                    boxShadow: "0 6px 20px rgba(124,58,237,0.35)",
                   }}
                 >
                   🎈 Оформить заказ
@@ -338,10 +338,10 @@ export default function CompositionDetail() {
           onClick={() => goOrder("order")}
           style={{
             flex: 1, padding: "14px", borderRadius: 16, border: "none",
-            background: "linear-gradient(135deg,#f97316,#e63000)", color: "#fff",
+            background: "linear-gradient(135deg,#7c3aed,#a855f7)", color: "#fff",
             fontWeight: 800, fontSize: 14, cursor: "pointer",
             fontFamily: "'Montserrat', sans-serif",
-            boxShadow: "0 4px 16px rgba(249,115,22,0.4)",
+            boxShadow: "0 4px 16px rgba(124,58,237,0.4)",
           }}
         >
           🎈 Оформить заказ

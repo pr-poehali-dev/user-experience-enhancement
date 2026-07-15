@@ -439,7 +439,7 @@ export default function CompositionGrid({
           {pageItems.map((item, idx) => (
             <div
               key={`${item.subcategory ?? "item"}-${item.id}-${idx}`}
-              className={`group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 bg-white${item.highlight ? " ring-4 ring-red-500 ring-offset-2" : ""}`}
+              className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 bg-white"
               style={{ border: "1px solid #ece4fb" }}
               onClick={() => {
                 window._catalogScrollY = window.scrollY

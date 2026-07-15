@@ -8,30 +8,12 @@ import { FloatingSocials } from "@/components/FloatingSocials"
 import Icon from "@/components/ui/icon"
 
 const CATEGORIES = [
-  {
-    path: "/catalog/girl", label: "Для неё", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d0cdaf71-1d44-42ee-bd91-49d0fc2e8d31.png",
-  },
-  {
-    path: "/catalog/man", label: "Для него", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b2179bc5-243d-4aa8-a18e-f5e969b876b7.png",
-  },
-  {
-    path: "/catalog/boy", label: "Мальчику", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d076abaf-d279-41ef-95c6-bae6555c1284.png",
-  },
-  {
-    path: "/catalog/kid-girl", label: "Девочке", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/8ce51e50-43e0-4764-b99c-810fc742af30.png",
-  },
-  {
-    path: "/catalog/girl-discharge", label: "Выписка девочки", sub: "Встречаем малыша",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f833217e-a2c5-4e23-bef0-d8037e1e4218.png",
-  },
-  {
-    path: "/catalog/boy-discharge", label: "Выписка мальчика", sub: "Встречаем малыша",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9635c9bd-040a-400c-a2f6-333251e4c305.png",
-  },
+  { path: "/catalog/girl", label: "Для неё", sub: "День рождения", image: "/categories/girl.png" },
+  { path: "/catalog/man", label: "Для него", sub: "День рождения", image: "/categories/man.png" },
+  { path: "/catalog/boy", label: "Мальчику", sub: "День рождения", image: "/categories/boy.png" },
+  { path: "/catalog/kid-girl", label: "Девочке", sub: "День рождения", image: "/categories/kid-girl.png" },
+  { path: "/catalog/girl-discharge", label: "Выписка девочки", sub: "Встречаем малыша", image: "/categories/girl-discharge.png" },
+  { path: "/catalog/boy-discharge", label: "Выписка мальчика", sub: "Встречаем малыша", image: "/categories/boy-discharge.png" },
 ]
 
 function CatalogCTA() {
@@ -69,46 +51,47 @@ function CatalogCTA() {
           </p>
         </div>
 
-        {/* Категории: равные карточки с фото */}
+        {/* Категории: равные карточки с фото на фиолетовом фоне */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.path}
               onClick={() => navigate(cat.path)}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300"
-              style={{ aspectRatio: "3/2" }}
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col"
+              style={{ aspectRatio: "3/2", background: "linear-gradient(160deg,#8b5cf6 0%,#7c3aed 100%)" }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(124,58,237,0.22)"
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(124,58,237,0.32)"
               }}
               onMouseLeave={e => {
                 (e.currentTarget as HTMLElement).style.boxShadow = "none"
               }}
             >
-              <img
-                src={cat.image}
-                alt={cat.label}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5">
-                <p style={{
-                  fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "rgba(255,255,255,0.75)",
-                  fontSize: "clamp(10px,0.8vw,12px)", letterSpacing: "0.5px",
-                }}>
-                  {cat.sub}
-                </p>
-                <p style={{
-                  fontFamily: "'Playfair Display', serif", fontWeight: 600, color: "#fff",
-                  fontSize: "clamp(16px,1.7vw,22px)", lineHeight: 1.15,
-                }}>
-                  {cat.label}
-                </p>
-                <span
-                  className="inline-flex items-center gap-1 mt-2 font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ color: "#fff", fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(11px,0.9vw,13px)" }}
-                >
-                  Смотреть <Icon name="ArrowRight" size={13} className="transition-transform group-hover:translate-x-1" />
-                </span>
+              <div className="relative flex-1 flex items-center justify-center overflow-hidden px-2 pt-2">
+                <img
+                  src={cat.image}
+                  alt={cat.label}
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                className="relative flex items-center justify-between gap-1 px-3 py-2.5 sm:px-4 sm:py-3"
+                style={{ background: "rgba(26,16,36,0.32)" }}
+              >
+                <div className="min-w-0">
+                  <p style={{
+                    fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "rgba(255,255,255,0.75)",
+                    fontSize: "clamp(9px,0.75vw,11px)", letterSpacing: "0.4px",
+                  }}>
+                    {cat.sub}
+                  </p>
+                  <p style={{
+                    fontFamily: "'Playfair Display', serif", fontWeight: 600, color: "#fff",
+                    fontSize: "clamp(14px,1.5vw,19px)", lineHeight: 1.15,
+                  }} className="truncate">
+                    {cat.label}
+                  </p>
+                </div>
+                <Icon name="ArrowRight" size={16} className="flex-shrink-0 text-white/80 transition-transform group-hover:translate-x-1" />
               </div>
             </button>
           ))}
