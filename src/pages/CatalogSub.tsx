@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { Footer } from "@/components/Footer"
 import Icon from "@/components/ui/icon"
 import CompositionGrid from "@/components/catalog/CompositionGrid"
@@ -55,6 +55,7 @@ const SUB_MAP: Record<string, SubInfo> = {
 export default function CatalogSub() {
   const { sub } = useParams<{ sub: string }>()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const info = sub ? SUB_MAP[sub] : null
 
@@ -67,7 +68,12 @@ export default function CatalogSub() {
   }, [sub])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    const restoreScrollY = (location.state as { restoreScrollY?: number } | null)?.restoreScrollY
+    if (typeof restoreScrollY === "number") {
+      window.scrollTo({ top: restoreScrollY, behavior: "instant" })
+    } else {
+      window.scrollTo(0, 0)
+    }
   }, [sub])
 
   if (!info || items.length === 0) {
