@@ -153,14 +153,7 @@ function Pagination({ page, totalPages, onChange }: {
 }) {
   if (totalPages <= 1) return null
 
-  const pages: (number | "...")[] = []
-  for (let i = 1; i <= totalPages; i++) {
-    if (i === 1 || i === totalPages || Math.abs(i - page) <= 1) {
-      pages.push(i)
-    } else if (pages[pages.length - 1] !== "...") {
-      pages.push("...")
-    }
-  }
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
 
   return (
     <div
@@ -170,34 +163,31 @@ function Pagination({ page, totalPages, onChange }: {
       <button
         onClick={() => onChange(Math.max(1, page - 1))}
         disabled={page === 1}
-        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30 bg-white"
+        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30 bg-white flex-shrink-0"
         style={{ border: "1px solid #ece4fb", color: "#5b21b6" }}
       >
         <Icon name="ChevronLeft" size={16} />
       </button>
-      {pages.map((p, i) =>
-        p === "..." ? (
-          <span key={`dots-${i}`} className="w-9 h-9 flex items-center justify-center text-sm text-muted-foreground">…</span>
-        ) : (
-          <button
-            key={p}
-            onClick={() => onChange(p)}
-            style={{
-              width: 36, height: 36, borderRadius: "50%",
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 13,
-              background: p === page ? "#6d28d9" : "#fff",
-              color: p === page ? "#fff" : "#3a2d4d",
-              border: p === page ? "1px solid #6d28d9" : "1px solid #ece4fb",
-            }}
-          >
-            {p}
-          </button>
-        )
-      )}
+      {pages.map((p) => (
+        <button
+          key={p}
+          onClick={() => onChange(p)}
+          className="flex-shrink-0"
+          style={{
+            width: 36, height: 36, borderRadius: "50%",
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 13,
+            background: p === page ? "#6d28d9" : "#fff",
+            color: p === page ? "#fff" : "#3a2d4d",
+            border: p === page ? "1px solid #6d28d9" : "1px solid #ece4fb",
+          }}
+        >
+          {p}
+        </button>
+      ))}
       <button
         onClick={() => onChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages}
-        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30 bg-white"
+        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30 bg-white flex-shrink-0"
         style={{ border: "1px solid #ece4fb", color: "#5b21b6" }}
       >
         <Icon name="ChevronRight" size={16} />
