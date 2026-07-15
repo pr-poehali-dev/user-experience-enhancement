@@ -2,7 +2,6 @@ import { Footer } from "@/components/Footer"
 import { FloatingSocials } from "@/components/FloatingSocials"
 import Icon from "@/components/ui/icon"
 
-const CAR_IMG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/977e764d-d276-458f-ba54-7f70e9676b2d.jpg"
 const MAP_URL = "https://2gis.ru/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%93%D0%B5%D1%80%D0%BE%D1%8F%20%D0%AF%D1%86%D0%BA%D0%BE%D0%B2%D0%B0%2019%D0%BA3"
 
 const SOCIALS = [
@@ -16,10 +15,17 @@ const SOCIALS = [
     icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> },
 ]
 
+const STEPS = [
+  { icon: "PhoneCall", title: "Оформляете заказ", desc: "Звонок, сайт или соцсети — как вам удобно" },
+  { icon: "PackageCheck", title: "Собираем композицию", desc: "Аккуратно упаковываем шары под ваш заказ" },
+  { icon: "Truck", title: "Везём в удобное время", desc: "Курьер приедет точно в выбранный интервал" },
+  { icon: "Sparkles", title: "Вручаем радость", desc: "Дарите праздник себе и близким" },
+]
+
 const PRICE_ROWS = [
-  { emoji: "🎁", title: "Бесплатно!", desc: "при заказе от 3 500 ₽", bg: "#f0fdf4", color: "#15803d" },
-  { emoji: "🚚", title: "150 — 500 ₽", desc: "при заказе менее 3 500 ₽ — зависит от района", bg: "#fff7ed", color: "#1a1024" },
-  { emoji: "🗺️", title: "Краснодарский край", desc: "выезжаем за город — уточняйте стоимость", bg: "#faf5ff", color: "#1a1024" },
+  { icon: "Gift", title: "Бесплатно", desc: "при заказе от 3 500 ₽", bg: "#f0fdf4", iconBg: "#16a34a", color: "#15803d" },
+  { icon: "Truck", title: "150 — 500 ₽", desc: "при заказе менее 3 500 ₽ — зависит от района", bg: "#fff7ed", iconBg: "#f97316", color: "#1a1024" },
+  { icon: "MapPinned", title: "Краснодарский край", desc: "выезжаем за город — уточняйте стоимость", bg: "#faf5ff", iconBg: "#7c3aed", color: "#1a1024" },
 ]
 
 export default function Delivery() {
@@ -31,58 +37,47 @@ export default function Delivery() {
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 85% 10%, #f3ebff 0%, transparent 55%), radial-gradient(ellipse 70% 60% at 10% 90%, #fbeafd 0%, transparent 55%)" }} />
         <span className="hidden lg:block absolute" style={{ top: "14%", left: "8%", fontSize: 18, color: "#c4a3f7" }}>✦</span>
         <span className="hidden lg:block absolute" style={{ top: "22%", right: "12%", fontSize: 14, color: "#e3b8ea" }}>✦</span>
+        <span className="hidden lg:block absolute" style={{ bottom: "16%", left: "20%", fontSize: 12, color: "#c4a3f7" }}>✦</span>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-            <p style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
-              letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 10,
-            }}>
-              🚀 Быстро и бережно
-            </p>
-            <h1 style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 500,
-              fontSize: "clamp(34px, 5.5vw, 64px)", color: "#1a1024", lineHeight: 1.1,
-            }}>
-              Доставим{" "}
-              <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
-                шарики
-              </span>{" "}
-              к вам
-            </h1>
-            <p style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 400, color: "#5c5468",
-              fontSize: "clamp(14px,1.1vw,18px)", marginTop: 14, lineHeight: 1.6,
-            }}>
-              Работаем 24/7 — привезём в любое время, в любой район Краснодара
-            </p>
-          </div>
-
-          {/* Газель */}
-          <div className="flex justify-center mb-8 sm:mb-10">
-            <div
-              className="overflow-hidden shadow-xl w-full"
-              style={{ maxWidth: 640, borderRadius: 28, border: "1px solid rgba(124,58,237,0.15)" }}
-            >
-              <img
-                src={CAR_IMG}
-                alt="Victoria Balloons — доставка шариков на Газели"
-                className="w-full"
-                style={{ maxHeight: 360, objectFit: "cover", display: "block" }}
-              />
-            </div>
-          </div>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-10 sm:pb-16 text-center">
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
+            letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 10,
+          }}>
+            🚀 Быстро и бережно
+          </p>
+          <h1 style={{
+            fontFamily: "'Playfair Display', serif", fontWeight: 500,
+            fontSize: "clamp(34px, 5.5vw, 64px)", color: "#1a1024", lineHeight: 1.1,
+          }}>
+            Доставим{" "}
+            <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
+              шарики
+            </span>{" "}
+            к вам
+          </h1>
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 400, color: "#5c5468",
+            fontSize: "clamp(14px,1.1vw,18px)", marginTop: 14, lineHeight: 1.6,
+          }}>
+            Работаем 24/7 — привезём в любое время, в любой район Краснодара
+          </p>
 
           {/* Быстрые плашки */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3 mt-8 sm:mt-10">
             {[
-              { emoji: "🎁", title: "Бесплатно", sub: "от 3500 ₽" },
-              { emoji: "🚚", title: "150–500 ₽", sub: "по Краснодару" },
-              { emoji: "⏰", title: "Круглосуточно", sub: "24/7, без выходных" },
+              { icon: "Gift", title: "Бесплатно", sub: "от 3500 ₽" },
+              { icon: "Truck", title: "150–500 ₽", sub: "по Краснодару" },
+              { icon: "Clock", title: "Круглосуточно", sub: "24/7, без выходных" },
             ].map((b) => (
-              <div key={b.title} className="flex items-center gap-2.5 bg-white rounded-2xl px-4 py-3 shadow-sm" style={{ border: "1px solid #ece4fb" }}>
-                <span className="text-xl">{b.emoji}</span>
-                <div>
+              <div key={b.title} className="flex items-center gap-3 bg-white rounded-2xl pl-3 pr-5 py-3 shadow-sm" style={{ border: "1px solid #ece4fb" }}>
+                <div
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
+                >
+                  <Icon name={b.icon} size={16} className="text-white" />
+                </div>
+                <div className="text-left">
                   <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 13, color: "#1a1024" }}>{b.title}</p>
                   <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: 11, color: "#8a7d9c" }}>{b.sub}</p>
                 </div>
@@ -92,7 +87,38 @@ export default function Delivery() {
         </div>
       </section>
 
-      {/* ══════ КОНТЕНТ ══════ */}
+      {/* ══════ КАК ПРОХОДИТ ДОСТАВКА ══════ */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
+        <h2 className="text-center mb-8 sm:mb-10" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(22px,2vw,30px)", color: "#1a1024" }}>
+          Как проходит доставка
+        </h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {STEPS.map((s, i) => (
+            <div key={s.title} className="relative bg-white rounded-3xl p-5 sm:p-6 shadow-sm" style={{ border: "1px solid #ece4fb" }}>
+              <span
+                className="absolute -top-3 -left-3 w-7 h-7 rounded-full flex items-center justify-center"
+                style={{ background: "#1a1024", color: "#fff", fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 12 }}
+              >
+                {i + 1}
+              </span>
+              <div
+                className="w-11 h-11 rounded-2xl flex items-center justify-center mb-3"
+                style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
+              >
+                <Icon name={s.icon} size={20} className="text-white" />
+              </div>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: "#1a1024", marginBottom: 4 }}>
+                {s.title}
+              </p>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12.5, color: "#8a7d9c", lineHeight: 1.4 }}>
+                {s.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════ ОСНОВНОЙ КОНТЕНТ ══════ */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-20 space-y-5">
 
         {/* Стоимость доставки */}
@@ -111,7 +137,9 @@ export default function Delivery() {
           <div className="divide-y" style={{ borderColor: "#f0ebff" }}>
             {PRICE_ROWS.map((row) => (
               <div key={row.title} className="flex items-center gap-4 px-6 py-4" style={{ background: row.bg }}>
-                <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl bg-white/70">{row.emoji}</div>
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: row.iconBg }}>
+                  <Icon name={row.icon} size={19} className="text-white" />
+                </div>
                 <div className="flex-1">
                   <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 16, color: row.color }}>{row.title}</p>
                   <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 13, color: "#8a7d9c" }}>{row.desc}</p>
@@ -172,7 +200,9 @@ export default function Delivery() {
             </h2>
           </div>
           <div className="flex items-center gap-4 p-4 rounded-2xl" style={{ background: "linear-gradient(135deg,#f5f3ff,#fbeafd)" }}>
-            <div className="text-3xl">⏰</div>
+            <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>
+              <Icon name="Clock" size={20} className="text-white" />
+            </div>
             <div>
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 16, color: "#7c3aed" }}>Круглосуточно, 24/7</p>
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 13, color: "#8a7d9c" }}>Без выходных и праздников</p>
