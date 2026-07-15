@@ -109,10 +109,10 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Правая часть — фото */}
+        {/* Правая часть — видео */}
         <div
-          className="relative w-full"
-          style={{ minHeight: "min(760px, 90vh)" }}
+          className="relative w-full overflow-hidden"
+          style={{ height: "min(760px, 90vh)" }}
         >
           <video
             src={HERO_VIDEO}
@@ -120,8 +120,7 @@ export function Hero() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
-            style={{ display: "block" }}
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
       </div>
