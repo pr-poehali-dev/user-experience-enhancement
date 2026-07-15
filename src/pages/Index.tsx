@@ -21,11 +21,12 @@ function CatalogCTA() {
   return (
     <section
       id="catalog-cta"
-      className="px-4 min-h-screen flex flex-col justify-center"
+      className="px-4 flex flex-col justify-center"
       style={{
         background: "linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
         scrollMarginTop: "clamp(58px,7.5vw,84px)",
-        paddingTop: "clamp(58px,7.5vw,84px)",
+        minHeight: "calc(100svh - clamp(58px,7.5vw,84px))",
+        paddingTop: "clamp(16px,3vw,32px)",
         paddingBottom: "clamp(16px,3vw,32px)",
       }}
     >
