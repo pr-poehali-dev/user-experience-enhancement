@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom"
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/9ecc8e75-28a6-4bac-810d-ccb38dfebf6b.jpg"
+const HERO_VIDEO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a1f9a1b9-1b85-4a2c-b686-06f9d21e66d7.mp4"
 
 export function Hero() {
   const navigate = useNavigate()
@@ -114,9 +114,12 @@ export function Hero() {
           className="relative w-full"
           style={{ minHeight: "min(760px, 90vh)" }}
         >
-          <img
-            src={HERO_IMG}
-            alt="Воздушные шары ручной работы"
+          <video
+            src={HERO_VIDEO}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
             style={{ display: "block" }}
           />
