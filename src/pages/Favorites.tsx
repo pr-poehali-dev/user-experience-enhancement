@@ -2,14 +2,11 @@ import { useNavigate } from "react-router-dom"
 import { useFavorites } from "@/context/FavoritesContext"
 import Icon from "@/components/ui/icon"
 import { Footer } from "@/components/Footer"
-import { useState } from "react"
-import CompositionModal from "@/components/catalog/CompositionModal"
-import { Composition, getAllCompositions } from "@/data/catalogData"
+import { getAllCompositions } from "@/data/catalogData"
 
 export default function Favorites() {
   const navigate = useNavigate()
   const { favorites, toggleFavorite } = useFavorites()
-  const [modal, setModal] = useState<Composition | null>(null)
 
   const allItems = getAllCompositions()
   const items = allItems.filter(c => favorites.includes(c.id))
@@ -55,7 +52,7 @@ export default function Favorites() {
               <div
                 key={`fav-${item.id}-${idx}`}
                 className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
-                onClick={() => setModal(item)}
+                onClick={() => navigate("/composition", { state: { item, scrollY: 0, backPath: "/favorites" } })}
               >
                 <img
                   src={item.image}
@@ -81,15 +78,6 @@ export default function Favorites() {
           </div>
         )}
       </div>
-
-      {modal && (
-        <CompositionModal
-          modal={modal}
-          allItems={items}
-          onNavigate={setModal}
-          onClose={() => setModal(null)}
-        />
-      )}
 
       <Footer />
     </main>

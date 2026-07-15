@@ -3,12 +3,10 @@ import { useSearchParams, useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import {
   Composition,
-  ModalItem,
   COLOR_OPTIONS,
   birthdaySubcategories,
   dischargeSubcategories,
 } from "@/data/catalogData"
-import CompositionModal from "./CompositionModal"
 import { useFavorites } from "@/context/FavoritesContext"
 
 declare global { interface Window { _catalogScrollY?: number } }
@@ -242,7 +240,6 @@ export default function CompositionGrid({
     return val ? Math.max(1, Number(val)) : 1
   }, [searchParams])
 
-  const [modal, setModal] = useState<ModalItem>(null)
   const { toggleFavorite, isFavorite } = useFavorites()
 
   const updateParams = (updates: Record<string, string | null>) => {
@@ -453,11 +450,7 @@ export default function CompositionGrid({
               style={{ border: "1px solid #ece4fb" }}
               onClick={() => {
                 window._catalogScrollY = window.scrollY
-                if (window.innerWidth < 640) {
-                  navigate("/composition", { state: { item, scrollY: window.scrollY, backPath: window.location.pathname + window.location.search } })
-                } else {
-                  setModal(item)
-                }
+                navigate("/composition", { state: { item, scrollY: window.scrollY, backPath: window.location.pathname + window.location.search } })
               }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(124,58,237,0.14)"}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.boxShadow = "none"}
@@ -483,7 +476,7 @@ export default function CompositionGrid({
               {/* Название + цена */}
               <div className="px-3 pt-2.5 pb-3">
                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, color: "#1a1024" }} className="text-xs sm:text-sm leading-tight truncate">{item.title}</p>
-                <p style={{ fontFamily: "'Playfair Display', serif", color: "#6d28d9" }} className="font-bold text-sm sm:text-base mt-1">{item.price}</p>
+                <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#6d28d9", letterSpacing: "0.2px" }} className="text-sm sm:text-base mt-1">{item.price}</p>
               </div>
             </div>
           ))}
@@ -491,19 +484,6 @@ export default function CompositionGrid({
       )}
 
       <Pagination page={safePage} totalPages={totalPages} onChange={goToPage} />
-
-      {modal && (
-        <CompositionModal
-          modal={modal}
-          allItems={filtered}
-          onNavigate={(item) => setModal(item)}
-          onClose={() => {
-            const scrollY = window._catalogScrollY ?? 0
-            setModal(null)
-            requestAnimationFrame(() => window.scrollTo(0, scrollY))
-          }}
-        />
-      )}
     </>
   )
 }

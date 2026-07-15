@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useRef, useEffect, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
-import CompositionModal from "@/components/catalog/CompositionModal"
 import { Composition } from "@/data/catalogData"
 import { useFavorites } from "@/context/FavoritesContext"
 
@@ -36,7 +35,6 @@ const BASE_SPEED = 1.8
 
 export function PopularPackages() {
   const navigate = useNavigate()
-  const [modal, setModal] = useState<Composition | null>(null)
   const { toggleFavorite, isFavorite } = useFavorites()
 
   const trackRef = useRef<HTMLDivElement>(null)
@@ -182,11 +180,7 @@ export function PopularPackages() {
     // Только если не двигали мышью
     if (mouseMovedRef.current) return
     e.stopPropagation()
-    if (window.innerWidth < 640) {
-      navigate("/composition", { state: { item: pkg, scrollY: 0, backPath: "/" } })
-    } else {
-      setModal(pkg)
-    }
+    navigate("/composition", { state: { item: pkg, scrollY: 0, backPath: "/" } })
   }
 
   return (
@@ -288,14 +282,6 @@ export function PopularPackages() {
         </div>
       </div>
 
-      {modal && (
-        <CompositionModal
-          modal={modal}
-          allItems={packages}
-          onNavigate={setModal}
-          onClose={() => setModal(null)}
-        />
-      )}
     </section>
   )
 }
