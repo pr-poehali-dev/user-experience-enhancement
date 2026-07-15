@@ -163,11 +163,14 @@ function Pagination({ page, totalPages, onChange }: {
   }
 
   return (
-    <div className="flex items-center justify-center gap-1.5 flex-wrap mt-8 sm:mt-12">
+    <div
+      className="sticky bottom-0 z-30 flex items-center justify-center gap-1.5 flex-wrap mt-8 sm:mt-12 py-2.5 bg-white/95 backdrop-blur-sm"
+      style={{ boxShadow: "0 -4px 16px rgba(109,40,217,0.08)" }}
+    >
       <button
         onClick={() => onChange(Math.max(1, page - 1))}
         disabled={page === 1}
-        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30"
+        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30 bg-white"
         style={{ border: "1px solid #ece4fb", color: "#5b21b6" }}
       >
         <Icon name="ChevronLeft" size={16} />
@@ -194,7 +197,7 @@ function Pagination({ page, totalPages, onChange }: {
       <button
         onClick={() => onChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages}
-        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30"
+        className="w-9 h-9 rounded-full flex items-center justify-center disabled:opacity-30 bg-white"
         style={{ border: "1px solid #ece4fb", color: "#5b21b6" }}
       >
         <Icon name="ChevronRight" size={16} />

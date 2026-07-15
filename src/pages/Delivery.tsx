@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer"
 import Icon from "@/components/ui/icon"
 
-const CAR_IMG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/cad6095d-44cd-4c3f-9696-b63eb62b42ee.png"
+const CAR_IMG = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/977e764d-d276-458f-ba54-7f70e9676b2d.jpg"
 const MAP_URL = "https://2gis.ru/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%93%D0%B5%D1%80%D0%BE%D1%8F%20%D0%AF%D1%86%D0%BA%D0%BE%D0%B2%D0%B0%2019%D0%BA3"
 
 const SOCIALS = [
@@ -37,18 +37,27 @@ export default function Delivery() {
             <p className="text-lg sm:text-xl text-muted-foreground">Работаем 24/7 — привезём в любое время, в любой район Краснодара</p>
           </div>
 
-          {/* Машина — крупная, на всю ширину */}
+          {/* Газель — в аккуратной карточке */}
           <div className="flex justify-center">
-            <img
-              src={CAR_IMG}
-              alt="Шаровик Затейник — доставка шариков"
-              className="w-full drop-shadow-2xl"
+            <div
+              className="overflow-hidden shadow-xl"
               style={{
-                maxWidth: 860,
-                maxHeight: 560,
-                objectFit: "contain",
+                width: "100%",
+                maxWidth: 640,
+                borderRadius: 28,
+                border: "1px solid rgba(124,58,237,0.15)",
               }}
-            />
+            >
+              <img
+                src={CAR_IMG}
+                alt="Шаровик Затейник — доставка шариков на Газели"
+                className="w-full"
+                style={{
+                  maxHeight: 380,
+                  objectFit: "cover",
+                }}
+              />
+            </div>
           </div>
 
           {/* Быстрые плашки под машиной */}

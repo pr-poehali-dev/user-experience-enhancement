@@ -95,11 +95,12 @@ export default function CompositionDetail() {
         </button>
       </div>
 
-      {/* ── Фото — натуральный размер (contain) ── */}
+      {/* ── Фото — ограничено по высоте ── */}
       <div style={{
         width: "100%", background: "#f8f5ff",
         display: "flex", alignItems: "center", justifyContent: "center",
         overflow: "hidden",
+        maxHeight: "min(46vh, 420px)",
       }}>
         <img
           src={item.image}
@@ -107,7 +108,9 @@ export default function CompositionDetail() {
           onLoad={() => setImgLoaded(true)}
           style={{
             width: "100%",
-            objectFit: "contain",
+            height: "100%",
+            maxHeight: "min(46vh, 420px)",
+            objectFit: item.contain ? "contain" : "cover",
             display: "block",
             opacity: imgLoaded ? 1 : 0,
             transition: "opacity 0.3s",
