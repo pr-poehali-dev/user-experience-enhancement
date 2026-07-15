@@ -137,9 +137,10 @@ export function SiteHeader() {
           <a
             href="tel:+79885973303"
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 600,
-              fontSize: "clamp(20px,1.7vw,26px)", color: "#1a1024",
-              whiteSpace: "nowrap",
+              fontFamily: "'Playfair Display', serif", fontWeight: 500,
+              fontSize: "clamp(18px,1.5vw,23px)", color: "#1a1024",
+              whiteSpace: "nowrap", letterSpacing: "0.5px",
+              fontVariantNumeric: "tabular-nums",
               transition: "opacity 0.2s",
             }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.7"}
