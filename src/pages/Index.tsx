@@ -27,77 +27,75 @@ function CatalogCTA() {
       <div className="max-w-6xl mx-auto">
 
         {/* Заголовок */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-12">
-          <div>
-            <p style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
-              letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 8,
-            }}>Выберите повод</p>
-            <h2 style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 500,
-              fontSize: "clamp(30px, 4.5vw, 54px)", color: "#1a1024", lineHeight: 1.1,
-            }}>
-              Для кого нужны{" "}
-              <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#8b5cf6" }}>
-                шарики?
-              </span>
-            </h2>
-          </div>
+        <div className="text-center mb-8 sm:mb-12">
+          <p style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
+            letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 10,
+          }}>Выберите повод</p>
+          <h2 style={{
+            fontFamily: "'Montserrat', sans-serif", fontWeight: 700,
+            fontSize: "clamp(26px, 3.6vw, 42px)", color: "#1a1024", lineHeight: 1.2,
+          }}>
+            Для кого нужны шарики?
+          </h2>
           <p style={{
             fontFamily: "'Montserrat', sans-serif", fontWeight: 400, color: "#5c5468",
-            fontSize: "clamp(13px,1vw,15px)", maxWidth: 340,
+            fontSize: "clamp(14px,1.1vw,16px)", marginTop: 10,
           }}>
             Подберите готовый набор под повод — доставим уже сегодня
           </p>
         </div>
 
-        {/* Категории: белые карточки с фиолетовым акцентом */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+        {/* Категории: карточки с круглым фото-бейджем */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.path}
               onClick={() => navigate(cat.path)}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-300 flex flex-col bg-white"
-              style={{ aspectRatio: "3/2", border: "1px solid #ece4fb" }}
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden text-center transition-all duration-300 flex flex-col items-center bg-white px-3 py-5 sm:px-4 sm:py-7"
+              style={{ border: "1px solid #ece4fb" }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(124,58,237,0.22)"
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 34px rgba(124,58,237,0.16)"
                 ;(e.currentTarget as HTMLElement).style.borderColor = "#c9b3f5"
+                ;(e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"
               }}
               onMouseLeave={e => {
                 (e.currentTarget as HTMLElement).style.boxShadow = "none"
                 ;(e.currentTarget as HTMLElement).style.borderColor = "#ece4fb"
+                ;(e.currentTarget as HTMLElement).style.transform = "translateY(0)"
               }}
             >
               <div
-                className="relative flex-1 flex items-center justify-center overflow-hidden px-2 pt-2"
-                style={{ background: "linear-gradient(160deg,#f5f0ff 0%,#faf5ff 100%)" }}
+                className="relative rounded-full overflow-hidden flex items-center justify-center flex-shrink-0"
+                style={{
+                  width: "clamp(72px,13vw,108px)", height: "clamp(72px,13vw,108px)",
+                  background: "linear-gradient(160deg,#f5f0ff 0%,#ece4fb 100%)",
+                }}
               >
                 <img
                   src={cat.image}
                   alt={cat.label}
-                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="w-[80%] h-[80%] object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div
-                className="relative flex items-center justify-between gap-1 px-3 py-2.5 sm:px-4 sm:py-3"
-                style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
+              <p style={{
+                fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#a99bc0",
+                fontSize: "clamp(10px,0.85vw,12px)", marginTop: 12,
+              }}>
+                {cat.sub}
+              </p>
+              <p style={{
+                fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
+                fontSize: "clamp(14px,1.4vw,17px)", lineHeight: 1.2, marginTop: 2,
+              }}>
+                {cat.label}
+              </p>
+              <span
+                className="inline-flex items-center gap-1 mt-2 transition-colors"
+                style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12, color: "#a855f7" }}
               >
-                <div className="min-w-0">
-                  <p style={{
-                    fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "rgba(255,255,255,0.75)",
-                    fontSize: "clamp(9px,0.75vw,11px)", letterSpacing: "0.4px",
-                  }}>
-                    {cat.sub}
-                  </p>
-                  <p style={{
-                    fontFamily: "'Playfair Display', serif", fontWeight: 600, color: "#fff",
-                    fontSize: "clamp(14px,1.5vw,19px)", lineHeight: 1.15,
-                  }} className="truncate">
-                    {cat.label}
-                  </p>
-                </div>
-                <Icon name="ArrowRight" size={16} className="flex-shrink-0 text-white/85 transition-transform group-hover:translate-x-1" />
-              </div>
+                Смотреть <Icon name="ArrowRight" size={13} className="transition-transform group-hover:translate-x-1" />
+              </span>
             </button>
           ))}
         </div>
