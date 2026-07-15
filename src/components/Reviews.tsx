@@ -1,8 +1,6 @@
-// Замените ссылки на скриншоты отзывов из соцсетей — просто вставьте свои картинки в этот массив
-const reviewImages: string[] = [
-  // "https://cdn.poehali.dev/projects/.../review1.jpg",
-  // "https://cdn.poehali.dev/projects/.../review2.jpg",
-]
+import Icon from "@/components/ui/icon"
+
+const AVITO_REVIEWS_URL = "https://www.avito.ru/brands/e3b2779c65bbfbebf0c6f8cc9b83560d/all/predlozheniya_uslug?src=search_seller_info&iid=7996058774&sellerId=e8acc862640907c79b11468f828a14e2"
 
 export function Reviews() {
   return (
@@ -20,27 +18,25 @@ export function Reviews() {
           </h2>
         </div>
 
-        {reviewImages.length === 0 ? (
-          <div
-            className="text-center py-16 sm:py-24 rounded-3xl"
-            style={{ background: "rgba(124,58,237,0.04)", border: "1px dashed #d8c8fa" }}
+        <div className="text-center">
+          <a
+            href={AVITO_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 transition-transform hover:scale-105"
+            style={{
+              background: "linear-gradient(135deg,#7c3aed,#a855f7)",
+              color: "#fff", borderRadius: 999, padding: "16px 32px",
+              fontWeight: 700, fontSize: "clamp(14px,1.6vw,17px)",
+              fontFamily: "'Montserrat', sans-serif",
+              boxShadow: "0 8px 24px rgba(124,58,237,0.3)",
+            }}
           >
-            <p style={{ fontFamily: "'Montserrat', sans-serif", color: "#8a7d9c", fontSize: 15 }}>
-              Здесь скоро появятся отзывы наших клиентов
-            </p>
-          </div>
-        ) : (
-          <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 sm:gap-5 [column-fill:_balance]">
-            {reviewImages.map((src, i) => (
-              <div
-                key={i}
-                className="mb-4 sm:mb-5 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 break-inside-avoid"
-              >
-                <img src={src} alt={`Отзыв клиента ${i + 1}`} className="w-full h-auto block" />
-              </div>
-            ))}
-          </div>
-        )}
+            <Icon name="Star" size={20} />
+            Наши живые отзывы с Авито
+            <Icon name="ArrowUpRight" size={18} />
+          </a>
+        </div>
       </div>
     </section>
   )

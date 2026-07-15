@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useFavorites } from "@/context/FavoritesContext"
 import Icon from "@/components/ui/icon"
 import { Footer } from "@/components/Footer"
@@ -6,10 +7,18 @@ import { getAllCompositions } from "@/data/catalogData"
 
 export default function Favorites() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { favorites, toggleFavorite } = useFavorites()
 
   const allItems = getAllCompositions()
   const items = allItems.filter(c => favorites.includes(c.id))
+
+  useEffect(() => {
+    const restoreScrollY = (location.state as { restoreScrollY?: number } | null)?.restoreScrollY
+    if (typeof restoreScrollY === "number") {
+      window.scrollTo({ top: restoreScrollY, behavior: "instant" })
+    }
+  }, [])
 
   return (
     <main className="min-h-screen pt-[clamp(60px,7.5vw,86px)]">
@@ -52,7 +61,7 @@ export default function Favorites() {
               <div
                 key={`fav-${item.id}-${idx}`}
                 className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
-                onClick={() => navigate("/composition", { state: { item, scrollY: 0, backPath: "/favorites" } })}
+                onClick={() => navigate("/composition", { state: { item, scrollY: window.scrollY, backPath: "/favorites" } })}
               >
                 <img
                   src={item.image}

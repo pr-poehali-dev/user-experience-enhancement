@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { Hero } from "@/components/Hero"
 import { PopularPackages } from "@/components/PopularPackages"
 import { Reviews } from "@/components/Reviews"
@@ -103,7 +103,14 @@ function CatalogCTA() {
 }
 
 export default function Index() {
+  const location = useLocation()
+
   useEffect(() => {
+    const restoreScrollY = (location.state as { restoreScrollY?: number } | null)?.restoreScrollY
+    if (typeof restoreScrollY === "number") {
+      window.scrollTo({ top: restoreScrollY, behavior: "instant" })
+      return
+    }
     if (window.location.hash) {
       const id = window.location.hash.replace("#", "")
       setTimeout(() => {

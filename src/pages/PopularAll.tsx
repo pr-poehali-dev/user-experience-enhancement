@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 import { Footer } from "@/components/Footer"
 import { Composition, getPopularCompositions } from "@/data/catalogData"
@@ -16,11 +16,16 @@ const FILTERS: { label: string; sub: string[] | null }[] = [
 
 export default function PopularAll() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [filter, setFilter] = useState("Все")
   const [packages, setPackages] = useState<Composition[]>([])
 
   useEffect(() => {
     setPackages(getPopularCompositions())
+    const restoreScrollY = (location.state as { restoreScrollY?: number } | null)?.restoreScrollY
+    if (typeof restoreScrollY === "number") {
+      window.scrollTo({ top: restoreScrollY, behavior: "instant" })
+    }
   }, [])
 
   const activeFilter = FILTERS.find(f => f.label === filter)
