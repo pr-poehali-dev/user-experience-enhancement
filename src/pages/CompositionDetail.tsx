@@ -21,9 +21,10 @@ export default function CompositionDetail() {
   const backScrollY: number = location.state?.scrollY ?? 0
   const backPath: string = location.state?.backPath ?? "/"
 
-  const [showFill, setShowFill] = useState(true)
+  const [showFill, setShowFill] = useState(false)
   const [showDelivery, setShowDelivery] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
+  const [zoomed, setZoomed] = useState(false)
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })
@@ -70,8 +71,9 @@ export default function CompositionDetail() {
             {/* ══════ ЛЕВАЯ КОЛОНКА: ФОТО ══════ */}
             <div className="relative">
               <div
-                className="relative w-full flex items-center justify-center overflow-hidden"
-                style={{ background: "linear-gradient(160deg,#f5f0ff 0%,#faf5ff 100%)", height: "min(60vh, 620px)" }}
+                className="relative w-full flex items-center justify-center overflow-hidden cursor-zoom-in"
+                style={{ background: "linear-gradient(160deg,#f5f0ff 0%,#faf5ff 100%)", height: "min(78vh, 760px)" }}
+                onClick={() => setZoomed(true)}
               >
                 <img
                   src={item.image}
@@ -87,9 +89,23 @@ export default function CompositionDetail() {
                   }}
                 />
 
+                {/* Подсказка «увеличить» */}
+                <div
+                  className="absolute bottom-4 right-4 flex items-center gap-1.5 shadow-md"
+                  style={{
+                    background: "rgba(255,255,255,0.92)", backdropFilter: "blur(6px)",
+                    borderRadius: 999, padding: "7px 14px",
+                    color: "#7c3aed", fontWeight: 700, fontSize: 12,
+                    fontFamily: "'Montserrat', sans-serif",
+                  }}
+                >
+                  <Icon name="ZoomIn" size={14} />
+                  Увеличить
+                </div>
+
                 {/* Кнопка «Назад» — поверх фото */}
                 <button
-                  onClick={goBack}
+                  onClick={(e) => { e.stopPropagation(); goBack() }}
                   className="absolute top-4 left-4 flex items-center gap-1.5 shadow-md"
                   style={{
                     border: "none", background: "rgba(255,255,255,0.92)", backdropFilter: "blur(6px)",
@@ -106,7 +122,7 @@ export default function CompositionDetail() {
 
                 {/* Избранное — поверх фото */}
                 <button
-                  onClick={() => toggleFavorite(item.id)}
+                  onClick={(e) => { e.stopPropagation(); toggleFavorite(item.id) }}
                   className="absolute top-4 right-4 shadow-md"
                   style={{
                     width: 40, height: 40, borderRadius: "50%", border: "none",
@@ -345,6 +361,32 @@ export default function CompositionDetail() {
 
       {/* Отступ снизу под fixed-панель на мобиле */}
       <div className="lg:hidden" style={{ height: 82 }} />
+
+      {/* ── Лайтбокс: увеличенное фото ── */}
+      {zoomed && (
+        <div
+          className="fixed inset-0 flex items-center justify-center p-4"
+          style={{ zIndex: 200, background: "rgba(26,16,36,0.92)", backdropFilter: "blur(4px)" }}
+          onClick={() => setZoomed(false)}
+        >
+          <button
+            onClick={() => setZoomed(false)}
+            className="absolute top-5 right-5 flex items-center justify-center shadow-lg"
+            style={{ width: 44, height: 44, borderRadius: "50%", border: "none", background: "rgba(255,255,255,0.15)", cursor: "pointer" }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+          <img
+            src={item.image}
+            alt={item.title}
+            className="max-w-full max-h-full"
+            style={{ objectFit: "contain", borderRadius: 16 }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <FloatingSocials />
     </div>

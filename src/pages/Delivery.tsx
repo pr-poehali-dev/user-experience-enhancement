@@ -15,17 +15,9 @@ const SOCIALS = [
     icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> },
 ]
 
-const STEPS = [
-  { icon: "PhoneCall", title: "Оформляете заказ", desc: "Звонок, сайт или соцсети — как вам удобно" },
-  { icon: "PackageCheck", title: "Собираем композицию", desc: "Аккуратно упаковываем шары под ваш заказ" },
-  { icon: "Truck", title: "Везём в удобное время", desc: "Курьер приедет точно в выбранный интервал" },
-  { icon: "Sparkles", title: "Вручаем радость", desc: "Дарите праздник себе и близким" },
-]
-
 const PRICE_ROWS = [
   { icon: "Gift", title: "Бесплатно", desc: "при заказе от 3 500 ₽", bg: "#f0fdf4", iconBg: "#16a34a", color: "#15803d" },
-  { icon: "Truck", title: "150 — 500 ₽", desc: "при заказе менее 3 500 ₽ — зависит от района", bg: "#fff7ed", iconBg: "#f97316", color: "#1a1024" },
-  { icon: "MapPinned", title: "Краснодарский край", desc: "выезжаем за город — уточняйте стоимость", bg: "#faf5ff", iconBg: "#7c3aed", color: "#1a1024" },
+  { icon: "Truck", title: "150 — 500 ₽", desc: "при заказе менее 3 500 ₽", bg: "#fff7ed", iconBg: "#f97316", color: "#1a1024" },
 ]
 
 export default function Delivery() {
@@ -37,9 +29,8 @@ export default function Delivery() {
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 85% 10%, #f3ebff 0%, transparent 55%), radial-gradient(ellipse 70% 60% at 10% 90%, #fbeafd 0%, transparent 55%)" }} />
         <span className="hidden lg:block absolute" style={{ top: "14%", left: "8%", fontSize: 18, color: "#c4a3f7" }}>✦</span>
         <span className="hidden lg:block absolute" style={{ top: "22%", right: "12%", fontSize: 14, color: "#e3b8ea" }}>✦</span>
-        <span className="hidden lg:block absolute" style={{ bottom: "16%", left: "20%", fontSize: 12, color: "#c4a3f7" }}>✦</span>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-10 sm:pb-16 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-10 sm:pb-14 text-center">
           <p style={{
             fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 12,
             letterSpacing: "2px", textTransform: "uppercase", color: "#a855f7", marginBottom: 10,
@@ -62,59 +53,6 @@ export default function Delivery() {
           }}>
             Работаем 24/7 — привезём в любое время, в любой район Краснодара
           </p>
-
-          {/* Быстрые плашки */}
-          <div className="flex flex-wrap justify-center gap-3 mt-8 sm:mt-10">
-            {[
-              { icon: "Gift", title: "Бесплатно", sub: "от 3500 ₽" },
-              { icon: "Truck", title: "150–500 ₽", sub: "по Краснодару" },
-              { icon: "Clock", title: "Круглосуточно", sub: "24/7, без выходных" },
-            ].map((b) => (
-              <div key={b.title} className="flex items-center gap-3 bg-white rounded-2xl pl-3 pr-5 py-3 shadow-sm" style={{ border: "1px solid #ece4fb" }}>
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
-                >
-                  <Icon name={b.icon} size={16} className="text-white" />
-                </div>
-                <div className="text-left">
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 13, color: "#1a1024" }}>{b.title}</p>
-                  <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: 11, color: "#8a7d9c" }}>{b.sub}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════ КАК ПРОХОДИТ ДОСТАВКА ══════ */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
-        <h2 className="text-center mb-8 sm:mb-10" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(22px,2vw,30px)", color: "#1a1024" }}>
-          Как проходит доставка
-        </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {STEPS.map((s, i) => (
-            <div key={s.title} className="relative bg-white rounded-3xl p-5 sm:p-6 shadow-sm" style={{ border: "1px solid #ece4fb" }}>
-              <span
-                className="absolute -top-3 -left-3 w-7 h-7 rounded-full flex items-center justify-center"
-                style={{ background: "#1a1024", color: "#fff", fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 12 }}
-              >
-                {i + 1}
-              </span>
-              <div
-                className="w-11 h-11 rounded-2xl flex items-center justify-center mb-3"
-                style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
-              >
-                <Icon name={s.icon} size={20} className="text-white" />
-              </div>
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: "#1a1024", marginBottom: 4 }}>
-                {s.title}
-              </p>
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12.5, color: "#8a7d9c", lineHeight: 1.4 }}>
-                {s.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -149,63 +87,36 @@ export default function Delivery() {
           </div>
         </div>
 
-        {/* Самовывоз */}
-        <div className="bg-white rounded-3xl shadow-sm p-6" style={{ border: "1px solid #ece4fb" }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
-            >
-              <Icon name="Store" size={18} className="text-white" />
-            </div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(18px,1.6vw,22px)", color: "#1a1024" }}>
-              Самовывоз
-            </h2>
-          </div>
+        {/* Самовывоз + График — в одной карточке */}
+        <div className="bg-white rounded-3xl shadow-sm overflow-hidden" style={{ border: "1px solid #ece4fb" }}>
           <a
             href={MAP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-start gap-4 p-4 rounded-2xl transition-colors group"
-            style={{ background: "#faf5ff" }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f1e6fe"}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#faf5ff"}
+            className="flex items-center gap-4 px-6 py-5 transition-colors group"
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#faf5ff"}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
           >
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>
-              <Icon name="MapPin" size={18} className="text-white" />
+            <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>
+              <Icon name="MapPin" size={19} className="text-white" />
             </div>
             <div className="flex-1">
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: "#1a1024" }}>
-                р-н Губернский: ул. Героя Яцкова 19к3
+                Самовывоз: ул. Героя Яцкова 19к3
               </p>
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: "#8a7d9c" }}>
                 г. Краснодар · нажмите, чтобы открыть на карте
               </p>
             </div>
-            <Icon name="ExternalLink" size={15} className="mt-1 flex-shrink-0" style={{ color: "#a855f7" }} />
+            <Icon name="ExternalLink" size={15} className="flex-shrink-0" style={{ color: "#a855f7" }} />
           </a>
-        </div>
-
-        {/* График работы */}
-        <div className="bg-white rounded-3xl shadow-sm p-6" style={{ border: "1px solid #ece4fb" }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
-            >
-              <Icon name="Clock" size={18} className="text-white" />
-            </div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(18px,1.6vw,22px)", color: "#1a1024" }}>
-              График работы
-            </h2>
-          </div>
-          <div className="flex items-center gap-4 p-4 rounded-2xl" style={{ background: "linear-gradient(135deg,#f5f3ff,#fbeafd)" }}>
+          <div className="flex items-center gap-4 px-6 py-5" style={{ borderTop: "1px solid #f0ebff" }}>
             <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}>
-              <Icon name="Clock" size={20} className="text-white" />
+              <Icon name="Clock" size={19} className="text-white" />
             </div>
             <div>
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 16, color: "#7c3aed" }}>Круглосуточно, 24/7</p>
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 13, color: "#8a7d9c" }}>Без выходных и праздников</p>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: "#1a1024" }}>Круглосуточно, 24/7</p>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: "#8a7d9c" }}>Без выходных и праздников</p>
             </div>
           </div>
         </div>

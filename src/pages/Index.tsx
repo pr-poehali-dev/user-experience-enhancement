@@ -10,29 +10,29 @@ import Icon from "@/components/ui/icon"
 const CATEGORIES = [
   {
     path: "/catalog/girl", label: "Для неё", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/07a8e9dd-25ba-4fae-bede-f14b8a502903.png",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d0cdaf71-1d44-42ee-bd91-49d0fc2e8d31.png",
     big: true,
   },
   {
     path: "/catalog/man", label: "Для него", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/01e7ae2d-2743-430b-a430-07f040a6c6dc.jpg",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b2179bc5-243d-4aa8-a18e-f5e969b876b7.png",
     big: true,
   },
   {
     path: "/catalog/boy", label: "Мальчику", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/76c876c4-614f-4868-9130-65c236898921.jpg",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/d076abaf-d279-41ef-95c6-bae6555c1284.png",
   },
   {
     path: "/catalog/kid-girl", label: "Девочке", sub: "День рождения",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/6a5360b0-6642-40fa-bb31-5466cd723b06.jpg",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/8ce51e50-43e0-4764-b99c-810fc742af30.png",
   },
   {
     path: "/catalog/girl-discharge", label: "Выписка девочки", sub: "Встречаем малыша",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a405d4b5-92f0-4271-94ea-f3dce8d6d0e9.jpg",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/f833217e-a2c5-4e23-bef0-d8037e1e4218.png",
   },
   {
     path: "/catalog/boy-discharge", label: "Выписка мальчика", sub: "Встречаем малыша",
-    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/58820ce5-b53c-4276-afeb-c386a1b9b2d6.jpg",
+    image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/9635c9bd-040a-400c-a2f6-333251e4c305.png",
   },
 ]
 
