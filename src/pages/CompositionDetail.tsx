@@ -6,10 +6,9 @@ import { FloatingSocials } from "@/components/FloatingSocials"
 import Icon from "@/components/ui/icon"
 
 const SOCIALS = [
+  { label: "Max", href: "https://vk.com/sharovik_krd", bg: "#1e3a5f" },
   { label: "WhatsApp", href: "https://wa.me/79885973303", bg: "#25D366" },
   { label: "Telegram", href: "https://t.me/sharovik_krd", bg: "#229ED9" },
-  { label: "ВКонтакте", href: "https://vk.com/sharovik_krd", bg: "#0077FF" },
-  { label: "Instagram", href: "https://instagram.com/sharovik_krd", bg: "linear-gradient(45deg,#f09433,#dc2743,#bc1888)" },
 ]
 
 export default function CompositionDetail() {
@@ -251,11 +250,11 @@ export default function CompositionDetail() {
                 >
                   <div className="flex items-center gap-2.5" style={{ padding: "9px 0", borderBottom: "1px solid #d1fae5", fontSize: 13.5, color: "#166534", fontFamily: "'Montserrat', sans-serif" }}>
                     <span style={{ fontSize: 17, flexShrink: 0 }}>🎁</span>
-                    <span>от 3 500 ₽ — <strong>бесплатно</strong></span>
+                    <span>от 4 000 ₽ — <strong>бесплатно</strong> (кроме районов Западный Обход, Юбилейный, Пашковский)</span>
                   </div>
                   <div className="flex items-center gap-2.5" style={{ padding: "9px 0", borderBottom: "1px solid #d1fae5", fontSize: 13.5, color: "#92400e", fontFamily: "'Montserrat', sans-serif" }}>
                     <span style={{ fontSize: 17, flexShrink: 0 }}>🚚</span>
-                    <span>менее 3 500 ₽ — <strong>150–500 ₽</strong></span>
+                    <span>менее 4 000 ₽ — <strong>от 150 ₽</strong></span>
                   </div>
                   <div className="flex items-center gap-2.5" style={{ padding: "9px 0", fontSize: 13.5, color: "#5b21b6", fontFamily: "'Montserrat', sans-serif" }}>
                     <span style={{ fontSize: 17, flexShrink: 0 }}>📍</span>
