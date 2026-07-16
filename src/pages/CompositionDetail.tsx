@@ -7,8 +7,8 @@ import Icon from "@/components/ui/icon"
 
 const SOCIALS = [
   { label: "Max", href: "https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s", bg: "#1e3a5f" },
-  { label: "WhatsApp", href: "https://wa.me/79885973303", bg: "#25D366" },
-  { label: "Telegram", href: "https://t.me/sharovik_krd", bg: "#229ED9" },
+  { label: "WhatsApp", href: "https://wa.me/message/SIGCSZPAMQ34J1", bg: "#25D366" },
+  { label: "Telegram", href: "https://t.me/vikashariki", bg: "#229ED9" },
 ]
 
 export default function CompositionDetail() {

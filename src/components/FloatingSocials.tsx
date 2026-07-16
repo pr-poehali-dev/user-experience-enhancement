@@ -3,7 +3,7 @@ import { useState } from "react"
 const SOCIALS = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/79885973303",
+    href: "https://wa.me/message/SIGCSZPAMQ34J1",
     bg: "#25D366",
     icon: (
       <svg width="22" height="22" viewBox="0 0 32 32" fill="white">
@@ -13,7 +13,7 @@ const SOCIALS = [
   },
   {
     label: "Telegram",
-    href: "https://t.me/sharovik_krd",
+    href: "https://t.me/vikashariki",
     bg: "#229ED9",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white">

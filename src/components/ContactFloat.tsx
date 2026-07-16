@@ -10,7 +10,7 @@ const contacts = [
   },
   {
     label: "Telegram",
-    href: "#",
+    href: "https://t.me/vikashariki",
     icon: "Send",
     bg: "linear-gradient(135deg, #60a5fa, #3b82f6)",
   },
@@ -28,7 +28,7 @@ const contacts = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/79885973303",
+    href: "https://wa.me/message/SIGCSZPAMQ34J1",
     icon: "MessageSquare",
     bg: "linear-gradient(135deg, #4ade80, #16a34a)",
   },

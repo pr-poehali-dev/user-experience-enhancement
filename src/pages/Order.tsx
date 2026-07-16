@@ -35,7 +35,7 @@ export default function Order() {
     )
 
     // Сразу открываем WhatsApp
-    window.open(`https://wa.me/79885973303?text=${waText}`, "_blank")
+    window.open(`https://wa.me/message/SIGCSZPAMQ34J1?text=${waText}`, "_blank")
     setSent(true)
   }
 

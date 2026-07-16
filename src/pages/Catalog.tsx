@@ -959,7 +959,7 @@ export default function Catalog() {
             <span className="text-6xl mb-6 block">🎀</span>
             <p className="text-xl font-medium mb-2">Раздел скоро появится</p>
             <p className="text-sm">Пока можете заказать любую композицию через мессенджер</p>
-            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors shadow-md">
+            <a href="https://wa.me/message/SIGCSZPAMQ34J1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors shadow-md">
               <Icon name="MessageSquare" size={18} /> Написать в WhatsApp
             </a>
           </div>
@@ -987,7 +987,7 @@ export default function Catalog() {
             <span className="text-6xl mb-6 block">✨</span>
             <p className="text-xl font-medium mb-2">Раздел скоро появится</p>
             <p className="text-sm">Опишите желаемую композицию в мессенджере — подберём под вас</p>
-            <a href="https://wa.me/79885973303" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors shadow-md">
+            <a href="https://wa.me/message/SIGCSZPAMQ34J1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors shadow-md">
               <Icon name="MessageSquare" size={18} /> Написать в WhatsApp
             </a>
           </div>
