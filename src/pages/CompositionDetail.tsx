@@ -6,9 +6,9 @@ import { FloatingSocials } from "@/components/FloatingSocials"
 import Icon from "@/components/ui/icon"
 
 const SOCIALS = [
-  { label: "Max", href: "https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s", bg: "#1e3a5f" },
-  { label: "WhatsApp", href: "https://wa.me/message/SIGCSZPAMQ34J1", bg: "#25D366" },
-  { label: "Telegram", href: "https://t.me/vikashariki", bg: "#229ED9" },
+  { label: "Max", href: "https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s", bg: "#1e3a5f", icon: "Flame" },
+  { label: "WhatsApp", href: "https://wa.me/message/SIGCSZPAMQ34J1", bg: "#25D366", icon: "MessageCircle" },
+  { label: "Telegram", href: "https://t.me/vikashariki", bg: "#229ED9", icon: "Send" },
 ]
 
 export default function CompositionDetail() {
@@ -263,54 +263,44 @@ export default function CompositionDetail() {
                 </div>
               )}
 
-              {/* ── Кнопки заказа (в потоке, десктоп) ── */}
-              <div className="hidden lg:flex gap-2.5 mt-6">
+              {/* ── Кнопка заказа (в потоке, десктоп) ── */}
+              <div className="hidden lg:block mt-6">
                 <button
                   onClick={() => goOrder("order")}
-                  className="flex-1 transition-transform hover:scale-[1.02]"
+                  className="w-full transition-transform hover:scale-[1.02]"
                   style={{
-                    padding: "15px", borderRadius: 16, border: "none",
+                    padding: "17px", borderRadius: 16, border: "none",
                     background: "linear-gradient(135deg,#7c3aed,#a855f7)", color: "#fff",
-                    fontWeight: 800, fontSize: 14.5, cursor: "pointer",
+                    fontWeight: 800, fontSize: 16, cursor: "pointer",
                     fontFamily: "'Montserrat', sans-serif",
                     boxShadow: "0 6px 20px rgba(124,58,237,0.35)",
                   }}
                 >
                   🎈 Оформить заказ
                 </button>
-                <button
-                  onClick={() => goOrder("details")}
-                  className="flex-1 transition-transform hover:scale-[1.02]"
-                  style={{
-                    padding: "15px", borderRadius: 16,
-                    border: "2px solid #7c3aed", background: "#faf5ff",
-                    color: "#7c3aed", fontWeight: 800, fontSize: 14.5, cursor: "pointer",
-                    fontFamily: "'Montserrat', sans-serif",
-                  }}
-                >
-                  💬 Уточнить детали
-                </button>
               </div>
 
               {/* ── Соцсети ── */}
-              <div className="mt-7">
-                <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#a99bc0", marginBottom: 10, fontFamily: "'Montserrat', sans-serif" }}>
-                  Написать нам
+              <div className="mt-8">
+                <p style={{ fontSize: 14, fontWeight: 600, color: "#5c5468", marginBottom: 14, fontFamily: "'Montserrat', sans-serif", lineHeight: 1.4 }}>
+                  По любым вопросам, звоните или пишите нам в мессенджеры:
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {SOCIALS.map(s => (
                     <a
                       key={s.label}
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center transition-transform hover:scale-105"
+                      className="inline-flex items-center gap-2.5 transition-transform hover:scale-105"
                       style={{
-                        padding: "8px 16px", borderRadius: 999, background: s.bg, color: "#fff",
-                        fontSize: 13, fontWeight: 700, textDecoration: "none",
+                        padding: "13px 24px", borderRadius: 999, background: s.bg, color: "#fff",
+                        fontSize: 16, fontWeight: 800, textDecoration: "none",
                         fontFamily: "'Montserrat', sans-serif",
+                        boxShadow: `0 6px 18px ${s.bg}55`,
                       }}
                     >
+                      <Icon name={s.icon} size={20} />
                       {s.label}
                     </a>
                   ))}
@@ -322,9 +312,9 @@ export default function CompositionDetail() {
         </div>
       </div>
 
-      {/* ── Кнопки снизу: фиксированы только на мобиле ── */}
+      {/* ── Кнопка снизу: фиксирована только на мобиле ── */}
       <div
-        className="fixed lg:hidden bottom-0 left-0 right-0 flex gap-2.5"
+        className="fixed lg:hidden bottom-0 left-0 right-0"
         style={{
           zIndex: 50,
           background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)",
@@ -336,25 +326,14 @@ export default function CompositionDetail() {
         <button
           onClick={() => goOrder("order")}
           style={{
-            flex: 1, padding: "14px", borderRadius: 16, border: "none",
+            width: "100%", padding: "14px", borderRadius: 16, border: "none",
             background: "linear-gradient(135deg,#7c3aed,#a855f7)", color: "#fff",
-            fontWeight: 800, fontSize: 14, cursor: "pointer",
+            fontWeight: 800, fontSize: 15, cursor: "pointer",
             fontFamily: "'Montserrat', sans-serif",
             boxShadow: "0 4px 16px rgba(124,58,237,0.4)",
           }}
         >
           🎈 Оформить заказ
-        </button>
-        <button
-          onClick={() => goOrder("details")}
-          style={{
-            flex: 1, padding: "14px", borderRadius: 16,
-            border: "2px solid #7c3aed", background: "#faf5ff",
-            color: "#7c3aed", fontWeight: 800, fontSize: 14, cursor: "pointer",
-            fontFamily: "'Montserrat', sans-serif",
-          }}
-        >
-          💬 Уточнить детали
         </button>
       </div>
 
