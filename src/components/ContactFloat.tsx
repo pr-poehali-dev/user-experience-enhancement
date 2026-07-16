@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon"
 const contacts = [
   {
     label: "Max",
-    href: "#",
+    href: "https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s",
     icon: "Flame",
     bg: "#1e3a5f",
   },

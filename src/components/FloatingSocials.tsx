@@ -23,7 +23,7 @@ const SOCIALS = [
   },
   {
     label: "Max",
-    href: "https://vk.com/sharovik_krd",
+    href: "https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s",
     bg: "#1e3a5f",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
