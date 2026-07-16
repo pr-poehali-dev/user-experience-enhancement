@@ -16,7 +16,6 @@ export const compositions: Record<string, Composition[]> = {
     { id: 12, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/b4c20dea-4a11-488c-b862-f7b4a26773a4.png", title: "Набор для девушки 12", description: "Цифры фольгированные (2шт), Хром шары фиолетовые (8шт), Пастель шары черные (5шт)", price: "4 340 ₽", priceNum: 4340, colors: ["purple", "black"], subcategory: "girl" },
 
     { id: 15, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/8f7c075c-87bf-476f-a6b8-629984c74a4a.jpg", title: "Набор для девушки 15", description: "Цифры фольгированные (2шт), Сердце фольгированное (1шт), Звезда фольгированная (1шт), Конфетти шары (2шт), Пастель шары (8шт)", price: "4 600 ₽", priceNum: 4600, colors: ["red", "rosegold"], subcategory: "girl" },
-    { id: 16, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/93df0c07-b260-4461-a39b-5d354e8dbe46.jpg", title: "Набор для девушки 16", description: "Шар-баблс Гигант латексный с надписью и бантиками (1шт), Сердце фольгированное с бантиками (1шт), Шары пастель с бантиками (6шт)", price: "4 280 ₽", priceNum: 4280, colors: ["pink"], subcategory: "girl" },
 
 
     { id: 20, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/45c49962-4e56-453b-8e46-8e58bdaa0df7.jpg", title: "Набор для девушки 20", description: "Шар-Баблс Гигант стеклянный с надписью и бантиками (1шт), Стеклянные шары с бантиками (7шт)", price: "4 920 ₽", priceNum: 4920, colors: ["white"], subcategory: "girl" },
@@ -32,7 +31,6 @@ export const compositions: Record<string, Composition[]> = {
 
     
 
-    { id: 38, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/cc0fa4b6-fbe3-4c29-9bae-067098ca7a60.jpg", title: "Набор для девушки 38", description: "Шар-Баблс гигант латексный с бантиками и надписью (1шт), Прозрачные шары с конфетти (2шт), Пастель шары (14шт)", price: "5 190 ₽", priceNum: 5190, colors: ["white", "pink", "cream"], subcategory: "girl" },
 
 
 
@@ -41,7 +39,6 @@ export const compositions: Record<string, Composition[]> = {
 
 
     { id: 50, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/41666dff-2472-484c-b318-dd34b08c91f7.jpg", title: "Набор для девушки 50", description: "Шар-баблс гигант стеклянный с бантиками и надписью (1шт), Стеклянные шары (10шт)", price: "5 170 ₽", priceNum: 5170, colors: ["pink"], subcategory: "girl" },
-    { id: 51, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a348bda7-dd6c-441c-84ad-1918bf4c2274.jpg", title: "Набор для девушки 51", description: "Шар-баблс гигант стеклянный с надписью (1шт), Цифры фольгированные (1шт), Бантик фольгированный (1шт), Стеклянные шары под потолок (8шт), Стеклянные шары на связке (4шт), Баблс прозрачный маленький на связке (не посчитан)", price: "8 180 ₽", priceNum: 8180, colors: ["cream", "black"], subcategory: "girl" },
     { id: 56, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7243c3dc-174b-4156-bc76-0b8dd610bc15.jpg", title: "Набор для девушки 56", description: "Звезда гигант фольгированная с надписью (1шт), Стеклянные шары с конфетти розовые и белые (7шт), Пастель шары черные (2шт)", price: "4 320 ₽", priceNum: 4320, colors: ["pink"], subcategory: "girl" },
 
 
@@ -63,7 +60,6 @@ export const compositions: Record<string, Composition[]> = {
 
 
 
-    { id: 82, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/40b47215-e536-4098-88e0-89d9a23812af.jpg", title: "Набор для девушки 82", description: "Шар-Баблс гигант прозрачный с фатином и надписью (1шт), Пастель шары пыльная роза с бантиками (20шт)", price: "6 400 ₽", priceNum: 6400, colors: ["pink"], subcategory: "girl" },
 
 
 
@@ -105,7 +101,6 @@ export const compositions: Record<string, Composition[]> = {
     { id: 142, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/ea6c4058-e00a-4899-92dd-3ef909796345.jpg", title: "Набор для девушки 142", description: "Шар-Цифра с бантиками (1шт), Пастель шары с бантиками (5шт), Ленты атласные (6шт)", price: "2 210 ₽", priceNum: 2210, colors: ["white"], subcategory: "girl" },
 
     { id: 148, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/faba83e4-a5bd-485c-8de7-57f40f279c2e.jpg", title: "Набор для девушки 148", description: "Шар-Баблс гигант стеклянный с конфетти и надписью (1шт), Сердца фольгированные (2шт), Стеклянные шары с конфетти (2шт), Пастель шары (5шт)", price: "5 230 ₽", priceNum: 5230, colors: ["pink", "cream"], subcategory: "girl" },
-    { id: 152, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/7d562783-4e29-48ea-985e-dd5fce5cc0ea.jpg", title: "Набор для девушки 152", description: "Шары-Цифры фольгированные (2шт), Шар-Баблс прозрачный с шариками внутри (1шт), Сердца фольгированные (2шт), Хром шары (2шт), Пастель шары (2шт)", price: "4 460 ₽", priceNum: 4460, colors: ["gold"], subcategory: "girl" },
 
     { id: 155, image: "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/01f23696-8f17-4dbe-aeaa-33ca61baaa73.jpg", title: "Набор для девушки 155", description: "Шары-Цифры (2шт), Прозрачные шары с конфетти (2шт), Хром шары серебро (4шт), Перламутр шары белые (4шт), Атласные ленты (12шт)", price: "4 030 ₽", priceNum: 4030, colors: ["silver"], subcategory: "girl" },
 

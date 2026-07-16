@@ -81,7 +81,7 @@ export default function CompositionDetail() {
                   style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: item.contain ? "contain" : "cover",
+                    objectFit: "contain",
                     display: "block",
                     opacity: imgLoaded ? 1 : 0,
                     transition: "opacity 0.4s",
