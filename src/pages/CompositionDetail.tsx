@@ -363,6 +363,20 @@ export default function CompositionDetail() {
             style={{ objectFit: "contain", borderRadius: 16 }}
             onClick={(e) => e.stopPropagation()}
           />
+          <button
+            onClick={(e) => { e.stopPropagation(); setZoomed(false) }}
+            className="absolute bottom-6 left-1/2 flex items-center gap-1.5 shadow-lg"
+            style={{
+              transform: "translateX(-50%)",
+              border: "none", background: "rgba(255,255,255,0.92)", backdropFilter: "blur(6px)",
+              borderRadius: 999, padding: "9px 18px",
+              color: "#7c3aed", fontWeight: 700, fontSize: 13,
+              fontFamily: "'Montserrat', sans-serif", cursor: "pointer",
+            }}
+          >
+            <Icon name="ZoomOut" size={16} />
+            Уменьшить
+          </button>
         </div>
       )}
 
