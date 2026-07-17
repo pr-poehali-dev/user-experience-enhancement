@@ -1,0 +1,2 @@
+UPDATE t_p47738118_user_experience_enha.composition_prices SET price = 4980, updated_at = NOW() WHERE composition_id = 10 AND subcategory = 'girl';
+UPDATE t_p47738118_user_experience_enha.composition_prices SET price = 3960, updated_at = NOW() WHERE composition_id = 11 AND subcategory = 'girl';
