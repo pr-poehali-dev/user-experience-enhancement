@@ -5,13 +5,13 @@ export function DeliveryPromo() {
   const navigate = useNavigate()
 
   return (
-    <section id="delivery-promo" className="py-10 sm:py-24 bg-gradient-to-b from-violet-50 to-white overflow-hidden">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="delivery-promo" className="py-10 sm:py-16 bg-gradient-to-b from-violet-50 to-white overflow-hidden">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div
-          className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden grid lg:grid-cols-1 items-center transition-transform duration-500 hover:scale-[1.01] hover:-translate-y-1"
+          className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden flex items-center justify-center transition-transform duration-500 hover:scale-[1.005] hover:-translate-y-1"
           style={{
             boxShadow: "0 20px 50px rgba(124,58,237,0.22)",
-            minHeight: "min(720px, 85vh)",
+            height: "clamp(180px, 22vw, 280px)",
           }}
         >
           {/* Фоновая фотография */}
@@ -30,51 +30,53 @@ export function DeliveryPromo() {
           />
 
           {/* Декоративные звёзды */}
-          <span className="hidden lg:block absolute z-10" style={{ top: "10%", left: "6%", fontSize: 18, color: "rgba(255,255,255,0.5)" }}>✦</span>
-          <span className="hidden lg:block absolute z-10" style={{ bottom: "14%", left: "16%", fontSize: 12, color: "rgba(255,255,255,0.4)" }}>✦</span>
+          <span className="hidden lg:block absolute z-10" style={{ top: "14%", left: "5%", fontSize: 16, color: "rgba(255,255,255,0.5)" }}>✦</span>
+          <span className="hidden lg:block absolute z-10" style={{ bottom: "16%", left: "12%", fontSize: 11, color: "rgba(255,255,255,0.4)" }}>✦</span>
 
-          {/* Текстовая часть */}
-          <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-14 sm:py-20 lg:py-24 text-center flex flex-col items-center">
-            <p style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 13,
-              letterSpacing: "2px", textTransform: "uppercase", color: "rgba(255,255,255,0.9)", marginBottom: 16,
-              textShadow: "0 1px 6px rgba(0,0,0,0.25)",
-            }}>
-              🚀 Работаем без выходных
-            </p>
-            <h2 style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 500,
-              fontSize: "clamp(32px, 4.4vw, 56px)", color: "#fff", lineHeight: 1.15,
-              textShadow: "0 2px 10px rgba(0,0,0,0.3)",
-            }}>
-              Круглосуточная{" "}
-              <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#fde68a" }}>
-                доставка
-              </span>{" "}
-              по Краснодару
-            </h2>
-            <p style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: "clamp(15px,1.3vw,19px)",
-              color: "rgba(255,255,255,0.92)", marginTop: 18, lineHeight: 1.6, maxWidth: 460,
-              textShadow: "0 1px 6px rgba(0,0,0,0.25)",
-            }} className="mx-auto">
-              Привезём шары в любое время дня и ночи — в любой район города, быстро и бережно
-            </p>
+          {/* Контент */}
+          <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-6 flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-10 text-center lg:text-left">
+            <div>
+              <p style={{
+                fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 11,
+                letterSpacing: "2px", textTransform: "uppercase", color: "rgba(255,255,255,0.9)", marginBottom: 6,
+                textShadow: "0 1px 6px rgba(0,0,0,0.25)",
+              }}>
+                🚀 Работаем без выходных
+              </p>
+              <h2 style={{
+                fontFamily: "'Playfair Display', serif", fontWeight: 500,
+                fontSize: "clamp(22px, 2.6vw, 34px)", color: "#fff", lineHeight: 1.15,
+                textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+              }}>
+                Круглосуточная{" "}
+                <span style={{ fontFamily: "'Marck Script', cursive", fontWeight: 400, color: "#fde68a" }}>
+                  доставка
+                </span>{" "}
+                по Краснодару
+              </h2>
+              <p style={{
+                fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: "clamp(13px,1vw,15px)",
+                color: "rgba(255,255,255,0.92)", marginTop: 8, lineHeight: 1.5, maxWidth: 420,
+                textShadow: "0 1px 6px rgba(0,0,0,0.25)",
+              }} className="mx-auto lg:mx-0">
+                Привезём шары в любое время дня и ночи — в любой район города
+              </p>
+            </div>
 
             <button
               onClick={() => navigate("/delivery")}
-              className="inline-flex items-center gap-2.5 transition-transform hover:scale-105 mt-10"
+              className="inline-flex items-center gap-2.5 transition-transform hover:scale-105 flex-shrink-0"
               style={{
                 background: "#fff",
-                color: "#7c3aed", borderRadius: 999, padding: "18px 36px",
-                fontWeight: 700, fontSize: "clamp(15px,1.7vw,18px)",
+                color: "#7c3aed", borderRadius: 999, padding: "14px 28px",
+                fontWeight: 700, fontSize: "clamp(13px,1.2vw,16px)",
                 fontFamily: "'Montserrat', sans-serif",
                 boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
               }}
             >
-              <Icon name="Clock" size={20} />
+              <Icon name="Clock" size={18} />
               Узнать условия
-              <Icon name="ArrowUpRight" size={18} />
+              <Icon name="ArrowUpRight" size={16} />
             </button>
           </div>
         </div>
