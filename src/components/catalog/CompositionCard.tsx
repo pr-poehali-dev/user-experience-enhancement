@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom"
-import { Composition } from "@/data/catalogData"
+import { Composition, COLOR_OPTIONS } from "@/data/catalogData"
 import { useFavorites } from "@/context/FavoritesContext"
 
 export default function CompositionCard({ item, backPath }: { item: Composition; backPath?: string }) {
   const navigate = useNavigate()
   const { toggleFavorite, isFavorite } = useFavorites()
+
+  const colorDetails = (item.colors ?? [])
+    .map(id => COLOR_OPTIONS.find(c => c.id === id))
+    .filter((c): c is typeof COLOR_OPTIONS[number] => Boolean(c))
 
   return (
     <div
@@ -38,6 +42,19 @@ export default function CompositionCard({ item, backPath }: { item: Composition;
       <div className="px-3 pt-2.5 pb-3">
         <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, color: "#1a1024" }} className="text-xs sm:text-sm leading-tight truncate">{item.title}</p>
         <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#6d28d9", letterSpacing: "0.2px" }} className="text-sm sm:text-base mt-1">{item.price}</p>
+        {colorDetails.length > 0 && (
+          <div className="flex flex-wrap gap-x-2 gap-y-1 mt-1.5">
+            {colorDetails.map(color => (
+              <span key={color.id} className="inline-flex items-center gap-1">
+                <span
+                  className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                  style={{ background: color.hex, border: color.border ? "1px solid #d1d5db" : undefined }}
+                />
+                <span style={{ fontFamily: "'Montserrat', sans-serif", color: "#8a7d9c" }} className="text-[10px] sm:text-xs">{color.label}</span>
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
