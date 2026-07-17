@@ -470,6 +470,23 @@ export default function CompositionGrid({
               <div className="px-3 pt-2.5 pb-3">
                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, color: "#1a1024" }} className="text-xs sm:text-sm leading-tight truncate">{item.title}</p>
                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#6d28d9", letterSpacing: "0.2px" }} className="text-sm sm:text-base mt-1">{item.price}</p>
+                {item.colors && item.colors.length > 0 && (
+                  <div className="flex flex-wrap gap-x-2 gap-y-1 mt-1.5">
+                    {item.colors.map(colorId => {
+                      const color = COLOR_OPTIONS.find(c => c.id === colorId)
+                      if (!color) return null
+                      return (
+                        <span key={color.id} className="inline-flex items-center gap-1">
+                          <span
+                            className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                            style={{ background: color.hex, border: color.border ? "1px solid #d1d5db" : undefined }}
+                          />
+                          <span style={{ fontFamily: "'Montserrat', sans-serif", color: "#8a7d9c" }} className="text-[10px] sm:text-xs">{color.label}</span>
+                        </span>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
             </div>
           ))}
