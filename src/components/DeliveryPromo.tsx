@@ -6,12 +6,12 @@ export function DeliveryPromo() {
 
   return (
     <section id="delivery-promo" className="py-10 sm:py-24 bg-gradient-to-b from-violet-50 to-white overflow-hidden">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden grid lg:grid-cols-2 items-center transition-transform duration-500 hover:scale-[1.01] hover:-translate-y-1"
+          className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden grid lg:grid-cols-1 items-center transition-transform duration-500 hover:scale-[1.01] hover:-translate-y-1"
           style={{
             boxShadow: "0 20px 50px rgba(124,58,237,0.22)",
-            minHeight: "min(640px, 82vh)",
+            minHeight: "min(720px, 85vh)",
           }}
         >
           {/* Фоновая фотография */}
@@ -34,7 +34,7 @@ export function DeliveryPromo() {
           <span className="hidden lg:block absolute z-10" style={{ bottom: "14%", left: "16%", fontSize: 12, color: "rgba(255,255,255,0.4)" }}>✦</span>
 
           {/* Текстовая часть */}
-          <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-14 sm:py-20 lg:py-24 text-center lg:text-left">
+          <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-14 sm:py-20 lg:py-24 text-center flex flex-col items-center">
             <p style={{
               fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 13,
               letterSpacing: "2px", textTransform: "uppercase", color: "rgba(255,255,255,0.9)", marginBottom: 16,
@@ -57,7 +57,7 @@ export function DeliveryPromo() {
               fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: "clamp(15px,1.3vw,19px)",
               color: "rgba(255,255,255,0.92)", marginTop: 18, lineHeight: 1.6, maxWidth: 460,
               textShadow: "0 1px 6px rgba(0,0,0,0.25)",
-            }} className="mx-auto lg:mx-0">
+            }} className="mx-auto">
               Привезём шары в любое время дня и ночи — в любой район города, быстро и бережно
             </p>
 
@@ -77,9 +77,6 @@ export function DeliveryPromo() {
               <Icon name="ArrowUpRight" size={18} />
             </button>
           </div>
-
-          {/* Пустая правая колонка — фото уже на фоне */}
-          <div className="relative hidden lg:block" style={{ minHeight: 640 }} />
         </div>
       </div>
     </section>
