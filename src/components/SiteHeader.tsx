@@ -18,12 +18,12 @@ const NAV_MOBILE = [
 ]
 
 const CATALOG_CATEGORIES = [
-  { label: "Для неё",           path: "/catalog/girl",           emoji: "🌹" },
-  { label: "Для него",          path: "/catalog/man",            emoji: "🎩" },
-  { label: "Для мальчика",      path: "/catalog/boy",            emoji: "🚀" },
-  { label: "Для девочки",       path: "/catalog/kid-girl",       emoji: "🎀" },
-  { label: "Выписка мальчика",  path: "/catalog/boy-discharge",  emoji: "👦" },
-  { label: "Выписка девочки",   path: "/catalog/girl-discharge", emoji: "👧" },
+  { label: "Для неё",           path: "/catalog/girl" },
+  { label: "Для него",          path: "/catalog/man" },
+  { label: "Для мальчика",      path: "/catalog/boy" },
+  { label: "Для девочки",       path: "/catalog/kid-girl" },
+  { label: "Выписка мальчика",  path: "/catalog/boy-discharge" },
+  { label: "Выписка девочки",   path: "/catalog/girl-discharge" },
 ]
 
 export function SiteHeader() {
@@ -156,11 +156,11 @@ export function SiteHeader() {
                 </button>
                 {catalogMenuOpen && (
                   <div
-                    className="grid grid-cols-2"
                     style={{
                       position: "absolute", top: "calc(100% + 12px)", left: "50%", transform: "translateX(-50%)",
                       background: "#fff", borderRadius: 18, boxShadow: "0 16px 40px rgba(124,58,237,0.16)",
-                      border: "1px solid #ece4fb", padding: 10, minWidth: 320, gap: 4, zIndex: 200,
+                      border: "1px solid #ece4fb", padding: 8, minWidth: 200, zIndex: 200,
+                      display: "flex", flexDirection: "column", gap: 2,
                     }}
                   >
                     {CATALOG_CATEGORIES.map(cat => (
@@ -168,16 +168,14 @@ export function SiteHeader() {
                         key={cat.path}
                         onClick={() => { setCatalogMenuOpen(false); go(cat.path) }}
                         style={{
-                          display: "flex", alignItems: "center", gap: 8,
-                          padding: "10px 12px", borderRadius: 12, border: "none",
+                          padding: "10px 14px", borderRadius: 12, border: "none",
                           background: "transparent", cursor: "pointer", textAlign: "left",
-                          fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 13.5,
+                          fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 14,
                           color: "#1a1024", transition: "background 0.15s", whiteSpace: "nowrap",
                         }}
                         onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
                         onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
                       >
-                        <span style={{ fontSize: 17 }}>{cat.emoji}</span>
                         {cat.label}
                       </button>
                     ))}
@@ -382,7 +380,6 @@ export function SiteHeader() {
                             onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
                             onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
                           >
-                            <span style={{ fontSize: 16 }}>{cat.emoji}</span>
                             {cat.label}
                           </button>
                         ))}
