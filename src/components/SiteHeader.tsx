@@ -224,9 +224,9 @@ export function SiteHeader() {
               <Icon name="Phone" size={12} style={{ color: "#a855f7" }} />
             </span>
             <span style={{
-              fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontWeight: 500,
-              fontSize: "clamp(17px,1.4vw,21px)", color: "#3a2d4d",
-              whiteSpace: "nowrap", letterSpacing: "0.4px",
+              fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
+              fontSize: "clamp(16px,1.3vw,19px)", color: "#3a2d4d",
+              whiteSpace: "nowrap", letterSpacing: "0.6px",
               fontVariantNumeric: "tabular-nums",
             }}>
               8 988 597 33 03
@@ -301,9 +301,9 @@ export function SiteHeader() {
               <Icon name="Phone" size={10} style={{ color: "#a855f7" }} />
             </span>
             <span style={{
-              fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontWeight: 500,
-              fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
-              fontVariantNumeric: "tabular-nums", letterSpacing: "0.1px",
+              fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
+              fontSize: 14, color: "#3a2d4d", whiteSpace: "nowrap",
+              fontVariantNumeric: "tabular-nums", letterSpacing: "0.4px",
             }}>
               8 988 597 33 03
             </span>
