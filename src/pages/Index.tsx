@@ -34,7 +34,7 @@ function CatalogCTA() {
 
         {/* ═══ МОБИЛЬНАЯ ВЕРСИЯ — с нуля ═══ */}
         <div className="lg:hidden">
-          <div className="text-center mb-5">
+          <div className="text-center mb-4">
             <h2 style={{
               fontFamily: "'Playfair Display', serif", fontWeight: 500,
               fontSize: 26, color: "#1a1024", lineHeight: 1.15,
@@ -46,7 +46,7 @@ function CatalogCTA() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-3 gap-2.5">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.path}
@@ -55,7 +55,7 @@ function CatalogCTA() {
                 style={{ border: "1px solid #ece4fb", boxShadow: "0 4px 16px rgba(124,58,237,0.08)" }}
               >
                 <div
-                  className="relative w-full overflow-hidden flex items-center justify-center p-3"
+                  className="relative w-full overflow-hidden flex items-center justify-center p-2.5"
                   style={{ aspectRatio: "1/1", background: "linear-gradient(160deg,#f5f0ff 0%,#ece4fb 100%)" }}
                 >
                   <img
@@ -64,22 +64,14 @@ function CatalogCTA() {
                     className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
-                <div className="flex items-center justify-between gap-1 px-3 py-2.5">
-                  <div className="min-w-0">
-                    <p style={{
-                      fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
-                      fontSize: 13.5, lineHeight: 1.25,
-                    }} className="truncate">
-                      {cat.label}
-                    </p>
-                    <p style={{
-                      fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#8a7d9c",
-                      fontSize: 11, marginTop: 1,
-                    }} className="truncate">
-                      {cat.sub}
-                    </p>
-                  </div>
-                  <Icon name="ArrowRight" size={15} className="flex-shrink-0" style={{ color: "#a855f7" }} />
+                <div className="flex items-center justify-between gap-1 px-2 py-2">
+                  <p style={{
+                    fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
+                    fontSize: 13, lineHeight: 1.2,
+                  }} className="truncate min-w-0">
+                    {cat.label}
+                  </p>
+                  <Icon name="ArrowRight" size={16} className="flex-shrink-0" style={{ color: "#7c3aed" }} />
                 </div>
               </button>
             ))}

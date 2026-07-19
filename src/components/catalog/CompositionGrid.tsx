@@ -20,12 +20,14 @@ function FilterDropdown({
   activeLabel,
   isActive,
   panel,
+  align = "left",
 }: {
   label: string
   icon: string
   activeLabel?: string
   isActive: boolean
   panel: (close: () => void) => React.ReactNode
+  align?: "left" | "right"
 }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -59,8 +61,8 @@ function FilterDropdown({
       </button>
       {open && (
         <div
-          className="absolute left-0 top-[calc(100%+8px)] z-50 bg-white rounded-2xl shadow-2xl"
-          style={{ minWidth: 260, border: "1px solid #ece4fb", padding: 16 }}
+          className={`absolute ${align === "right" ? "right-0" : "left-0"} top-[calc(100%+8px)] z-50 bg-white rounded-2xl shadow-2xl`}
+          style={{ minWidth: 260, maxWidth: "calc(100vw - 32px)", border: "1px solid #ece4fb", padding: 16 }}
         >
           {panel(() => setOpen(false))}
         </div>
@@ -406,6 +408,7 @@ export default function CompositionGrid({
         <FilterDropdown
           label="Выбрать бюджет"
           icon="💰"
+          align="right"
           isActive={minPrice !== "" || maxPrice !== ""}
           activeLabel={budgetActiveLabel}
           panel={(close) => (

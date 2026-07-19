@@ -11,7 +11,7 @@ const NAV_LINKS = [
 ]
 
 const NAV_MOBILE = [
-  { label: "Каталог",   target: "catalog-cta",      icon: "Balloon" },
+  { label: "Каталог",   target: "catalog-cta",      icon: "PartyPopper" },
   { label: "Популярное", path: "/popular",           icon: "Sparkles" },
   { label: "Доставка",  path: "/delivery", icon: "Truck" },
   { label: "Контакты",  path: "/contacts", icon: "Phone" },
@@ -277,10 +277,11 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div onClick={goHome} style={{ cursor: "pointer", textAlign: "center", lineHeight: 1.05, minWidth: 0, overflow: "hidden", flex: "1 1 auto", padding: "0 8px" }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 14, color: "#1a1024", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+        <div onClick={goHome} style={{ cursor: "pointer", textAlign: "center", lineHeight: 1.05, minWidth: 0, overflow: "hidden", flex: "1 1 auto", padding: "0 6px", display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 16.5, color: "#1a1024", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
             Victoria Balloons
           </div>
+          <span style={{ fontSize: 15, color: "#a855f7", marginTop: -14, flexShrink: 0 }}>✦</span>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
@@ -288,7 +289,7 @@ export function SiteHeader() {
             href="tel:+79885973303"
             style={{
               fontFamily: "'Playfair Display', serif", fontWeight: 600,
-              fontSize: 13, color: "#1a1024", whiteSpace: "nowrap",
+              fontSize: 15, color: "#1a1024", whiteSpace: "nowrap",
               fontVariantNumeric: "tabular-nums", letterSpacing: "0.1px",
             }}
           >
@@ -303,7 +304,7 @@ export function SiteHeader() {
             }}
             title="Избранное"
           >
-            <Icon name="Heart" size={19} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
+            <Icon name="Heart" size={20} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
             <span style={{
               position: "absolute", top: 1, right: 1,
               background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 9, fontWeight: 700,
@@ -414,10 +415,34 @@ export function SiteHeader() {
                 )
               ))}
             </nav>
-            <div style={{ padding: "16px 20px", borderTop: "1px solid #ece4fb" }}>
-              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", marginBottom: 6, fontWeight: 600 }}>
+            <div style={{ padding: "16px 20px", borderTop: "1px solid #ece4fb", display: "flex", flexDirection: "column", gap: 10 }}>
+              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}>
                 <Icon name="Phone" size={14} className="text-primary" />
                 8 988 597 33 03
+              </a>
+              <a
+                href="https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s"
+                target="_blank" rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}
+              >
+                <Icon name="Flame" size={14} style={{ color: "#1e3a5f" }} />
+                Max
+              </a>
+              <a
+                href="https://t.me/vikashariki"
+                target="_blank" rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}
+              >
+                <Icon name="Send" size={14} style={{ color: "#229ED9" }} />
+                Telegram
+              </a>
+              <a
+                href="https://wa.me/message/SIGCSZPAMQ34J1"
+                target="_blank" rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}
+              >
+                <Icon name="MessageCircle" size={14} style={{ color: "#25D366" }} />
+                WhatsApp
               </a>
             </div>
           </div>
