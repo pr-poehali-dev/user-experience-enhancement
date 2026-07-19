@@ -70,8 +70,8 @@ export default function CompositionDetail() {
             {/* ══════ ЛЕВАЯ КОЛОНКА: ФОТО ══════ */}
             <div className="relative">
               <div
-                className="relative w-full flex items-center justify-center overflow-hidden cursor-zoom-in"
-                style={{ background: "#ffffff", height: "min(78vh, 760px)" }}
+                className="relative w-full flex items-center justify-center overflow-hidden cursor-zoom-in h-[52vh] sm:h-[60vh] lg:h-[min(78vh,760px)]"
+                style={{ background: "#ffffff" }}
                 onClick={() => setZoomed(true)}
               >
                 <img
@@ -87,20 +87,6 @@ export default function CompositionDetail() {
                     transition: "opacity 0.4s",
                   }}
                 />
-
-                {/* Подсказка «увеличить» */}
-                <div
-                  className="absolute bottom-4 right-4 flex items-center gap-1.5 shadow-md"
-                  style={{
-                    background: "rgba(255,255,255,0.92)", backdropFilter: "blur(6px)",
-                    borderRadius: 999, padding: "7px 14px",
-                    color: "#7c3aed", fontWeight: 700, fontSize: 12,
-                    fontFamily: "'Montserrat', sans-serif",
-                  }}
-                >
-                  <Icon name="ZoomIn" size={14} />
-                  Увеличить
-                </div>
 
                 {/* Кнопка «Назад» — поверх фото */}
                 <button
@@ -142,7 +128,7 @@ export default function CompositionDetail() {
             </div>
 
             {/* ══════ ПРАВАЯ КОЛОНКА: ИНФОРМАЦИЯ ══════ */}
-            <div className="flex flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+            <div className="flex flex-col px-5 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 lg:px-10 lg:py-10">
 
               <span
                 className="inline-block self-start mb-3 px-3 py-1 rounded-full"
@@ -285,22 +271,23 @@ export default function CompositionDetail() {
                 <p style={{ fontSize: 14, fontWeight: 600, color: "#5c5468", marginBottom: 14, fontFamily: "'Montserrat', sans-serif", lineHeight: 1.4 }}>
                   По любым вопросам, звоните или пишите нам в мессенджеры:
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex gap-2 sm:gap-3">
                   {SOCIALS.map(s => (
                     <a
                       key={s.label}
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 transition-transform hover:scale-105"
+                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2.5 transition-transform hover:scale-105"
                       style={{
-                        padding: "13px 24px", borderRadius: 999, background: s.bg, color: "#fff",
-                        fontSize: 16, fontWeight: 800, textDecoration: "none",
+                        padding: "12px 10px", borderRadius: 999, background: s.bg, color: "#fff",
+                        fontSize: 13, fontWeight: 800, textDecoration: "none",
                         fontFamily: "'Montserrat', sans-serif",
                         boxShadow: `0 6px 18px ${s.bg}55`,
+                        whiteSpace: "nowrap",
                       }}
                     >
-                      <Icon name={s.icon} size={20} />
+                      <Icon name={s.icon} size={17} />
                       {s.label}
                     </a>
                   ))}
@@ -380,7 +367,9 @@ export default function CompositionDetail() {
         </div>
       )}
 
-      <FloatingSocials liftOnMobile />
+      <div className="hidden lg:block">
+        <FloatingSocials />
+      </div>
     </div>
   )
 }

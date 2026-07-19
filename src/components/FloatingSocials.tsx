@@ -62,10 +62,8 @@ export function FloatingSocials({ liftOnMobile }: { liftOnMobile?: boolean } = {
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95"
+        className={`flex items-center gap-2.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 ${open ? "p-0 w-16" : "p-0 lg:pl-5 lg:pr-2.5 lg:py-2.5 w-16 lg:w-auto"}`}
         style={{
-          padding: open ? "0" : "10px 10px 10px 20px",
-          width: open ? 64 : "auto",
           height: 64,
           justifyContent: "center",
           background: open ? "linear-gradient(135deg,#f43f5e,#e11d48)" : "linear-gradient(135deg,#7c3aed,#a855f7)",
@@ -76,7 +74,7 @@ export function FloatingSocials({ liftOnMobile }: { liftOnMobile?: boolean } = {
         aria-label={open ? "Закрыть" : "Напишите нам"}
       >
         {!open && (
-          <span style={{
+          <span className="hidden lg:inline" style={{
             color: "#fff", fontFamily: "'Montserrat', sans-serif", fontWeight: 700,
             fontSize: 14, whiteSpace: "nowrap",
           }}>
