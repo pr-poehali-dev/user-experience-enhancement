@@ -217,9 +217,9 @@ export function SiteHeader() {
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
           >
             <span style={{
-              fontFamily: "'Nunito', sans-serif", fontWeight: 300,
+              fontFamily: "'Playfair Display', serif", fontWeight: 500, fontStyle: "normal",
               fontSize: "clamp(17px,1.4vw,20px)", color: "#3a2d4d",
-              whiteSpace: "nowrap", letterSpacing: "1px",
+              whiteSpace: "nowrap", letterSpacing: "0.8px",
               fontVariantNumeric: "tabular-nums",
             }}>
               +7 988 597 33 03
@@ -291,9 +291,9 @@ export function SiteHeader() {
             style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1 }}
           >
             <span style={{
-              fontFamily: "'Nunito', sans-serif", fontWeight: 300,
+              fontFamily: "'Playfair Display', serif", fontWeight: 500, fontStyle: "normal",
               fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
-              letterSpacing: "0.7px",
+              letterSpacing: "0.6px",
               fontVariantNumeric: "tabular-nums",
             }}>
               +7 988 597 33 03
