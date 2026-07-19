@@ -246,7 +246,7 @@ export function SiteHeader() {
         style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
           alignItems: "center", justifyContent: "space-between",
-          padding: "0 14px", height: 58,
+          padding: "0 16px", height: 66,
           background: "#fff", borderBottom: "1px solid #ece4fb",
           boxShadow: scrolled ? "0 2px 14px rgba(124,58,237,0.07)" : "none",
           transition: "all 0.25s ease",
@@ -258,38 +258,31 @@ export function SiteHeader() {
         <button
           onClick={() => setMobileMenuOpen(v => !v)}
           style={{
-            width: 38, height: 38, borderRadius: 10, border: "none",
+            width: 44, height: 44, borderRadius: 12, border: "none",
             background: "rgba(124,58,237,0.08)",
             display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
           }}
           aria-label="Меню"
         >
           {mobileMenuOpen ? (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
             </svg>
           ) : (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="5.5" width="18" height="2.2" rx="1.1" fill="#7c3aed"/>
-              <rect x="3" y="10.9" width="18" height="2.2" rx="1.1" fill="#7c3aed"/>
-              <rect x="3" y="16.3" width="18" height="2.2" rx="1.1" fill="#7c3aed"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5.5" width="18" height="2.4" rx="1.2" fill="#7c3aed"/>
+              <rect x="3" y="10.9" width="18" height="2.4" rx="1.2" fill="#7c3aed"/>
+              <rect x="3" y="16.3" width="18" height="2.4" rx="1.2" fill="#7c3aed"/>
             </svg>
           )}
         </button>
 
-        <div onClick={goHome} style={{ cursor: "pointer", textAlign: "center", lineHeight: 1.05, minWidth: 0, overflow: "hidden", flex: "1 1 auto", padding: "0 6px", display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 16.5, color: "#1a1024", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-            Victoria Balloons
-          </div>
-          <span style={{ fontSize: 15, color: "#a855f7", marginTop: -14, flexShrink: 0 }}>✦</span>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
           <a
             href="tel:+79885973303"
             style={{
               fontFamily: "'Playfair Display', serif", fontWeight: 600,
-              fontSize: 15, color: "#1a1024", whiteSpace: "nowrap",
+              fontSize: 18, color: "#1a1024", whiteSpace: "nowrap",
               fontVariantNumeric: "tabular-nums", letterSpacing: "0.1px",
             }}
           >
@@ -298,17 +291,17 @@ export function SiteHeader() {
           <button
             onClick={() => navigate("/favorites")}
             style={{
-              position: "relative", width: 34, height: 34,
+              position: "relative", width: 38, height: 38,
               display: "flex", alignItems: "center", justifyContent: "center",
               border: "none", background: "transparent",
             }}
             title="Избранное"
           >
-            <Icon name="Heart" size={20} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
+            <Icon name="Heart" size={23} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
             <span style={{
               position: "absolute", top: 1, right: 1,
-              background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 9, fontWeight: 700,
-              borderRadius: "50%", minWidth: 15, height: 15,
+              background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 10, fontWeight: 700,
+              borderRadius: "50%", minWidth: 16, height: 16,
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>{count}</span>
           </button>
@@ -331,12 +324,13 @@ export function SiteHeader() {
             }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ padding: "0 20px 20px", borderBottom: "1px solid #ece4fb" }}>
+            <div style={{ padding: "0 20px 20px", borderBottom: "1px solid #ece4fb", display: "flex", justifyContent: "center" }}>
               <div
                 onClick={() => { navigate("/"); setMobileMenuOpen(false) }}
-                style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 20, color: "#1a1024", cursor: "pointer", lineHeight: 1.1 }}
+                style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 23, color: "#1a1024", cursor: "pointer", lineHeight: 1.15, textAlign: "center", display: "flex", alignItems: "center", gap: 6 }}
               >
                 Victoria Balloons
+                <span style={{ fontSize: 19, color: "#a855f7", marginTop: -18 }}>✦</span>
               </div>
             </div>
             <nav style={{ flex: 1, padding: "12px 8px", overflowY: "auto" }}>
@@ -415,33 +409,33 @@ export function SiteHeader() {
                 )
               ))}
             </nav>
-            <div style={{ padding: "16px 20px", borderTop: "1px solid #ece4fb", display: "flex", flexDirection: "column", gap: 10 }}>
-              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}>
-                <Icon name="Phone" size={14} className="text-primary" />
+            <div style={{ padding: "18px 20px", borderTop: "1px solid #ece4fb", display: "flex", flexDirection: "column", gap: 13 }}>
+              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}>
+                <Icon name="Phone" size={17} className="text-primary" />
                 8 988 597 33 03
               </a>
               <a
                 href="https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s"
                 target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}
               >
-                <Icon name="Flame" size={14} style={{ color: "#1e3a5f" }} />
+                <Icon name="Flame" size={17} style={{ color: "#1e3a5f" }} />
                 Max
               </a>
               <a
                 href="https://t.me/vikashariki"
                 target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}
               >
-                <Icon name="Send" size={14} style={{ color: "#229ED9" }} />
+                <Icon name="Send" size={17} style={{ color: "#229ED9" }} />
                 Telegram
               </a>
               <a
                 href="https://wa.me/message/SIGCSZPAMQ34J1"
                 target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#555", textDecoration: "none", fontWeight: 600 }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}
               >
-                <Icon name="MessageCircle" size={14} style={{ color: "#25D366" }} />
+                <Icon name="MessageCircle" size={17} style={{ color: "#25D366" }} />
                 WhatsApp
               </a>
             </div>
