@@ -1029,7 +1029,7 @@ export default function Catalog() {
   }
 
   return (
-    <div className="min-h-screen pt-[clamp(60px,7.5vw,86px)]" style={{ background: "#faf8ff" }}>
+    <div className="min-h-screen pt-[clamp(60px,7.5vw,86px)] bg-white">
       {renderContent()}
       <Footer />
       {section && <FloatingSocials />}

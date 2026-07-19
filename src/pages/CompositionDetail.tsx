@@ -71,7 +71,7 @@ export default function CompositionDetail() {
             <div className="relative">
               <div
                 className="relative w-full flex items-center justify-center overflow-hidden cursor-zoom-in"
-                style={{ background: "linear-gradient(160deg,#f5f0ff 0%,#faf5ff 100%)", height: "min(78vh, 760px)" }}
+                style={{ background: "#ffffff", height: "min(78vh, 760px)" }}
                 onClick={() => setZoomed(true)}
               >
                 <img

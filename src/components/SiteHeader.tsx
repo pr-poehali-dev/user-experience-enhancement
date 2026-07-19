@@ -170,8 +170,9 @@ export function SiteHeader() {
                         style={{
                           padding: "10px 14px", borderRadius: 12, border: "none",
                           background: "transparent", cursor: "pointer", textAlign: "left",
-                          fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 14,
-                          color: "#1a1024", transition: "background 0.15s", whiteSpace: "nowrap",
+                          fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
+                          fontSize: "clamp(14px,0.95vw,16px)",
+                          color: "#3a2d4d", transition: "background 0.15s", whiteSpace: "nowrap",
                         }}
                         onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
                         onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}

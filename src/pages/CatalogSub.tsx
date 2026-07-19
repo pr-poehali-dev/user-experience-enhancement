@@ -89,9 +89,9 @@ export default function CatalogSub() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: "#faf8ff" }}>
+    <div className="min-h-screen bg-white">
       {/* Компактный заголовок */}
-      <div className="pt-[clamp(58px,7.5vw,86px)]" style={{ background: "#faf8ff" }}>
+      <div className="pt-[clamp(58px,7.5vw,86px)] bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-1">
           <button
             onClick={() => navigate(-1)}
