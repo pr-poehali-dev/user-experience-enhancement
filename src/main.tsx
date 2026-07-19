@@ -4,6 +4,5 @@ import App from './App'
 import './index.css'
 import { syncCatalogPrices } from './lib/priceSync'
 
-syncCatalogPrices().finally(() => {
-  createRoot(document.getElementById("root")!).render(<App />);
-});
+createRoot(document.getElementById("root")!).render(<App />);
+syncCatalogPrices();

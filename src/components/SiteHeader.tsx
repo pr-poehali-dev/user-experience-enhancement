@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Icon from "@/components/ui/icon"
 import { useFavorites } from "@/context/FavoritesContext"
 
@@ -17,6 +17,15 @@ const NAV_MOBILE = [
   { label: "Контакты",  path: "/contacts", icon: "Phone" },
 ]
 
+const CATALOG_CATEGORIES = [
+  { label: "Для неё",           path: "/catalog/girl",           emoji: "🌹" },
+  { label: "Для него",          path: "/catalog/man",            emoji: "🎩" },
+  { label: "Для мальчика",      path: "/catalog/boy",            emoji: "🚀" },
+  { label: "Для девочки",       path: "/catalog/kid-girl",       emoji: "🎀" },
+  { label: "Выписка мальчика",  path: "/catalog/boy-discharge",  emoji: "👦" },
+  { label: "Выписка девочки",   path: "/catalog/girl-discharge", emoji: "👧" },
+]
+
 export function SiteHeader() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -24,12 +33,26 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [catalogMenuOpen, setCatalogMenuOpen] = useState(false)
+  const [catalogAccordionOpen, setCatalogAccordionOpen] = useState(false)
+  const catalogMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!catalogMenuOpen) return
+    const handler = (e: MouseEvent) => {
+      if (catalogMenuRef.current && !catalogMenuRef.current.contains(e.target as Node)) {
+        setCatalogMenuOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handler)
+    return () => document.removeEventListener("mousedown", handler)
+  }, [catalogMenuOpen])
 
   useEffect(() => {
     setMobileMenuOpen(false)
@@ -112,23 +135,74 @@ export function SiteHeader() {
           position: "absolute", left: "50%", transform: "translateX(-50%)",
         }}>
           {NAV_LINKS.map(item => (
-            <button
-              key={item.label}
-              onClick={() => item.target ? goToSection(item.target) : go(item.path!)}
-              style={{
-                background: "transparent", border: "none", cursor: "pointer",
-                display: "flex", alignItems: "center", gap: 4,
-                fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
-                fontSize: "clamp(14px,0.95vw,16px)",
-                color: item.path && location.pathname === item.path ? "#7c3aed" : "#3a2d4d",
-                transition: "color 0.2s", whiteSpace: "nowrap",
-                padding: "6px 2px",
-              }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = item.path && location.pathname === item.path ? "#7c3aed" : "#3a2d4d"}
-            >
-              {item.label}
-            </button>
+            item.target ? (
+              <div key={item.label} ref={catalogMenuRef} style={{ position: "relative" }}>
+                <button
+                  onClick={() => setCatalogMenuOpen(v => !v)}
+                  style={{
+                    background: "transparent", border: "none", cursor: "pointer",
+                    display: "flex", alignItems: "center", gap: 4,
+                    fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
+                    fontSize: "clamp(14px,0.95vw,16px)",
+                    color: catalogMenuOpen ? "#7c3aed" : "#3a2d4d",
+                    transition: "color 0.2s", whiteSpace: "nowrap",
+                    padding: "6px 2px",
+                  }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = catalogMenuOpen ? "#7c3aed" : "#3a2d4d"}
+                >
+                  {item.label}
+                  <Icon name="ChevronDown" size={14} style={{ transform: catalogMenuOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+                </button>
+                {catalogMenuOpen && (
+                  <div
+                    className="grid grid-cols-2"
+                    style={{
+                      position: "absolute", top: "calc(100% + 12px)", left: "50%", transform: "translateX(-50%)",
+                      background: "#fff", borderRadius: 18, boxShadow: "0 16px 40px rgba(124,58,237,0.16)",
+                      border: "1px solid #ece4fb", padding: 10, minWidth: 320, gap: 4, zIndex: 200,
+                    }}
+                  >
+                    {CATALOG_CATEGORIES.map(cat => (
+                      <button
+                        key={cat.path}
+                        onClick={() => { setCatalogMenuOpen(false); go(cat.path) }}
+                        style={{
+                          display: "flex", alignItems: "center", gap: 8,
+                          padding: "10px 12px", borderRadius: 12, border: "none",
+                          background: "transparent", cursor: "pointer", textAlign: "left",
+                          fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 13.5,
+                          color: "#1a1024", transition: "background 0.15s", whiteSpace: "nowrap",
+                        }}
+                        onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
+                        onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
+                      >
+                        <span style={{ fontSize: 17 }}>{cat.emoji}</span>
+                        {cat.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                key={item.label}
+                onClick={() => go(item.path!)}
+                style={{
+                  background: "transparent", border: "none", cursor: "pointer",
+                  display: "flex", alignItems: "center", gap: 4,
+                  fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
+                  fontSize: "clamp(14px,0.95vw,16px)",
+                  color: item.path && location.pathname === item.path ? "#7c3aed" : "#3a2d4d",
+                  transition: "color 0.2s", whiteSpace: "nowrap",
+                  padding: "6px 2px",
+                }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#7c3aed"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = item.path && location.pathname === item.path ? "#7c3aed" : "#3a2d4d"}
+              >
+                {item.label}
+              </button>
+            )
           ))}
         </nav>
 
@@ -265,31 +339,81 @@ export function SiteHeader() {
                 Victoria Balloons
               </div>
             </div>
-            <nav style={{ flex: 1, padding: "12px 8px" }}>
+            <nav style={{ flex: 1, padding: "12px 8px", overflowY: "auto" }}>
               {NAV_MOBILE.map(item => (
-                <button
-                  key={item.label}
-                  onClick={() => item.target ? goToSection(item.target) : go(item.path!)}
-                  style={{
-                    width: "100%", display: "flex", alignItems: "center", gap: 14,
-                    padding: "14px 16px", borderRadius: 14, border: "none",
-                    background: "transparent", cursor: "pointer", textAlign: "left",
-                    fontSize: 16, fontWeight: 600,
-                    fontFamily: "'Montserrat', sans-serif", color: "#1a1024",
-                    transition: "background 0.15s",
-                  }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
-                >
-                  <span style={{
-                    width: 38, height: 38, borderRadius: 12,
-                    background: "rgba(124,58,237,0.08)", color: "#7c3aed",
-                    display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                  }}>
-                    <Icon name={item.icon} size={18} />
-                  </span>
-                  {item.label}
-                </button>
+                item.target ? (
+                  <div key={item.label}>
+                    <button
+                      onClick={() => setCatalogAccordionOpen(v => !v)}
+                      style={{
+                        width: "100%", display: "flex", alignItems: "center", gap: 14,
+                        padding: "14px 16px", borderRadius: 14, border: "none",
+                        background: "transparent", cursor: "pointer", textAlign: "left",
+                        fontSize: 16, fontWeight: 600,
+                        fontFamily: "'Montserrat', sans-serif", color: "#1a1024",
+                        transition: "background 0.15s",
+                      }}
+                      onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
+                      onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
+                    >
+                      <span style={{
+                        width: 38, height: 38, borderRadius: 12,
+                        background: "rgba(124,58,237,0.08)", color: "#7c3aed",
+                        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                      }}>
+                        <Icon name={item.icon} size={18} />
+                      </span>
+                      <span style={{ flex: 1 }}>{item.label}</span>
+                      <Icon name="ChevronDown" size={16} style={{ color: "#8a7d9c", transform: catalogAccordionOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+                    </button>
+                    {catalogAccordionOpen && (
+                      <div style={{ paddingLeft: 12, display: "flex", flexDirection: "column", gap: 2, marginBottom: 4 }}>
+                        {CATALOG_CATEGORIES.map(cat => (
+                          <button
+                            key={cat.path}
+                            onClick={() => go(cat.path)}
+                            style={{
+                              display: "flex", alignItems: "center", gap: 10,
+                              padding: "11px 16px", borderRadius: 12, border: "none",
+                              background: "transparent", cursor: "pointer", textAlign: "left",
+                              fontSize: 14.5, fontWeight: 600,
+                              fontFamily: "'Montserrat', sans-serif", color: "#3a2d4d",
+                            }}
+                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
+                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
+                          >
+                            <span style={{ fontSize: 16 }}>{cat.emoji}</span>
+                            {cat.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => go(item.path!)}
+                    style={{
+                      width: "100%", display: "flex", alignItems: "center", gap: 14,
+                      padding: "14px 16px", borderRadius: 14, border: "none",
+                      background: "transparent", cursor: "pointer", textAlign: "left",
+                      fontSize: 16, fontWeight: 600,
+                      fontFamily: "'Montserrat', sans-serif", color: "#1a1024",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
+                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
+                  >
+                    <span style={{
+                      width: 38, height: 38, borderRadius: 12,
+                      background: "rgba(124,58,237,0.08)", color: "#7c3aed",
+                      display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                    }}>
+                      <Icon name={item.icon} size={18} />
+                    </span>
+                    {item.label}
+                  </button>
+                )
               ))}
             </nav>
             <div style={{ padding: "16px 20px", borderTop: "1px solid #ece4fb" }}>
