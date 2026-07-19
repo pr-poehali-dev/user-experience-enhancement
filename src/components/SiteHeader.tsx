@@ -210,16 +210,27 @@ export function SiteHeader() {
           <a
             href="tel:+79885973303"
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 500,
-              fontSize: "clamp(18px,1.5vw,23px)", color: "#1a1024",
-              whiteSpace: "nowrap", letterSpacing: "0.5px",
-              fontVariantNumeric: "tabular-nums",
+              display: "flex", alignItems: "center", gap: 8,
               transition: "opacity 0.2s",
             }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.7"}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
           >
-            8 988 597 33 03
+            <span style={{
+              width: 26, height: 26, borderRadius: "50%", flexShrink: 0,
+              background: "rgba(168,85,247,0.12)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <Icon name="Phone" size={12} style={{ color: "#a855f7" }} />
+            </span>
+            <span style={{
+              fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontWeight: 500,
+              fontSize: "clamp(17px,1.4vw,21px)", color: "#3a2d4d",
+              whiteSpace: "nowrap", letterSpacing: "0.4px",
+              fontVariantNumeric: "tabular-nums",
+            }}>
+              8 988 597 33 03
+            </span>
           </a>
           <button
             onClick={() => navigate("/favorites")}
@@ -246,7 +257,7 @@ export function SiteHeader() {
         style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
           alignItems: "center", justifyContent: "space-between",
-          padding: "0 16px", height: 66,
+          padding: "0 16px", height: 58,
           background: "#fff", borderBottom: "1px solid #ece4fb",
           boxShadow: scrolled ? "0 2px 14px rgba(124,58,237,0.07)" : "none",
           transition: "all 0.25s ease",
@@ -258,50 +269,59 @@ export function SiteHeader() {
         <button
           onClick={() => setMobileMenuOpen(v => !v)}
           style={{
-            width: 44, height: 44, borderRadius: 12, border: "none",
+            width: 40, height: 40, borderRadius: 11, border: "none",
             background: "rgba(124,58,237,0.08)",
             display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
           }}
           aria-label="Меню"
         >
           {mobileMenuOpen ? (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
             </svg>
           ) : (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="5.5" width="18" height="2.4" rx="1.2" fill="#7c3aed"/>
-              <rect x="3" y="10.9" width="18" height="2.4" rx="1.2" fill="#7c3aed"/>
-              <rect x="3" y="16.3" width="18" height="2.4" rx="1.2" fill="#7c3aed"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5.5" width="18" height="2.2" rx="1.1" fill="#7c3aed"/>
+              <rect x="3" y="10.9" width="18" height="2.2" rx="1.1" fill="#7c3aed"/>
+              <rect x="3" y="16.3" width="18" height="2.2" rx="1.1" fill="#7c3aed"/>
             </svg>
           )}
         </button>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 5, flexShrink: 0 }}>
           <a
             href="tel:+79885973303"
-            style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 600,
-              fontSize: 18, color: "#1a1024", whiteSpace: "nowrap",
-              fontVariantNumeric: "tabular-nums", letterSpacing: "0.1px",
-            }}
+            style={{ display: "flex", alignItems: "center", gap: 5 }}
           >
-            8 988 597 33 03
+            <span style={{
+              width: 20, height: 20, borderRadius: "50%", flexShrink: 0,
+              background: "rgba(168,85,247,0.12)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <Icon name="Phone" size={10} style={{ color: "#a855f7" }} />
+            </span>
+            <span style={{
+              fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontWeight: 500,
+              fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
+              fontVariantNumeric: "tabular-nums", letterSpacing: "0.1px",
+            }}>
+              8 988 597 33 03
+            </span>
           </a>
           <button
             onClick={() => navigate("/favorites")}
             style={{
-              position: "relative", width: 38, height: 38,
+              position: "relative", width: 34, height: 34,
               display: "flex", alignItems: "center", justifyContent: "center",
               border: "none", background: "transparent",
             }}
             title="Избранное"
           >
-            <Icon name="Heart" size={23} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
+            <Icon name="Heart" size={21} color={count > 0 ? "#a855f7" : "#3a2d4d"} fill={count > 0 ? "#a855f7" : "none"} />
             <span style={{
               position: "absolute", top: 1, right: 1,
-              background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 10, fontWeight: 700,
-              borderRadius: "50%", minWidth: 16, height: 16,
+              background: count > 0 ? "#a855f7" : "#c4b5fd", color: "#fff", fontSize: 9, fontWeight: 700,
+              borderRadius: "50%", minWidth: 15, height: 15,
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>{count}</span>
           </button>
@@ -320,11 +340,11 @@ export function SiteHeader() {
             style={{
               position: "absolute", top: 0, left: 0, bottom: 0, width: 280,
               background: "#fff", boxShadow: "4px 0 32px rgba(0,0,0,0.15)",
-              display: "flex", flexDirection: "column", paddingTop: 64,
+              display: "flex", flexDirection: "column", paddingTop: 58,
             }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ padding: "0 20px 20px", borderBottom: "1px solid #ece4fb", display: "flex", justifyContent: "center" }}>
+            <div style={{ padding: "24px 20px 20px", borderBottom: "1px solid #ece4fb", display: "flex", justifyContent: "center" }}>
               <div
                 onClick={() => { navigate("/"); setMobileMenuOpen(false) }}
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 23, color: "#1a1024", cursor: "pointer", lineHeight: 1.15, textAlign: "center", display: "flex", alignItems: "center", gap: 6 }}
@@ -410,32 +430,32 @@ export function SiteHeader() {
               ))}
             </nav>
             <div style={{ padding: "18px 20px", borderTop: "1px solid #ece4fb", display: "flex", flexDirection: "column", gap: 13 }}>
-              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}>
-                <Icon name="Phone" size={17} className="text-primary" />
+              <a href="tel:+79885973303" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#5c5468", textDecoration: "none", fontWeight: 500 }}>
+                <Icon name="Phone" size={15} className="text-primary" />
                 8 988 597 33 03
               </a>
               <a
                 href="https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s"
                 target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#5c5468", textDecoration: "none", fontWeight: 500 }}
               >
-                <Icon name="Flame" size={17} style={{ color: "#1e3a5f" }} />
+                <Icon name="Flame" size={15} style={{ color: "#1e3a5f" }} />
                 Max
               </a>
               <a
                 href="https://t.me/vikashariki"
                 target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#5c5468", textDecoration: "none", fontWeight: 500 }}
               >
-                <Icon name="Send" size={17} style={{ color: "#229ED9" }} />
+                <Icon name="Send" size={15} style={{ color: "#229ED9" }} />
                 Telegram
               </a>
               <a
                 href="https://wa.me/message/SIGCSZPAMQ34J1"
                 target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 16.5, color: "#3a2d4d", textDecoration: "none", fontWeight: 700 }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#5c5468", textDecoration: "none", fontWeight: 500 }}
               >
-                <Icon name="MessageCircle" size={17} style={{ color: "#25D366" }} />
+                <Icon name="MessageCircle" size={15} style={{ color: "#25D366" }} />
                 WhatsApp
               </a>
             </div>

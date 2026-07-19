@@ -64,22 +64,14 @@ function CatalogCTA() {
                     className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
-                <div className="flex items-center justify-between gap-1 px-3 py-2.5">
-                  <div className="min-w-0">
-                    <p style={{
-                      fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
-                      fontSize: 13.5, lineHeight: 1.25,
-                    }} className="truncate">
-                      {cat.label}
-                    </p>
-                    <p style={{
-                      fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#8a7d9c",
-                      fontSize: 11, marginTop: 1,
-                    }} className="truncate">
-                      {cat.sub}
-                    </p>
-                  </div>
-                  <Icon name="ArrowRight" size={15} className="flex-shrink-0" style={{ color: "#a855f7" }} />
+                <div className="flex items-center justify-between gap-1.5 px-3 py-3">
+                  <p style={{
+                    fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
+                    fontSize: 15.5, lineHeight: 1.25,
+                  }} className="truncate min-w-0">
+                    {cat.label}
+                  </p>
+                  <Icon name="ArrowRight" size={18} className="flex-shrink-0" style={{ color: "#7c3aed" }} strokeWidth={2.5} />
                 </div>
               </button>
             ))}

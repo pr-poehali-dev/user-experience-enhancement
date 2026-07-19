@@ -45,10 +45,10 @@ function FilterDropdown({
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(v => !v)}
+        className="flex items-center gap-1.5 sm:gap-[7px] py-1.5 px-3 sm:py-[9px] sm:px-[14px] text-[12px] sm:text-[13px]"
         style={{
-          display: "flex", alignItems: "center", gap: 7,
-          padding: "9px 14px", borderRadius: 999,
-          fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 13,
+          borderRadius: 999,
+          fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
           background: isActive ? "#6d28d9" : "#fff",
           color: isActive ? "#fff" : "#3a2d4d",
           border: isActive ? "1px solid #6d28d9" : "1px solid #ece4fb",
@@ -395,7 +395,7 @@ export default function CompositionGrid({
 
       {/* Закреплённые фильтры: цвет + бюджет */}
       <div
-        className="sticky z-40 flex items-center gap-2 flex-wrap py-2.5 mb-4 sm:mb-6 bg-white/95 backdrop-blur-sm"
+        className="sticky z-40 flex items-center gap-2 flex-wrap py-1.5 sm:py-2.5 mb-3 sm:mb-6 bg-white/95 backdrop-blur-sm"
         style={{ top: "clamp(58px,7.5vw,84px)" }}
       >
         <FilterDropdown
