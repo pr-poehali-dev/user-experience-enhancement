@@ -1,7 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom"
 
 const HERO_VIDEO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a1f9a1b9-1b85-4a2c-b686-06f9d21e66d7.mp4"
-const HERO_MOBILE_IMAGE = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6471b1ef-189c-49d4-80c7-fd78a99cfd33.jpg"
 
 export function Hero() {
   const navigate = useNavigate()
@@ -110,7 +109,7 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Правая часть — видео (десктоп) / фото (мобильные) */}
+        {/* Правая часть — видео */}
         <div
           className="relative w-full overflow-hidden"
           style={{ height: "min(760px, 90vh)" }}
@@ -121,12 +120,7 @@ export function Hero() {
             loop
             muted
             playsInline
-            className="hidden lg:block absolute inset-0 w-full h-full object-cover"
-          />
-          <img
-            src={HERO_MOBILE_IMAGE}
-            alt="Воздушные шары"
-            className="block lg:hidden absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
       </div>
