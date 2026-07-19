@@ -36,13 +36,34 @@ export default function AdminBallPrices() {
   const [saving, setSaving] = useState(false)
   const [saveMsg, setSaveMsg] = useState("")
 
+  const DRAFT_KEY = "admin_prices_draft"
+
   useEffect(() => {
     const saved = sessionStorage.getItem("admin_prices_pw")
     if (saved) {
       setPassword(saved)
       setAuthed(true)
     }
+    const draft = localStorage.getItem(DRAFT_KEY)
+    if (draft) {
+      try {
+        const parsed = JSON.parse(draft)
+        if (parsed && Object.keys(parsed).length > 0) {
+          setEdited(parsed)
+        }
+      } catch (e) {
+        localStorage.removeItem(DRAFT_KEY)
+      }
+    }
   }, [])
+
+  useEffect(() => {
+    if (Object.keys(edited).length > 0) {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(edited))
+    } else {
+      localStorage.removeItem(DRAFT_KEY)
+    }
+  }, [edited])
 
   useEffect(() => {
     if (authed) loadItems()
@@ -118,6 +139,7 @@ export default function AdminBallPrices() {
           prev.map(it => (it.id in edited ? { ...it, price_per_unit: edited[it.id] } : it))
         )
         setEdited({})
+        localStorage.removeItem(DRAFT_KEY)
         setSaveMsg(`Сохранено. Пересчитано наборов: ${data.recalculated_compositions}`)
         setTimeout(() => setSaveMsg(""), 4000)
       }
@@ -202,6 +224,15 @@ export default function AdminBallPrices() {
           </p>
         </div>
 
+        {editedCount > 0 && (
+          <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-4 flex gap-2 items-start">
+            <Icon name="Save" size={18} className="text-amber-600 mt-0.5 shrink-0" />
+            <p className="text-sm text-amber-800">
+              У тебя есть несохранённые изменения ({editedCount}). Они автоматически сохраняются в этом браузере — не забудь нажать «Сохранить и пересчитать», чтобы применить их на сайте.
+            </p>
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
           <input
             type="text"
@@ -280,7 +311,10 @@ export default function AdminBallPrices() {
             <div className="flex items-center gap-3">
               {saveMsg && <p className="text-sm text-green-600">{saveMsg}</p>}
               <button
-                onClick={() => setEdited({})}
+                onClick={() => {
+                  setEdited({})
+                  localStorage.removeItem(DRAFT_KEY)
+                }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground px-4 py-2.5 rounded-xl border border-border"
               >
                 Отменить
