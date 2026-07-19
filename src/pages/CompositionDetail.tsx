@@ -380,7 +380,7 @@ export default function CompositionDetail() {
         </div>
       )}
 
-      <FloatingSocials />
+      <FloatingSocials liftOnMobile />
     </div>
   )
 }

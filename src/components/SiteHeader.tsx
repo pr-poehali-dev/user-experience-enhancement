@@ -277,22 +277,22 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div onClick={goHome} style={{ cursor: "pointer", textAlign: "center", lineHeight: 1.05 }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 14, color: "#1a1024", whiteSpace: "nowrap" }}>
+        <div onClick={goHome} style={{ cursor: "pointer", textAlign: "center", lineHeight: 1.05, minWidth: 0, overflow: "hidden", flex: "1 1 auto", padding: "0 8px" }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: 14, color: "#1a1024", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
             Victoria Balloons
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
           <a
             href="tel:+79885973303"
             style={{
-              width: 34, height: 34, borderRadius: "50%",
-              background: "rgba(124,58,237,0.08)", color: "#7c3aed",
-              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: "'Playfair Display', serif", fontWeight: 600,
+              fontSize: 13, color: "#1a1024", whiteSpace: "nowrap",
+              fontVariantNumeric: "tabular-nums", letterSpacing: "0.1px",
             }}
           >
-            <Icon name="Phone" size={15} />
+            8 988 597 33 03
           </a>
           <button
             onClick={() => navigate("/favorites")}

@@ -34,11 +34,13 @@ const SOCIALS = [
   },
 ]
 
-export function FloatingSocials() {
+export function FloatingSocials({ liftOnMobile }: { liftOnMobile?: boolean } = {}) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-2.5">
+    <div
+      className={`fixed right-5 z-40 flex flex-col items-end gap-2.5 ${liftOnMobile ? "bottom-24 lg:bottom-6" : "bottom-6"}`}
+    >
       {open && (
         <>
           {SOCIALS.map((s) => (

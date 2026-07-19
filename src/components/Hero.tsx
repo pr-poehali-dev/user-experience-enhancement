@@ -22,12 +22,27 @@ export function Hero() {
         background: "radial-gradient(ellipse 90% 70% at 15% 15%, #f3ebff 0%, transparent 55%), radial-gradient(ellipse 80% 80% at 90% 85%, #fbeafd 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
       }}
     >
+      {/* Видео-фон — только мобильные/планшет, на весь экран сразу */}
+      <video
+        src={HERO_VIDEO}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="lg:hidden absolute inset-0 w-full h-full object-cover z-0"
+      />
+      {/* Затемнение для читаемости текста поверх видео (мобильные) */}
+      <div
+        className="lg:hidden absolute inset-0 z-[1]"
+        style={{ background: "linear-gradient(180deg, rgba(20,10,32,0.32) 0%, rgba(20,10,32,0.45) 55%, rgba(20,10,32,0.68) 100%)" }}
+      />
+
       {/* Декоративные звёзды-конфетти */}
       <span className="hidden lg:block absolute" style={{ top: "8%", left: "6%", fontSize: 20, color: "#c4a3f7" }}>✦</span>
       <span className="hidden lg:block absolute" style={{ top: "18%", left: "38%", fontSize: 14, color: "#e3b8ea" }}>✦</span>
       <span className="hidden lg:block absolute" style={{ bottom: "12%", left: "10%", fontSize: 16, color: "#c4a3f7" }}>✦</span>
       <span className="hidden lg:block absolute" style={{ top: "10%", left: "48%", fontSize: 12, color: "#e3b8ea" }}>✦</span>
-      <div className="max-w-[1700px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-stretch">
+      <div className="relative z-10 max-w-[1700px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-stretch">
         {/* Левая часть — текст */}
         <div
           className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-0"
@@ -35,26 +50,25 @@ export function Hero() {
         >
           <div className="relative">
             <span
-              className="absolute -top-6 left-1 text-2xl sm:text-3xl"
-              style={{ color: "#a855f7" }}
+              className="absolute -top-6 left-1 text-2xl sm:text-3xl text-white lg:text-[#a855f7]"
             >✦</span>
             <h1
+              className="text-white lg:text-[#1a1024] [text-shadow:0_2px_18px_rgba(0,0,0,0.5)] lg:[text-shadow:none]"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 500,
                 fontSize: "clamp(48px, 6.8vw, 88px)",
                 lineHeight: 1.05,
-                color: "#1a1024",
                 letterSpacing: "-0.5px",
               }}
             >
               Воздушные<br />шары
             </h1>
             <div
+              className="text-[#f3e8ff] lg:text-[#8b5cf6] [text-shadow:0_2px_16px_rgba(0,0,0,0.45)] lg:[text-shadow:none]"
               style={{
                 fontFamily: "'Marck Script', cursive",
                 fontSize: "clamp(34px, 4.8vw, 62px)",
-                color: "#8b5cf6",
                 lineHeight: 1.15,
                 marginTop: "clamp(4px, 0.8vw, 10px)",
               }}
@@ -64,11 +78,11 @@ export function Hero() {
           </div>
 
           <p
+            className="text-white/90 lg:text-[#5c5468] [text-shadow:0_1px_10px_rgba(0,0,0,0.4)] lg:[text-shadow:none]"
             style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 400,
               fontSize: "clamp(17px, 1.35vw, 21px)",
-              color: "#5c5468",
               lineHeight: 1.6,
               marginTop: "clamp(10px, 1.4vw, 18px)",
               maxWidth: 400,
@@ -109,9 +123,9 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Правая часть — видео */}
+        {/* Правая часть — видео (только десктоп, отдельная колонка) */}
         <div
-          className="relative w-full overflow-hidden"
+          className="hidden lg:block relative w-full overflow-hidden"
           style={{ height: "min(760px, 90vh)" }}
         >
           <video

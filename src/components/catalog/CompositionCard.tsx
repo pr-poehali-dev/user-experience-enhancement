@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Composition } from "@/data/catalogData"
 import { useFavorites } from "@/context/FavoritesContext"
 
-export default function CompositionCard({ item, backPath }: { item: Composition; backPath?: string }) {
+export default function CompositionCard({ item, backPath, square }: { item: Composition; backPath?: string; square?: boolean }) {
   const navigate = useNavigate()
   const { toggleFavorite, isFavorite } = useFavorites()
 
@@ -17,7 +17,7 @@ export default function CompositionCard({ item, backPath }: { item: Composition;
       onMouseLeave={e => (e.currentTarget as HTMLElement).style.boxShadow = "none"}
     >
       {/* Картинка + сердечко сверху */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+      <div className="relative overflow-hidden" style={{ aspectRatio: square ? "1/1" : "3/4" }}>
         <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         <button
           className="absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90"

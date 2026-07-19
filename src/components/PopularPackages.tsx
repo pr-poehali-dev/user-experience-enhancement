@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon"
 import { Composition, getPopularCompositions } from "@/data/catalogData"
 import CompositionCard from "@/components/catalog/CompositionCard"
 
-const CARD_W = 220
+const CARD_W = "clamp(132px, 34vw, 220px)"
 const CARD_GAP = 14
 const BASE_SPEED = 1.8
 
@@ -201,7 +201,7 @@ export function PopularPackages() {
               style={{ width: CARD_W, flexShrink: 0 }}
               onClickCapture={(e) => { if (mouseMovedRef.current) { e.stopPropagation(); e.preventDefault() } }}
             >
-              <CompositionCard item={pkg} backPath="/" />
+              <CompositionCard item={pkg} backPath="/" square />
             </div>
           ))}
         </div>

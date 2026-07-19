@@ -11,7 +11,7 @@ export function DeliveryPromo() {
           className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden flex items-center justify-center transition-transform duration-500 hover:scale-[1.005] hover:-translate-y-1"
           style={{
             boxShadow: "0 20px 50px rgba(124,58,237,0.22)",
-            height: "clamp(180px, 22vw, 280px)",
+            minHeight: "clamp(180px, 22vw, 280px)",
           }}
         >
           {/* Фоновая фотография */}
@@ -34,7 +34,7 @@ export function DeliveryPromo() {
           <span className="hidden lg:block absolute z-10" style={{ bottom: "16%", left: "12%", fontSize: 11, color: "rgba(255,255,255,0.4)" }}>✦</span>
 
           {/* Контент */}
-          <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-6 flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-10 text-center lg:text-left">
+          <div className="relative z-10 w-full px-5 sm:px-10 lg:px-16 py-7 sm:py-6 flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-10 text-center lg:text-left">
             <div>
               <p style={{
                 fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: 11,
