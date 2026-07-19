@@ -210,27 +210,24 @@ export function SiteHeader() {
           <a
             href="tel:+79885973303"
             style={{
-              display: "flex", alignItems: "center", gap: 8,
+              display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1,
               transition: "opacity 0.2s",
             }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.7"}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
           >
             <span style={{
-              width: 26, height: 26, borderRadius: "50%", flexShrink: 0,
-              background: "rgba(168,85,247,0.12)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <Icon name="Phone" size={12} style={{ color: "#a855f7" }} />
-            </span>
-            <span style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
-              fontSize: "clamp(16px,1.3vw,19px)", color: "#3a2d4d",
-              whiteSpace: "nowrap", letterSpacing: "0.6px",
+              fontFamily: "'Nunito', sans-serif", fontWeight: 300,
+              fontSize: "clamp(17px,1.4vw,20px)", color: "#3a2d4d",
+              whiteSpace: "nowrap", letterSpacing: "1px",
               fontVariantNumeric: "tabular-nums",
             }}>
-              8 988 597 33 03
+              +7 988 597 33 03
             </span>
+            <span style={{
+              width: 22, height: 1.5, borderRadius: 1,
+              background: "linear-gradient(90deg, transparent, #a855f7)",
+            }} />
           </a>
           <button
             onClick={() => navigate("/favorites")}
@@ -291,22 +288,20 @@ export function SiteHeader() {
         <div style={{ display: "flex", alignItems: "center", gap: 5, flexShrink: 0 }}>
           <a
             href="tel:+79885973303"
-            style={{ display: "flex", alignItems: "center", gap: 5 }}
+            style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1 }}
           >
             <span style={{
-              width: 20, height: 20, borderRadius: "50%", flexShrink: 0,
-              background: "rgba(168,85,247,0.12)",
-              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: "'Nunito', sans-serif", fontWeight: 300,
+              fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
+              letterSpacing: "0.7px",
+              fontVariantNumeric: "tabular-nums",
             }}>
-              <Icon name="Phone" size={10} style={{ color: "#a855f7" }} />
+              +7 988 597 33 03
             </span>
             <span style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 500,
-              fontSize: 14, color: "#3a2d4d", whiteSpace: "nowrap",
-              fontVariantNumeric: "tabular-nums", letterSpacing: "0.4px",
-            }}>
-              8 988 597 33 03
-            </span>
+              width: 18, height: 1.5, borderRadius: 1,
+              background: "linear-gradient(90deg, transparent, #a855f7)",
+            }} />
           </a>
           <button
             onClick={() => navigate("/favorites")}
