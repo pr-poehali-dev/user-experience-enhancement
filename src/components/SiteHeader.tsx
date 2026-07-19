@@ -220,7 +220,8 @@ export function SiteHeader() {
               fontFamily: "'Playfair Display', serif", fontWeight: 500, fontStyle: "normal",
               fontSize: "clamp(17px,1.4vw,20px)", color: "#3a2d4d",
               whiteSpace: "nowrap", letterSpacing: "0.8px",
-              fontVariantNumeric: "tabular-nums",
+              fontVariantNumeric: "tabular-nums lining-nums",
+              fontFeatureSettings: "'lnum' 1, 'tnum' 1",
             }}>
               +7 988 597 33 03
             </span>
@@ -294,7 +295,8 @@ export function SiteHeader() {
               fontFamily: "'Playfair Display', serif", fontWeight: 500, fontStyle: "normal",
               fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
               letterSpacing: "0.6px",
-              fontVariantNumeric: "tabular-nums",
+              fontVariantNumeric: "tabular-nums lining-nums",
+              fontFeatureSettings: "'lnum' 1, 'tnum' 1",
             }}>
               +7 988 597 33 03
             </span>
