@@ -217,7 +217,7 @@ export function SiteHeader() {
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
           >
             <span style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 500, fontStyle: "normal",
+              fontFamily: "'Playfair Display', serif", fontWeight: 600, fontStyle: "normal",
               fontSize: "clamp(17px,1.4vw,20px)", color: "#3a2d4d",
               whiteSpace: "nowrap", letterSpacing: "0.8px",
               fontVariantNumeric: "tabular-nums lining-nums",
@@ -292,7 +292,7 @@ export function SiteHeader() {
             style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1 }}
           >
             <span style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 500, fontStyle: "normal",
+              fontFamily: "'Playfair Display', serif", fontWeight: 600, fontStyle: "normal",
               fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
               letterSpacing: "0.6px",
               fontVariantNumeric: "tabular-nums lining-nums",
