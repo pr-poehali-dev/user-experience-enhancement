@@ -286,10 +286,10 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0, marginRight: 10 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0 }}>
           <a
             href="tel:+79885973303"
-            style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1 }}
+            style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1, marginRight: 14 }}
           >
             <span style={{
               fontFamily: "'Playfair Display', serif", fontWeight: 600, fontStyle: "normal",
