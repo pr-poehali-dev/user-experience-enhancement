@@ -126,7 +126,7 @@ export function SiteHeader() {
           }}>
             Victoria Balloons
           </div>
-          <span style={{ fontSize: 18, color: "#a855f7", marginTop: -18 }}>✦</span>
+          <img src="/balloon-icon.png" alt="" style={{ width: 20, height: "auto", flexShrink: 0 }} />
         </div>
 
         {/* Навигация по центру */}
@@ -286,14 +286,14 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 5, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0, marginRight: 10 }}>
           <a
             href="tel:+79885973303"
             style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1 }}
           >
             <span style={{
               fontFamily: "'Playfair Display', serif", fontWeight: 600, fontStyle: "normal",
-              fontSize: 15, color: "#3a2d4d", whiteSpace: "nowrap",
+              fontSize: 17, color: "#3a2d4d", whiteSpace: "nowrap",
               letterSpacing: "0.6px",
               fontVariantNumeric: "tabular-nums lining-nums",
               fontFeatureSettings: "'lnum' 1, 'tnum' 1",
@@ -301,7 +301,7 @@ export function SiteHeader() {
               +7 988 597 33 03
             </span>
             <span style={{
-              width: 18, height: 1.5, borderRadius: 1,
+              width: 20, height: 1.5, borderRadius: 1,
               background: "linear-gradient(90deg, transparent, #a855f7)",
             }} />
           </a>
@@ -347,7 +347,7 @@ export function SiteHeader() {
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 23, color: "#1a1024", cursor: "pointer", lineHeight: 1.15, textAlign: "center", display: "flex", alignItems: "center", gap: 6 }}
               >
                 Victoria Balloons
-                <span style={{ fontSize: 19, color: "#a855f7", marginTop: -18 }}>✦</span>
+                <img src="/balloon-icon.png" alt="" style={{ width: 18, height: "auto", flexShrink: 0 }} />
               </div>
             </div>
             <nav style={{ flex: 1, padding: "12px 8px", overflowY: "auto" }}>
@@ -360,7 +360,7 @@ export function SiteHeader() {
                         width: "100%", display: "flex", alignItems: "center", gap: 14,
                         padding: "14px 16px", borderRadius: 14, border: "none",
                         background: "transparent", cursor: "pointer", textAlign: "left",
-                        fontSize: 16, fontWeight: 600,
+                        fontSize: 15, fontWeight: 600,
                         fontFamily: "'Montserrat', sans-serif", color: "#1a1024",
                         transition: "background 0.15s",
                       }}
@@ -387,7 +387,7 @@ export function SiteHeader() {
                               display: "flex", alignItems: "center", gap: 10,
                               padding: "11px 16px", borderRadius: 12, border: "none",
                               background: "transparent", cursor: "pointer", textAlign: "left",
-                              fontSize: 14.5, fontWeight: 600,
+                              fontSize: 14, fontWeight: 600,
                               fontFamily: "'Montserrat', sans-serif", color: "#3a2d4d",
                             }}
                             onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#f5f0ff"}
@@ -407,7 +407,7 @@ export function SiteHeader() {
                       width: "100%", display: "flex", alignItems: "center", gap: 14,
                       padding: "14px 16px", borderRadius: 14, border: "none",
                       background: "transparent", cursor: "pointer", textAlign: "left",
-                      fontSize: 16, fontWeight: 600,
+                      fontSize: 15, fontWeight: 600,
                       fontFamily: "'Montserrat', sans-serif", color: "#1a1024",
                       transition: "background 0.15s",
                     }}
