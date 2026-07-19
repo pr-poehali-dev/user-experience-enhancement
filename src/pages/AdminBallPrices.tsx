@@ -8,7 +8,20 @@ type BallType = {
   name: string
   price_per_unit: number
   is_figure: boolean
+  section: string | null
+  sort_order: number
 }
+
+const SECTION_LABELS: Record<string, string> = {
+  latex: "Латексные шары",
+  foil_small: "Фольгированные маленькие",
+  foil_big: "Фольгированные большие",
+  bubbles: "Баблс шары",
+  other: "Прочее",
+  figures: "Фольгированные фигурки",
+}
+
+const SECTION_ORDER = ["latex", "foil_small", "foil_big", "bubbles", "other", "figures"]
 
 export default function AdminBallPrices() {
   const [authed, setAuthed] = useState(false)
@@ -123,6 +136,16 @@ export default function AdminBallPrices() {
     })
   }, [items, search, showFigures])
 
+  const grouped = useMemo(() => {
+    const map: Record<string, BallType[]> = {}
+    for (const it of filtered) {
+      const sec = it.is_figure ? "figures" : (it.section || "other")
+      if (!map[sec]) map[sec] = []
+      map[sec].push(it)
+    }
+    return map
+  }, [filtered])
+
   if (!authed) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-violet-50/30 px-4">
@@ -201,48 +224,51 @@ export default function AdminBallPrices() {
         {loading ? (
           <div className="text-center py-20 text-muted-foreground">Загрузка...</div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-muted/50 text-left">
-                  <th className="px-4 py-3 font-semibold">Название</th>
-                  <th className="px-4 py-3 font-semibold w-24">Тип</th>
-                  <th className="px-4 py-3 font-semibold w-36">Цена за шт, ₽</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map(it => {
-                  const value = it.id in edited ? edited[it.id] : it.price_per_unit
-                  const changed = it.id in edited
-                  return (
-                    <tr key={it.id} className={`border-t border-border ${changed ? "bg-amber-50" : ""}`}>
-                      <td className="px-4 py-2.5">{it.name}</td>
-                      <td className="px-4 py-2.5 text-muted-foreground text-xs">
-                        {it.is_figure ? "Фигурка" : "Шары"}
-                      </td>
-                      <td className="px-4 py-2.5">
-                        <input
-                          type="text"
-                          inputMode="numeric"
-                          value={value}
-                          onChange={e => handlePriceChange(it, e.target.value)}
-                          className={`w-full border rounded-lg px-3 py-1.5 outline-none focus:ring-2 focus:ring-primary/40 ${
-                            changed ? "border-amber-400" : "border-border"
-                          }`}
-                        />
-                      </td>
-                    </tr>
-                  )
-                })}
-                {filtered.length === 0 && (
-                  <tr>
-                    <td colSpan={3} className="px-4 py-10 text-center text-muted-foreground">
-                      Ничего не найдено
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+          <div className="space-y-6">
+            {SECTION_ORDER.filter(sec => grouped[sec]?.length).map(sec => (
+              <div key={sec} className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
+                <div className="px-4 py-3 bg-primary/5 border-b border-border">
+                  <h2 className="font-bold text-sm">
+                    {SECTION_LABELS[sec] || sec}
+                    <span className="ml-2 text-xs font-normal text-muted-foreground">
+                      {grouped[sec].length} вид{grouped[sec].length === 1 ? "" : grouped[sec].length < 5 ? "а" : "ов"}
+                    </span>
+                  </h2>
+                </div>
+                <table className="w-full text-sm">
+                  <tbody>
+                    {grouped[sec].map(it => {
+                      const value = it.id in edited ? edited[it.id] : it.price_per_unit
+                      const changed = it.id in edited
+                      return (
+                        <tr key={it.id} className={`border-t border-border ${changed ? "bg-amber-50" : ""}`}>
+                          <td className="px-4 py-2.5">{it.name}</td>
+                          <td className="px-4 py-2.5 w-36">
+                            <div className="flex items-center gap-1">
+                              <input
+                                type="text"
+                                inputMode="numeric"
+                                value={value}
+                                onChange={e => handlePriceChange(it, e.target.value)}
+                                className={`w-full border rounded-lg px-3 py-1.5 outline-none focus:ring-2 focus:ring-primary/40 ${
+                                  changed ? "border-amber-400" : "border-border"
+                                }`}
+                              />
+                              <span className="text-xs text-muted-foreground">₽</span>
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+            {filtered.length === 0 && (
+              <div className="text-center py-10 text-muted-foreground bg-white rounded-2xl border border-border">
+                Ничего не найдено
+              </div>
+            )}
           </div>
         )}
       </div>

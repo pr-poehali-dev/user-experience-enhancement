@@ -1,0 +1,1 @@
+UPDATE t_p47738118_user_experience_enha.ball_types SET name='Баблс шар гигант стеклянный с конфетти, надписью и бантиками' WHERE id=109;

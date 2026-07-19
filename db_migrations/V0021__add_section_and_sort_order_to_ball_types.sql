@@ -1,0 +1,2 @@
+ALTER TABLE t_p47738118_user_experience_enha.ball_types ADD COLUMN IF NOT EXISTS section VARCHAR(50);
+ALTER TABLE t_p47738118_user_experience_enha.ball_types ADD COLUMN IF NOT EXISTS sort_order INTEGER NOT NULL DEFAULT 0;

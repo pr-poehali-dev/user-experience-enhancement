@@ -1,0 +1,1 @@
+UPDATE t_p47738118_user_experience_enha.composition_components SET ball_type_id=64, quantity=12 WHERE id=1498;

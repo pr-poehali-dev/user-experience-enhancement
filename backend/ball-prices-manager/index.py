@@ -36,7 +36,8 @@ def handler(event: dict, context) -> dict:
     try:
         if method == 'GET':
             cur.execute(
-                "SELECT id, name, price_per_unit, is_figure FROM ball_types ORDER BY is_figure ASC, name ASC"
+                "SELECT id, name, price_per_unit, is_figure, section, sort_order FROM ball_types "
+                "ORDER BY is_figure ASC, sort_order ASC, name ASC"
             )
             rows = cur.fetchall()
             items = [
@@ -44,7 +45,9 @@ def handler(event: dict, context) -> dict:
                     'id': r[0],
                     'name': r[1],
                     'price_per_unit': r[2],
-                    'is_figure': r[3]
+                    'is_figure': r[3],
+                    'section': r[4],
+                    'sort_order': r[5]
                 }
                 for r in rows
             ]
