@@ -31,7 +31,7 @@ def send_telegram_notification(name: str, phone: str, composition_title: str, qu
     data = json.dumps({'chat_id': chat_id, 'text': text}).encode('utf-8')
     req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     try:
-        resp = urllib.request.urlopen(req, timeout=5)
+        resp = urllib.request.urlopen(req, timeout=10)
         print(f"Telegram notify OK: {resp.status} {resp.read()}")
     except urllib.error.HTTPError as e:
         print(f"Telegram notify FAILED: {e.code} {e.read().decode('utf-8', 'ignore')}")
