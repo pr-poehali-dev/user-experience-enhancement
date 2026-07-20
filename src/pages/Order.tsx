@@ -38,8 +38,6 @@ export default function Order() {
       }),
     }).catch(() => {})
 
-    // Сразу открываем Max
-    window.open("https://max.ru/u/f9LHodD0cOKm_43mHsBxiHB-ltwQ262aSmSr15u7zLF1RPvCCQ7PLmlM4DU", "_blank")
     setSent(true)
   }
 
