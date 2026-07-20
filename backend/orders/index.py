@@ -58,11 +58,23 @@ def handler(event: dict, context: Any) -> dict:
 
     if method == 'GET' and event.get('queryStringParameters', {}).get('debug') == 'telegram':
         bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+        result = {}
+        try:
+            resp = urllib.request.urlopen(f"https://api.telegram.org/bot{bot_token}/getMe", timeout=10)
+            result['getMe'] = json.loads(resp.read().decode('utf-8'))
+        except Exception as e:
+            result['getMe_error'] = str(e)
         try:
             resp = urllib.request.urlopen(f"https://api.telegram.org/bot{bot_token}/getUpdates", timeout=10)
-            return {'statusCode': 200, 'headers': headers, 'body': resp.read().decode('utf-8')}
+            result['getUpdates'] = json.loads(resp.read().decode('utf-8'))
         except Exception as e:
-            return {'statusCode': 200, 'headers': headers, 'body': json.dumps({'error': str(e)})}
+            result['getUpdates_error'] = str(e)
+        try:
+            resp = urllib.request.urlopen(f"https://api.telegram.org/bot{bot_token}/getWebhookInfo", timeout=10)
+            result['getWebhookInfo'] = json.loads(resp.read().decode('utf-8'))
+        except Exception as e:
+            result['getWebhookInfo_error'] = str(e)
+        return {'statusCode': 200, 'headers': headers, 'body': json.dumps(result)}
 
     dsn = os.environ['DATABASE_URL']
     conn = psycopg2.connect(dsn)
