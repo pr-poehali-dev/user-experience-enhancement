@@ -56,6 +56,14 @@ def handler(event: dict, context: Any) -> dict:
     if method == 'OPTIONS':
         return {'statusCode': 200, 'headers': headers, 'body': ''}
 
+    if method == 'GET' and event.get('queryStringParameters', {}).get('debug') == 'telegram':
+        bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+        try:
+            resp = urllib.request.urlopen(f"https://api.telegram.org/bot{bot_token}/getUpdates", timeout=10)
+            return {'statusCode': 200, 'headers': headers, 'body': resp.read().decode('utf-8')}
+        except Exception as e:
+            return {'statusCode': 200, 'headers': headers, 'body': json.dumps({'error': str(e)})}
+
     dsn = os.environ['DATABASE_URL']
     conn = psycopg2.connect(dsn)
     conn.autocommit = True
