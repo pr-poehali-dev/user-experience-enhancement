@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import Icon from "@/components/ui/icon"
+import SEO from "@/components/SEO"
 
 type ContactMethod = "call" | "write"
 type Messenger = "whatsapp" | "telegram" | "max"
@@ -44,6 +45,11 @@ export default function Order() {
   if (sent) {
     return (
       <main className="min-h-screen pt-[clamp(60px,7.5vw,86px)] flex items-center justify-center px-4">
+        <SEO
+          title="Оформление заказа | Victoria Balloons"
+          description="Оформите заказ на доставку воздушных шаров в Краснодаре."
+          path="/order"
+        />
         <div className="text-center max-w-md">
           <div className="text-8xl mb-6">🎉</div>
           <h2 className="text-3xl font-bold mb-3">Заявка отправлена!</h2>
@@ -63,6 +69,11 @@ export default function Order() {
 
   return (
     <main className="min-h-screen pt-[clamp(60px,7.5vw,86px)]">
+      <SEO
+        title="Оформление заказа | Victoria Balloons"
+        description="Оформите заказ на доставку воздушных шаров в Краснодаре."
+        path="/order"
+      />
       <div className="max-w-lg mx-auto px-4 py-8">
         <button
           onClick={() => navigate(-1)}

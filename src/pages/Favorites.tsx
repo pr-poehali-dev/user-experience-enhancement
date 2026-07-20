@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon"
 import { Footer } from "@/components/Footer"
 import { getAllCompositions } from "@/data/catalogData"
 import CompositionCard from "@/components/catalog/CompositionCard"
+import SEO from "@/components/SEO"
 
 export default function Favorites() {
   const navigate = useNavigate()
@@ -28,6 +29,11 @@ export default function Favorites() {
         background: "radial-gradient(ellipse 80% 50% at 15% 0%, #f3ebff 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #ffffff 30%)",
       }}
     >
+      <SEO
+        title="Избранное | Victoria Balloons"
+        description="Ваши избранные композиции из воздушных шаров."
+        path="/favorites"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16">
         <button
           onClick={() => navigate(-1)}

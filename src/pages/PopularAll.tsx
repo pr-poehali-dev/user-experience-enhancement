@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon"
 import { Footer } from "@/components/Footer"
 import { Composition, getPopularCompositions } from "@/data/catalogData"
 import CompositionCard from "@/components/catalog/CompositionCard"
+import SEO from "@/components/SEO"
 
 const FILTERS: { label: string; sub: string[] | null }[] = [
   { label: "Все", sub: null },
@@ -40,6 +41,11 @@ export default function PopularAll() {
         background: "radial-gradient(ellipse 80% 50% at 15% 0%, #f3ebff 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #ffffff 30%)",
       }}
     >
+      <SEO
+        title="Популярные композиции из шаров | Victoria Balloons"
+        description="Самые популярные наборы воздушных шаров с доставкой в Краснодаре."
+        path="/popular"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16">
         <button
           onClick={() => navigate("/")}

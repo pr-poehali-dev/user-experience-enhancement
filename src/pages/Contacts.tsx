@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer"
 import { FloatingSocials } from "@/components/FloatingSocials"
 import Icon from "@/components/ui/icon"
+import SEO from "@/components/SEO"
 
 const MAP_URL = "https://2gis.ru/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%93%D0%B5%D1%80%D0%BE%D1%8F%20%D0%AF%D1%86%D0%BA%D0%BE%D0%B2%D0%B0%2019%D0%BA3"
 
@@ -24,6 +25,11 @@ const socials = [
 export default function Contacts() {
   return (
     <div className="min-h-screen mt-[58px] md:mt-[84px]" style={{ background: "linear-gradient(180deg, #fdfbff 0%, #f7f2fd 45%, #ffffff 100%)" }}>
+      <SEO
+        title="Контакты | Victoria Balloons — воздушные шары в Краснодаре"
+        description="Наши телефоны, адрес и мессенджеры. Ответим на любой вопрос по доставке воздушных шаров в Краснодаре."
+        path="/contacts"
+      />
 
       {/* ══════ HERO ══════ */}
       <section className="relative overflow-hidden">

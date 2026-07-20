@@ -4,6 +4,7 @@ import { Composition } from "@/data/catalogData"
 import { useFavorites } from "@/context/FavoritesContext"
 import { FloatingSocials } from "@/components/FloatingSocials"
 import Icon from "@/components/ui/icon"
+import SEO from "@/components/SEO"
 
 const SOCIALS = [
   { label: "Max", href: "https://max.ru/u/f9LHodD0cOJaX4tw2o5-lz7x0FHW8670cB9_7ZXIWxHIb2weTABpieYxM9s", bg: "#1e3a5f", icon: "Flame" },
@@ -57,8 +58,19 @@ export default function CompositionDetail() {
     ? item.description.split(",").map(s => s.trim()).filter(Boolean)
     : []
 
+  const seoDescription = item.description
+    ? item.description.length > 160
+      ? `${item.description.slice(0, 157)}...`
+      : item.description
+    : `${item.title} — купить с доставкой в Краснодаре.`
+
   return (
     <div className="mt-[58px] md:mt-[84px]" style={{ minHeight: "calc(100svh - 58px)", background: "linear-gradient(180deg, #fdfbff 0%, #f7f2fd 45%, #ffffff 100%)" }}>
+      <SEO
+        title={`${item.title} — ${item.price} | Victoria Balloons`}
+        description={seoDescription}
+        path="/composition"
+      />
 
       <div className="max-w-6xl mx-auto lg:px-6 lg:py-8">
         <div

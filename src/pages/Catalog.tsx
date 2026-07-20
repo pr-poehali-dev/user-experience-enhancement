@@ -6,6 +6,7 @@ import Icon from "@/components/ui/icon"
 import { Composition, registerAllCompositions } from "@/data/catalogData"
 import CompositionGrid from "@/components/catalog/CompositionGrid"
 import { FloatingSocials } from "@/components/FloatingSocials"
+import SEO from "@/components/SEO"
 
 export const compositions: Record<string, Composition[]> = {
   girl: [
@@ -859,6 +860,11 @@ export default function Catalog() {
     if (section === "birthday") {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
+          <SEO
+            title="Композиции на день рождения из шаров | Victoria Balloons"
+            description="Каталог композиций из воздушных шаров на день рождения с доставкой по Краснодару. Наборы для девушки, мужчины, мальчика и девочки."
+            path="/catalog?section=birthday"
+          />
           <div className="flex items-center gap-4 mb-3">
             <button
               onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
@@ -882,6 +888,11 @@ export default function Catalog() {
     if (section === "discharge") {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
+          <SEO
+            title="Шары на выписку из роддома | Victoria Balloons"
+            description="Наборы воздушных шаров для встречи малыша из роддома с доставкой по Краснодару. Композиции для мальчика и девочки."
+            path="/catalog?section=discharge"
+          />
           <button
             onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
@@ -903,6 +914,11 @@ export default function Catalog() {
     if (section === "other") {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
+          <SEO
+            title="Шары на любой праздник | Victoria Balloons"
+            description="Композиции из воздушных шаров для гендер пати, выпускного, девичника и других праздников в Краснодаре."
+            path="/catalog?section=other"
+          />
           <button
             onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
@@ -931,6 +947,11 @@ export default function Catalog() {
     if (section === "custom") {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-16">
+          <SEO
+            title="Собрать композицию из шаров на заказ | Victoria Balloons"
+            description="Соберите индивидуальную композицию из воздушных шаров: цифры, баблс, фигуры, хром, пастель. Доставка по Краснодару."
+            path="/catalog?section=custom"
+          />
           <button
             onClick={() => { localStorage.removeItem("catalog_section"); navigate("/catalog") }}
             className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground mb-3 transition-colors text-sm"
@@ -958,6 +979,11 @@ export default function Catalog() {
 
     return (
       <div className="max-w-none px-3 sm:px-5 lg:px-8 pt-6 sm:pt-10 pb-16">
+        <SEO
+          title="Каталог композиций из шаров | Victoria Balloons"
+          description="Каталог воздушных шаров с доставкой в Краснодаре: на день рождения, выписку из роддома, любой праздник или на заказ."
+          path="/catalog"
+        />
         <div className="grid grid-cols-2 gap-3 sm:gap-5">
           <button
             onClick={() => navigate("/catalog?section=birthday")}

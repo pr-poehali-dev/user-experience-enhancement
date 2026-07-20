@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
+import SEO from "@/components/SEO"
 import { Hero } from "@/components/Hero"
 import { PopularPackages } from "@/components/PopularPackages"
 import { DeliveryPromo } from "@/components/DeliveryPromo"
@@ -171,6 +172,11 @@ export default function Index() {
 
   return (
     <main className="min-h-screen">
+      <SEO
+        title="Воздушные шары с доставкой в Краснодаре | Victoria Balloons"
+        description="Стильные композиции из воздушных шаров с доставкой по Краснодару 24/7. Наборы на день рождения, выписку из роддома и любые праздники."
+        path="/"
+      />
       <Hero />
       <PopularPackages />
       <DeliveryPromo />

@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon"
 import CompositionGrid from "@/components/catalog/CompositionGrid"
 import { Composition } from "@/data/catalogData"
 import { compositions } from "@/pages/Catalog"
+import SEO from "@/components/SEO"
 
 type SubInfo = {
   label: string
@@ -90,6 +91,11 @@ export default function CatalogSub() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title={`${info.label} — купить шары с доставкой | Victoria Balloons`}
+        description={info.description}
+        path={`/catalog/${sub}`}
+      />
       {/* Компактный заголовок */}
       <div className="pt-[clamp(58px,7.5vw,86px)] bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-1">
