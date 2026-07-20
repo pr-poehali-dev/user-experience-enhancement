@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom"
 
 const HERO_VIDEO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a1f9a1b9-1b85-4a2c-b686-06f9d21e66d7.mp4"
+const HERO_MOBILE_POSTER = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6471b1ef-189c-49d4-80c7-fd78a99cfd33.jpg"
 
 export function Hero() {
   const navigate = useNavigate()
@@ -22,6 +23,22 @@ export function Hero() {
         background: "radial-gradient(ellipse 90% 70% at 15% 15%, #f3ebff 0%, transparent 55%), radial-gradient(ellipse 80% 80% at 90% 85%, #fbeafd 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
       }}
     >
+      {/* Видео-фон — мобильные/планшет */}
+      <video
+        src={HERO_VIDEO}
+        poster={HERO_MOBILE_POSTER}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="lg:hidden absolute inset-0 w-full h-full object-cover z-0"
+      />
+      {/* Лёгкое затемнение для читаемости текста поверх видео (мобильные) */}
+      <div
+        className="lg:hidden absolute inset-0 z-[1]"
+        style={{ background: "linear-gradient(180deg, rgba(20,10,32,0.2) 0%, rgba(20,10,32,0.3) 55%, rgba(20,10,32,0.55) 100%)" }}
+      />
+
       {/* Декоративные звёзды-конфетти */}
       <span className="hidden lg:block absolute" style={{ top: "8%", left: "6%", fontSize: 20, color: "#c4a3f7" }}>✦</span>
       <span className="hidden lg:block absolute" style={{ top: "18%", left: "38%", fontSize: 14, color: "#e3b8ea" }}>✦</span>
@@ -35,10 +52,10 @@ export function Hero() {
         >
           <div className="relative">
             <span
-              className="absolute -top-6 left-1 text-2xl sm:text-3xl text-[#a855f7]"
+              className="absolute -top-6 left-1 text-2xl sm:text-3xl text-white lg:text-[#a855f7]"
             >✦</span>
             <h1
-              className="text-[#1a1024]"
+              className="text-white lg:text-[#1a1024] [text-shadow:0_2px_18px_rgba(0,0,0,0.5)] lg:[text-shadow:none]"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 500,
@@ -50,7 +67,7 @@ export function Hero() {
               Воздушные<br />шары
             </h1>
             <div
-              className="text-[#8b5cf6]"
+              className="text-[#f3e8ff] lg:text-[#8b5cf6] [text-shadow:0_2px_16px_rgba(0,0,0,0.45)] lg:[text-shadow:none]"
               style={{
                 fontFamily: "'Marck Script', cursive",
                 fontSize: "clamp(34px, 4.8vw, 62px)",
@@ -63,7 +80,7 @@ export function Hero() {
           </div>
 
           <p
-            className="text-[#5c5468]"
+            className="text-white/90 lg:text-[#5c5468] [text-shadow:0_1px_10px_rgba(0,0,0,0.4)] lg:[text-shadow:none]"
             style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 400,
