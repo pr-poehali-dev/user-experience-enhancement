@@ -126,7 +126,7 @@ export function SiteHeader() {
           }}>
             Victoria Balloons
           </div>
-          <img src="/balloon-icon.png" alt="" style={{ width: 20, height: "auto", flexShrink: 0 }} />
+          <span style={{ fontSize: 18, color: "#a855f7", marginTop: -18 }}>✦</span>
         </div>
 
         {/* Навигация по центру */}
@@ -347,7 +347,7 @@ export function SiteHeader() {
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 23, color: "#1a1024", cursor: "pointer", lineHeight: 1.15, textAlign: "center", display: "flex", alignItems: "center", gap: 6 }}
               >
                 Victoria Balloons
-                <img src="/balloon-icon.png" alt="" style={{ width: 18, height: "auto", flexShrink: 0 }} />
+                <span style={{ fontSize: 19, color: "#a855f7", marginTop: -18 }}>✦</span>
               </div>
             </div>
             <nav style={{ flex: 1, padding: "12px 8px", overflowY: "auto" }}>

@@ -20,22 +20,26 @@ export default function Order() {
 
   const isDetails = mode === "details"
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!name.trim() || !phone.trim()) return
 
-    const messengerLabel = messenger ? { whatsapp: "WhatsApp", telegram: "Telegram", max: "Max" }[messenger] : ""
-    const contactLabel = contactMethod === "call" ? "позвонить" : `написать в ${messengerLabel}`
+    fetch("https://functions.poehali.dev/66e742c0-31e9-409c-974a-d8afec3cec4c", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        phone,
+        compositionTitle,
+        question,
+        contactMethod,
+        messenger: messenger || "",
+        mode,
+      }),
+    }).catch(() => {})
 
-    const waText = encodeURIComponent(
-      `Здравствуйте! Меня зовут ${name}.` +
-      (compositionTitle ? ` Интересует: ${compositionTitle}.` : "") +
-      (question ? ` Вопрос: ${question}.` : "") +
-      ` Предпочтительный способ связи: ${contactLabel}. Телефон: ${phone}`
-    )
-
-    // Сразу открываем WhatsApp
-    window.open(`https://wa.me/message/SIGCSZPAMQ34J1?text=${waText}`, "_blank")
+    // Сразу открываем Max
+    window.open("https://max.ru/u/f9LHodD0cOKm_43mHsBxiHB-ltwQ262aSmSr15u7zLF1RPvCCQ7PLmlM4DU", "_blank")
     setSent(true)
   }
 

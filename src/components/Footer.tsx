@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 
 export function Footer() {
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand */}
           <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-xl sm:text-2xl font-semibold">🎈 Шарим</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold">🎈 Victoria Balloons</h3>
             <p className="text-xs text-muted-foreground -mt-1">студия аэродизайна</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Создаём яркие моменты с воздушными шариками для любого праздника с 2018 года
@@ -32,11 +33,12 @@ export function Footer() {
             <div>
               <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Категории</h4>
               <ul className="space-y-2 sm:space-y-3 text-sm text-muted-foreground">
-                <li><a href="#categories" className="hover:text-foreground transition-colors">Для девушки</a></li>
-                <li><a href="#categories" className="hover:text-foreground transition-colors">Для мужчины</a></li>
-                <li><a href="#categories" className="hover:text-foreground transition-colors">Для мальчика</a></li>
-                <li><a href="#categories" className="hover:text-foreground transition-colors">Для девочки</a></li>
-                <li><a href="#categories" className="hover:text-foreground transition-colors">Для выписки</a></li>
+                <li><Link to="/catalog/girl" className="hover:text-foreground transition-colors">Для девушки</Link></li>
+                <li><Link to="/catalog/man" className="hover:text-foreground transition-colors">Для мужчины</Link></li>
+                <li><Link to="/catalog/boy" className="hover:text-foreground transition-colors">Для мальчика</Link></li>
+                <li><Link to="/catalog/kid-girl" className="hover:text-foreground transition-colors">Для девочки</Link></li>
+                <li><Link to="/catalog/boy-discharge" className="hover:text-foreground transition-colors">Выписка мальчика</Link></li>
+                <li><Link to="/catalog/girl-discharge" className="hover:text-foreground transition-colors">Выписка девочки</Link></li>
               </ul>
             </div>
 
@@ -76,7 +78,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>2025 Шарим. Все права защищены.</p>
+          <p>2025 Victoria Balloons. Все права защищены.</p>
         </div>
       </div>
     </footer>
