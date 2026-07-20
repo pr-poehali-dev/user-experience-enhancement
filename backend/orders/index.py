@@ -1,8 +1,38 @@
 import json
 import os
+import urllib.request
 from typing import Any
 
 import psycopg2
+
+
+def send_telegram_notification(name: str, phone: str, composition_title: str, question: str,
+                                contact_method: str, messenger: str, mode: str) -> None:
+    """Отправляет уведомление о новой заявке в Telegram."""
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    if not bot_token or not chat_id:
+        return
+
+    action = 'Уточнение деталей' if mode == 'details' else 'Новый заказ'
+    lines = [f"🎈 {action}", '', f"Имя: {name}", f"Телефон: {phone}"]
+    if composition_title:
+        lines.append(f"Товар: {composition_title}")
+    if question:
+        lines.append(f"Вопрос/пожелания: {question}")
+    if contact_method == 'call':
+        lines.append('Способ связи: позвонить')
+    elif messenger:
+        lines.append(f"Способ связи: написать в {messenger}")
+
+    text = '\n'.join(lines)
+    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    data = json.dumps({'chat_id': chat_id, 'text': text}).encode('utf-8')
+    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+    try:
+        urllib.request.urlopen(req, timeout=5)
+    except Exception:
+        pass
 
 
 def handler(event: dict, context: Any) -> dict:
@@ -61,6 +91,8 @@ def handler(event: dict, context: Any) -> dict:
                 """
             )
             row = cur.fetchone()
+
+            send_telegram_notification(name, phone, composition_title, question, contact_method, messenger, mode)
 
             return {
                 'statusCode': 200,
