@@ -151,8 +151,14 @@ export function PopularPackages() {
   const handleMouseLeave = () => {
     if (mouseDownRef.current) {
       mouseDownRef.current = false
-      scheduleResume()
     }
+    isPausedRef.current = false
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
+  }
+
+  const handleMouseEnter = () => {
+    isPausedRef.current = true
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
   }
 
   if (packages.length === 0) return null
@@ -200,6 +206,7 @@ export function PopularPackages() {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div ref={trackRef} style={{ display: "flex", gap: CARD_GAP, willChange: "transform" }}>
