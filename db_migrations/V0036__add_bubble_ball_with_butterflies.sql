@@ -1,0 +1,2 @@
+INSERT INTO t_p47738118_user_experience_enha.ball_types (name, price_per_unit, is_figure, section, sort_order)
+VALUES ('Баблс шар гигант стеклянный с надписью и бабочками', 2650, false, 'bubbles', 57);
