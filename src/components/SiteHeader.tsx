@@ -286,19 +286,6 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div
-          onClick={goHome}
-          style={{
-            cursor: "pointer", userSelect: "none", flex: 1, minWidth: 0,
-            display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
-            fontFamily: "'Playfair Display', serif", fontWeight: 600,
-            fontSize: 16, color: "#1a1024", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-          }}
-        >
-          Victoria Balloons
-          <span style={{ fontSize: 13, color: "#a855f7", flexShrink: 0 }}>✦</span>
-        </div>
-
         <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0 }}>
           <a
             href="tel:+79885973303"
