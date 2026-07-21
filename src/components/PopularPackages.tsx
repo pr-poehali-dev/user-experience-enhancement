@@ -12,10 +12,18 @@ export function PopularPackages() {
   const navigate = useNavigate()
   const [packages, setPackages] = useState<Composition[]>([])
 
-  // Регистрация всех композиций происходит при загрузке модуля Catalog.tsx (импортируется в App.tsx),
-  // поэтому к моменту рендера здесь данные уже доступны. На всякий случай подстрахуемся эффектом.
+  // Catalog.tsx подгружается лениво и именно там регистрируются все композиции.
+  // На главной странице этот модуль ещё не загружен, поэтому подгружаем его явно,
+  // чтобы получить актуальный список популярных наборов.
   useEffect(() => {
-    setPackages(getPopularCompositions())
+    const existing = getPopularCompositions()
+    if (existing.length > 0) {
+      setPackages(existing)
+      return
+    }
+    import("@/pages/Catalog").then(() => {
+      setPackages(getPopularCompositions())
+    })
   }, [])
 
   const trackRef = useRef<HTMLDivElement>(null)
