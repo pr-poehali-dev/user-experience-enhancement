@@ -68,8 +68,8 @@ function CatalogCTA() {
                 <div className="flex items-center justify-between gap-1.5 px-3 py-3">
                   <p style={{
                     fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: "#1a1024",
-                    fontSize: 15.5, lineHeight: 1.25,
-                  }} className="truncate min-w-0">
+                    fontSize: 14, lineHeight: 1.25,
+                  }} className="min-w-0">
                     {cat.label}
                   </p>
                   <Icon name="ArrowRight" size={18} className="flex-shrink-0" style={{ color: "#7c3aed" }} strokeWidth={2.5} />

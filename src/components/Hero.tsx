@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom"
+import { useState } from "react"
 
 const HERO_VIDEO = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/bucket/a1f9a1b9-1b85-4a2c-b686-06f9d21e66d7.mp4"
 const HERO_MOBILE_POSTER = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-96bf-3eb513cea81f/files/6471b1ef-189c-49d4-80c7-fd78a99cfd33.jpg"
@@ -6,6 +7,8 @@ const HERO_MOBILE_POSTER = "https://cdn.poehali.dev/projects/cd804f06-8b0b-4247-
 export function Hero() {
   const navigate = useNavigate()
   const location = useLocation()
+  const [mobileVideoReady, setMobileVideoReady] = useState(false)
+  const [desktopVideoReady, setDesktopVideoReady] = useState(false)
 
   const goToCatalogCta = () => {
     if (location.pathname === "/") {
@@ -24,16 +27,24 @@ export function Hero() {
         height: "calc(100svh - clamp(58px,7.5vw,84px))",
       }}
     >
-      {/* Видео-фон — мобильные/планшет */}
-      <video
-        src={HERO_VIDEO}
-        poster={HERO_MOBILE_POSTER}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="lg:hidden absolute inset-0 w-full h-full object-cover z-0"
-      />
+      {/* Фон — мобильные/планшет: сперва статичная картинка, видео проявляется поверх когда готово к показу */}
+      <div className="lg:hidden absolute inset-0 z-0" style={{ background: "#f3ebff" }}>
+        <img
+          src={HERO_MOBILE_POSTER}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <video
+          src={HERO_VIDEO}
+          autoPlay
+          loop
+          muted
+          playsInline
+          onCanPlay={() => setMobileVideoReady(true)}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: mobileVideoReady ? 1 : 0, transition: "opacity 0.4s ease" }}
+        />
+      </div>
       {/* Лёгкое затемнение для читаемости текста поверх видео (мобильные) */}
       <div
         className="lg:hidden absolute inset-0 z-[1]"
@@ -128,6 +139,7 @@ export function Hero() {
         {/* Правая часть — видео (только десктоп, отдельная колонка) */}
         <div
           className="hidden lg:block relative w-full h-full overflow-hidden"
+          style={{ background: "#f3ebff" }}
         >
           <video
             src={HERO_VIDEO}
@@ -135,7 +147,9 @@ export function Hero() {
             loop
             muted
             playsInline
+            onCanPlay={() => setDesktopVideoReady(true)}
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: desktopVideoReady ? 1 : 0, transition: "opacity 0.4s ease" }}
           />
         </div>
       </div>
