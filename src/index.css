@@ -179,6 +179,11 @@
     @apply border-border;
   }
 
+  html, body {
+    background-color: #fdfbff;
+    color-scheme: light;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: "Montserrat", sans-serif;
