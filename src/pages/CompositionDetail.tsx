@@ -245,15 +245,15 @@ export default function CompositionDetail() {
                   className="mb-2.5"
                   style={{ background: "#f0fdf4", borderRadius: "0 0 16px 16px", padding: "6px 18px 16px", border: "1.5px solid #86e0b4", borderTop: "none" }}
                 >
-                  <div className="flex items-center gap-2.5" style={{ padding: "9px 0", borderBottom: "1px solid #d1fae5", fontSize: 13.5, color: "#166534", fontFamily: "'Montserrat', sans-serif" }}>
+                  <div className="flex items-center gap-2.5" style={{ padding: "9px 0", borderBottom: "1px solid #d1fae5", fontSize: 13.5, color: "#000", fontFamily: "'Montserrat', sans-serif" }}>
                     <span style={{ fontSize: 17, flexShrink: 0 }}>🎁</span>
-                    <span>от 4 000 ₽ — <strong>бесплатно</strong> (кроме районов Западный Обход, Юбилейный, Пашковский)</span>
+                    <span>от 4 000 ₽ — <strong>бесплатно</strong> (кроме районов: Западный Обход, Юбилейный, Пашковский)</span>
                   </div>
-                  <div className="flex items-center gap-2.5" style={{ padding: "9px 0", borderBottom: "1px solid #d1fae5", fontSize: 13.5, color: "#92400e", fontFamily: "'Montserrat', sans-serif" }}>
+                  <div className="flex items-center gap-2.5" style={{ padding: "9px 0", borderBottom: "1px solid #d1fae5", fontSize: 13.5, color: "#000", fontFamily: "'Montserrat', sans-serif" }}>
                     <span style={{ fontSize: 17, flexShrink: 0 }}>🚚</span>
-                    <span>менее 4 000 ₽ — <strong>от 150 ₽</strong></span>
+                    <span>менее 4 000 ₽ — <strong>от 150 ₽</strong>, в зависимости от района города</span>
                   </div>
-                  <div className="flex items-center gap-2.5" style={{ padding: "9px 0", fontSize: 13.5, color: "#5b21b6", fontFamily: "'Montserrat', sans-serif" }}>
+                  <div className="flex items-center gap-2.5" style={{ padding: "9px 0", fontSize: 13.5, color: "#000", fontFamily: "'Montserrat', sans-serif" }}>
                     <span style={{ fontSize: 17, flexShrink: 0 }}>📍</span>
                     <span>Самовывоз: ул. Героя Яцкова 19к3</span>
                   </div>
@@ -273,7 +273,7 @@ export default function CompositionDetail() {
                     boxShadow: "0 6px 20px rgba(124,58,237,0.35)",
                   }}
                 >
-                  🎈 Оформить заказ
+                  Оформить заказ
                 </button>
               </div>
 
@@ -289,16 +289,15 @@ export default function CompositionDetail() {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2.5 transition-transform hover:scale-105"
+                      className="flex-1 sm:flex-initial inline-flex items-center justify-center transition-transform hover:scale-105"
                       style={{
                         padding: "12px 10px", borderRadius: 999, background: s.bg, color: "#fff",
                         fontSize: 13, fontWeight: 800, textDecoration: "none",
                         fontFamily: "'Montserrat', sans-serif",
                         boxShadow: `0 6px 18px ${s.bg}55`,
-                        whiteSpace: "nowrap",
+                        whiteSpace: "nowrap", textAlign: "center",
                       }}
                     >
-                      <Icon name={s.icon} size={17} />
                       {s.label}
                     </a>
                   ))}
@@ -331,7 +330,7 @@ export default function CompositionDetail() {
             boxShadow: "0 4px 16px rgba(124,58,237,0.4)",
           }}
         >
-          🎈 Оформить заказ
+          Оформить заказ
         </button>
       </div>
 

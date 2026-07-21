@@ -22,10 +22,19 @@ export default function PopularAll() {
   const [packages, setPackages] = useState<Composition[]>([])
 
   useEffect(() => {
-    setPackages(getPopularCompositions())
+    const existing = getPopularCompositions()
+    if (existing.length > 0) {
+      setPackages(existing)
+    } else {
+      import("@/pages/Catalog").then(() => {
+        setPackages(getPopularCompositions())
+      })
+    }
     const restoreScrollY = (location.state as { restoreScrollY?: number } | null)?.restoreScrollY
     if (typeof restoreScrollY === "number") {
       window.scrollTo({ top: restoreScrollY, behavior: "instant" })
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" })
     }
   }, [])
 

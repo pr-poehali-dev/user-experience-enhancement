@@ -343,7 +343,7 @@ export function SiteHeader() {
           >
             <div style={{ padding: "24px 20px 20px", borderBottom: "1px solid #ece4fb", display: "flex", justifyContent: "center" }}>
               <div
-                onClick={() => { navigate("/"); setMobileMenuOpen(false) }}
+                onClick={() => { setMobileMenuOpen(false); goHome() }}
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 23, color: "#1a1024", cursor: "pointer", lineHeight: 1.15, textAlign: "center", display: "flex", alignItems: "center", gap: 6 }}
               >
                 Victoria Balloons

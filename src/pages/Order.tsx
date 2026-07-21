@@ -18,6 +18,8 @@ export default function Order() {
   const [messenger, setMessenger] = useState<Messenger | null>(null)
   const [question, setQuestion] = useState("")
   const [sent, setSent] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   const isDetails = mode === "details"
 
@@ -25,21 +27,30 @@ export default function Order() {
     e.preventDefault()
     if (!name.trim() || !phone.trim()) return
 
-    fetch("https://functions.poehali.dev/66e742c0-31e9-409c-974a-d8afec3cec4c", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        phone,
-        compositionTitle,
-        question,
-        contactMethod,
-        messenger: messenger || "",
-        mode,
-      }),
-    }).catch(() => {})
+    setSubmitting(true)
+    setSubmitError(false)
 
-    setSent(true)
+    try {
+      const res = await fetch("https://functions.poehali.dev/66e742c0-31e9-409c-974a-d8afec3cec4c", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          compositionTitle,
+          question,
+          contactMethod,
+          messenger: messenger || "",
+          mode,
+        }),
+      })
+      if (!res.ok) throw new Error("request failed")
+      setSent(true)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (sent) {
@@ -56,7 +67,7 @@ export default function Order() {
           <p className="text-muted-foreground text-lg mb-2">Мы свяжемся с вами в течение 15 минут для уточнения деталей.</p>
 
           <button
-            onClick={() => navigate("/catalog")}
+            onClick={() => navigate("/#catalog-cta")}
             className="px-8 py-3 rounded-full text-white font-semibold text-lg transition-transform hover:scale-105"
             style={{ background: "linear-gradient(135deg,#7c3aed,#a855f7)" }}
           >
@@ -174,22 +185,22 @@ export default function Order() {
                 <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Выберите мессенджер</label>
                 <div className="flex gap-3">
                   {([
-                    { id: "whatsapp" as Messenger, label: "WhatsApp", emoji: "💬", color: "#25D366" },
-                    { id: "telegram" as Messenger, label: "Telegram", emoji: "✈️", color: "#229ED9" },
-                    { id: "max" as Messenger, label: "Max", emoji: "🔵", color: "#1e3a5f" },
+                    { id: "max" as Messenger, label: "Max", color: "#1e3a5f" },
+                    { id: "telegram" as Messenger, label: "Telegram", color: "#229ED9" },
+                    { id: "whatsapp" as Messenger, label: "WhatsApp", color: "#25D366" },
                   ]).map(m => (
                     <button
                       key={m.id}
                       type="button"
                       onClick={() => setMessenger(m.id)}
-                      className="flex-1 flex flex-col items-center gap-1.5 py-3 rounded-xl border-2 font-semibold text-sm transition-all"
+                      className="flex-1 flex items-center justify-center py-3 rounded-xl border-2 font-semibold text-sm transition-all"
                       style={{
-                        borderColor: messenger === m.id ? m.color : "#e5e7eb",
-                        background: messenger === m.id ? m.color : "#fff",
-                        color: messenger === m.id ? "#fff" : "#6b7280",
+                        borderColor: m.color,
+                        background: m.color,
+                        color: "#fff",
+                        opacity: messenger === m.id ? 1 : 0.55,
                       }}
                     >
-                      <span className="text-xl">{m.emoji}</span>
                       {m.label}
                     </button>
                   ))}
@@ -214,17 +225,24 @@ export default function Order() {
             </p>
           )}
 
+          {/* Ошибка отправки */}
+          {submitError && (
+            <p className="text-sm text-red-600 font-medium text-center -mb-1">
+              Не удалось отправить заявку. Проверьте соединение с интернетом и попробуйте ещё раз.
+            </p>
+          )}
+
           {/* Кнопка отправки */}
           <button
             type="submit"
-            disabled={!name.trim() || !phone.trim() || (contactMethod === "write" && !messenger)}
+            disabled={submitting || !name.trim() || !phone.trim() || (contactMethod === "write" && !messenger)}
             className="w-full py-4 rounded-2xl text-white font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             style={{
               background: "linear-gradient(135deg,#f97316,#e63000)",
               boxShadow: "0 6px 20px rgba(249,115,22,0.4)",
             }}
           >
-            {isDetails ? "Уточнить детали 📩" : "Оформить заказ 🎈"}
+            {submitting ? "Отправляем..." : isDetails ? "Уточнить детали 📩" : "Оформить заказ 🎈"}
           </button>
         </form>
       </div>

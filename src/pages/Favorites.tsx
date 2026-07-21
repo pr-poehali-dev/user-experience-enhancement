@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { useFavorites } from "@/context/FavoritesContext"
 import Icon from "@/components/ui/icon"
@@ -12,10 +12,16 @@ export default function Favorites() {
   const location = useLocation()
   const { favorites } = useFavorites()
 
-  const allItems = getAllCompositions()
+  const [allItems, setAllItems] = useState(getAllCompositions())
   const items = allItems.filter(c => favorites.includes(c.id))
 
   useEffect(() => {
+    if (allItems.length === 0) {
+      import("@/pages/Catalog").then(() => {
+        setAllItems(getAllCompositions())
+      })
+    }
+
     const restoreScrollY = (location.state as { restoreScrollY?: number } | null)?.restoreScrollY
     if (typeof restoreScrollY === "number") {
       window.scrollTo({ top: restoreScrollY, behavior: "instant" })

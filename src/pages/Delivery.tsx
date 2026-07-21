@@ -15,8 +15,8 @@ const SOCIALS = [
 ]
 
 const PRICE_ROWS = [
-  { icon: "Gift", title: "Бесплатно", desc: "при заказе от 4 000 ₽ (кроме районов Западный обход, Юбилейный, Пашковский)", bg: "#f0fdf4", iconBg: "#16a34a", color: "#1a1024" },
-  { icon: "Truck", title: "от 150 ₽", desc: "при заказе менее 4 000 ₽", bg: "#fff7ed", iconBg: "#f97316", color: "#1a1024" },
+  { icon: "Gift", title: "Бесплатно", desc: "при заказе от 4 000 ₽ (кроме районов: Западный обход, Юбилейный, Пашковский)", bg: "#f0fdf4", iconBg: "#16a34a", color: "#1a1024" },
+  { icon: "Truck", title: "от 150 ₽", desc: "при заказе менее 4 000 ₽, в зависимости от района города", bg: "#fff7ed", iconBg: "#f97316", color: "#1a1024" },
 ]
 
 export default function Delivery() {
