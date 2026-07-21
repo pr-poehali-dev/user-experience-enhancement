@@ -21,6 +21,7 @@ export function Hero() {
       className="relative w-full overflow-hidden mt-[58px] md:mt-[84px]"
       style={{
         background: "radial-gradient(ellipse 90% 70% at 15% 15%, #f3ebff 0%, transparent 55%), radial-gradient(ellipse 80% 80% at 90% 85%, #fbeafd 0%, transparent 55%), linear-gradient(180deg, #fdfbff 0%, #f7f2fd 100%)",
+        height: "calc(100svh - clamp(58px,7.5vw,84px))",
       }}
     >
       {/* Видео-фон — мобильные/планшет */}
@@ -44,11 +45,10 @@ export function Hero() {
       <span className="hidden lg:block absolute" style={{ top: "18%", left: "38%", fontSize: 14, color: "#e3b8ea" }}>✦</span>
       <span className="hidden lg:block absolute" style={{ bottom: "12%", left: "10%", fontSize: 16, color: "#c4a3f7" }}>✦</span>
       <span className="hidden lg:block absolute" style={{ top: "10%", left: "48%", fontSize: 12, color: "#e3b8ea" }}>✦</span>
-      <div className="relative z-10 max-w-[1700px] mx-auto grid grid-cols-1 lg:grid-cols-2 items-stretch">
+      <div className="relative z-10 max-w-[1700px] mx-auto h-full grid grid-cols-1 lg:grid-cols-2 items-stretch">
         {/* Левая часть — текст */}
         <div
-          className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-0"
-          style={{ minHeight: "min(760px, 90vh)" }}
+          className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-0 h-full"
         >
           <div className="relative">
             <span
@@ -127,8 +127,7 @@ export function Hero() {
 
         {/* Правая часть — видео (только десктоп, отдельная колонка) */}
         <div
-          className="hidden lg:block relative w-full overflow-hidden"
-          style={{ height: "min(760px, 90vh)" }}
+          className="hidden lg:block relative w-full h-full overflow-hidden"
         >
           <video
             src={HERO_VIDEO}
