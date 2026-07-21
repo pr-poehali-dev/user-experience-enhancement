@@ -827,17 +827,8 @@ function buildBirthdayGrid(): Composition[] {
 
 const allBirthdayCompositions: Composition[] = buildBirthdayGrid()
 
-// Регистрируем все композиции для страницы Избранного
-const _allForFavorites = [
-  ...compositions.girl,
-  ...compositions.man,
-  ...compositions.boy,
-  ...compositions["kid-girl"],
-  ...(compositions["boy-discharge"] ?? []),
-  ...(compositions["girl-discharge"] ?? []),
-  ...(compositions.other ?? []),
-  ...(compositions.custom ?? []),
-]
+// Регистрируем все композиции для страницы Избранного (все категории без исключений)
+const _allForFavorites = Object.values(compositions).flat()
 registerAllCompositions(_allForFavorites)
 
 export default function Catalog() {

@@ -32,7 +32,11 @@ export class ErrorBoundary extends Component<Props, State> {
             textAlign: "center", background: "#fdfbff",
           }}
         >
-          <div style={{ fontSize: 56 }}>🎈</div>
+          <svg width="48" height="62" viewBox="0 0 40 52" fill="none">
+            <ellipse cx="20" cy="20" rx="18" ry="20" fill="#7c3aed" />
+            <path d="M20 40 L17 46 L23 46 Z" fill="#7c3aed" />
+            <line x1="20" y1="46" x2="20" y2="52" stroke="#7c3aed" strokeWidth="1.5" />
+          </svg>
           <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 18, color: "#1a1024" }}>
             Что-то пошло не так
           </p>

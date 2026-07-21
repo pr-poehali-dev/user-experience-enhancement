@@ -82,7 +82,7 @@ export default function CatalogSub() {
       <div className="min-h-screen flex items-center justify-center flex-col gap-4 text-center px-4">
         <span className="text-6xl">🎈</span>
         <h2 className="text-2xl font-bold">Категория не найдена</h2>
-        <button onClick={() => navigate("/catalog")} className="text-primary underline">
+        <button onClick={() => navigate("/#catalog-cta")} className="text-primary underline">
           Перейти в каталог
         </button>
       </div>

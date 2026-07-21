@@ -87,7 +87,7 @@ export default function Favorites() {
               </p>
             </div>
             <button
-              onClick={() => navigate("/catalog")}
+              onClick={() => navigate("/#catalog-cta")}
               className="px-8 py-3 rounded-full text-white font-semibold transition-transform hover:scale-105"
               style={{
                 background: "linear-gradient(135deg,#7c3aed,#a855f7)",
